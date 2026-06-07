@@ -64,16 +64,17 @@
 
   /* ── TOUR SUB-NAV (integrated into hero bottom, sticky on scroll) ── */
   .tour-subnav { background: #0d0a06; position: sticky; top: 42px; z-index: 100; border-bottom: 1px solid rgba(255,255,255,0.08); overflow: visible; }
-  .tour-subnav-inner { max-width: 1100px; margin: 0 auto; padding: 0 60px; padding-right: 250px; display: flex; position: relative; }
-  .tour-subnav-links { display: flex; overflow-x: auto; }
-  .tour-subnav-links a { padding: 17px 22px; font-size: 12.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.55); text-decoration: none; border-bottom: 3px solid transparent; transition: color 0.15s, border-color 0.15s; white-space: nowrap; display: block; }
+  .tour-subnav-inner { max-width: 1100px; margin: 0 auto; padding: 0 60px; padding-right: 460px; display: flex; position: relative; }
+  .subnav-right-group { position: absolute; right: 60px; top: 50%; transform: translateY(-50%); display: flex; flex-direction: row; align-items: flex-start; gap: 16px; z-index: 101; }
+  .tour-subnav-links { display: flex; overflow-x: auto; flex: 1; min-width: 0; }
+  .tour-subnav-links a { padding: 17px 16px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.55); text-decoration: none; border-bottom: 3px solid transparent; transition: color 0.15s, border-color 0.15s; white-space: nowrap; display: block; }
   .tour-subnav-links a:hover { color: rgba(255,255,255,0.9); }
   .tour-subnav-links a.ts-active { color: white; border-bottom-color: #4a7c59; }
-  .subnav-widget { position: absolute; right: 60px; top: 50%; transform: translateY(-50%); background: white; border-radius: 8px; padding: 10px 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.25); text-align: center; min-width: 200px; z-index: 101; }
-  .subnav-book-btn { display: block; background: #b5451b; color: white; text-align: center; padding: 8px 16px; border-radius: 5px; font-weight: 800; font-size: 12.5px; text-decoration: none; letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 6px; }
-  .subnav-price { font-size: 13px; color: #5a4030; margin-bottom: 4px; }
-  .subnav-price strong { font-size: 17px; font-weight: 900; color: #2c1a0e; }
-  .subnav-checks { font-size: 11px; color: #8b7355; }
+  .subnav-widget { background: white; border-radius: 10px; padding: 24px 30px; box-shadow: 0 6px 24px rgba(0,0,0,0.28); text-align: center; min-width: 260px; }
+  .subnav-book-btn { display: block; background: #b5451b; color: white; text-align: center; padding: 18px 28px; border-radius: 6px; font-weight: 800; font-size: 15px; text-decoration: none; letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 12px; }
+  .subnav-price { font-size: 14px; color: #5a4030; margin-bottom: 6px; }
+  .subnav-price strong { font-size: 30px; font-weight: 900; color: #2c1a0e; }
+  .subnav-checks { font-size: 13px; color: #8b7355; }
 
   .tour-section { scroll-margin-top: 110px; padding-top: 8px; }
   .tour-overview-intro { background: #fdf8f2; border-left: 4px solid #d4af6a; padding: 18px 22px; border-radius: 0 8px 8px 0; margin-bottom: 24px; }
@@ -408,7 +409,6 @@
       <div class="tour-crumb"><a href="#" style="color:#d4af6a;text-decoration:none;">Home</a> › <a href="#" style="color:#d4af6a;text-decoration:none;">Tours</a> › 6 Days Cairo &amp; Luxor</div>
       <div class="tour-title">6 Days / 5 Nights<br><span>Cairo &amp; Luxor Holiday</span></div>
     </div>
-    <div class="tour-duration-badge">⏱ 5 Nights · 6 Days</div>
   </div>
 </div>
 
@@ -422,10 +422,13 @@
       <a href="#tour-accommodation"                    data-section="tour-accommodation">Accommodation</a>
       <a href="#tour-inclusions"                       data-section="tour-inclusions">Inclusions</a>
     </div>
-    <div class="subnav-widget">
-      <a href="mailto:info@accessegypttravel.com" class="subnav-book-btn">Request a Quote</a>
-      <div class="subnav-price">From <strong>$1,900</strong></div>
-      <div class="subnav-checks">✓ Private Tour &nbsp;&nbsp; ✓ Per Person</div>
+    <div class="subnav-right-group">
+      <div class="tour-duration-badge">⏱ 5 Nights · 6 Days</div>
+      <div class="subnav-widget">
+        <a href="mailto:info@accessegypttravel.com" class="subnav-book-btn">Request a Quote</a>
+        <div class="subnav-price">From <strong>$1,900</strong></div>
+        <div class="subnav-checks">✓ Private Tour &nbsp;&nbsp; ✓ Per Person</div>
+      </div>
     </div>
   </div>
 </div>
@@ -450,7 +453,7 @@
         <tr><td>Guide</td><td><strong>Licensed Egyptologist (English)</strong></td></tr>
         <tr><td>Pickup</td><td><strong>Cairo International Airport or Hurghada</strong></td></tr>
         <tr><td>Destinations</td><td><strong>Cairo (3 nights) → Luxor (2 nights)</strong></td></tr>
-        <tr><td>Transport Cairo→Luxor</td><td><strong>Domestic flight (EgyptAir) — included</strong></td></tr>
+        <tr><td>Transport Cairo→Luxor</td><td><strong>Domestic flight — included</strong></td></tr>
         <tr><td>Visa</td><td><strong>Included</strong></td></tr>
         <tr><td>Meals</td><td><strong>Breakfast + Lunch (Days 1–5)</strong></td></tr>
         <tr><td>Price from</td><td><span class="price-highlight">$1,900 / person</span> (double occupancy)</td></tr>
@@ -487,9 +490,7 @@
         <div class="addon-item"><span class="addon-icon">🎈</span> Hot air balloon over Luxor at sunrise</div>
         <div class="addon-item"><span class="addon-icon">✨</span> Sound &amp; Light Show at Karnak Temples</div>
         <div class="addon-item"><span class="addon-icon">🍽️</span> Dinner cruise on the Nile in Cairo</div>
-        <div class="addon-item"><span class="addon-icon">🌶️</span> Old Cairo food &amp; spice market tour</div>
-        <div class="addon-item"><span class="addon-icon">⛵</span> Extended Nile sunset felucca cruise</div>
-        <div class="addon-item"><span class="addon-icon">🚗</span> Pickup from Hurghada (on request)</div>
+        <div class="addon-item"><span class="addon-icon">🚗</span> Pickup from Hurghada or any nearby city (on request)</div>
       </div>
     </div>
 
@@ -594,7 +595,7 @@
           <ul style="list-style:none;display:flex;flex-direction:column;gap:14px;">
             <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Airport meet &amp; assist by your dedicated representative</li>
             <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Entry visa to Egypt</li>
-            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Domestic flights Cairo → Luxor and return (EgyptAir)</li>
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Domestic flights Cairo → Luxor and return</li>
             <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>All airport &amp; inter-city transfers by private air-conditioned vehicles</li>
             <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>3 nights 5-star hotel in Cairo</li>
             <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>2 nights 5-star hotel in Luxor</li>
@@ -652,8 +653,8 @@
   <!-- SIDEBAR -->
   <div class="tour-sidebar">
 
-    <!-- TRIPADVISOR WIDGET (top — visible while reading overview/highlights/itinerary) -->
-    <div style="border:2px solid #34d399;border-radius:10px;padding:18px;background:white;margin-bottom:16px;">
+    <!-- TRIPADVISOR WIDGET -->
+    <div style="border:2px solid #34d399;border-radius:10px;padding:18px 10px 18px 18px;background:white;margin-bottom:16px;margin-top:70px;">
       <p style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:#6b7280;margin-bottom:10px;">Reviews</p>
 
       <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
@@ -689,7 +690,7 @@
         <sup style="font-size:12px;">#</sup>137 <span style="font-size:12px;font-weight:500;color:#6b7280;">of 1,289 Tours in Luxor</span>
       </p>
 
-      <p style="font-size:11px;color:#6b7280;margin-bottom:5px;">Recent Reviews</p>
+      <p style="font-size:11px;color:#6b7280;margin-bottom:5px;">Recent Traveler Reviews</p>
       <p style="font-size:12.5px;color:#222;margin-bottom:4px;">"Unforgettable Unreal Experience"</p>
       <p style="font-size:12.5px;color:#222;margin-bottom:4px;">"Nile Cruise Feb 2026"</p>
       <p style="font-size:12.5px;color:#222;margin-bottom:4px;">"John makes history come alive"</p>
