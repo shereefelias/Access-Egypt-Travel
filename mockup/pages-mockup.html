@@ -63,11 +63,17 @@
   .tour-duration-badge { display: flex; align-items: center; gap: 8px; background: #4a7c59; color: white; padding: 9px 16px; border-radius: 5px; font-size: 13.5px; font-weight: 700; white-space: nowrap; margin-top: 4px; }
 
   /* ── TOUR SUB-NAV (integrated into hero bottom, sticky on scroll) ── */
-  .tour-subnav { background: #0d0a06; position: sticky; top: 42px; z-index: 100; border-bottom: 1px solid rgba(255,255,255,0.08); }
-  .tour-subnav-inner { max-width: 1100px; margin: 0 auto; padding: 0 60px; display: flex; overflow-x: auto; }
-  .tour-subnav-inner a { padding: 17px 26px; font-size: 12.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.55); text-decoration: none; border-bottom: 3px solid transparent; transition: color 0.15s, border-color 0.15s; white-space: nowrap; display: block; }
-  .tour-subnav-inner a:hover { color: rgba(255,255,255,0.9); }
-  .tour-subnav-inner a.ts-active { color: white; border-bottom-color: #4a7c59; }
+  .tour-subnav { background: #0d0a06; position: sticky; top: 42px; z-index: 100; border-bottom: 1px solid rgba(255,255,255,0.08); overflow: visible; }
+  .tour-subnav-inner { max-width: 1100px; margin: 0 auto; padding: 0 60px; padding-right: 250px; display: flex; position: relative; }
+  .tour-subnav-links { display: flex; overflow-x: auto; }
+  .tour-subnav-links a { padding: 17px 22px; font-size: 12.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.55); text-decoration: none; border-bottom: 3px solid transparent; transition: color 0.15s, border-color 0.15s; white-space: nowrap; display: block; }
+  .tour-subnav-links a:hover { color: rgba(255,255,255,0.9); }
+  .tour-subnav-links a.ts-active { color: white; border-bottom-color: #4a7c59; }
+  .subnav-widget { position: absolute; right: 60px; top: 50%; transform: translateY(-50%); background: white; border-radius: 8px; padding: 10px 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.25); text-align: center; min-width: 200px; z-index: 101; }
+  .subnav-book-btn { display: block; background: #b5451b; color: white; text-align: center; padding: 8px 16px; border-radius: 5px; font-weight: 800; font-size: 12.5px; text-decoration: none; letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 6px; }
+  .subnav-price { font-size: 13px; color: #5a4030; margin-bottom: 4px; }
+  .subnav-price strong { font-size: 17px; font-weight: 900; color: #2c1a0e; }
+  .subnav-checks { font-size: 11px; color: #8b7355; }
 
   .tour-section { scroll-margin-top: 110px; padding-top: 8px; }
   .tour-overview-intro { background: #fdf8f2; border-left: 4px solid #d4af6a; padding: 18px 22px; border-radius: 0 8px 8px 0; margin-bottom: 24px; }
@@ -409,11 +415,18 @@
 <!-- STICKY SUB-NAV — sits at bottom of hero visually, sticks on scroll -->
 <div class="tour-subnav" id="tour-subnav">
   <div class="tour-subnav-inner">
-    <a href="#tour-overview"      class="ts-active" data-section="tour-overview">Overview</a>
-    <a href="#tour-highlights"                       data-section="tour-highlights">Highlights</a>
-    <a href="#tour-itinerary"                        data-section="tour-itinerary">Itinerary</a>
-    <a href="#tour-accommodation"                    data-section="tour-accommodation">Accommodation</a>
-    <a href="#tour-inclusions"                       data-section="tour-inclusions">Inclusions</a>
+    <div class="tour-subnav-links">
+      <a href="#tour-overview"      class="ts-active" data-section="tour-overview">Overview</a>
+      <a href="#tour-highlights"                       data-section="tour-highlights">Highlights</a>
+      <a href="#tour-itinerary"                        data-section="tour-itinerary">Itinerary</a>
+      <a href="#tour-accommodation"                    data-section="tour-accommodation">Accommodation</a>
+      <a href="#tour-inclusions"                       data-section="tour-inclusions">Inclusions</a>
+    </div>
+    <div class="subnav-widget">
+      <a href="mailto:info@accessegypttravel.com" class="subnav-book-btn">Request a Quote</a>
+      <div class="subnav-price">From <strong>$1,900</strong></div>
+      <div class="subnav-checks">✓ Private Tour &nbsp;&nbsp; ✓ Per Person</div>
+    </div>
   </div>
 </div>
 
@@ -445,20 +458,7 @@
 
       <h3>Your Route</h3>
       <div class="tour-map-section">
-        <div class="route-pills">
-          <div class="route-pill">✈️ Fly into Cairo</div>
-          <div class="route-arrow">→</div>
-          <div class="route-pill">🏛️ Cairo (3 nights)</div>
-          <div class="route-arrow">→</div>
-          <div class="route-pill">🛫 Domestic Flight</div>
-          <div class="route-arrow">→</div>
-          <div class="route-pill">𓂀 Luxor (2 nights)</div>
-          <div class="route-arrow">→</div>
-          <div class="route-pill">✈️ Fly home from Luxor</div>
-          <div class="route-pill optional">📍 Hurghada pickup (optional)</div>
-        </div>
         <img src="Access-Egypt-Travel-guide-map_v2.png" alt="Egypt Tour Route Map — Cairo to Luxor" class="tour-map-img">
-        <p class="map-note">Red line = main route (Cairo → Luxor). Dashed gold = optional Hurghada pickup.</p>
       </div>
     </div>
 
@@ -704,31 +704,6 @@
       </div>
     </div>
 
-    <!-- COMPACT BOOKING CARD (sticky — locks beside Inclusions section as you scroll) -->
-    <div class="sidebar-card-compact">
-      <div class="sc-header">
-        <div style="font-size:11px;color:rgba(255,255,255,0.6);margin-bottom:2px;">Starting from</div>
-        <div class="sc-price">$1,900</div>
-        <div class="sc-meta">per person · double occupancy</div>
-      </div>
-      <div class="sc-rows">
-        <div class="sc-row"><span class="sc-label">Duration</span><span class="sc-val">6 Days / 5 Nights</span></div>
-        <div class="sc-row"><span class="sc-label">Tour Type</span><span class="sc-val">100% Private</span></div>
-        <div class="sc-row"><span class="sc-label">Pickup</span><span class="sc-val">Cairo or Hurghada</span></div>
-        <div class="sc-row"><span class="sc-label">Group size</span><span class="sc-val">Your group only</span></div>
-        <div class="sc-row"><span class="sc-label">Visa</span><span class="sc-val">Included</span></div>
-      </div>
-      <div class="sc-cta">
-        <a href="mailto:info@accessegypttravel.com" class="btn-book">✉️ Request a Quote</a>
-        <a href="https://wa.me/20120140578" class="btn-ask">💬 Ask via WhatsApp</a>
-      </div>
-      <ul class="sc-trust">
-        <li><span class="check">✓</span> Free cancellation 45+ days out</li>
-        <li><span class="check">✓</span> 25% deposit holds your dates</li>
-        <li><span class="check">✓</span> US-based support in EST hours</li>
-        <li><span class="check">✓</span> Responds within 2 hours</li>
-      </ul>
-    </div>
 
   </div><!-- end .tour-sidebar -->
 </div><!-- end .tour-body -->
@@ -1229,7 +1204,7 @@ function toggleDateMode(mode) {
 /* ── TOUR SUB-NAV: scroll-aware active tab ── */
 (function() {
   var sections = ['tour-overview','tour-highlights','tour-itinerary','tour-accommodation','tour-inclusions'];
-  var links = document.querySelectorAll('.tour-subnav-inner a[data-section]');
+  var links = document.querySelectorAll('.tour-subnav-links a[data-section]');
 
   function setActive(id) {
     links.forEach(function(a) {
