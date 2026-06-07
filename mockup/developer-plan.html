@@ -1,0 +1,1873 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Access Egypt Travel — WordPress Developer Fix Plan</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f4f5f7; color: #2c3e50; font-size: 15px; line-height: 1.6; }
+  .header { background: #1a1a2e; color: white; padding: 40px; }
+  .header h1 { font-size: 28px; font-weight: 700; margin-bottom: 8px; }
+  .header p { color: #a0aec0; font-size: 14px; }
+  .header .meta { display: flex; gap: 24px; margin-top: 16px; flex-wrap: wrap; }
+  .header .meta span { font-size: 13px; color: #cbd5e0; }
+  .header .meta strong { color: white; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 40px 24px; }
+  .toc { background: white; border-radius: 10px; padding: 28px; margin-bottom: 32px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
+  .toc h2 { font-size: 16px; font-weight: 700; margin-bottom: 16px; color: #1a1a2e; }
+  .toc ol { padding-left: 20px; }
+  .toc li { margin-bottom: 6px; }
+  .toc a { color: #3b82f6; text-decoration: none; font-size: 14px; }
+  .toc a:hover { text-decoration: underline; }
+  .section { background: white; border-radius: 10px; margin-bottom: 24px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); overflow: hidden; }
+  .section-header { padding: 20px 28px; border-bottom: 1px solid #f0f0f0; display: flex; align-items: center; gap: 12px; }
+  .section-header h2 { font-size: 18px; font-weight: 700; color: #1a1a2e; }
+  .section-body { padding: 28px; }
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+  .badge-critical { background: #fee2e2; color: #dc2626; }
+  .badge-high { background: #ffedd5; color: #ea580c; }
+  .badge-medium { background: #fef9c3; color: #ca8a04; }
+  .badge-low { background: #dbeafe; color: #2563eb; }
+  .task { border: 1px solid #e5e7eb; border-radius: 8px; margin-bottom: 16px; overflow: hidden; }
+  .task-header { padding: 14px 18px; display: flex; align-items: flex-start; gap: 12px; background: #fafafa; border-bottom: 1px solid #e5e7eb; }
+  .task-header .task-num { background: #1a1a2e; color: white; border-radius: 50%; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .task-header .task-title { font-weight: 700; font-size: 15px; color: #1a1a2e; flex: 1; }
+  .task-body { padding: 18px; }
+  .path { background: #1e293b; color: #e2e8f0; padding: 10px 14px; border-radius: 6px; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 13px; margin: 10px 0; }
+  .path .arrow { color: #64748b; margin: 0 4px; }
+  .path .highlight { color: #38bdf8; font-weight: 600; }
+  code { background: #f1f5f9; color: #e11d48; padding: 2px 6px; border-radius: 4px; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 13px; }
+  pre { background: #1e293b; color: #e2e8f0; padding: 16px; border-radius: 8px; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 13px; line-height: 1.7; overflow-x: auto; margin: 12px 0; }
+  pre .comment { color: #64748b; }
+  pre .key { color: #38bdf8; }
+  pre .val { color: #86efac; }
+  .note { background: #eff6ff; border-left: 4px solid #3b82f6; padding: 12px 16px; border-radius: 0 6px 6px 0; margin: 12px 0; font-size: 13.5px; color: #1e40af; }
+  .warning { background: #fff7ed; border-left: 4px solid #f97316; padding: 12px 16px; border-radius: 0 6px 6px 0; margin: 12px 0; font-size: 13.5px; color: #9a3412; }
+  .danger { background: #fef2f2; border-left: 4px solid #dc2626; padding: 12px 16px; border-radius: 0 6px 6px 0; margin: 12px 0; font-size: 13.5px; color: #991b1b; }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 13.5px; }
+  th { background: #f8fafc; padding: 10px 14px; text-align: left; font-weight: 700; color: #475569; border-bottom: 2px solid #e2e8f0; }
+  td { padding: 10px 14px; border-bottom: 1px solid #f1f5f9; vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  .check { color: #16a34a; font-size: 16px; }
+  .cross { color: #dc2626; font-size: 16px; }
+  .step { display: flex; gap: 10px; margin-bottom: 8px; align-items: flex-start; }
+  .step-num { background: #e0f2fe; color: #0369a1; border-radius: 50%; width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+  .divider { height: 1px; background: #f1f5f9; margin: 20px 0; }
+  .id-tag { background: #f0fdf4; color: #15803d; border: 1px solid #bbf7d0; padding: 2px 8px; border-radius: 4px; font-size: 12px; font-family: monospace; }
+  .status-draft { background: #fef9c3; color: #854d0e; padding: 2px 8px; border-radius: 4px; font-size: 12px; }
+  .status-delete { background: #fee2e2; color: #991b1b; padding: 2px 8px; border-radius: 4px; font-size: 12px; }
+  .footer-doc { background: #1a1a2e; color: #94a3b8; text-align: center; padding: 24px; font-size: 13px; margin-top: 40px; }
+  /* Arabic language mode */
+  .ar-note { display:none; direction:rtl; text-align:right; background:#f0fdf4; border-right:4px solid #16a34a; border-left:none; padding:14px 18px; margin:0 0 18px 0; border-radius:0 8px 8px 0; font-size:14px; color:#14532d; line-height:1.9; font-family:'Segoe UI',Tahoma,Arial,sans-serif; }
+  body.ar-mode .ar-note { display:block; }
+  .ar-note strong { color:#065f46; }
+  .ar-note ul { padding-right:20px; padding-left:0; margin:8px 0; }
+  .ar-note li { margin-bottom:6px; }
+  .lang-toggle-btn { position:fixed; top:16px; right:16px; z-index:9999; background:#065f46; color:white; border:none; border-radius:8px; padding:8px 16px; font-size:14px; font-weight:700; cursor:pointer; box-shadow:0 4px 12px rgba(0,0,0,0.25); }
+  .lang-toggle-btn:hover { background:#047857; }
+  body.ar-mode .lang-toggle-btn { background:#1a1a2e; }
+  #ar-banner { display:none; position:sticky; top:0; z-index:9998; background:#065f46; color:white; text-align:center; padding:8px; font-size:13px; font-weight:700; direction:rtl; }
+  body.ar-mode #ar-banner { display:block; }
+  /* Sticky TOC sidebar layout */
+  .page-layout { display: flex; gap: 28px; align-items: flex-start; max-width: 1300px; margin: 0 auto; padding: 40px 24px; }
+  .sidebar-toc { width: 220px; flex-shrink: 0; position: sticky; top: 20px; background: white; border-radius: 10px; padding: 20px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); max-height: calc(100vh - 40px); overflow-y: auto; }
+  .sidebar-toc h3 { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #94a3b8; margin-bottom: 12px; }
+  .sidebar-toc a { display: block; font-size: 12.5px; color: #475569; text-decoration: none; padding: 5px 8px; border-radius: 5px; margin-bottom: 2px; line-height: 1.4; }
+  .sidebar-toc a:hover { background: #f1f5f9; color: #1a1a2e; }
+  .sidebar-toc .toc-section { font-weight: 700; color: #1a1a2e; font-size: 12px; margin-top: 10px; padding: 5px 8px; }
+  .sidebar-toc .toc-sub { padding-left: 16px; color: #64748b; }
+  .main-content { flex: 1; min-width: 0; }
+</style>
+</head>
+<body>
+
+<button class="lang-toggle-btn" id="lang-btn" title="Toggle Arabic / English">🇪🇬 عربي</button>
+<div id="ar-banner">🇪🇬 وضع اللغة العربية — انظر الملاحظات الخضراء في كل قسم | Arabic mode ON — green boxes = Arabic summaries</div>
+<script>
+  document.getElementById('lang-btn').addEventListener('click', function() {
+    var isAr = document.body.classList.toggle('ar-mode');
+    this.textContent = isAr ? '🇬🇧 English' : '🇪🇬 عربي';
+    if (isAr) {
+      var first = document.querySelector('.ar-note');
+      if (first) first.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  });
+</script>
+
+<div class="header">
+  <h1>Access Egypt Travel — WordPress Fix Plan</h1>
+  <p>Detailed technical instructions for the WordPress developer</p>
+  <div class="meta">
+    <span><strong>Site:</strong> https://accessegypttravel.com</span>
+    <span><strong>Stack:</strong> WordPress + Elementor Pro 3.7.7 + BABE Booking Plugin + Rank Math SEO</span>
+    <span><strong>Prepared:</strong> June 2026</span>
+    <span><strong>Owner contact:</strong> accessegypttravel@gmail.com</span>
+  </div>
+</div>
+
+<div class="page-layout">
+
+  <!-- STICKY SIDEBAR TOC -->
+  <nav class="sidebar-toc">
+    <h3>Contents</h3>
+    <a href="#overview" class="toc-section">Overview</a>
+    <a href="#structure" class="toc-section">Site Structure</a>
+    <a href="#s1" class="toc-section">1. Critical Fixes</a>
+    <a href="#s1" class="toc-sub">→ Logo (footer)</a>
+    <a href="#s1" class="toc-sub">→ Phone number</a>
+    <a href="#s1" class="toc-sub">→ Gallery</a>
+    <a href="#s2b" class="toc-section">2. Contact Hero</a>
+    <a href="#s2" class="toc-section">3. Header &amp; Nav</a>
+    <a href="#s3" class="toc-section">4. Footer Redesign</a>
+    <a href="#s4" class="toc-section">5. Homepage</a>
+    <a href="#s5" class="toc-section">6. Page Cleanup</a>
+    <a href="#s6" class="toc-section">7. FAQ Page</a>
+    <a href="#s7" class="toc-section">8. Blog Posts</a>
+    <a href="#s8" class="toc-section">9. Missing Pages</a>
+    <a href="#s8b" class="toc-section">10. Contact Page</a>
+    <a href="#s8c" class="toc-section">11. Footer Build</a>
+    <a href="#s10" class="toc-section">12. Elementor Tech</a>
+    <a href="#s11" class="toc-section">13. Interactive Map</a>
+    <a href="#s12" class="toc-section">14. Contact Form</a>
+    <a href="#s13" class="toc-section">15. Payment Page</a>
+    <div style="margin-top:16px;border-top:1px solid #f1f5f9;padding-top:12px;">
+      <h3>Contact Info</h3>
+      <a href="#" class="toc-sub" style="font-size:11px;">US: +1 772 782 0494</a>
+      <a href="#" class="toc-sub" style="font-size:11px;">WA: +20 12 014-0578</a>
+      <a href="#" class="toc-sub" style="font-size:11px;">info@accessegypttravel.com</a>
+      <a href="#" class="toc-sub" style="font-size:11px;">calendly.com/accessegypttravel</a>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <div class="main-content">
+
+  <!-- EXECUTIVE SUMMARY -->
+  <div class="section" id="overview">
+    <div class="section-header">
+      <h2>Overview — What We Are Doing and Why</h2>
+    </div>
+    <div class="section-body">
+      <p><strong>Access Egypt Travel</strong> is a boutique Egypt tour operator owned and operated by <strong>John Gamil</strong> — a native Egyptian with a Bachelor's degree in Egyptology (2000) and 22 years of experience. The business targets <strong>American travelers</strong> and competes against large global operators (Gate 1, Intrepid, G Adventures, Tauck). The competitive edge is personalization, private tours, and direct access to an actual Egyptologist — something no large operator offers.</p>
+
+      <div class="divider"></div>
+
+      <p><strong>The core problem:</strong> The website was built with a WordPress theme + Elementor, partially configured, and never properly launched. It contains demo content, broken elements, placeholder pages, and is missing critical trust signals for the American market. The site is live and indexed by Google in its current broken state.</p>
+
+      <div class="divider"></div>
+
+      <p><strong>What this engagement covers (Phase 1 — current):</strong></p>
+      <ul style="margin: 10px 0 10px 20px; line-height: 2.2;">
+        <li>Remove all demo/placeholder content that damages credibility</li>
+        <li>Fix broken elements (Contact page hero, gallery, logo)</li>
+        <li>Rebuild the Contact page as a fully-fledged multi-channel contact hub</li>
+        <li>Rebuild the Footer with Gate 1-style navigation columns and customer photo strip</li>
+        <li>Standardize all contact details across the site (US number, email, WhatsApp)</li>
+        <li>Fix navigation structure and all broken/missing links</li>
+        <li>Clean up placeholder pages and junk blog posts (this removes low-quality URLs that harm credibility — SEO follow-up is in a separate doc)</li>
+        <li>Update the About Us page to properly present John Gamil's Egyptologist credentials</li>
+      </ul>
+
+      <p><strong>Phase 2 (future — not in scope now):</strong></p>
+      <ul style="margin: 10px 0 10px 20px; line-height: 2.2;">
+        <li>Build content pages: Visa Requirements, Best Time to Visit, Packing Guide, Egypt Safety Guide</li>
+        <li>Integrate payment processing (PayPal + Square — currently In Progress)</li>
+        <li>Update legal entity name from "At Access Egypt Travel" to "Access Egypt Travel LLC" (LLC formation In Progress)</li>
+        <li>Add Google Maps and Apple Maps listings</li>
+        <li>Build out brochure download system</li>
+        <li>Potentially migrate frontend to React/Next.js for full AI-agent editability</li>
+      </ul>
+
+      <div class="divider"></div>
+
+      <p><strong>Tech stack:</strong> WordPress · Elementor Pro 3.7.7 · BABE Booking Plugin · Rank Math SEO (configured after Phase 1) · Calendly · WhatsApp Business</p>
+      <p><strong>Key contacts:</strong></p>
+      <table>
+        <tr><th>Person</th><th>Role</th><th>Email</th></tr>
+        <tr><td>John Gamil</td><td>Owner, Egyptologist, Tour Guide</td><td>info@accessegypttravel.com</td></tr>
+        <tr><td>—</td><td>Website-facing contact</td><td>info@accessegypttravel.com</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- SITE STRUCTURE -->
+  <div class="section" id="structure">
+    <div class="section-header">
+      <h2>Site Structure — Current vs. Proposed</h2>
+    </div>
+    <div class="section-body">
+
+      <div class="ar-note">
+        <strong>هيكل الموقع — الحالي مقابل المقترح</strong>
+        <ul>
+          <li>الجانب الأيسر: الوضع الحالي للموقع — فيه مشاكل كتير (صفحات وهمية، روابط مكسورة، تنظيم غلط)</li>
+          <li>الجانب الأيمن: الشكل المطلوب بعد ما تخلص — هو الهدف اللي لازم توصله</li>
+          <li>القايمة العلوية الجديدة: Home | Tours ▾ | Reviews | FAQs | About | Contact | 💳 Pay Now</li>
+          <li><strong>Blog مش موجود في القايمة</strong> — الأوونر قرر إنه مش محتاج دلوقتي</li>
+          <li>صفحة Payment جديدة كلياً — السلوج: <code>/payment/</code></li>
+          <li>الصفحات اللي في DRAFT — احذفها كلها نهائياً</li>
+          <li>الصفحات اللي في SYSTEM (BABE Plugin) — <strong>لا تلمسها خالص</strong></li>
+        </ul>
+      </div>
+
+      <p style="margin-bottom:16px;">The nav and page structure is being reorganized. Below is the current state and the proposed new structure the developer should implement.</p>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:20px;">
+
+        <div>
+          <p style="font-weight:700;margin-bottom:10px;color:#dc2626;">❌ Current Structure (messy)</p>
+          <pre style="font-size:12px;line-height:1.8;">accessegypttravel.com/
+├── / (Home — titled "Home 1")
+├── /tour/ (Luxor Tours ← bad slug)
+├── /egypt-packages/
+├── /nile-cruise/
+├── /tailor-made/
+├── /about-us/
+├── /our-mission/ (orphan — not in nav)
+├── /contact/  ← broken hero image
+├── /blog/  ← 18 Lorem Ipsum posts, not in nav
+├── /faq/  ← not in nav, demo content only
+├── /albums/ (orphan — not in nav)
+├── /reservation-policy/ (orphan)
+├── /terms-conditions/ (orphan)
+├── /privacy-policy/ (duplicate exists)
+├── /testimonials → anchor only, no real page
+│
+├── DRAFT — DELETE ALL:
+│   ├── /sample-page/
+│   ├── /george/  ← delete this
+│   ├── /icons/
+│   ├── /ba-wishlist/
+│   ├── /destination-list/
+│   ├── /tours-list-view/
+│   └── /tours-list-sidebar/ ...etc
+│
+└── SYSTEM — DO NOT TOUCH (BABE plugin):
+    ├── /checkout/
+    ├── /confirmation/
+    ├── /my-account/
+    └── /search-result/</pre>
+        </div>
+
+        <div>
+          <p style="font-weight:700;margin-bottom:10px;color:#16a34a;">✅ Proposed Structure (Phase 1 — Build This)</p>
+          <pre style="font-size:12px;line-height:1.8;">accessegypttravel.com/
+├── / (Home — rebuilt in Elementor)
+│
+├── TOP NAV (left to right):
+│   ├── Home
+│   ├── Tours ▾ (dropdown)
+│   │   ├── /egypt-packages/
+│   │   ├── /tour/  (6 Days Cairo &amp; Luxor)
+│   │   ├── /nile-cruise/
+│   │   └── /tailor-made/
+│   ├── Reviews → /testimonials/ (CREATE)
+│   ├── FAQs → /faq/ (rebuild content)
+│   ├── About → /about-us/ (update content)
+│   ├── Contact → /contact/ (full rebuild)
+│   └── 💳 Pay Now → /payment/ (CREATE NEW)
+│
+├── FOOTER LINKS (not in main nav):
+│   ├── /our-mission/
+│   ├── /albums/
+│   ├── /reservation-policy/
+│   ├── /terms-conditions/
+│   └── /privacy-policy/
+│
+├── PHASE 2 — placeholder #links for now:
+│   ├── /visa-requirements/ (new page)
+│   ├── /best-time-to-visit/ (new page)
+│   ├── /packing-guide/ (new page)
+│   └── /egypt-safety/ (new page)
+│
+└── SYSTEM — KEEP, DO NOT TOUCH:
+    ├── /checkout/
+    ├── /confirmation/
+    ├── /my-account/
+    └── /search-result/</pre>
+        </div>
+
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:20px;">
+        <div style="background:#fef2f2;border:1px solid #fecaca;border-radius:8px;padding:16px;">
+          <p style="font-weight:700;color:#dc2626;margin-bottom:8px;font-size:13px;">🗑️ DELETE THESE PAGES</p>
+          <p style="font-size:12px;color:#7f1d1d;line-height:1.8;">/sample-page/<br>/george/<br>/icons/<br>/ba-wishlist/<br>/destination-list/<br>/tours-list-view/<br>/tours-list-sidebar/<br>+ any other drafts</p>
+        </div>
+        <div style="background:#fff7ed;border:1px solid #fed7aa;border-radius:8px;padding:16px;">
+          <p style="font-weight:700;color:#9a3412;margin-bottom:8px;font-size:13px;">🔧 UPDATE THESE PAGES</p>
+          <p style="font-size:12px;color:#7c2d12;line-height:1.8;">/  (homepage — full rebuild)<br>/about-us/ (add John's story)<br>/contact/ (new form + map)<br>/faq/ (replace demo content)<br>/tour/ (add Leaflet map)<br>/blog/ (delete 18 Lorem posts)</p>
+        </div>
+        <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:16px;">
+          <p style="font-weight:700;color:#15803d;margin-bottom:8px;font-size:13px;">➕ CREATE THESE NEW PAGES</p>
+          <p style="font-size:12px;color:#14532d;line-height:1.8;">/testimonials/ (Reviews page)<br>/payment/ (💳 Pay Now page)<br><br><span style="color:#6b7280;">Phase 2 (later):</span><br>/visa-requirements/<br>/best-time-to-visit/<br>/packing-guide/<br>/egypt-safety/</p>
+        </div>
+      </div>
+
+      <div class="note">The slug <code>/tour/</code> for the Luxor Tours page is SEO-poor — ideally <code>/luxor-tours/</code>. Do not change it in Phase 1 as it would break existing Google indexing. Evaluate in Phase 2 with a 301 redirect.</div>
+      <div class="warning"><strong>No Blog in the navigation.</strong> The owner has decided not to feature the blog in Phase 1. The /blog/ page stays but is not linked from the main nav — clean up the Lorem Ipsum posts and leave it deprioritized.</div>
+
+    </div>
+  </div>
+
+  <!-- TABLE OF CONTENTS -->
+  <div class="toc">
+    <h2>Table of Contents</h2>
+    <ol>
+      <li><a href="#s1">Critical Fixes — Do These First</a></li>
+      <li><a href="#s2">Header &amp; Navigation</a></li>
+      <li><a href="#s3">Footer</a></li>
+      <li><a href="#s4">Homepage (Elementor)</a></li>
+      <li><a href="#s5">Page Cleanup — Trash &amp; Delete</a></li>
+      <li><a href="#s6">FAQ Page</a></li>
+      <li><a href="#s7">Blog Posts — Cleanup &amp; Titles</a></li>
+      <li><a href="#s8">Missing Pages to Create</a></li>
+      <li><a href="#s10">Elementor — Technical Fixes</a></li>
+    </ol>
+  </div>
+
+  <!-- SECTION 1: CRITICAL -->
+  <div class="section" id="s1">
+    <div class="section-header">
+      <span class="badge badge-critical">Critical</span>
+      <h2>1. Critical Fixes — Do These First</h2>
+    </div>
+    <div class="section-body">
+      <div class="ar-note">
+        <strong>القسم ده فيه المهام الأساسية — ابدأ بيها قبل أي حاجة تانية</strong>
+        <ul>
+          <li>الموقع عنده صفحة مسودة اسمها "george" — لازم تحذفها نهائياً من Pages → Trash</li>
+          <li>في قائمة التنقل (القايمة العلوية) لازم تضيف روابط ناقصة: About Us، Tour Packages، Contact</li>
+          <li>لوجو الشركة مش موجود — لازم ترفعه وتحطه في Appearance → Customize → Site Identity</li>
+          <li>ألوان الموقع لازم تتغير: البني الغامق <code>#2c1a0e</code> والذهبي <code>#d4af6a</code> والأحمر الطوب <code>#b5451b</code></li>
+          <li>الفونت لازم يبقى: Playfair Display للعناوين، Open Sans للنص العادي</li>
+        </ul>
+        <strong>⚠️ مهم جداً:</strong> متعملش أي حاجة على الـ BABE Booking pages — دي صفحات النظام ولو حذفتها هيوقف الحجز.
+      </div>
+      <div class="task">
+        <div class="task-header">
+          <div class="task-num">1</div>
+          <div>
+            <div class="task-title">Logo — Header ✅ Done · Footer needs white version</div>
+            <span class="badge badge-high">High</span>
+          </div>
+        </div>
+        <div class="task-body">
+          <p><strong>Header logo:</strong> ✅ Already updated by owner. Logo_Green_3.png is live in the header. No action needed.</p>
+
+          <p><strong>Footer logo:</strong> The footer has a dark navy background. The colored Logo_Green_3.png (teal/gold/brown) looks poor on dark backgrounds. The footer logo must be white.</p>
+
+          <p><strong>Option A — CSS filter (fastest, no new file needed):</strong></p>
+          <div class="path"><span class="highlight">Templates</span> <span class="arrow">→</span> <span class="highlight">Theme Builder</span> <span class="arrow">→</span> <span class="highlight">Footer</span> <span class="arrow">→</span> <span class="highlight">Edit with Elementor</span> <span class="arrow">→</span> click the logo widget <span class="arrow">→</span> <span class="highlight">Advanced</span> tab <span class="arrow">→</span> <span class="highlight">Custom CSS</span></div>
+          <p>Paste this into the Custom CSS box:</p>
+          <pre><code><span class="comment">/* Makes the logo image pure white — works on any dark background */</span>
+selector img {
+    <span class="key">filter</span>: <span class="val">brightness(0) invert(1)</span>;
+    <span class="key">transition</span>: <span class="val">opacity 0.2s ease</span>;
+}
+selector img:hover {
+    <span class="key">opacity</span>: <span class="val">0.85</span>;
+}</code></pre>
+
+          <p><strong>Option B — Upload a white PNG (cleanest result):</strong></p>
+          <p>Ask the designer to export a white version of the logo (all elements white, transparent background). Upload as <code>Logo_White.png</code> and set it as the footer logo image separately from the header logo.</p>
+          <pre><code><span class="comment">/* If using a separate white logo file — no CSS needed */</span>
+<span class="comment">/* Just set the image source in the footer logo widget to Logo_White.png */</span></code></pre>
+
+          <div class="note">Option A is faster and perfectly acceptable. Option B is cleaner if a designer is available. Both produce a white logo on the dark footer background.</div>
+        </div>
+      </div>
+
+      <div class="task">
+        <div class="task-header">
+          <div class="task-num">2</div>
+          <div>
+            <div class="task-title">Phone Number in Footer is Egyptian — Fix for American Audience</div>
+            <span class="badge badge-critical">Critical</span>
+          </div>
+        </div>
+        <div class="task-body">
+          <p>The footer currently displays <strong>+20 12 014-0578</strong> — this is an Egyptian mobile number. American visitors seeing a foreign number immediately lose trust. It signals they'd be calling overseas, dealing with time zones, and paying international rates.</p>
+
+          <div class="danger">This is the highest-impact trust issue on the site for the American market. Fix before any content changes.</div>
+
+          <p><strong>Option A — US number (recommended):</strong> Set up a US-based number via Google Voice (free) or a VoIP service like OpenPhone (~$10/month). Forward it to the Egyptian number. Display the US number on the site.</p>
+
+          <p><strong>Option B — Remove phone, emphasize email + contact form:</strong> If no US number is available, remove the phone number entirely and replace with email and a clear "We respond within 2 hours" promise.</p>
+
+          <p><strong>To update the footer:</strong></p>
+          <div class="path"><span class="highlight">Templates</span> <span class="arrow">→</span> <span class="highlight">Theme Builder</span> <span class="arrow">→</span> <span class="highlight">Footer</span> <span class="arrow">→</span> <span class="highlight">Edit with Elementor</span> <span class="arrow">→</span> find the phone number text widget <span class="arrow">→</span> edit the number</div>
+        </div>
+      </div>
+
+      <div class="task">
+        <div class="task-header">
+          <div class="task-num">3</div>
+          <div>
+            <div class="task-title">Gallery Section Not Rendering on Frontend</div>
+            <span class="badge badge-critical">Critical</span>
+          </div>
+        </div>
+        <div class="task-body">
+          <p>The "Access Egypt Travel Gallery" section on the homepage shows only the title to public visitors. The gallery images appear in Elementor's edit mode (admin view) but are invisible on the live site. This is a known Elementor issue with three possible causes.</p>
+
+          <p><strong>Step 1 — Try the fast fix first (Regenerate CSS):</strong></p>
+          <div class="path"><span class="highlight">WordPress Admin</span> <span class="arrow">→</span> <span class="highlight">Elementor</span> <span class="arrow">→</span> <span class="highlight">Tools</span> <span class="arrow">→</span> <span class="highlight">Regenerate CSS &amp; Data</span> <span class="arrow">→</span> click the button</div>
+          <p>After regenerating, visit the homepage in an incognito window and check if the gallery appears. If yes, done. If no, continue to Step 2.</p>
+
+          <p><strong>Step 2 — Check the gallery widget source:</strong></p>
+          <div class="path"><span class="highlight">Homepage</span> <span class="arrow">→</span> <span class="highlight">Edit with Elementor</span> <span class="arrow">→</span> click the gallery widget <span class="arrow">→</span> left panel → Content tab → check "Source" setting</div>
+          <p>If the source is set to <strong>Dynamic</strong> (pulling from a field, post type, or media category): switch it to <strong>Static</strong> and manually select the gallery images from the Media Library. Dynamic sources require admin authentication in some configurations and will appear blank to logged-out visitors.</p>
+
+          <p><strong>Step 3 — Check for JavaScript conflicts:</strong></p>
+          <p>Open the homepage in an incognito window → Right-click → Inspect → Console tab. Look for any red JavaScript errors. Common culprits:</p>
+          <pre><code><span class="comment">// These plugins frequently conflict with Elementor gallery scripts:</span>
+- WooCommerce (jQuery version conflicts)
+- BABE booking plugin scripts
+- Any slider or lightbox plugin loaded separately
+
+<span class="comment">// Quick test: temporarily deactivate plugins one by one while checking</span>
+<span class="comment">// the frontend in incognito. The gallery appearing = that plugin is the conflict.</span></code></pre>
+
+          <p><strong>Step 4 — If conflict found, enqueue fix:</strong></p>
+          <p>Add the following to the active child theme's <code>functions.php</code> or via <strong>Elementor → Custom Code</strong>:</p>
+          <pre><code><span class="comment">// Defer conflicting scripts — adjust handle name to match actual conflict</span>
+<span class="key">add_filter</span>( 'script_loader_tag', <span class="key">function</span>( $tag, $handle ) {
+    $defer = [ 'woocommerce', 'babe-front' ]; <span class="comment">// add conflicting handles</span>
+    <span class="key">if</span> ( in_array( $handle, $defer ) ) {
+        <span class="key">return</span> str_replace( ' src', ' defer src', $tag );
+    }
+    <span class="key">return</span> $tag;
+}, 10, 2 );</code></pre>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION 2: HEADER & NAV -->
+  <div class="section" id="s2">
+    <div class="section-header">
+      <span class="badge badge-high">High Priority</span>
+      <h2>2. Header &amp; Navigation</h2>
+    </div>
+    <div class="section-body">
+      <div class="ar-note">
+        <strong>الهيدر والقايمة العلوية — كيف تعدل التنقل والشعار</strong>
+        <ul>
+          <li>روح Appearance → Menus — هتلاقي القايمة الرئيسية هناك</li>
+          <li>ضيف: About Us، Tour Packages، Testimonials، Contact — في الترتيب ده</li>
+          <li><strong>شيل "Blog"</strong> من القايمة — الأوونر قرر إنه مش محتاج دلوقتي</li>
+          <li>الشعار (Logo): روح Appearance → Customize → Site Identity — ارفع ملف الشعار هناك</li>
+          <li>لو عايز تعدل شكل الهيدر (ألوان، ارتفاع، خط): افتح الصفحة في Elementor وهو معمول كـ Theme Builder</li>
+        </ul>
+        <strong>📍 لو الهيدر مبنيش في Elementor:</strong> روح Templates → Theme Builder → Header في لوحة تحكم Elementor.
+      </div>
+      <div class="task">
+        <div class="task-header">
+          <div class="task-num">4</div>
+          <div>
+            <div class="task-title">Verify Testimonials Nav Link — Upgrade to Dedicated Page</div>
+            <span class="badge badge-medium">Medium</span>
+          </div>
+        </div>
+        <div class="task-body">
+          <p>The nav already has 7 items including Testimonials. The link is likely an anchor to the homepage testimonials section (<code>#testimonials</code>), which works but is not ideal. Verify first:</p>
+
+          <p><strong>Step 1 — Check what the link points to:</strong> Right-click "Testimonials" in the live nav → Copy Link Address → confirm whether it goes to <code>/#testimonials</code> (anchor) or <code>/testimonials/</code> (page).</p>
+
+          <p><strong>If it's an anchor (#testimonials) — no emergency, but upgrade when ready:</strong></p>
+          <ul style="margin: 10px 0 0 20px; line-height: 2;">
+            <li>Clicking it takes visitors back to the homepage instead of forward — confusing UX</li>
+            <li>A section anchor has no SEO value — a <code>/testimonials/</code> page can rank for "[business name] reviews" searches</li>
+            <li>When the dedicated Testimonials page is built (see Task 13), update this menu item to link to <code>/testimonials/</code></li>
+          </ul>
+
+          <div class="path"><span class="highlight">Appearance</span> <span class="arrow">→</span> <span class="highlight">Menus</span> <span class="arrow">→</span> <span class="highlight">Main Menu</span> <span class="arrow">→</span> expand Testimonials item <span class="arrow">→</span> update URL to <code>/testimonials/</code> once page is live</div>
+        </div>
+      </div>
+
+      <div class="task">
+        <div class="task-header">
+          <div class="task-num">5</div>
+          <div>
+            <div class="task-title">Restructure Main Navigation Menu</div>
+            <span class="badge badge-high">High</span>
+          </div>
+        </div>
+        <div class="task-body">
+          <p>Current navigation has only 5 items and excludes key pages (About Us, Contact, Blog). Visitors cannot find these pages unless they already know the URLs.</p>
+
+          <p><strong>Current menu:</strong></p>
+          <pre>Egypt Packages | Home | Luxor Tours | Tailor Made | Testimonials (broken)</pre>
+
+          <p><strong>Reference: Osiris Tours nav structure</strong> — HOME | DESTINATIONS | REVIEWS | FAQS | BLOG | ABOUT | CONTACT. Key insight: Reviews and FAQs are top-level nav items, not buried. Adopt this pattern.</p>
+
+          <p><strong>Recommended new nav structure:</strong></p>
+          <pre>Home | Tours ▾ | Reviews | FAQs | Blog | About | Contact</pre>
+
+          <p><strong>Tours dropdown:</strong></p>
+          <table>
+            <tr><th>Label</th><th>Links to</th></tr>
+            <tr><td>Egypt Packages</td><td>/egypt-packages/</td></tr>
+            <tr><td>Luxor Day Tours</td><td>/tour/</td></tr>
+            <tr><td>Nile Cruise</td><td>/nile-cruise/</td></tr>
+            <tr><td>Tailor-Made Tours</td><td>/tailor-made/</td></tr>
+            <tr><td>Hurghada to Luxor Tours</td><td>/egypt-packages/</td></tr>
+            <tr><td>Cairo to Luxor Tours</td><td>/egypt-packages/</td></tr>
+          </table>
+
+          <p style="margin-top:14px;"><strong>Also update in the Elementor header template:</strong></p>
+          <table>
+            <tr><th>Element</th><th>Current</th><th>Change to</th></tr>
+            <tr><td>Top bar — left side</td><td>WhatsApp icon + Egyptian number only</td><td>Add US number: 🇺🇸 +1 772 782 0494 &nbsp;|&nbsp; 💬 WhatsApp: +20 12 014-0578</td></tr>
+            <tr><td>Top bar — right CTA button</td><td>"Tailor Made Tours" (brown button)</td><td>"Request a Quote" → links to <code>mailto:info@accessegypttravel.com</code></td></tr>
+          </table>
+
+          <p style="margin-top:14px;"><strong>Add TripAdvisor Travelers' Choice badge to homepage hero:</strong></p>
+          <p>Osiris displays their TripAdvisor badge prominently in the hero. You have a TripAdvisor profile — get the badge image from TripAdvisor's widget builder and add it to the homepage hero section in Elementor.</p>
+          <div class="path"><span class="highlight">TripAdvisor</span> <span class="arrow">→</span> log in <span class="arrow">→</span> <span class="highlight">Management Center</span> <span class="arrow">→</span> <span class="highlight">Free Tools</span> <span class="arrow">→</span> <span class="highlight">Review Badge</span> <span class="arrow">→</span> download badge image <span class="arrow">→</span> upload to WordPress Media Library <span class="arrow">→</span> add as Image widget in homepage hero section in Elementor</div>
+
+          <div class="path"><span class="highlight">Appearance</span> <span class="arrow">→</span> <span class="highlight">Menus</span> <span class="arrow">→</span> <span class="highlight">Main Menu</span> <span class="arrow">→</span> drag items / set sub-items by indenting</div>
+          <div class="note">If the nav is built inside Elementor Theme Builder (not WordPress Menus), edit via: Templates → Theme Builder → Header → Edit with Elementor → click Nav Menu widget.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION 2B: CORRECTIONS FROM SCREENSHOTS -->
+  <div class="section" id="s2b">
+    <div class="section-header">
+      <span class="badge badge-critical">Critical</span>
+      <h2>2B. Contact Page — Broken Hero Image</h2>
+    </div>
+    <div class="section-body">
+      <div class="ar-note">
+        <strong>صفحة التواصل — الصورة الكبيرة في الأعلى مكسورة</strong>
+        <ul>
+          <li>افتح صفحة Contact في Elementor وهتلاقي Section في الأعلى فيه صورة مكسورة أو مش بتظهر</li>
+          <li>اضغط على السيكشن ده — روح Style → Background — ارفع صورة صح بدلاً من اللي مكسورة</li>
+          <li>الصورة المطلوبة: منظر مصري جميل (الأهرامات مثلاً) بدقة عالية — على الأقل 1920×600 بكسل</li>
+          <li>بعد ما ترفع الصورة، ضيف overlay داكن فوقيها عشان النص يبان — في Style → Background Overlay، لون أسود، opacity 40%</li>
+        </ul>
+      </div>
+      <div class="task">
+        <div class="task-header">
+          <div class="task-num">2B</div>
+          <div>
+            <div class="task-title">Contact Page Hero is a Black Rectangle — Fix Immediately</div>
+            <span class="badge badge-critical">Critical</span>
+          </div>
+        </div>
+        <div class="task-body">
+          <p>The Contact page (/contact/) has a completely broken hero section — visitors see a solid black rectangle where an image should be. This is the first thing anyone sees when they go to contact the business.</p>
+          <div class="path"><span class="highlight">Pages</span> <span class="arrow">→</span> <span class="highlight">Contact</span> (ID: 890) <span class="arrow">→</span> <span class="highlight">Edit with Elementor</span> <span class="arrow">→</span> click the hero section <span class="arrow">→</span> Style tab <span class="arrow">→</span> Background → replace the missing/broken image with a real Egypt photo from the Media Library</div>
+          <div class="note">Recommended image: a warm, welcoming photo — guide with tourists, a felucca on the Nile, or a temple at golden hour. Avoid another pyramid shot (overused). Apply a dark overlay at 40–50% opacity so the "Contact" heading remains readable.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 3: FOOTER -->
+  <div class="section" id="s3">
+    <div class="section-header">
+      <span class="badge badge-high">High Priority</span>
+      <h2>3. Footer</h2>
+    </div>
+    <div class="section-body">
+      <div class="ar-note">
+        <strong>الفوتر (الجزء السفلي من كل صفحة) — التعديلات المطلوبة</strong>
+        <ul>
+          <li>الفوتر معمول في Elementor Theme Builder — روح Templates → Theme Builder → Footer</li>
+          <li>رقم التليفون الأمريكي اللازم يبان: <strong>+1 772 782 0494</strong></li>
+          <li>رقم WhatsApp المصري: <strong>+20 12 014-0578</strong></li>
+          <li>الإيميل: <strong>info@accessegypttravel.com</strong></li>
+          <li>روابط سوشيال ميديا: Facebook وInstagram وTripAdvisor — حط الأيقونات مع الروابط الصح</li>
+          <li><strong>شيل</strong> أي رابط لـ Blog من الفوتر — الأوونر مش عايز بلوق دلوقتي</li>
+        </ul>
+        <strong>⚠️ لو الفوتر مش موجود في Theme Builder:</strong> راجع القسم 8C في الأسفل — فيه تعليمات إنشاء فوتر جديد خطوة بخطوة.
+      </div>
+
+      <div class="task">
+        <div class="task-header">
+          <div class="task-num">6</div>
+          <div>
+            <div class="task-title">Fix Contact Information — Footer, Header Bar, and Contact Page</div>
+            <span class="badge badge-high">High</span>
+          </div>
+        </div>
+        <div class="task-body">
+          <div class="danger">The phone number +20 12 014-0578 and email info@accessegypttravel.com appear in THREE places: the top header bar, the footer, and the Contact page body. All three must be updated.</div>
+          <table>
+            <tr><th>Field</th><th>Current (wrong)</th><th>Should be</th></tr>
+            <tr><td>Phone — header bar</td><td>+20 12 014-0578 (Egyptian number)</td><td>US number or remove</td></tr>
+            <tr><td>Phone — contact page</td><td>+20 12 014-0578</td><td>US number or remove</td></tr>
+            <tr><td>Phone — footer</td><td>+20 12 014-0578</td><td>US number or remove</td></tr>
+            <tr><td>Email — contact page</td><td>info@accessegypttravel.com</td><td>✅ Correct — keep as-is</td></tr>
+            <tr><td>Email — footer</td><td>info@accessegypttravel.com</td><td>✅ Correct — keep as-is</td></tr>
+            <tr><td>Address — contact page</td><td>Hurghada</td><td>Update to: <code>Pickup locations: Cairo · Hurghada · Luxor</code> — customers are collected from Cairo or Hurghada and transferred to Luxor for tours. Mention all three cities.</td></tr>
+          </table>
+
+          <div class="path"><span class="highlight">Templates</span> <span class="arrow">→</span> <span class="highlight">Theme Builder</span> <span class="arrow">→</span> <span class="highlight">Footer</span> <span class="arrow">→</span> <span class="highlight">Edit with Elementor</span></div>
+          <p>Find each text widget containing the phone/email → update the values → click <strong>Update</strong>.</p>
+
+          <p><strong>Also add to footer:</strong></p>
+          <ul style="margin: 10px 0 0 20px;">
+            <li>Response time promise: <em>"We respond within 2 hours"</em></li>
+            <li>US time zone note: <em>"Available Monday–Saturday, 9am–6pm EST"</em></li>
+            <li>Links: Privacy Policy | Reservation Policy | Terms &amp; Conditions</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION 4: HOMEPAGE -->
+  <div class="section" id="s4">
+    <div class="section-header">
+      <span class="badge badge-high">High Priority</span>
+      <h2>4. Homepage Fixes (Elementor)</h2>
+    </div>
+    <div class="section-body">
+      <div class="ar-note">
+        <strong>الصفحة الرئيسية — التعديلات المطلوبة في Elementor</strong>
+        <ul>
+          <li>افتح الصفحة الرئيسية (Homepage) وضغط Edit with Elementor</li>
+          <li><strong>Hero Section:</strong> العنوان الكبير لازم يبقى: "Discover Egypt With a Real Egyptologist" — غير الكلام الموجود لو مختلف</li>
+          <li>زرار CTA الرئيسي لازم يوصل على الإيميل مباشرة: <code>mailto:info@accessegypttravel.com</code> — مش على Calendly</li>
+          <li>قسم "Trust Strip": 4 أعمدة — ✈️ Pickup from Cairo/Hurghada | 🏛️ Egyptologist-Guided | 💬 US Support | 💵 Priced in USD</li>
+          <li>بطاقات الجولات: حط اسم الجولة، عدد الأيام، السعر بالدولار، وزرار "View Tour"</li>
+          <li><strong>مهم:</strong> مسح "Blog" من أي مكان في الصفحة — لا هيرو ولا روابط</li>
+        </ul>
+      </div>
+
+      <div class="task">
+        <div class="task-header">
+          <div class="task-num">7</div>
+          <div>
+            <div class="task-title">Rename Page from "Home 1" to "Home"</div>
+            <span class="badge badge-medium">Medium</span>
+          </div>
+        </div>
+        <div class="task-body">
+          <p>The homepage is named "Home 1" — a theme demo label that appears in the WordPress admin sidebar, browser tab, and screen reader output. Rename it to <strong>Home</strong>.</p>
+          <div class="path"><span class="highlight">Pages</span> <span class="arrow">→</span> find <strong>Home 1</strong> (ID: 352) <span class="arrow">→</span> <span class="highlight">Quick Edit</span> <span class="arrow">→</span> change Title to <code>Home</code> <span class="arrow">→</span> <span class="highlight">Update</span></div>
+          <div class="note">Do not change the slug. The page slug is "home-1" but it's set as the front page, so it loads at "/" regardless. Leave the slug as-is.</div>
+        </div>
+      </div>
+
+      <div class="task">
+        <div class="task-header">
+          <div class="task-num">8</div>
+          <div>
+            <div class="task-title">Fix Tagline — Update Site Identity</div>
+            <span class="badge badge-medium">Medium</span>
+          </div>
+        </div>
+        <div class="task-body">
+          <p><strong>Current tagline:</strong> <code>Expert-Led Egypt Tours &amp; Travel Packages | Guided by an Egyptologist</code></p>
+          <p>This tagline says the same thing twice ("Expert-Led" and "Guided by an Egyptologist") and uses a pipe separator that reads like browser tab metadata, not a brand statement.</p>
+
+          <p><strong>Recommended replacement:</strong> <code>Private Egypt Tours Led by a Real Egyptologist</code></p>
+
+          <p><strong>Update in two places:</strong></p>
+          <div class="path"><span class="highlight">Appearance</span> <span class="arrow">→</span> <span class="highlight">Customize</span> <span class="arrow">→</span> <span class="highlight">Site Identity</span> <span class="arrow">→</span> Tagline field</div>
+          <p style="color:#888;font-size:13px;font-style:italic;">Note: Meta description update via Rank Math is covered in the separate SEO plan — handle after Phase 1 is complete.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION 5: PAGE CLEANUP -->
+  <div class="section" id="s5">
+    <div class="section-header">
+      <span class="badge badge-high">High Priority</span>
+      <h2>5. Page Cleanup — Move to Trash &amp; Permanently Delete</h2>
+    </div>
+    <div class="section-body">
+      <div class="ar-note">
+        <strong>تنظيف الصفحات — حذف الصفحات الوهمية والمكررة</strong>
+        <ul>
+          <li>روح Pages → All Pages — هتلاقي قائمة بكل الصفحات</li>
+          <li>أي صفحة فيها اسم وهمي زي "george" أو "Sample Page" أو "test" — انقل للـ Trash</li>
+          <li>بعد ما تنقلها للـ Trash، روح Pages → Trash → حذف نهائي (Empty Trash)</li>
+          <li><strong>⚠️ لا تحذف أي صفحة فيها كلمة "booking" أو "checkout" أو "BABE"</strong> — دي صفحات نظام الحجز</li>
+          <li>أي صفحة Status بتاعها Draft وانت مش عارف إيه هي — اسأل أول قبل ما تحذفها</li>
+        </ul>
+        <strong>الصفحات اللازم تحذفها:</strong> george، Sample Page، أي صفحة Demo أو Test.
+      </div>
+
+      <div class="danger">IMPORTANT: Before permanently deleting any page, verify it is not used as an Elementor template source, referenced in any menu, or linked from any live page. The safest workflow: move to Trash → wait 1 week → empty Trash.</div>
+
+      <p>The following pages are currently in <strong>Draft</strong> status (moved there as of June 2026) and should be permanently deleted. None of these are content pages — they are theme demo layouts, duplicate system pages, or plugin test pages.</p>
+
+      <div class="task">
+        <div class="task-header">
+          <div class="task-num">9</div>
+          <div>
+            <div class="task-title">Permanently Trash These Draft Pages</div>
+            <span class="badge badge-high">High</span>
+          </div>
+        </div>
+        <div class="task-body">
+          <div class="path"><span class="highlight">Pages</span> <span class="arrow">→</span> <span class="highlight">All Pages</span> <span class="arrow">→</span> filter by <strong>Draft</strong> <span class="arrow">→</span> select each page below <span class="arrow">→</span> Bulk Actions <span class="arrow">→</span> <span class="highlight">Move to Trash</span></div>
+
+          <table>
+            <tr>
+              <th>Page Title</th>
+              <th>ID</th>
+              <th>Current Status</th>
+              <th>Reason to Delete</th>
+            </tr>
+            <tr><td>Sample Page</td><td><span class="id-tag">ID: 2</span></td><td><span class="status-draft">Draft</span></td><td>WordPress default page — has no content, never should have been published</td></tr>
+            <tr><td>Icons</td><td><span class="id-tag">ID: 361</span></td><td><span class="status-draft">Draft</span></td><td>Theme demo page showing icon library — not a real page</td></tr>
+            <tr><td>Ba Wishlist</td><td><span class="id-tag">ID: 31</span></td><td><span class="status-draft">Draft</span></td><td>Booking plugin wishlist demo — duplicate, no real content</td></tr>
+            <tr><td>Ba Wishlist (duplicate)</td><td><span class="id-tag">ID: 374</span></td><td><span class="status-draft">Draft</span></td><td>Second copy of above</td></tr>
+            <tr><td>Privacy Policy (duplicate)</td><td><span class="id-tag">ID: 12176</span></td><td><span class="status-draft">Draft</span></td><td>Duplicate of ID 3 — keep the original at /privacy-policy/</td></tr>
+            <tr><td>Destination List</td><td><span class="id-tag">ID: 3119</span></td><td><span class="status-draft">Draft</span></td><td>Theme demo layout — no actual destination content</td></tr>
+            <tr><td>Destination List 2</td><td><span class="id-tag">ID: 3139</span></td><td><span class="status-draft">Draft</span></td><td>Duplicate of above</td></tr>
+            <tr><td>Tours List View</td><td><span class="id-tag">ID: 6632</span></td><td><span class="status-draft">Draft</span></td><td>Theme layout demo — 3 versions exist, all are demo, Egypt Packages page is the real tour listing</td></tr>
+            <tr><td>Tours List Top Search</td><td><span class="id-tag">ID: 6630</span></td><td><span class="status-draft">Draft</span></td><td>Same as above</td></tr>
+            <tr><td>Tours List Sidebar</td><td><span class="id-tag">ID: 6627</span></td><td><span class="status-draft">Draft</span></td><td>Same as above</td></tr>
+            <tr><td>george</td><td><span class="id-tag">ID: 11153</span></td><td><span class="status-draft">Draft</span></td><td>Test page with no slug, no content — delete immediately</td></tr>
+            <tr><td>tours</td><td><span class="id-tag">ID: 11152</span></td><td><span class="status-draft">Draft</span></td><td>Test page with no slug, no content — delete immediately</td></tr>
+            <tr><td>demo</td><td><span class="id-tag">ID: 789</span></td><td><span class="status-draft">Draft</span></td><td>Test page — delete immediately</td></tr>
+            <tr><td>All items (duplicate)</td><td><span class="id-tag">ID: 10882</span></td><td><span class="status-draft">Draft</span></td><td>Duplicate of the booking system "All items" page (ID: 12)</td></tr>
+          </table>
+
+          <div class="note">The following pages look like system pages but are required by the BABE booking plugin — do NOT delete them: Checkout (ID: 6), Confirmation (ID: 8), Customer Confirmation (ID: 12848), Admin Confirmation (ID: 11), Add Services (ID: 7), My Account (ID: 10), All Items (ID: 12), Search Result (ID: 5).</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION 6: FAQ -->
+  <div class="section" id="s6">
+    <div class="section-header">
+      <span class="badge badge-high">High Priority</span>
+      <h2>6. FAQ Page — Remove Demo Content, Add Real FAQs</h2>
+    </div>
+    <div class="section-body">
+      <div class="ar-note">
+        <strong>صفحة الأسئلة الشائعة — شيل المحتوى الوهمي وحط الحقيقي</strong>
+        <ul>
+          <li>افتح صفحة FAQ في Elementor — هتلاقي أسئلة Demo Lorem Ipsum — امسحها كلها</li>
+          <li>لو الموقع بيستخدم Accordion widget في Elementor — ضيف الأسئلة الجديدة فيه</li>
+          <li>لو في FAQ plugin منفصل — روح للـ plugin وحط الأسئلة هناك</li>
+        </ul>
+        <strong>الأسئلة الأساسية اللازم تحطها (كلها موجودة في المستند):</strong>
+        <ul>
+          <li>هل مصر آمنة للأمريكان؟ | Is Egypt safe for Americans?</li>
+          <li>إيه اللي بيتضمن في السعر؟ | What's included in the price?</li>
+          <li>هل محتاج فيزا؟ | Do I need a visa?</li>
+          <li>أحسن وقت لزيارة مصر؟ | Best time to visit Egypt?</li>
+          <li>هل ممكن جدول مرن؟ | Can we customize the itinerary?</li>
+        </ul>
+        الأسئلة الكاملة موجودة في القسم ده بالإنجليزي — اقرأهم بعدين حط النص بالإنجليزي في الموقع.
+      </div>
+
+      <div class="task">
+        <div class="task-header">
+          <div class="task-num">10</div>
+          <div>
+            <div class="task-title">Delete Demo FAQ Entries, Replace with Real Content</div>
+            <span class="badge badge-high">High</span>
+          </div>
+        </div>
+        <div class="task-body">
+          <div class="danger">The live FAQ page (/faq/) currently shows demo plugin placeholder content including "Do you speak Spanish?" and "Question 2?" — these are visible to every visitor right now.</div>
+
+          <p><strong>Delete these entries:</strong></p>
+          <div class="path"><span class="highlight">WordPress Admin</span> <span class="arrow">→</span> look for <strong>FAQ</strong> in the left sidebar (added by BABE plugin) <span class="arrow">→</span> find and permanently delete: "Do you speak Spanish?" and "Question 2?"</span></div>
+
+          <p>If FAQ items are managed through Elementor on the FAQ page instead:</p>
+          <div class="path"><span class="highlight">Pages</span> <span class="arrow">→</span> <span class="highlight">Faq</span> (ID: 1005) <span class="arrow">→</span> <span class="highlight">Edit with Elementor</span> <span class="arrow">→</span> find the FAQ accordion widget <span class="arrow">→</span> delete demo items <span class="arrow">→</span> add new items below</div>
+
+          <p><strong>Add these real FAQs (minimum — owner to confirm final answers):</strong></p>
+          <table>
+            <tr><th>#</th><th>Question</th><th>Notes for owner to answer</th></tr>
+            <tr><td>1</td><td>Do Americans need a visa to visit Egypt?</td><td>Yes — tourist visa, available on arrival or e-visa. Include link to official e-visa portal.</td></tr>
+            <tr><td>2</td><td>Is Egypt safe for American tourists?</td><td>Address directly. Mention tourist police presence, group safety, specific areas to be aware of.</td></tr>
+            <tr><td>3</td><td>What is the best time of year to visit Egypt?</td><td>October–April (avoid summer heat). Mention Ramadan timing impact.</td></tr>
+            <tr><td>4</td><td>How do I get to Egypt from the US?</td><td>Main connection hubs: Cairo via NYC/JFK, Chicago, LA. Common airlines. Approximate flight time.</td></tr>
+            <tr><td>5</td><td>Are your tours private or group?</td><td>Explain the private vs. group options and group size limits.</td></tr>
+            <tr><td>6</td><td>What currency should I bring?</td><td>USD widely accepted at tourist sites. Exchange to Egyptian Pounds for local markets.</td></tr>
+            <tr><td>7</td><td>What is included in the tour price?</td><td>Specify: guide fees, accommodation, transport, entrance fees, meals.</td></tr>
+            <tr><td>8</td><td>What is your cancellation policy?</td><td>Reference the Reservation Policy page for full details.</td></tr>
+            <tr><td>9</td><td>Do I need travel insurance?</td><td>Strongly recommended. Note what your tours cover vs. what insurance should cover.</td></tr>
+            <tr><td>10</td><td>What should I pack for Egypt?</td><td>Light, modest clothing. Comfortable shoes. Sun protection. Scarf for mosque visits.</td></tr>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION 7: BLOG POSTS -->
+  <div class="section" id="s7">
+    <div class="section-header">
+      <span class="badge badge-high">High Priority</span>
+      <h2>7. Blog Posts — Delete Placeholders, Fix Titles</h2>
+    </div>
+    <div class="section-body">
+      <div class="ar-note">
+        <strong>المقالات (Blog Posts) — حذف المحتوى الوهمي</strong>
+        <ul>
+          <li>روح Posts → All Posts — هتلاقي مقالات كتير فيها كلام وهمي (Lorem Ipsum)</li>
+          <li>حدد كل المقالات الوهمية → Bulk Actions → Move to Trash → Apply</li>
+          <li>بعدها روح Posts → Trash → Empty Trash</li>
+          <li>أي مقال عنوانه فيه ": " (نقطتين) في النص — ازيل النقطتين وخلي العنوان بسيط</li>
+          <li><strong>مهم:</strong> البلوق هيتملى بمحتوى حقيقي من صاحب الموقع لاحقاً — دلوقتي بس امسح الوهمي</li>
+        </ul>
+        لو مش متأكد إن المقال وهمي — ابحث عن كلمة "Lorem" في النص. لو موجودة = وهمي = احذفه.
+      </div>
+
+      <div class="task">
+        <div class="task-header">
+          <div class="task-num">11</div>
+          <div>
+            <div class="task-title">Permanently Delete 18 Lorem Ipsum Placeholder Posts</div>
+            <span class="badge badge-high">High</span>
+          </div>
+        </div>
+        <div class="task-body">
+          <div class="danger">These posts are live, indexed by Google, and actively damaging SEO and credibility. Delete all 18 immediately.</div>
+          <div class="path"><span class="highlight">Posts</span> <span class="arrow">→</span> <span class="highlight">All Posts</span> <span class="arrow">→</span> filter by Category: <strong>Uncategorized</strong> <span class="arrow">→</span> select all <span class="arrow">→</span> Bulk Actions <span class="arrow">→</span> <span class="highlight">Move to Trash</span> <span class="arrow">→</span> then empty Trash</div>
+
+          <p>The following posts are Lorem Ipsum / demo content and must be deleted:</p>
+          <table>
+            <tr><th>Post Title</th><th>Slug</th></tr>
+            <tr><td>Change your place and get the fresh air</td><td>change-your-place-and-get-the-fresh-air (x2)</td></tr>
+            <tr><td>Even the all-powerful Pointing</td><td>(x2 versions)</td></tr>
+            <tr><td>How to travel with paper map</td><td>(x2 versions)</td></tr>
+            <tr><td>Introducing this amazing city</td><td>(x2 versions)</td></tr>
+            <tr><td>Pack wisely before traveling</td><td>(x2 versions)</td></tr>
+            <tr><td>Pityful a rethoric question ran</td><td>(x2 versions)</td></tr>
+            <tr><td>Separated they live in Bookmarksgrove</td><td>(x2 versions)</td></tr>
+            <tr><td>The Surfing Man Will Blow Your Mind</td><td>(x2 versions)</td></tr>
+          </table>
+
+          <div class="note">After deleting, submit the updated sitemap to Google Search Console to prompt recrawling: <strong>Google Search Console → Sitemaps → Submit new sitemap</strong> (URL is typically <code>https://accessegypttravel.com/sitemap_index.xml</code> via Rank Math).</div>
+        </div>
+      </div>
+
+      <div class="task">
+        <div class="task-header">
+          <div class="task-num">12</div>
+          <div>
+            <div class="task-title">Fix Blog Post Titles — Remove Trailing Colons</div>
+            <span class="badge badge-medium">Medium</span>
+          </div>
+        </div>
+        <div class="task-body">
+          <p>All 23 location guide posts have colons at the end of their titles (e.g., "Aswan :", "Abu Simbel Temples:"). These appear in the blog listing, Google search results, and browser tabs. They look like unfinished titles, not professional content.</p>
+
+          <div class="path"><span class="highlight">Posts</span> <span class="arrow">→</span> click each post <span class="arrow">→</span> <span class="highlight">Quick Edit</span> <span class="arrow">→</span> remove the trailing colon from the Title field <span class="arrow">→</span> <span class="highlight">Update</span></div>
+
+          <div class="note">Do NOT change the slugs — they are already set correctly (e.g., /aswan/, /abu-simbel-temples/). Only change the display title.</div>
+
+          <table>
+            <tr><th>Current Title</th><th>Corrected Title</th></tr>
+            <tr><td>Abu Simbel Temples:</td><td>Abu Simbel Temples</td></tr>
+            <tr><td>Aswan :</td><td>Aswan</td></tr>
+            <tr><td>The High Dam:</td><td>The High Dam</td></tr>
+            <tr><td>The Unfinished Obelisk:</td><td>The Unfinished Obelisk</td></tr>
+            <tr><td>Philae Temple: (Isis Temple)</td><td>Philae Temple — Isis Temple</td></tr>
+            <tr><td>Esna Temple: (180-45 BC).</td><td>Esna Temple</td></tr>
+            <tr><td>Com Ombo Temple: (The crocodile temple 205-180 BC)</td><td>Kom Ombo Temple — The Crocodile Temple</td></tr>
+            <tr><td>Edfu Temple: (Horus Temple 237-57 BC).</td><td>Edfu Temple — Temple of Horus</td></tr>
+            <tr><td>Coptic Cairo:</td><td>Coptic Cairo</td></tr>
+            <tr><td>The Citadel:</td><td>The Citadel of Cairo</td></tr>
+            <tr><td>Memphis:</td><td>Memphis — Ancient Capital of Egypt</td></tr>
+            <tr><td>The Step Pyramid at Saqqara:</td><td>The Step Pyramid at Saqqara</td></tr>
+            <tr><td>The Egyptian Museum:</td><td>The Egyptian Museum</td></tr>
+            <tr><td>The Giza Pyramids and The Sphinx:</td><td>The Giza Pyramids and The Sphinx</td></tr>
+            <tr><td>Felucca ride &amp; Banana Island:</td><td>Felucca Ride and Banana Island</td></tr>
+            <tr><td>Hot Air Balloon:</td><td>Hot Air Balloon Ride Over Luxor</td></tr>
+            <tr><td>Dendera Temple:</td><td>Dendera Temple</td></tr>
+            <tr><td>Madinet Habu Temple:</td><td>Madinet Habu Temple</td></tr>
+            <tr><td>The valley of the queens:</td><td>Valley of the Queens</td></tr>
+            <tr><td>Deir el Medina: (The valley of the artisans).</td><td>Deir el-Medina — Valley of the Artisans</td></tr>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION 8: MISSING PAGES -->
+  <div class="section" id="s8">
+    <div class="section-header">
+      <span class="badge badge-medium">Medium Priority</span>
+      <h2>8. Missing Pages to Create</h2>
+    </div>
+    <div class="section-body">
+      <div class="ar-note">
+        <strong>الصفحات الناقصة — لازم تنشئها من الصفر في Elementor</strong>
+        <ul>
+          <li>روح Pages → Add New — حط الاسم → Edit with Elementor</li>
+          <li><strong>About Us:</strong> قصة جون جميل (Egyptologist 22 سنة خبرة)، صورة شخصية، شهادات العملاء</li>
+          <li><strong>Testimonials:</strong> صفحة فيها آراء العملاء — مهم جداً للثقة مع العملاء الأمريكان</li>
+          <li><strong>Tour Packages (landing page):</strong> صفحة رئيسية للجولات بكل الباقات المتاحة</li>
+          <li>كل صفحة لازم يكون فيها: Hero Image، نص واضح، وCTA بيروح على الإيميل أو WhatsApp</li>
+        </ul>
+        <strong>تذكر:</strong> السلوج (URL) لكل صفحة لازم يبقى بالإنجليزي وبسيط: <code>/about/</code>، <code>/testimonials/</code>، <code>/tours/</code>
+      </div>
+
+      <div class="task">
+        <div class="task-header">
+          <div class="task-num">13</div>
+          <div>
+            <div class="task-title">Create Testimonials Page</div>
+            <span class="badge badge-high">High</span>
+          </div>
+        </div>
+        <div class="task-body">
+          <p>The main navigation links to a Testimonials page that does not exist. The homepage already has a testimonials section — this page should be a full, dedicated page with multiple reviews.</p>
+          <div class="path"><span class="highlight">Pages</span> <span class="arrow">→</span> <span class="highlight">Add New</span> <span class="arrow">→</span> Title: <code>Testimonials</code> <span class="arrow">→</span> Slug: <code>testimonials</code> <span class="arrow">→</span> <span class="highlight">Edit with Elementor</span></div>
+
+          <p><strong>Page structure to build in Elementor:</strong></p>
+          <ul style="margin: 10px 0 0 20px; line-height: 2;">
+            <li>Hero section: heading "What Our Travelers Say" + subtext</li>
+            <li>Testimonial cards grid (3 columns): reviewer name, country/state, trip taken, quote, star rating</li>
+            <li>Pull 3–5 real TripAdvisor reviews from the business profile</li>
+            <li>CTA section at bottom: "Ready to create your own Egypt story?" + Book Now button</li>
+          </ul>
+
+          <p>After publishing, update the nav menu Testimonials item to link to <code>/testimonials/</code>.</p>
+        </div>
+      </div>
+
+      <div class="task">
+        <div class="task-header">
+          <div class="task-num">14</div>
+          <div>
+            <div class="task-title">Redesign About Us Page — John Gamil's Story Needs Visual Treatment</div>
+            <span class="badge badge-medium">Medium</span>
+          </div>
+        </div>
+        <div class="task-body">
+          <p>The About Us page content already exists and is strong — it just presents as a single dense paragraph with no visual hierarchy. <strong>The content does NOT need to be rewritten, it needs to be redesigned.</strong></p>
+
+          <div class="note"><strong>Owner/Egyptologist:</strong> John Gamil — native Egyptian, lived in the United States for many years. Bachelor's degree in Egyptology and tour guidance (2000). 22 years of experience in Egyptian travel and tourism.</div>
+
+          <div class="path"><span class="highlight">Pages</span> <span class="arrow">→</span> <span class="highlight">About Us</span> (ID: 614) <span class="arrow">→</span> <span class="highlight">Edit with Elementor</span></div>
+
+          <p><strong>Redesign the existing text section into this structure:</strong></p>
+          <table>
+            <tr><th>Element</th><th>What to Build</th></tr>
+            <tr><td>2-column layout</td><td>Left: photo of John Gamil. Right: the bio text broken into 2–3 short paragraphs with a heading "Meet John Gamil, Your Egyptologist"</td></tr>
+            <tr><td>Credentials bar</td><td>3 icon + stat blocks below the bio: "22 Years Experience" | "BSc Egyptology, 2000" | "Lived in the USA — Speaks Your Language"</td></tr>
+            <tr><td>Pull quote</td><td>Extract one strong sentence from the existing bio as a large blockquote — e.g. "His carefully curated knowledge is rich with history, fascinating anecdotes and important connections to contemporary times."</td></tr>
+            <tr><td>CTA</td><td>Button: "Plan Your Egypt Tour with John → " linking to Contact page</td></tr>
+          </table>
+
+          <div class="warning">Owner must provide a professional photo of John Gamil. Without a photo, this page cannot be properly redesigned. Upload to Media Library before starting the Elementor edit.</div>
+
+          <p><strong>Also fix: copyright year in footer</strong> — currently shows "Copyright © 2023 At Access Egypt Travel" — update to 2026.</p>
+          <div class="path"><span class="highlight">Templates</span> <span class="arrow">→</span> <span class="highlight">Theme Builder</span> <span class="arrow">→</span> <span class="highlight">Footer</span> <span class="arrow">→</span> <span class="highlight">Edit with Elementor</span> <span class="arrow">→</span> find copyright text widget <span class="arrow">→</span> update year</div>
+        </div>
+      </div>
+
+      <div class="task">
+        <div class="task-header">
+          <div class="task-num">14B</div>
+          <div>
+            <div class="task-title">Nile Cruise Hero Image — Replace with Actual Nile Scene</div>
+            <span class="badge badge-medium">Medium</span>
+          </div>
+        </div>
+        <div class="task-body">
+          <p>The Nile Cruise page hero currently shows what appears to be a luxury hotel lobby/ship interior staircase. It does not communicate "Nile cruise" to a visitor — it could be any hotel. Replace with a photo that shows the Nile river, a cruise ship on the water, or the Luxor/Aswan riverbank from the deck of a ship.</p>
+          <div class="path"><span class="highlight">Pages</span> <span class="arrow">→</span> <span class="highlight">Nile Cruise</span> (ID: 11402) <span class="arrow">→</span> <span class="highlight">Edit with Elementor</span> <span class="arrow">→</span> click hero section <span class="arrow">→</span> Style <span class="arrow">→</span> Background → replace image</div>
+        </div>
+      </div>
+
+      <div class="task">
+        <div class="task-header">
+          <div class="task-num">14C</div>
+          <div>
+            <div class="task-title">Egypt Packages Page — Show All Available Packages</div>
+            <span class="badge badge-medium">Medium</span>
+          </div>
+        </div>
+        <div class="task-body">
+          <p>The Egypt Packages page currently shows only <strong>4 packages</strong>. The booking system (BABE) has <strong>17 published tour packages</strong> in the database. 13 packages are invisible to visitors on this page.</p>
+          <div class="path"><span class="highlight">Pages</span> <span class="arrow">→</span> <span class="highlight">Egypt packages</span> (ID: 11167) <span class="arrow">→</span> <span class="highlight">Edit with Elementor</span> <span class="arrow">→</span> find the tour listing widget <span class="arrow">→</span> check the filter/limit settings → increase posts per page or remove category restriction</div>
+          <p>If the listing widget has a "Number of Posts" limit set to 4, increase it to show all packages. If it's filtering by a specific category, review which packages are being excluded and why.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION 8B: CONTACT PAGE REDESIGN -->
+  <div class="section" id="s8b">
+    <div class="section-header">
+      <span class="badge badge-high">High Priority</span>
+      <h2>8B. Contact Page — Full Redesign (Elementor)</h2>
+    </div>
+    <div class="section-body">
+      <div class="ar-note">
+        <strong>صفحة التواصل — إعادة تصميم كاملة في Elementor</strong>
+        <ul>
+          <li>افتح صفحة Contact في Elementor — هتعيد بناء الصفحة من الأول</li>
+          <li><strong>العمود الأيسر:</strong> نموذج تواصل (Contact Form) — الكود موجود في القسم 14 تحت</li>
+          <li><strong>العمود الأيمن:</strong> بطاقة معلومات التواصل تحتوي على:
+            <ul>
+              <li>📞 US Phone: +1 772 782 0494</li>
+              <li>💬 WhatsApp: +20 12 014-0578 (رابطه: wa.me/20120140578)</li>
+              <li>✉️ Email: info@accessegypttravel.com</li>
+              <li>📅 Calendly: calendly.com/accessegypttravel/30min (بس لـ Zoom مش Google Meet)</li>
+            </ul>
+          </li>
+          <li>الـ Form لازم يبعت الرسالة على الإيميل — استخدم Formspree أو WPForms (التفاصيل في القسم 14)</li>
+        </ul>
+      </div>
+
+      <div class="task">
+        <div class="task-header">
+          <div class="task-num">15A</div>
+          <div>
+            <div class="task-title">Rebuild Contact Page with All Contact Channels</div>
+            <span class="badge badge-high">High</span>
+          </div>
+        </div>
+        <div class="task-body">
+          <div class="path"><span class="highlight">Pages</span> <span class="arrow">→</span> <span class="highlight">Contact</span> (ID: 890) <span class="arrow">→</span> <span class="highlight">Edit with Elementor</span></div>
+
+          <p>Build the page top to bottom in exactly this section order:</p>
+
+          <div class="divider"></div>
+
+          <p><strong>SECTION 1 — Hero (fix the black rectangle)</strong></p>
+          <table>
+            <tr><th>Element</th><th>Spec</th></tr>
+            <tr><td>Background image</td><td>Replace the broken image. Use a warm, people-facing photo — John with tourists, a felucca on the Nile, or a sunset temple scene. Apply 45% dark overlay so text is readable.</td></tr>
+            <tr><td>Heading</td><td><code>Let's Plan Your Egypt Adventure</code></td></tr>
+            <tr><td>Subheading</td><td><code>We respond within 2 hours. Pick the contact method that works best for you.</code></td></tr>
+          </table>
+
+          <div class="divider"></div>
+
+          <p><strong>SECTION 2 — Quick Contact Icons Strip</strong></p>
+          <p>A single horizontal row of icon + label + link buttons. Background: light beige or white. 6 items in a row (stack to 2 columns on mobile):</p>
+          <table>
+            <tr><th>Icon</th><th>Label</th><th>Action</th></tr>
+            <tr><td>WhatsApp</td><td>WhatsApp Us</td><td><code>https://wa.me/20120140578</code> (opens WhatsApp chat directly)</td></tr>
+            <tr><td>Email</td><td>Email Us</td><td><code>mailto:info@accessegypttravel.com</code></td></tr>
+            <tr><td>Calendly</td><td>Schedule a Call</td><td><code>https://calendly.com/accessegypttravel/30min</code> (opens Calendly — user picks Zoom or Meet in the booking flow)</td></tr>
+            <tr><td>Facebook</td><td>Facebook</td><td><code>https://www.facebook.com/accessegypttravel/</code></td></tr>
+            <tr><td>Instagram</td><td>Instagram</td><td><code>https://www.instagram.com/accessegypttravel/</code></td></tr>
+            <tr><td>TripAdvisor</td><td>TripAdvisor</td><td><code>https://www.tripadvisor.com/Attraction_Review-g294205-d25314995-Reviews-Access_Egypt_travel-Luxor_Nile_River_Valley.html</code></td></tr>
+          </table>
+
+          <div class="divider"></div>
+
+          <p><strong>SECTION 3 — Book a Free Consultation (primary CTA section)</strong></p>
+          <p>2-column layout. Dark background (navy or dark brown). This is the most important section for converting visitors.</p>
+          <table>
+            <tr><th>Column</th><th>Content</th></tr>
+            <tr>
+              <td>Left — Calendly Embed</td>
+              <td>
+                Heading: <code>Schedule a Free 30-Minute Call</code><br>
+                Body: <code>Pick a time that works for you. We'll talk through your trip, your interests, and build a plan together — no obligation.</code><br>
+                Embed the Calendly widget inline using Elementor's HTML widget:<br>
+                <pre>&lt;!-- Calendly inline widget --&gt;
+&lt;div class="calendly-inline-widget"
+  data-url="https://calendly.com/accessegypttravel/30min"
+  style="min-width:320px;height:700px;"&gt;
+&lt;/div&gt;
+&lt;script type="text/javascript"
+  src="https://assets.calendly.com/assets/external/widget.js" async&gt;
+&lt;/script&gt;</pre>
+                <div class="note">Calendly URL confirmed: <code>https://calendly.com/accessegypttravel/30min</code></div>
+              </td>
+            </tr>
+            <tr>
+              <td>Right — Video Call Options</td>
+              <td>
+                Heading: <code>Prefer a Video Call?</code><br><br>
+                <p style="font-size:13px;color:#5a4030;margin-bottom:10px;">Both Zoom and Google Meet are available via Calendly — when the customer books a call, they'll get a confirmation email with the video link automatically generated. No direct "join now" links on the page.</p>
+                <strong>Zoom button:</strong><br>
+                Label: "Schedule a Zoom Call"<br>
+                URL: <code>https://calendly.com/accessegypttravel/30min</code><br>
+                Note: Calendly sends them a Zoom link in their confirmation email<br><br>
+                <strong>Google Meet button:</strong><br>
+                Label: "Schedule a Google Meet Call"<br>
+                URL: <code>https://calendly.com/accessegypttravel/30min</code><br>
+                Note: In Calendly settings, enable Google Meet as a location option — the meet link is auto-generated per booking<br><br>
+                <strong>WhatsApp button:</strong><br>
+                Label: "Message Us on WhatsApp"<br>
+                URL: <code>https://wa.me/20120140578</code>
+              </td>
+            </tr>
+          </table>
+
+          <div class="divider"></div>
+
+          <p><strong>SECTION 4 — Contact Form + Details (2 columns)</strong></p>
+          <table>
+            <tr><th>Left Column — Contact Form</th><th>Right Column — Direct Details</th></tr>
+            <tr>
+              <td>Keep the existing contact form (Name, Email, Message, Submit). Update form submission to send to <code>info@accessegypttravel.com</code></td>
+              <td>
+                <strong>WhatsApp / Phone:</strong><br>
+                +20 12 014-0578<br>
+                (WhatsApp Business — tap to message)<br><br>
+                <strong>US Number:</strong><br>
+                +1 772 782 0494<br><br>
+                <strong>Email:</strong><br>
+                info@accessegypttravel.com<br><br>
+                <strong>Response time:</strong><br>
+                "We respond to all messages within 2 hours during business hours (9am–6pm EST, Mon–Sat)"<br><br>
+                <strong>Based in:</strong><br>
+                Luxor, Egypt &nbsp;|&nbsp; Serving all of Egypt
+              </td>
+            </tr>
+          </table>
+
+          <div class="divider"></div>
+
+          <p><strong>SECTION 5 — Social Media &amp; Reviews</strong></p>
+          <p>3-column card layout. Light background.</p>
+          <table>
+            <tr><th>Card</th><th>Content</th></tr>
+            <tr>
+              <td>Facebook</td>
+              <td>Facebook icon + "Follow us for trip photos, travel tips, and tour updates"<br>Link: <code>https://www.facebook.com/accessegypttravel/</code></td>
+            </tr>
+            <tr>
+              <td>Instagram</td>
+              <td>Instagram icon + "See Egypt through our lens — daily photos from the field"<br>Link: <code>https://www.instagram.com/accessegypttravel/</code></td>
+            </tr>
+            <tr>
+              <td>TripAdvisor</td>
+              <td>TripAdvisor icon + "Read reviews from past travelers and see our ratings"<br>Link: <code>https://www.tripadvisor.com/Attraction_Review-g294205-d25314995-Reviews-Access_Egypt_travel-Luxor_Nile_River_Valley.html</code></td>
+            </tr>
+          </table>
+
+          <div class="divider"></div>
+
+          <div class="note">
+            <strong>Before starting Elementor work on this page, owner must provide:</strong><br>
+            1. Calendly URL (the booking/scheduling link)<br>
+            2. US phone number: +1 772 782 0494 (confirmed — use this)<br>
+            3. A hero background image (person-facing, warm — not a monument)<br>
+            4. Confirm the address: "Luxor, Egypt" is recommended over "Hurghada"
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION 8C: FOOTER REDESIGN -->
+  <div class="section" id="s8c">
+    <div class="section-header">
+      <span class="badge badge-high">High Priority</span>
+      <h2>8C. Footer — Full Redesign (Elementor Theme Builder)</h2>
+    </div>
+    <div class="section-body">
+      <div class="ar-note">
+        <strong>الفوتر — إعادة بناء كاملة في Elementor Theme Builder</strong>
+        <ul>
+          <li>الفوتر في Elementor مش في الصفحات العادية — روح <strong>Templates → Theme Builder → Footer</strong></li>
+          <li>لو مفيش Footer موجود: اضغط Add New → Footer → ابدأ من Template فارغة</li>
+          <li>الفوتر المطلوب فيه 4 أعمدة:
+            <ul>
+              <li>العمود 1: اللوجو + شعار الشركة</li>
+              <li>العمود 2: روابط سريعة (About، Tours، Contact، FAQs)</li>
+              <li>العمود 3: معلومات التواصل (أرقام التليفون والإيميل)</li>
+              <li>العمود 4: سوشيال ميديا (Facebook، Instagram، TripAdvisor)</li>
+            </ul>
+          </li>
+          <li>لون الخلفية: <code>#2c1a0e</code> (بني غامق) | لون النص: <code>#f5f0e8</code> (أبيض ترابي)</li>
+          <li>بعد ما تخلص: اضغط Publish وحدد Display Conditions: All Pages</li>
+        </ul>
+        <strong>⚠️ مهم:</strong> بعد النشر، افتح كل صفحة في الموقع وتأكد إن الفوتر بيظهر صح.
+      </div>
+
+      <div class="task">
+        <div class="task-header">
+          <div class="task-num">15B</div>
+          <div>
+            <div class="task-title">Replace Current Footer with Gate 1-Style Multi-Column Footer</div>
+            <span class="badge badge-high">High</span>
+          </div>
+        </div>
+        <div class="task-body">
+          <div class="note"><strong>Reference:</strong> This footer structure is modeled after Osiris Tours (osiristours.com) — a direct Egypt competitor with excellent footer organization. Copy the structure, not the content.</div>
+
+          <div class="path"><span class="highlight">Templates</span> <span class="arrow">→</span> <span class="highlight">Theme Builder</span> <span class="arrow">→</span> <span class="highlight">Footer</span> <span class="arrow">→</span> <span class="highlight">Edit with Elementor</span></div>
+
+          <p>Build the footer in 3 stacked sections:</p>
+
+          <div class="divider"></div>
+
+          <p><strong>SECTION A — Customer Photo Strip (above footer, full width)</strong></p>
+          <p>Inspired by Gate 1's <code>#Gate1Travel</code> section. Background: light sand/beige.</p>
+          <table>
+            <tr><th>Element</th><th>Spec</th></tr>
+            <tr><td>Heading</td><td><code>Travel With Us — See Egypt Through Their Eyes</code></td></tr>
+            <tr><td>Subtext</td><td><code>Real photos from real travelers. Every trip is different. Every story is yours.</code></td></tr>
+            <tr><td>Photo row</td><td>Horizontal scrolling image strip — 6–8 customer trip photos from the Google Drive folder. Use an Elementor Image Carousel widget. Each image: square crop, 300×300px.</td></tr>
+            <tr><td>CTA buttons</td><td>"View Full Gallery" → links to /albums/ &nbsp;&nbsp; "Read Reviews" → links to TripAdvisor profile</td></tr>
+            <tr><td>Hashtag</td><td>Small text below: <code>#AccessEgyptTravel</code> in brand teal color</td></tr>
+          </table>
+
+          <div class="divider"></div>
+
+          <p><strong>SECTION B — Main Footer</strong></p>
+          <p>Background: <code>#212121</code> (dark charcoal — modeled on Osiris Tours footer, NOT navy). White text throughout. 4 columns.</p>
+
+          <table>
+            <tr><th>Column 1 — Egypt Tours</th><th>Column 2 — Traveler Resources</th><th>Column 3 — Why Choose Us?</th><th>Column 4 — Contact Us</th></tr>
+            <tr>
+              <td>
+                <strong>Heading: "Egypt Tours"</strong><br><br>
+                Egypt Packages → <code>/egypt-packages/</code><br>
+                Luxor Day Tours → <code>/tour/</code><br>
+                Nile Cruise → <code>/nile-cruise/</code><br>
+                Tailor-Made Tours → <code>/tailor-made/</code><br>
+                Hurghada to Luxor Tours → <code>/egypt-packages/</code><br>
+                Cairo to Luxor Tours → <code>/egypt-packages/</code><br><br>
+                <em style="font-size:12px;">Last 2 are SEO anchor text pointing to Egypt Packages until dedicated pages exist in Phase 2</em>
+              </td>
+              <td>
+                <strong>Heading: "Traveler Resources"</strong><br><br>
+                Visa Requirements for Americans → <code>#</code> (Phase 2)<br>
+                Best Time to Visit Egypt → <code>#</code> (Phase 2)<br>
+                Hurghada to Luxor: Complete Guide → <code>/blog/</code><br>
+                Is Egypt Safe for Americans? → <code>/blog/</code><br>
+                What to Pack for Egypt → <code>/blog/</code><br>
+                Egypt Travel FAQ → <code>/faq/</code><br><br>
+                "Read more on our Egypt Travel Blog →" → <code>/blog/</code><br><br>
+                <em style="font-size:12px;">Use actual blog post titles as link text (not generic names) — this is how Osiris drives SEO from the footer</em>
+              </td>
+              <td>
+                <strong>Heading: "Why Access Egypt Travel?"</strong><br><br>
+                Read our TripAdvisor Reviews →<br>
+                <code>tripadvisor.com/Attraction_Review-g294205-d25314995-Reviews-Access_Egypt_travel-Luxor_Nile_River_Valley.html</code><br><br>
+                Read our FAQs → <code>/faq/</code><br>
+                Meet John Gamil — Our Egyptologist → <code>/about-us/</code><br>
+                Our Mission → <code>/our-mission/</code><br>
+                Trip Photo Albums → <code>/albums/</code><br>
+                Reservation Policy → <code>/reservation-policy/</code>
+              </td>
+              <td>
+                <strong>Heading: "Contact Us"</strong><br><br>
+                📍 Pickup: Cairo · Hurghada · Luxor<br><br>
+                🇺🇸 US: +1 772 782 0494<br>
+                💬 WhatsApp: +20 12 014-0578<br>
+                ✉️ info@accessegypttravel.com<br><br>
+                <a href="https://calendly.com/accessegypttravel/30min">Schedule a Free Call →</a><br><br>
+                <strong>Social icons:</strong><br>
+                Facebook · Instagram · TripAdvisor · WhatsApp<br><br>
+                <code>facebook.com/accessegypttravel</code><br>
+                <code>instagram.com/accessegypttravel</code><br>
+                <code>tripadvisor.com/Attraction_Review-g294205-d25314995-Reviews-Access_Egypt_travel-Luxor_Nile_River_Valley.html</code><br>
+                <code>wa.me/20120140578</code>
+              </td>
+            </tr>
+          </table>
+
+          <div class="note"><strong>Reference model:</strong> This 4-column structure mirrors Osiris Tours' footer exactly: Destinations → Traveler Resources → Why Choose Us → Contact. It is the strongest Egypt tour operator footer pattern observed. The "Traveler Resources" column must use real blog post titles as link text — not generic labels like "Blog Post 1". This is what creates SEO interlinking value from the footer.</div>
+
+          <div class="divider"></div>
+
+          <p><strong>SECTION C — Copyright Bar (dark, slim)</strong></p>
+          <table>
+            <tr><th>Left</th><th>Center</th><th>Right</th></tr>
+            <tr>
+              <td><code>© 2026 Access Egypt Travel LLC. All Rights Reserved.</code></td>
+              <td>Privacy Policy &nbsp;|&nbsp; Terms &amp; Conditions &nbsp;|&nbsp; Reservation Policy</td>
+              <td>📍 Cairo · Hurghada · Luxor &nbsp;|&nbsp; +1 772 782 0494</td>
+            </tr>
+          </table>
+
+          <div class="warning">Current footer shows copyright 2023 — update to 2026. Also update "At Access Egypt Travel" to "Access Egypt Travel LLC" once the LLC formation (currently Planning) is complete.</div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION 10: ELEMENTOR TECHNICAL -->
+  <div class="section" id="s10">
+    <div class="section-header">
+      <span class="badge badge-medium">Medium Priority</span>
+      <h2>10. Elementor — Technical Health Fixes</h2>
+    </div>
+    <div class="section-body">
+      <div class="ar-note">
+        <strong>Elementor — إصلاحات تقنية ضرورية</strong>
+        <ul>
+          <li><strong>Regenerate CSS:</strong> روح Elementor → Tools → Regenerate CSS &amp; Data → اضغط الزرار — بتحل مشاكل الستايل الغريبة</li>
+          <li><strong>Update Elementor:</strong> روح Plugins → حدث Elementor وElementor Pro لآخر إصدار — لكن <strong>خد نسخة احتياطية قبل التحديث!</strong></li>
+          <li>بعد أي تحديث: افتح كل صفحة رئيسية في الموقع وتأكد إنه شغال تمام</li>
+          <li>لو حصل أي مشكلة بعد التحديث: روح Plugins → Elementor → Deactivate ثم Activate تاني</li>
+          <li>الـ Elementor الموجود: Pro 3.7.7 — التحديث متوفر لإصدار أحدث</li>
+        </ul>
+        <strong>📌 ترتيب مهم:</strong> خد Backup أول → حدث → جرب الموقع → لو اتكسر راجع للـ Backup.
+      </div>
+
+      <div class="task">
+        <div class="task-header">
+          <div class="task-num">17</div>
+          <div>
+            <div class="task-title">Regenerate CSS &amp; Data</div>
+            <span class="badge badge-medium">Medium</span>
+          </div>
+        </div>
+        <div class="task-body">
+          <p>Run this after completing all other changes. It clears Elementor's CSS cache and regenerates styles for all pages — fixes visual glitches, stale styles, and rendering inconsistencies.</p>
+          <div class="path"><span class="highlight">Elementor</span> <span class="arrow">→</span> <span class="highlight">Tools</span> <span class="arrow">→</span> <span class="highlight">General</span> tab <span class="arrow">→</span> <span class="highlight">Regenerate CSS &amp; Data</span> <span class="arrow">→</span> click button and wait for completion</div>
+        </div>
+      </div>
+
+      <div class="task">
+        <div class="task-header">
+          <div class="task-num">18</div>
+          <div>
+            <div class="task-title">Update Elementor &amp; All Plugins to Latest Versions</div>
+            <span class="badge badge-low">Low</span>
+          </div>
+        </div>
+        <div class="task-body">
+          <p>The XML export shows <strong>Elementor 3.8.0</strong> and <strong>Elementor Pro 3.7.7</strong> — both are significantly behind current versions. Outdated Elementor versions cause gallery rendering bugs, JS conflicts, and security vulnerabilities.</p>
+          <div class="path"><span class="highlight">Plugins</span> <span class="arrow">→</span> <span class="highlight">Installed Plugins</span> <span class="arrow">→</span> update Elementor and Elementor Pro first <span class="arrow">→</span> then update all remaining plugins</div>
+          <div class="warning">Take a full site backup before updating Elementor. Elementor major version updates can occasionally break custom layouts. Test on staging environment first if available.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION 11: INTERACTIVE TOUR MAP -->
+  <div class="section" id="s11">
+    <div class="section-header">
+      <span class="badge badge-high">High Impact</span>
+      <h2>11. Interactive Tour Route Map (Leaflet.js)</h2>
+    </div>
+    <div class="section-body">
+      <div class="ar-note">
+        <strong>الخريطة التفاعلية لكل صفحة جولة — Leaflet.js</strong>
+        <ul>
+          <li>الخريطة دي بتعرض خط سير الجولة على خريطة حقيقية مصر — فيها pins على القاهرة ولكسور والغردقة</li>
+          <li><strong>الخطوة الأولى — لمرة واحدة بس:</strong> افتح functions.php (Appearance → Theme File Editor) والصق الكود الموجود في القسم A تحت — هيحمل مكتبة Leaflet على كل الصفحات</li>
+          <li><strong>الخطوة التانية — لكل صفحة جولة:</strong> افتح الصفحة في Elementor → ضيف HTML widget → الصق الكود الكامل الموجود في القسم B</li>
+          <li><strong>مهم جداً — الـ ID:</strong> كل خريطة لازم يكون ليها ID مختلف — مثلاً: <code>tour-map-cairo-luxor</code> ، <code>tour-map-nile-cruise</code></li>
+          <li>الـ window.aetFlyTo لازم يفضل window.aetFlyTo مش بس function — ده مهم عشان Elementor بيعمل scope منفصل</li>
+          <li>الكود الكامل جاهز للـ paste — بس غير الـ ID لو عندك أكتر من خريطة</li>
+        </ul>
+        <strong>🗺️ إحداثيات مهمة:</strong> القاهرة [30.04, 31.24] | لكسور [25.69, 32.64] | أسوان [24.09, 32.90] | الغردقة [27.26, 33.81]
+      </div>
+
+      <p>Each tour page needs an interactive map showing the tour route — city pins that pop up with day-by-day info when clicked, a route line between cities, and a reset button to zoom back out. This uses <strong>Leaflet.js</strong>, a free open-source library. No API key, no Google Maps billing, works permanently.</p>
+
+      <div class="note"><strong>What the finished map does:</strong> Shows a real map of Egypt. Pins on Cairo, Luxor, and Hurghada. A red route line Cairo→Luxor. A dashed gold line Hurghada→Luxor (optional pickup). Clickable city labels above the map that fly-zoom to each city and open a popup. A ⌂ home button that resets the view.</div>
+
+      <div class="task">
+        <div class="task-header">
+          <div class="task-num">A</div>
+          <div><div class="task-title">Step 1 — Load Leaflet into WordPress (functions.php)</div>
+          <span class="badge badge-high">Do this once — affects all pages</span></div>
+        </div>
+        <div class="task-body">
+          <p>You need to tell WordPress to load the Leaflet CSS and JS files on every page. Open your theme's <code>functions.php</code> file.</p>
+          <div class="warning"><strong>Use a child theme.</strong> If you edit the parent theme's functions.php directly, your changes get wiped when the theme updates. Go to <strong>Appearance → Themes</strong> and check if a child theme is active. If not, create one first (or use a plugin like "Child Theme Configurator").</div>
+          <div class="path"><span class="highlight">Appearance</span> <span class="arrow">→</span> <span class="highlight">Theme File Editor</span> <span class="arrow">→</span> select <strong>functions.php</strong> from the right panel</div>
+          <p>Scroll to the very bottom of the file and paste this block — do not delete anything that's already there:</p>
+          <pre><span class="comment">// Load Leaflet map library on all pages</span>
+<span class="key">function</span> aet_load_leaflet() {
+    wp_enqueue_style(
+        <span class="val">'leaflet-css'</span>,
+        <span class="val">'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css'</span>,
+        [],
+        <span class="val">'1.9.4'</span>
+    );
+    wp_enqueue_script(
+        <span class="val">'leaflet-js'</span>,
+        <span class="val">'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js'</span>,
+        [],
+        <span class="val">'1.9.4'</span>,
+        <span class="val">true</span>  <span class="comment">// true = load in footer, not head</span>
+    );
+}
+add_action( <span class="val">'wp_enqueue_scripts'</span>, <span class="val">'aet_load_leaflet'</span> );</pre>
+          <p>Click <strong>Update File</strong>. Check the live site loads without errors (press F12 → Console tab — should be no red errors).</p>
+          <div class="note"><strong>Alternative if you can't edit functions.php:</strong> Install the free plugin <strong>"WPCode Lite"</strong> → Code Snippets → Add Snippet → PHP snippet → paste the same code block above → Save and Activate.</div>
+        </div>
+      </div>
+
+      <div class="task">
+        <div class="task-header">
+          <div class="task-num">B</div>
+          <div><div class="task-title">Step 2 — Add the Map to a Tour Page in Elementor</div>
+          <span class="badge badge-high">Repeat for each tour page</span></div>
+        </div>
+        <div class="task-body">
+          <p>Open the tour page in Elementor. Find the section where you want the map (after "Sites You'll Visit"). Add a new row, then drag in an <strong>HTML widget</strong> (search "HTML" in the widget panel).</p>
+          <div class="path"><span class="highlight">Elementor editor</span> <span class="arrow">→</span> search <span class="highlight">HTML</span> widget <span class="arrow">→</span> drag into section <span class="arrow">→</span> click the widget to edit it</div>
+          <p>Paste the entire code block below into the HTML widget. Then click <strong>Update</strong>.</p>
+
+          <div class="warning"><strong>Important — unique ID rule:</strong> The <code>id="tour-map-cairo-luxor"</code> in the code below must be unique on every page. For a Nile Cruise page, change it to <code>id="tour-map-nile-cruise"</code> and update the matching reference inside the script. If two maps share the same ID, only the first one will work.</div>
+
+          <pre><span class="comment">&lt;!-- ROUTE PILLS — clickable city labels above the map --&gt;</span>
+&lt;div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:14px;"&gt;
+  &lt;span onclick="aetFlyTo('cairo')"
+    style="background:#2c1a0e;color:#d4af6a;padding:6px 16px;border-radius:20px;
+           font-size:13px;font-weight:700;cursor:pointer;"
+    title="Click to zoom to Cairo"&gt;🏛️ Cairo (3 nights)&lt;/span&gt;
+  &lt;span style="color:#b5451b;font-size:18px;font-weight:900;"&gt;→&lt;/span&gt;
+  &lt;span onclick="aetFlyTo('luxor')"
+    style="background:#2c1a0e;color:#d4af6a;padding:6px 16px;border-radius:20px;
+           font-size:13px;font-weight:700;cursor:pointer;"
+    title="Click to zoom to Luxor"&gt;𓂀 Luxor (2 nights)&lt;/span&gt;
+  &lt;span onclick="aetFlyTo('hurghada')"
+    style="background:#f5f0e8;color:#8b7355;padding:6px 16px;border-radius:20px;
+           font-size:13px;font-weight:700;cursor:pointer;border:1px dashed #d4af6a;"
+    title="Click to see Hurghada pickup"&gt;📍 Hurghada pickup (optional)&lt;/span&gt;
+&lt;/div&gt;
+
+<span class="comment">&lt;!-- MAP CONTAINER — give it a fixed height --&gt;</span>
+&lt;div id="tour-map-cairo-luxor"
+  style="height:400px;border-radius:8px;border:2px solid #f0e8d8;"&gt;
+&lt;/div&gt;
+&lt;p style="font-size:12px;color:#8b7355;font-style:italic;margin-top:8px;"&gt;
+  👆 Click any city above to zoom in. Use the ⌂ button on the map to reset the view.
+  Red line = main route. Dashed gold = Hurghada optional pickup.
+&lt;/p&gt;
+
+&lt;script&gt;
+document.addEventListener('DOMContentLoaded', function() {
+
+  <span class="comment">// --- MAP SETUP ---</span>
+  var map = L.map('tour-map-cairo-luxor', {
+    center: [27.8, 31.8],
+    zoom: 6,
+    scrollWheelZoom: false  <span class="comment">// prevents page scroll hijack</span>
+  });
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© &lt;a href="https://openstreetmap.org/copyright"&gt;OpenStreetMap&lt;/a&gt;'
+  }).addTo(map);
+
+  <span class="comment">// --- PIN STYLE HELPER ---</span>
+  function makePin(color, border) {
+    return L.divIcon({
+      className: '',
+      html: '&lt;div style="background:' + color +
+            ';width:18px;height:18px;border-radius:50%' +
+            ';border:3px solid ' + border +
+            ';box-shadow:0 3px 8px rgba(0,0,0,0.35);"&gt;&lt;/div&gt;',
+      iconSize: [18, 18], iconAnchor: [9, 9], popupAnchor: [0, -14]
+    });
+  }
+
+  <span class="comment">// --- CITY DATA ---</span>
+  var cities = {
+    cairo:    { latlng: [30.0444, 31.2357], zoom: 11,
+      popup: '&lt;b style="font-size:14px;"&gt;🏛️ Cairo&lt;/b&gt;&lt;br&gt;' +
+             '&lt;span style="color:#b5451b;font-size:12px;font-weight:700;"&gt;Days 1–3&lt;/span&gt;&lt;br&gt;' +
+             '&lt;ul style="margin:6px 0 0 16px;font-size:12px;line-height:1.8;"&gt;' +
+             '&lt;li&gt;Giza Pyramids &amp; Sphinx&lt;/li&gt;' +
+             '&lt;li&gt;Grand Egyptian Museum&lt;/li&gt;' +
+             '&lt;li&gt;Saladin Citadel &amp; Mosque&lt;/li&gt;' +
+             '&lt;li&gt;Coptic Cairo&lt;/li&gt;&lt;/ul&gt;' },
+    luxor:    { latlng: [25.6872, 32.6396], zoom: 11,
+      popup: '&lt;b style="font-size:14px;"&gt;𓂀 Luxor&lt;/b&gt;&lt;br&gt;' +
+             '&lt;span style="color:#064e3b;font-size:12px;font-weight:700;"&gt;Days 4–6&lt;/span&gt;&lt;br&gt;' +
+             '&lt;ul style="margin:6px 0 0 16px;font-size:12px;line-height:1.8;"&gt;' +
+             '&lt;li&gt;Valley of the Kings&lt;/li&gt;' +
+             '&lt;li&gt;Karnak &amp; Luxor Temples&lt;/li&gt;' +
+             '&lt;li&gt;Hatshepsut Temple&lt;/li&gt;' +
+             '&lt;li&gt;Nile Felucca at sunset&lt;/li&gt;&lt;/ul&gt;' },
+    hurghada: { latlng: [27.2574, 33.8129], zoom: 11,
+      popup: '&lt;b style="font-size:14px;"&gt;📍 Hurghada&lt;/b&gt;&lt;br&gt;' +
+             '&lt;span style="color:#8b7355;font-size:12px;font-weight:700;"&gt;Optional Pickup&lt;/span&gt;&lt;br&gt;' +
+             '&lt;p style="font-size:12px;margin-top:6px;"&gt;' +
+             'Already at a Red Sea resort? We pick you up here ' +
+             'and transfer you to Luxor (~3 hrs). Included in tour price.&lt;/p&gt;' }
+  };
+
+  <span class="comment">// --- MARKERS ---</span>
+  var markers = {
+    cairo:    L.marker(cities.cairo.latlng,    {icon: makePin('#b5451b','white')}).addTo(map).bindPopup(cities.cairo.popup),
+    luxor:    L.marker(cities.luxor.latlng,    {icon: makePin('#064e3b','white')}).addTo(map).bindPopup(cities.luxor.popup),
+    hurghada: L.marker(cities.hurghada.latlng, {icon: makePin('#d4af6a','#2c1a0e')}).addTo(map).bindPopup(cities.hurghada.popup)
+  };
+
+  <span class="comment">// --- ROUTE LINES ---</span>
+  L.polyline([cities.cairo.latlng, cities.luxor.latlng],
+    {color:'#b5451b', weight:3, opacity:0.85}).addTo(map);
+  L.polyline([cities.hurghada.latlng, cities.luxor.latlng],
+    {color:'#d4af6a', weight:2.5, opacity:0.8, dashArray:'10 7'}).addTo(map);
+
+  <span class="comment">// --- HOME / RESET BUTTON ---</span>
+  L.Control.ResetView = L.Control.extend({
+    options: { position: 'topleft' },
+    onAdd: function(m) {
+      var c = L.DomUtil.create('div', 'leaflet-bar leaflet-control');
+      var a = L.DomUtil.create('a', '', c);
+      a.innerHTML = '⌂'; a.href = '#'; a.title = 'Reset map view';
+      a.style.cssText = 'font-size:17px;line-height:26px;font-weight:900;' +
+                        'color:#444;text-decoration:none;display:block;' +
+                        'width:26px;height:26px;text-align:center;';
+      L.DomEvent.on(a, 'click', function(e) {
+        L.DomEvent.preventDefault(e);
+        L.DomEvent.stopPropagation(e);
+        m.flyTo([27.8, 31.8], 6, {duration:1.2});
+      });
+      return c;
+    }
+  });
+  new L.Control.ResetView().addTo(map);
+
+  <span class="comment">// --- FLY-TO FUNCTION (called by city pill clicks) ---</span>
+  window.aetFlyTo = function(name) {
+    var c = cities[name];
+    map.flyTo(c.latlng, c.zoom, {duration: 1.4});
+    setTimeout(function() { markers[name].openPopup(); }, 1500);
+  };
+
+}); <span class="comment">// end DOMContentLoaded</span>
+&lt;/script&gt;</pre>
+
+          <div class="note"><strong>Why <code>window.aetFlyTo</code> instead of just <code>aetFlyTo</code>?</strong> Elementor wraps widget scripts in a local scope — if you declare the function normally, the <code>onclick</code> attributes on the route pills can't reach it. Assigning to <code>window</code> makes it globally accessible. This is the correct Elementor pattern.</div>
+        </div>
+      </div>
+
+      <div class="task">
+        <div class="task-header">
+          <div class="task-num">C</div>
+          <div><div class="task-title">Step 3 — Adding Maps to Other Tour Pages</div>
+          <span class="badge badge-medium">For each additional tour</span></div>
+        </div>
+        <div class="task-body">
+          <p>For every other tour page (Nile Cruise, Egypt Packages, etc.), repeat Step 2 with these changes:</p>
+          <table>
+            <tr><th>What to change</th><th>How</th></tr>
+            <tr><td>Map container ID</td><td>Change <code>tour-map-cairo-luxor</code> to something unique, e.g. <code>tour-map-nile-cruise</code>. Change it in <strong>both</strong> the <code>&lt;div id="..."&gt;</code> and the <code>L.map('...')</code> call.</td></tr>
+            <tr><td>City pills text</td><td>Update the label text (e.g. "Luxor (Day 1)" → "Aswan (Day 4)")</td></tr>
+            <tr><td>City coordinates</td><td>Aswan: <code>[24.0889, 32.8998]</code> — replace where needed</td></tr>
+            <tr><td>Route line points</td><td>Update the <code>L.polyline</code> arrays to match the new route</td></tr>
+            <tr><td>Popup content</td><td>Update the popup text for each city's day/activities</td></tr>
+            <tr><td>window.aetFlyTo</td><td>If two maps exist on the same page, rename the function: <code>window.aetFlyToCruise</code> etc. and update the onclick attributes to match.</td></tr>
+          </table>
+          <div class="note"><strong>Common Egypt coordinates for reference:</strong><br>
+            Cairo: <code>[30.0444, 31.2357]</code> &nbsp;|&nbsp;
+            Luxor: <code>[25.6872, 32.6396]</code> &nbsp;|&nbsp;
+            Aswan: <code>[24.0889, 32.8998]</code> &nbsp;|&nbsp;
+            Hurghada: <code>[27.2574, 33.8129]</code> &nbsp;|&nbsp;
+            Sharm: <code>[27.9158, 34.3299]</code> &nbsp;|&nbsp;
+            Abu Simbel: <code>[22.3372, 31.6258]</code>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION 12: CONTACT FORM DATE TOGGLE -->
+  <div class="section" id="s12">
+    <div class="section-header">
+      <span class="badge badge-high">High</span>
+      <h2>12. Contact Form — Date Picker with Month / Specific Dates / Flexible Toggle</h2>
+    </div>
+    <div class="section-body">
+      <div class="ar-note">
+        <strong>نموذج التواصل مع اختيار التاريخ — Contact Form</strong>
+        <ul>
+          <li>النموذج ده HTML widget في Elementor — مش form plugin</li>
+          <li>افتح صفحة Contact في Elementor → ضيف HTML widget → الصق الكود الموجود في القسم A</li>
+          <li><strong>الـ action URL:</strong> في السطر الأول من الكود فيه <code>https://formspree.io/f/YOUR_FORM_ID</code> — محتاج تعمل حساب مجاني على formspree.io وتاخد الـ ID بتاعك وتحط بدل YOUR_FORM_ID</li>
+          <li>الـ Form بيبعت الرسائل على <strong>info@accessegypttravel.com</strong> — Formspree بيتولى ده</li>
+          <li>زر التواريخ فيه 3 اختيارات: By Month (شهر وسنة) | Specific Dates (من وإلى) | Not Sure Yet (مش عارف)</li>
+          <li>الـ JavaScript للـ toggle موجود في آخر الكود — ملوش أي تغيير، بس تأكد إنه موجود</li>
+        </ul>
+        <strong>بديل أسهل:</strong> لو مش عايز تتعامل مع Formspree، استخدم WPForms plugin (مجاني) — بيعمل الـ form بدون كود وبيبعت على الإيميل تلقائياً.
+      </div>
+
+      <p>The contact form needs a smart date field: a 3-way toggle so visitors can pick "By Month," "Specific Dates," or "Not Sure Yet." Each option shows a different input. This is built as a plain HTML form widget in Elementor — no form plugin required.</p>
+
+      <div class="task">
+        <div class="task-header">
+          <div class="task-num">A</div>
+          <div><div class="task-title">How to Add the Contact Form to the Contact Page</div></div>
+        </div>
+        <div class="task-body">
+          <p>Open the Contact page in Elementor. The form is added as an <strong>HTML widget</strong>. Paste the full form code below into the widget.</p>
+          <div class="path"><span class="highlight">Contact page</span> <span class="arrow">→</span> <span class="highlight">Edit with Elementor</span> <span class="arrow">→</span> drag <span class="highlight">HTML widget</span> into the left column <span class="arrow">→</span> paste code</div>
+
+          <pre><span class="comment">&lt;!-- ACCESS EGYPT TRAVEL — Contact Form with Date Toggle --&gt;</span>
+&lt;form action="https://formspree.io/f/YOUR_FORM_ID" method="POST"
+      style="display:flex;flex-direction:column;gap:14px;"&gt;
+
+  &lt;div&gt;
+    &lt;label style="display:block;font-size:13px;font-weight:700;color:#5a4030;margin-bottom:5px;"&gt;Your Name *&lt;/label&gt;
+    &lt;input name="name" type="text" required placeholder="First and last name"
+      style="width:100%;border:1px solid #e8dfc8;border-radius:6px;padding:10px 14px;font-size:14px;"&gt;
+  &lt;/div&gt;
+
+  &lt;div&gt;
+    &lt;label style="display:block;font-size:13px;font-weight:700;color:#5a4030;margin-bottom:5px;"&gt;Email Address *&lt;/label&gt;
+    &lt;input name="email" type="email" required placeholder="you@example.com"
+      style="width:100%;border:1px solid #e8dfc8;border-radius:6px;padding:10px 14px;font-size:14px;"&gt;
+  &lt;/div&gt;
+
+  &lt;div&gt;
+    &lt;label style="display:block;font-size:13px;font-weight:700;color:#5a4030;margin-bottom:5px;"&gt;Preferred Pickup City&lt;/label&gt;
+    &lt;select name="pickup_city"
+      style="width:100%;border:1px solid #e8dfc8;border-radius:6px;padding:10px 14px;font-size:14px;"&gt;
+      &lt;option&gt;Cairo&lt;/option&gt;
+      &lt;option&gt;Hurghada&lt;/option&gt;
+      &lt;option&gt;Luxor&lt;/option&gt;
+      &lt;option&gt;Not sure yet&lt;/option&gt;
+    &lt;/select&gt;
+  &lt;/div&gt;
+
+  <span class="comment">&lt;!-- DATE TOGGLE --&gt;</span>
+  &lt;div&gt;
+    &lt;label style="display:block;font-size:13px;font-weight:700;color:#5a4030;margin-bottom:8px;"&gt;When are you traveling?&lt;/label&gt;
+    &lt;div style="display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap;"&gt;
+      &lt;label style="display:flex;align-items:center;gap:6px;cursor:pointer;
+                    background:#fdf8f2;border:1px solid #e8dfc8;border-radius:5px;
+                    padding:7px 14px;font-size:13px;font-weight:600;color:#5a4030;"&gt;
+        &lt;input type="radio" name="date_type" value="month" checked
+               onchange="aetToggleDate('month')"&gt; 📅 By Month
+      &lt;/label&gt;
+      &lt;label style="display:flex;align-items:center;gap:6px;cursor:pointer;
+                    background:#fdf8f2;border:1px solid #e8dfc8;border-radius:5px;
+                    padding:7px 14px;font-size:13px;font-weight:600;color:#5a4030;"&gt;
+        &lt;input type="radio" name="date_type" value="specific"
+               onchange="aetToggleDate('specific')"&gt; 📆 Specific Dates
+      &lt;/label&gt;
+      &lt;label style="display:flex;align-items:center;gap:6px;cursor:pointer;
+                    background:#fdf8f2;border:1px solid #e8dfc8;border-radius:5px;
+                    padding:7px 14px;font-size:13px;font-weight:600;color:#5a4030;"&gt;
+        &lt;input type="radio" name="date_type" value="flexible"
+               onchange="aetToggleDate('flexible')"&gt; 🤔 Not Sure Yet
+      &lt;/label&gt;
+    &lt;/div&gt;
+
+    &lt;div id="aet-month-picker"&gt;
+      &lt;input type="month" name="travel_month" min="2026-07" max="2029-12"
+        style="width:100%;border:1px solid #e8dfc8;border-radius:6px;padding:10px 14px;font-size:14px;"&gt;
+    &lt;/div&gt;
+    &lt;div id="aet-date-range" style="display:none;"&gt;
+      &lt;div style="display:flex;gap:10px;"&gt;
+        &lt;div style="flex:1;"&gt;
+          &lt;label style="font-size:11px;color:#8b7355;font-weight:700;"&gt;From&lt;/label&gt;
+          &lt;input type="date" name="travel_from"
+            style="width:100%;border:1px solid #e8dfc8;border-radius:6px;padding:10px 14px;font-size:14px;"&gt;
+        &lt;/div&gt;
+        &lt;div style="flex:1;"&gt;
+          &lt;label style="font-size:11px;color:#8b7355;font-weight:700;"&gt;To&lt;/label&gt;
+          &lt;input type="date" name="travel_to"
+            style="width:100%;border:1px solid #e8dfc8;border-radius:6px;padding:10px 14px;font-size:14px;"&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div id="aet-flexible" style="display:none;"&gt;
+      &lt;p style="font-size:13px;color:#8b7355;font-style:italic;padding:8px 0;"&gt;
+        No problem — share your rough timeframe in the message below.
+      &lt;/p&gt;
+      &lt;input type="hidden" name="travel_month" value="Flexible — see message"&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div&gt;
+    &lt;label style="display:block;font-size:13px;font-weight:700;color:#5a4030;margin-bottom:5px;"&gt;Number of Travelers&lt;/label&gt;
+    &lt;input name="travelers" type="text" placeholder="e.g. 2 adults, 1 child (age 8)"
+      style="width:100%;border:1px solid #e8dfc8;border-radius:6px;padding:10px 14px;font-size:14px;"&gt;
+  &lt;/div&gt;
+
+  &lt;div&gt;
+    &lt;label style="display:block;font-size:13px;font-weight:700;color:#5a4030;margin-bottom:5px;"&gt;Your Message / Questions&lt;/label&gt;
+    &lt;textarea name="message" rows="4"
+      placeholder="Tell us what you're dreaming of — or ask us anything."
+      style="width:100%;border:1px solid #e8dfc8;border-radius:6px;padding:10px 14px;font-size:14px;resize:vertical;"&gt;&lt;/textarea&gt;
+  &lt;/div&gt;
+
+  &lt;button type="submit"
+    style="width:100%;background:#b5451b;color:white;border:none;padding:14px;
+           border-radius:6px;font-size:15px;font-weight:800;cursor:pointer;"&gt;
+    Send Message →
+  &lt;/button&gt;
+
+&lt;/form&gt;
+
+&lt;script&gt;
+function aetToggleDate(mode) {
+  document.getElementById('aet-month-picker').style.display = mode === 'month'    ? 'block' : 'none';
+  document.getElementById('aet-date-range').style.display   = mode === 'specific' ? 'block' : 'none';
+  document.getElementById('aet-flexible').style.display     = mode === 'flexible' ? 'block' : 'none';
+}
+&lt;/script&gt;</pre>
+
+          <div class="note"><strong>What is <code>formspree.io</code>?</strong> Formspree is a free service that receives HTML form submissions and forwards them to an email address. No server-side code needed. Go to <a href="https://formspree.io" target="_blank">formspree.io</a>, create a free account, create a form pointed at <code>info@accessegypttravel.com</code>, and replace <code>YOUR_FORM_ID</code> in the action URL with your real form ID (looks like <code>xpwzabcd</code>). Free plan: 50 submissions/month. Paid: $10/month unlimited.</div>
+          <div class="note"><strong>Alternative:</strong> Use WPForms (free plugin) to build the form visually inside WordPress admin, then embed it on the page via a shortcode in an Elementor Shortcode widget. WPForms integrates with Gmail natively. The date toggle JS still works — add it in a separate HTML widget below the form shortcode.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION 13: PAYMENT PAGE -->
+  <div class="section" id="s13">
+    <div class="section-header">
+      <span class="badge badge-medium">Medium — Phase 2</span>
+      <h2>13. Payment Page — Structure Now, PayPal &amp; Square Later</h2>
+    </div>
+    <div class="section-body">
+      <div class="ar-note">
+        <strong>صفحة الدفع — ابنيها دلوقتي، PayPal وSquare هيتضافوا الأسبوع الجاي</strong>
+        <ul>
+          <li>اعمل صفحة جديدة: Pages → Add New → الاسم: Payment → السلوج: <code>/payment/</code> → Edit with Elementor</li>
+          <li>الصفحة دلوقتي فيها بطاقة واحدة شغالة: <strong>Email Us to Pay</strong> — الرابط على <code>mailto:info@accessegypttravel.com</code></li>
+          <li>PayPal وSquare موجودين في الكود كـ "Coming Soon" — لما تجيب بياناتهم يوم الاثنين، غير الـ div الموجود فيه "Coming Soon" بالكود الجاي منهم</li>
+          <li><strong>PayPal:</strong> ادخل PayPal Business → Tools → PayPal Buttons → انشئ زرار → copy الكود → الصق بدل div الـ "PayPal Coming Soon"</li>
+          <li><strong>Square:</strong> ادخل Square Dashboard → Online → Payment Links → انشئ link → اعمل زرار بالرابط ده</li>
+          <li>الصفحة فيها كمان: 4 خطوات للدفع، وبوكس مهم عن الـ Deposit (25% مقدم، الباقي قبل السفر)</li>
+        </ul>
+        <strong>⚡ يوم الاثنين:</strong> الـ PayPal وSquare credentials هتوصل — بس حط البطاقات الموجودة دلوقتي عشان الصفحة تبقى موجودة قبل كده.
+      </div>
+
+      <p>Create a dedicated <strong>/payment/</strong> page now with the structure in place. The "Email Us to Pay" option is live immediately. PayPal and Square buttons get dropped in when the accounts are ready — no rebuild needed.</p>
+
+      <div class="task">
+        <div class="task-header">
+          <div class="task-num">A</div>
+          <div><div class="task-title">Create the Payment Page in WordPress</div></div>
+        </div>
+        <div class="task-body">
+          <div class="path"><span class="highlight">Pages</span> <span class="arrow">→</span> <span class="highlight">Add New</span> <span class="arrow">→</span> Title: <code>Payment</code> <span class="arrow">→</span> Slug: <code>payment</code> <span class="arrow">→</span> <span class="highlight">Edit with Elementor</span></div>
+          <p>Build the page in Elementor with these sections in order:</p>
+          <ol style="margin: 10px 0 0 20px; line-height: 2.2;">
+            <li>Hero section: dark green background, "Secure Your Egypt Tour" heading, short subtext about 25% deposit</li>
+            <li>4-step "How it works" row: Request Quote → Receive Price → Pay 25% Deposit → Pay Balance</li>
+            <li>Dark deposit box: "25% deposit holds your dates. Balance due before departure."</li>
+            <li>3-column payment methods grid (see HTML below — paste as HTML widget)</li>
+            <li>Security trust strip: "All payments in USD | Free cancellation 45+ days | Written confirmation"</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="task">
+        <div class="task-header">
+          <div class="task-num">B</div>
+          <div><div class="task-title">Payment Methods HTML — Paste as Elementor HTML Widget</div></div>
+        </div>
+        <div class="task-body">
+          <pre><span class="comment">&lt;!-- PAYMENT METHODS — Replace placeholders when accounts are ready --&gt;</span>
+&lt;div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;"&gt;
+
+  <span class="comment">&lt;!-- PAYPAL — replace button when PayPal account is connected --&gt;</span>
+  &lt;div style="background:white;border:2px solid #f0e8d8;border-radius:10px;
+              padding:28px 20px;text-align:center;opacity:0.8;"&gt;
+    &lt;div style="font-size:36px;margin-bottom:12px;"&gt;🅿️&lt;/div&gt;
+    &lt;div style="font-size:17px;font-weight:800;color:#2c1a0e;margin-bottom:6px;"&gt;PayPal&lt;/div&gt;
+    &lt;span style="background:#fef3c7;color:#92400e;font-size:11px;font-weight:700;
+                 padding:3px 10px;border-radius:20px;display:inline-block;margin-bottom:14px;"&gt;Coming Soon&lt;/span&gt;
+    &lt;p style="font-size:13px;color:#6b7280;margin-bottom:16px;line-height:1.5;"&gt;
+      Pay securely with PayPal or any credit/debit card. Buyer protection included.&lt;/p&gt;
+    <span class="comment">&lt;!-- REPLACE THIS ENTIRE DIV WITH YOUR PAYPAL BUTTON CODE WHEN READY --&gt;</span>
+    &lt;div style="background:#e5e7eb;color:#9ca3af;padding:11px;border-radius:6px;
+                font-size:14px;font-weight:700;"&gt;PayPal — Coming Soon&lt;/div&gt;
+  &lt;/div&gt;
+
+  <span class="comment">&lt;!-- SQUARE — replace button when Square account is connected --&gt;</span>
+  &lt;div style="background:white;border:2px solid #f0e8d8;border-radius:10px;
+              padding:28px 20px;text-align:center;opacity:0.8;"&gt;
+    &lt;div style="font-size:36px;margin-bottom:12px;"&gt;⬛&lt;/div&gt;
+    &lt;div style="font-size:17px;font-weight:800;color:#2c1a0e;margin-bottom:6px;"&gt;Square&lt;/div&gt;
+    &lt;span style="background:#fef3c7;color:#92400e;font-size:11px;font-weight:700;
+                 padding:3px 10px;border-radius:20px;display:inline-block;margin-bottom:14px;"&gt;Coming Soon&lt;/span&gt;
+    &lt;p style="font-size:13px;color:#6b7280;margin-bottom:16px;line-height:1.5;"&gt;
+      Pay by Visa, Mastercard, Amex or Discover via Square. Safe and instant.&lt;/p&gt;
+    <span class="comment">&lt;!-- REPLACE THIS ENTIRE DIV WITH YOUR SQUARE PAYMENT LINK WHEN READY --&gt;</span>
+    &lt;div style="background:#e5e7eb;color:#9ca3af;padding:11px;border-radius:6px;
+                font-size:14px;font-weight:700;"&gt;Square — Coming Soon&lt;/div&gt;
+  &lt;/div&gt;
+
+  <span class="comment">&lt;!-- EMAIL — live now, no changes needed --&gt;</span>
+  &lt;div style="background:white;border:2px solid #f0e8d8;border-radius:10px;
+              padding:28px 20px;text-align:center;"&gt;
+    &lt;div style="font-size:36px;margin-bottom:12px;"&gt;✉️&lt;/div&gt;
+    &lt;div style="font-size:17px;font-weight:800;color:#2c1a0e;margin-bottom:6px;"&gt;Email Us to Pay&lt;/div&gt;
+    &lt;span style="background:#d1fae5;color:#065f46;font-size:11px;font-weight:700;
+                 padding:3px 10px;border-radius:20px;display:inline-block;margin-bottom:14px;"&gt;Available Now&lt;/span&gt;
+    &lt;p style="font-size:13px;color:#6b7280;margin-bottom:16px;line-height:1.5;"&gt;
+      Contact us and we'll send you a secure payment link or walk you through it step by step.&lt;/p&gt;
+    &lt;a href="mailto:info@accessegypttravel.com?subject=Payment%20for%20Egypt%20Tour"
+       style="display:block;background:#2c1a0e;color:white;padding:11px 20px;
+              border-radius:6px;font-size:14px;font-weight:700;text-decoration:none;"&gt;
+      Email to Arrange Payment
+    &lt;/a&gt;
+  &lt;/div&gt;
+
+&lt;/div&gt;</pre>
+
+          <div class="note"><strong>When PayPal is ready:</strong> Log in to PayPal Business → Tools → PayPal Buttons → create a "Pay Now" button → copy the embed code → replace the "Coming Soon" div in the PayPal card above with that code.</div>
+          <div class="note"><strong>When Square is ready:</strong> Log in to Square Dashboard → Online → Payment Links → create a link for "Egypt Tour Deposit" → you'll get a URL. Replace the "Coming Soon" div with: <code>&lt;a href="YOUR_SQUARE_LINK" style="display:block;background:#006aff;color:white;padding:11px;border-radius:6px;font-size:14px;font-weight:700;text-decoration:none;"&gt;Pay with Square →&lt;/a&gt;</code></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SUMMARY TABLE -->
+  <div class="section">
+    <div class="section-header">
+      <h2>Summary — All Tasks by Priority</h2>
+    </div>
+    <div class="section-body">
+      <table>
+        <tr><th>#</th><th>Task</th><th>Priority</th><th>Where</th><th>Est. Time</th></tr>
+        <tr><td>1</td><td>Replace logo in Elementor header</td><td><span class="badge badge-critical">Critical</span></td><td>Theme Builder → Header</td><td>15 min</td></tr>
+        <tr><td>2</td><td>Fix Egyptian phone number in footer</td><td><span class="badge badge-critical">Critical</span></td><td>Theme Builder → Footer</td><td>10 min</td></tr>
+        <tr><td>3</td><td>Fix gallery not rendering on frontend</td><td><span class="badge badge-critical">Critical</span></td><td>Elementor → Tools + homepage</td><td>30–90 min</td></tr>
+        <tr><td>4</td><td>Fix broken Testimonials nav link</td><td><span class="badge badge-high">High</span></td><td>Appearance → Menus</td><td>5 min</td></tr>
+        <tr><td>5</td><td>Restructure navigation menu</td><td><span class="badge badge-high">High</span></td><td>Appearance → Menus</td><td>20 min</td></tr>
+        <tr><td>6</td><td>Fix footer contact info (email)</td><td><span class="badge badge-high">High</span></td><td>Theme Builder → Footer</td><td>10 min</td></tr>
+        <tr><td>7</td><td>Rename "Home 1" page to "Home"</td><td><span class="badge badge-medium">Medium</span></td><td>Pages → Quick Edit</td><td>2 min</td></tr>
+        <tr><td>8</td><td>Update tagline</td><td><span class="badge badge-medium">Medium</span></td><td>Appearance → Customize</td><td>5 min</td></tr>
+        <tr><td>9</td><td>Trash 14 draft/junk pages</td><td><span class="badge badge-high">High</span></td><td>Pages → All Pages</td><td>15 min</td></tr>
+        <tr><td>10</td><td>Fix FAQ — delete demo, add real content</td><td><span class="badge badge-high">High</span></td><td>FAQ plugin or Elementor</td><td>45 min</td></tr>
+        <tr><td>11</td><td>Delete 18 Lorem Ipsum blog posts</td><td><span class="badge badge-high">High</span></td><td>Posts → All Posts</td><td>15 min</td></tr>
+        <tr><td>12</td><td>Fix blog post titles (remove colons)</td><td><span class="badge badge-medium">Medium</span></td><td>Posts → Quick Edit</td><td>30 min</td></tr>
+        <tr><td>13</td><td>Create Testimonials page</td><td><span class="badge badge-high">High</span></td><td>Pages → Add New → Elementor</td><td>2–3 hrs</td></tr>
+        <tr><td>14</td><td>Update About Us with Egyptologist story</td><td><span class="badge badge-medium">Medium</span></td><td>Pages → About Us → Elementor</td><td>1–2 hrs</td></tr>
+        <tr><td>15</td><td>Regenerate Elementor CSS &amp; Data</td><td><span class="badge badge-medium">Medium</span></td><td>Elementor → Tools</td><td>5 min</td></tr>
+        <tr><td>16</td><td>Update Elementor &amp; plugins</td><td><span class="badge badge-low">Low</span></td><td>Plugins → Installed Plugins</td><td>30 min + testing</td></tr>
+        <tr><td>17</td><td>Load Leaflet.js in functions.php (once)</td><td><span class="badge badge-high">High</span></td><td>Appearance → Theme File Editor → functions.php</td><td>10 min</td></tr>
+        <tr><td>18</td><td>Add interactive route map to each tour page</td><td><span class="badge badge-high">High</span></td><td>Elementor → HTML widget → paste map code (Section 13)</td><td>30 min/tour</td></tr>
+        <tr><td>19</td><td>Add date-toggle contact form to Contact page</td><td><span class="badge badge-high">High</span></td><td>Elementor → HTML widget → paste form code (Section 14)</td><td>30 min</td></tr>
+        <tr><td>20</td><td>Create Payment page (email live now; PayPal/Square placeholders)</td><td><span class="badge badge-high">High</span></td><td>Pages → Add New → slug: payment → Elementor (Section 15)</td><td>45 min</td></tr>
+        <tr><td>21</td><td>Activate PayPal &amp; Square on Payment page when accounts ready</td><td><span class="badge badge-medium">Medium — Phase 2</span></td><td>Replace placeholder divs with real button embed codes</td><td>20 min</td></tr>
+        <tr><td colspan="5" style="background:#f0f7ff;color:#1e40af;font-size:12px;padding:10px 14px;">SEO tasks (Rank Math setup, focus keywords, sitemap submission) are in a separate document: <strong>seo-plan.html</strong> — do these after Phase 1 is complete.</td></tr>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+  </div><!-- end main-content -->
+</div><!-- end page-layout -->
+
+<div class="footer-doc">
+  Access Egypt Travel — Internal Developer Document &nbsp;|&nbsp; Prepared June 2026 &nbsp;|&nbsp; accessegypttravel@gmail.com
+</div>
+
+</body>
+</html>

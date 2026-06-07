@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Access Egypt Travel — SEO Plan (Phase 2)</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f4f5f7; color: #2c3e50; font-size: 15px; line-height: 1.6; }
+
+  /* ── PAGE LAYOUT ── */
+  .page-layout { display: flex; }
+  .toc-sidebar { width: 260px; flex-shrink: 0; position: sticky; top: 0; height: 100vh; overflow-y: auto; background: #064e3b; color: white; padding: 24px 0; }
+  .toc-sidebar h2 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #6ee7b7; padding: 0 20px; margin-bottom: 14px; }
+  .toc-sidebar a { display: block; padding: 8px 20px; color: rgba(255,255,255,0.75); text-decoration: none; font-size: 13px; border-left: 3px solid transparent; transition: all 0.15s; line-height: 1.4; }
+  .toc-sidebar a:hover { color: white; background: rgba(255,255,255,0.08); border-left-color: #34d399; }
+  .toc-sidebar a.active { color: white; background: rgba(255,255,255,0.1); border-left-color: #34d399; font-weight: 600; }
+  .toc-divider { height: 1px; background: rgba(255,255,255,0.1); margin: 10px 20px; }
+  .toc-step-num { display: inline-block; background: rgba(255,255,255,0.15); border-radius: 3px; font-size: 10px; font-weight: 700; padding: 1px 6px; margin-right: 5px; vertical-align: middle; }
+  .toc-sidebar .back-link { padding: 0 20px; margin-top: 20px; }
+  .toc-sidebar .back-link a { padding: 8px 0; color: #6ee7b7; border: none; font-size: 12px; }
+  .main-content { flex: 1; min-width: 0; }
+
+  /* ── HEADER ── */
+  .doc-header { background: #064e3b; color: white; padding: 40px 50px; }
+  .doc-header h1 { font-size: 28px; font-weight: 800; margin-bottom: 8px; }
+  .doc-header p { color: #a7f3d0; font-size: 15px; max-width: 600px; }
+  .doc-header .meta { display: flex; gap: 20px; margin-top: 16px; flex-wrap: wrap; }
+  .doc-header .meta span { font-size: 13px; color: #6ee7b7; }
+  .doc-header .meta strong { color: white; }
+
+  .phase-banner { background: #fef3c7; border-bottom: 3px solid #f59e0b; padding: 14px 50px; font-size: 14px; color: #92400e; font-weight: 600; }
+  .phase-banner a { color: #b45309; }
+
+  .container { padding: 36px 50px; }
+
+  /* ── SECTION CARDS ── */
+  .section { background: white; border-radius: 10px; margin-bottom: 28px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); overflow: hidden; }
+  .section-header { padding: 18px 26px; border-bottom: 1px solid #f0f0f0; display: flex; align-items: center; gap: 14px; }
+  .section-header h2 { font-size: 17px; font-weight: 800; color: #064e3b; flex: 1; }
+  .section-body { padding: 26px; }
+
+  /* ── STEP BLOCKS ── */
+  .step { border: 1px solid #e5e7eb; border-radius: 8px; margin-bottom: 20px; overflow: hidden; }
+  .step-header { padding: 14px 18px; display: flex; align-items: flex-start; gap: 14px; background: #f0fdf4; border-bottom: 1px solid #e5e7eb; }
+  .step-num { background: #064e3b; color: white; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 800; flex-shrink: 0; margin-top: 1px; }
+  .step-title { font-weight: 800; font-size: 15px; color: #064e3b; flex: 1; }
+  .step-body { padding: 20px; }
+
+  /* ── NAVIGATION PATH ── */
+  .path { background: #1e293b; color: #e2e8f0; padding: 10px 16px; border-radius: 6px; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 13px; margin: 10px 0; line-height: 1.8; }
+  .path .arrow { color: #64748b; margin: 0 5px; }
+  .path .click { color: #38bdf8; font-weight: 600; }
+  .path .input { color: #86efac; font-style: italic; }
+
+  /* ── COPY BOXES ── */
+  .copy-box { background: #f8faff; border: 2px solid #93c5fd; border-radius: 8px; padding: 14px 18px; margin: 12px 0; }
+  .copy-box .copy-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #3b82f6; margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+  .copy-box .copy-label::before { content: "📋"; }
+  .copy-box .copy-content { font-family: 'SF Mono', 'Fira Code', monospace; font-size: 13.5px; color: #1e3a8a; line-height: 1.7; white-space: pre-wrap; word-break: break-word; }
+
+  /* ── MISC ELEMENTS ── */
+  .note { background: #f0fdf4; border-left: 4px solid #10b981; padding: 12px 16px; border-radius: 0 6px 6px 0; margin: 12px 0; font-size: 13.5px; color: #065f46; }
+  .warning { background: #fff7ed; border-left: 4px solid #f97316; padding: 12px 16px; border-radius: 0 6px 6px 0; margin: 12px 0; font-size: 13.5px; color: #9a3412; }
+  .why-box { background: #fffbeb; border: 1px solid #fde68a; border-radius: 6px; padding: 12px 16px; margin: 12px 0; font-size: 13.5px; color: #78350f; }
+  .why-box strong { color: #92400e; }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 13.5px; }
+  th { background: #f0fdf4; padding: 10px 14px; text-align: left; font-weight: 700; color: #065f46; border-bottom: 2px solid #d1fae5; }
+  td { padding: 10px 14px; border-bottom: 1px solid #f1f5f9; vertical-align: top; }
+  td:first-child { font-weight: 600; }
+  h3 { font-size: 14px; font-weight: 700; color: #064e3b; margin: 16px 0 8px; text-transform: uppercase; letter-spacing: 0.3px; }
+  p { margin-bottom: 10px; }
+  ul, ol { margin: 8px 0 10px 20px; }
+  li { margin-bottom: 6px; line-height: 1.5; }
+  code { background: #f1f5f9; color: #e11d48; padding: 2px 6px; border-radius: 4px; font-family: 'SF Mono', monospace; font-size: 13px; }
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+  .badge-first { background: #fef3c7; color: #92400e; }
+  .badge-phase2 { background: #d1fae5; color: #065f46; }
+  .badge-content { background: #dbeafe; color: #1e40af; }
+  .url-box { background: #f0fdf4; border: 1px solid #a7f3d0; border-radius: 6px; padding: 10px 14px; font-family: monospace; font-size: 13px; color: #065f46; font-weight: 700; margin: 8px 0; word-break: break-all; }
+  .summary-table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  .summary-table th { background: #064e3b; color: white; padding: 10px 14px; text-align: left; font-weight: 700; }
+  .summary-table td { padding: 10px 14px; border-bottom: 1px solid #f1f5f9; vertical-align: top; }
+  .summary-table tr:nth-child(even) td { background: #f0fdf4; }
+  .footer-doc { background: #064e3b; color: #a7f3d0; text-align: center; padding: 20px; font-size: 13px; }
+</style>
+</head>
+<body>
+
+<div class="page-layout">
+
+  <!-- ══ STICKY TOC SIDEBAR ══ -->
+  <nav class="toc-sidebar">
+    <h2>SEO Plan — Phase 2</h2>
+
+    <a href="#overview">Overview &amp; Why Phase 2</a>
+    <div class="toc-divider"></div>
+
+    <div style="padding: 6px 20px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #6ee7b7; margin-top: 4px;">Do Right After Phase 1</div>
+    <a href="#s1"><span class="toc-step-num">1</span> Submit Sitemap to Google</a>
+    <a href="#s1b"><span class="toc-step-num">2</span> Remove Junk URLs from Index</a>
+
+    <div class="toc-divider"></div>
+    <div style="padding: 6px 20px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #6ee7b7; margin-top: 4px;">Phase 2 — Rank Math Setup</div>
+    <a href="#s2"><span class="toc-step-num">3</span> Set Focus Keywords</a>
+    <a href="#s3"><span class="toc-step-num">4</span> Write Meta Descriptions</a>
+    <a href="#s4"><span class="toc-step-num">5</span> Update Site Tagline</a>
+    <a href="#s5"><span class="toc-step-num">6</span> Add Pickup Locations to Site</a>
+    <a href="#s6"><span class="toc-step-num">7</span> Add 2 New FAQs</a>
+
+    <div class="toc-divider"></div>
+    <div style="padding: 6px 20px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #6ee7b7; margin-top: 4px;">Phase 2 — Content Pages</div>
+    <a href="#s7"><span class="toc-step-num">8</span> 6 Pages to Build for SEO</a>
+
+    <div class="toc-divider"></div>
+    <a href="#summary">All Tasks Summary</a>
+
+    <div class="back-link">
+      <a href="developer-plan.html">← Developer Plan</a>
+    </div>
+  </nav>
+
+  <!-- ══ MAIN CONTENT ══ -->
+  <div class="main-content">
+
+    <div class="doc-header">
+      <h1>Access Egypt Travel — SEO Plan</h1>
+      <p>Step-by-step instructions for Rank Math setup, keyword targeting, and content pages. Start AFTER the developer finishes Phase 1.</p>
+      <div class="meta">
+        <span><strong>Plugin:</strong> Rank Math SEO (already installed)</span>
+        <span><strong>Site:</strong> accessegypttravel.com</span>
+        <span><strong>Status:</strong> Phase 2 — after developer Phase 1</span>
+        <span><strong>Prepared:</strong> June 2026</span>
+      </div>
+    </div>
+
+    <div class="phase-banner">
+      ⚠️ Do NOT start these tasks until the developer completes <a href="developer-plan.html">developer-plan.html</a> first. SEO on broken/demo content is wasted effort — clean the site first, then optimize.
+    </div>
+
+    <div class="container">
+
+      <!-- ══════ OVERVIEW ══════ -->
+      <div class="section" id="overview">
+        <div class="section-header">
+          <h2>Why SEO Is Phase 2 (Not Phase 1)</h2>
+        </div>
+        <div class="section-body">
+          <p>The developer's job (Phase 1) is to clean up the site: delete 18 Lorem Ipsum blog posts, remove 14 junk pages, fix broken elements, and rebuild the footer and contact page. Until that's done, doing keyword work is pointless — Google is already penalizing the domain because of those junk posts, and any meta descriptions you set on the homepage get undermined by 18 fake blog posts about "Bookmarksgrove" also indexed on the same domain.</p>
+          <div class="note"><strong>The right order:</strong> Developer finishes Phase 1 → You do Step 1 (sitemap) → Then do the rest of this document in order.</div>
+          <p><strong>What's already installed:</strong> Rank Math SEO is active on the site. You just haven't configured it yet. Every step below is you using Rank Math — no new plugins needed.</p>
+        </div>
+      </div>
+
+
+      <!-- ══════ STEP 1: SITEMAP ══════ -->
+      <div class="section" id="s1">
+        <div class="section-header">
+          <span class="badge badge-first">Do First</span>
+          <h2>Step 1 — Submit Updated Sitemap to Google Search Console</h2>
+        </div>
+        <div class="section-body">
+
+          <div class="why-box"><strong>Why:</strong> After the developer deletes all junk pages and blog posts, Rank Math automatically updates the sitemap. Submitting it tells Google "please re-crawl — things have changed." Without this, deleted pages can stay in Google's results for weeks.</div>
+
+          <div class="step">
+            <div class="step-header">
+              <div class="step-num">1</div>
+              <div class="step-title">Go to Google Search Console</div>
+            </div>
+            <div class="step-body">
+              <div class="url-box">https://search.google.com/search-console</div>
+              <p>Log in with the Gmail account connected to your website (likely accessegypttravel@gmail.com). If you haven't verified the site yet, you'll need to do that first — Rank Math has a one-click Google Search Console connection under <strong>Rank Math → General Settings → Webmaster Tools → Google Search Console</strong>.</p>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-header">
+              <div class="step-num">2</div>
+              <div class="step-title">Navigate to Sitemaps</div>
+            </div>
+            <div class="step-body">
+              <div class="path">
+                Left sidebar <span class="arrow">→</span> <span class="click">Sitemaps</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-header">
+              <div class="step-num">3</div>
+              <div class="step-title">Submit the Sitemap URL</div>
+            </div>
+            <div class="step-body">
+              <p>In the "Add a new sitemap" field, type this URL exactly:</p>
+              <div class="copy-box">
+                <div class="copy-label">Copy and paste this URL</div>
+                <div class="copy-content">https://accessegypttravel.com/sitemap_index.xml</div>
+              </div>
+              <p>Click <strong>Submit</strong>. Google will confirm it was received. It may take 1–3 days for Google to fully re-crawl.</p>
+            </div>
+          </div>
+
+          <div id="s1b" class="step">
+            <div class="step-header">
+              <div class="step-num">4</div>
+              <div class="step-title">Request Removal of Specific Junk Pages</div>
+            </div>
+            <div class="step-body">
+              <div class="why-box"><strong>Why:</strong> The sitemap submission speeds up crawling, but doesn't immediately remove already-indexed pages. The Removals tool does.</div>
+              <div class="path">
+                Left sidebar <span class="arrow">→</span> <span class="click">Removals</span> <span class="arrow">→</span> <span class="click">New Request</span>
+              </div>
+              <p>Add these URLs one by one — they are the worst junk pages most likely to have been indexed:</p>
+              <div class="copy-box">
+                <div class="copy-label">Paste each of these as a separate Removal Request</div>
+                <div class="copy-content">https://accessegypttravel.com/george
+https://accessegypttravel.com/tours-2
+https://accessegypttravel.com/?p=1 (and any other ?p= numbered URLs)
+Any /blog/ post URLs with "lorem" or placeholder titles</div>
+              </div>
+              <p>For each one: paste the URL → click <strong>Continue</strong> → select <strong>"Remove this URL only"</strong> → click <strong>Submit Request</strong>.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+      <!-- ══════ STEP 2: FOCUS KEYWORDS ══════ -->
+      <div class="section" id="s2">
+        <div class="section-header">
+          <span class="badge badge-phase2">Phase 2 — Rank Math</span>
+          <h2>Step 2 — Set Focus Keywords on Every Tour Page</h2>
+        </div>
+        <div class="section-body">
+
+          <div class="why-box"><strong>Why:</strong> Without a focus keyword, Rank Math gives every page a red/orange score and Google has no clear signal for what each page should rank for. This is the single biggest Rank Math quick win — takes about 30 minutes for the whole site.</div>
+
+          <h3>How to Set a Focus Keyword (do this for each page below)</h3>
+          <div class="step">
+            <div class="step-header">
+              <div class="step-num">1</div>
+              <div class="step-title">Open the page in the WordPress editor</div>
+            </div>
+            <div class="step-body">
+              <div class="path">
+                <span class="click">Pages</span> <span class="arrow">→</span> <span class="click">All Pages</span> <span class="arrow">→</span> hover the page name <span class="arrow">→</span> click <span class="click">Edit</span>
+              </div>
+              <div class="note">Do NOT use Quick Edit — you need to be inside the full editor to see the Rank Math panel.</div>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-header">
+              <div class="step-num">2</div>
+              <div class="step-title">Scroll down to the Rank Math SEO panel</div>
+            </div>
+            <div class="step-body">
+              <p>Scroll past the Elementor editor area to the bottom of the page. You'll see a panel called <strong>"Rank Math SEO"</strong> — it has a score (currently probably red/orange).</p>
+              <div class="note">If you don't see it, click the three dots (...) at the top right of the editor → Preferences → make sure "Rank Math SEO" is toggled on.</div>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-header">
+              <div class="step-num">3</div>
+              <div class="step-title">Click "Focus Keyword" and type your keyword</div>
+            </div>
+            <div class="step-body">
+              <p>Inside the Rank Math panel, find the <strong>Focus Keyword</strong> field. Click it and type (or copy from the table below). Press Enter after typing — Rank Math will run its analysis.</p>
+              <div class="path">
+                <span class="click">Rank Math SEO panel</span> <span class="arrow">→</span> <span class="click">Focus Keyword</span> field <span class="arrow">→</span> type keyword <span class="arrow">→</span> press <span class="click">Enter</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-header">
+              <div class="step-num">4</div>
+              <div class="step-title">Click "Update" to save the page</div>
+            </div>
+            <div class="step-body">
+              <div class="path">
+                Top right corner <span class="arrow">→</span> click blue <span class="click">Update</span> button
+              </div>
+            </div>
+          </div>
+
+          <h3>Focus Keywords — Copy and Paste for Each Page</h3>
+          <table>
+            <tr><th>Page Name</th><th>Focus Keyword — Type This Exactly</th><th>Also mention these words in the page body text</th></tr>
+            <tr>
+              <td>Home</td>
+              <td><div class="copy-box" style="margin:0;border:none;background:none;padding:4px 0;"><div class="copy-content">egypt tours from hurghada and cairo</div></div></td>
+              <td>luxor tours, private egypt tours, egyptologist guide, pickup from cairo hurghada luxor</td>
+            </tr>
+            <tr>
+              <td>Egypt Packages</td>
+              <td><div class="copy-box" style="margin:0;border:none;background:none;padding:4px 0;"><div class="copy-content">egypt tour packages for americans</div></div></td>
+              <td>cairo to luxor tours, hurghada day trips, private egypt tours, usd pricing</td>
+            </tr>
+            <tr>
+              <td>Luxor Tours</td>
+              <td><div class="copy-box" style="margin:0;border:none;background:none;padding:4px 0;"><div class="copy-content">luxor day tours from hurghada</div></div></td>
+              <td>luxor tours from cairo, valley of the kings, karnak temple tours, hatshepsut temple</td>
+            </tr>
+            <tr>
+              <td>Nile Cruise</td>
+              <td><div class="copy-box" style="margin:0;border:none;background:none;padding:4px 0;"><div class="copy-content">nile river cruise luxor to aswan</div></div></td>
+              <td>hurghada to luxor nile cruise, egypt nile cruise packages, private nile cruise</td>
+            </tr>
+            <tr>
+              <td>Tailor-Made Tours</td>
+              <td><div class="copy-box" style="margin:0;border:none;background:none;padding:4px 0;"><div class="copy-content">private egypt tours from hurghada</div></div></td>
+              <td>custom egypt itinerary, private cairo tours, personal egyptologist, flexible egypt tour</td>
+            </tr>
+            <tr>
+              <td>Contact Us</td>
+              <td><div class="copy-box" style="margin:0;border:none;background:none;padding:4px 0;"><div class="copy-content">egypt tour operator hurghada cairo luxor</div></div></td>
+              <td>book egypt tour, schedule egypt trip, contact egypt tour guide</td>
+            </tr>
+            <tr>
+              <td>About Us</td>
+              <td><div class="copy-box" style="margin:0;border:none;background:none;padding:4px 0;"><div class="copy-content">egyptologist guide egypt tours</div></div></td>
+              <td>certified egyptologist, private guided egypt tour, john gamil, bsc egyptology</td>
+            </tr>
+            <tr>
+              <td>FAQ</td>
+              <td><div class="copy-box" style="margin:0;border:none;background:none;padding:4px 0;"><div class="copy-content">egypt travel tips for americans</div></div></td>
+              <td>is egypt safe for americans, egypt visa requirements, what to pack for egypt</td>
+            </tr>
+          </table>
+
+          <div class="note"><strong>After setting the keyword:</strong> Rank Math will show a checklist. Aim for a score of 80+. The most important items it checks: keyword in the page title, keyword in the first paragraph, keyword in at least one H2 heading, and keyword in at least one image's alt text.</div>
+
+        </div>
+      </div>
+
+
+      <!-- ══════ STEP 3: META DESCRIPTIONS ══════ -->
+      <div class="section" id="s3">
+        <div class="section-header">
+          <span class="badge badge-phase2">Phase 2 — Rank Math</span>
+          <h2>Step 3 — Write Meta Descriptions via Rank Math</h2>
+        </div>
+        <div class="section-body">
+
+          <div class="why-box"><strong>Why:</strong> The meta description is the 1–2 lines of text that appear under your page title in Google search results. It doesn't directly affect your ranking, but it's the first thing a searcher reads before deciding whether to click. A good meta description gets you clicked; a missing or generic one gets you ignored.</div>
+
+          <h3>How to Edit a Meta Description (do this for each page below)</h3>
+          <div class="step">
+            <div class="step-header">
+              <div class="step-num">1</div>
+              <div class="step-title">Open the page editor (same way as Step 2)</div>
+            </div>
+            <div class="step-body">
+              <div class="path">
+                <span class="click">Pages</span> <span class="arrow">→</span> <span class="click">All Pages</span> <span class="arrow">→</span> hover page name <span class="arrow">→</span> <span class="click">Edit</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-header">
+              <div class="step-num">2</div>
+              <div class="step-title">Open the Rank Math "Edit Snippet" panel</div>
+            </div>
+            <div class="step-body">
+              <div class="path">
+                Scroll down to <span class="click">Rank Math SEO panel</span> <span class="arrow">→</span> click <span class="click">Edit Snippet</span> button (it looks like a Google search result preview)
+              </div>
+              <p>A preview box opens showing how your page looks in Google search results. You'll see editable fields for Title and Description.</p>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-header">
+              <div class="step-num">3</div>
+              <div class="step-title">Click the Description field and paste your text</div>
+            </div>
+            <div class="step-body">
+              <p>Click inside the <strong>Description</strong> field. Select all existing text (Ctrl+A or Cmd+A) and delete it. Then paste the description from the table below. Keep it under 155 characters — Rank Math will show a warning if it's too long.</p>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-header">
+              <div class="step-num">4</div>
+              <div class="step-title">Click "Update" to save</div>
+            </div>
+            <div class="step-body">
+              <div class="path">Top right <span class="arrow">→</span> <span class="click">Update</span></div>
+            </div>
+          </div>
+
+          <h3>Meta Descriptions — Copy and Paste for Each Page</h3>
+          <table>
+            <tr><th>Page</th><th>Meta Description — Copy and Paste This Exactly</th></tr>
+            <tr>
+              <td>Home</td>
+              <td>
+                <div class="copy-box">
+                  <div class="copy-label">Home Page Meta Description</div>
+                  <div class="copy-content">Private Egypt tours led by a real Egyptologist. Pickup from Cairo, Hurghada & Luxor. Tailor-made itineraries for American travelers. Request a free quote today.</div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>Egypt Packages</td>
+              <td>
+                <div class="copy-box">
+                  <div class="copy-label">Egypt Packages Meta Description</div>
+                  <div class="copy-content">Handcrafted Egypt tour packages for American travelers. Private tours from Cairo & Hurghada to Luxor. Egyptologist-guided. USD pricing, no hidden fees.</div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>Luxor Tours</td>
+              <td>
+                <div class="copy-box">
+                  <div class="copy-label">Luxor Tours Meta Description</div>
+                  <div class="copy-content">Luxor day tours from Hurghada or Cairo. Visit the Valley of the Kings, Karnak Temple & more with a certified Egyptologist. Private & small group tours available.</div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>Nile Cruise</td>
+              <td>
+                <div class="copy-box">
+                  <div class="copy-label">Nile Cruise Meta Description</div>
+                  <div class="copy-content">Nile River cruise from Luxor to Aswan. 4–8 night cruises departing from Hurghada & Cairo. Private Egyptologist guide included. Book your Egypt cruise from the US today.</div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>Contact</td>
+              <td>
+                <div class="copy-box">
+                  <div class="copy-label">Contact Page Meta Description</div>
+                  <div class="copy-content">Book your Egypt tour or ask a question. Call, WhatsApp, or schedule a free call via Calendly. US-based support. Pickup from Cairo, Hurghada & Luxor.</div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>About Us</td>
+              <td>
+                <div class="copy-box">
+                  <div class="copy-label">About Us Meta Description</div>
+                  <div class="copy-content">Meet John Gamil — BSc Egyptologist with 22 years guiding private tours across Egypt. Access Egypt Travel: boutique private tours built for American travelers.</div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>FAQ</td>
+              <td>
+                <div class="copy-box">
+                  <div class="copy-label">FAQ Page Meta Description</div>
+                  <div class="copy-content">Egypt travel questions answered — visa requirements, safety, pickup from Hurghada & Cairo, packing, payment, and more. Built for American travelers.</div>
+                </div>
+              </td>
+            </tr>
+          </table>
+
+        </div>
+      </div>
+
+
+      <!-- ══════ STEP 4: TAGLINE ══════ -->
+      <div class="section" id="s4">
+        <div class="section-header">
+          <span class="badge badge-phase2">Phase 2</span>
+          <h2>Step 4 — Update the Site Tagline</h2>
+        </div>
+        <div class="section-body">
+
+          <div class="why-box"><strong>Why:</strong> The tagline appears in the browser tab, sometimes in Google results, and in the site's HTML metadata. The current tagline says the same thing twice ("Expert-Led" + "Guided by an Egyptologist") and misses the pickup location angle entirely — which is a key differentiator and SEO term.</div>
+
+          <h3>Current vs. New</h3>
+          <table>
+            <tr><th>Current (bad)</th><th>Recommended (new)</th></tr>
+            <tr>
+              <td style="color:#dc2626;">Expert-Led Egypt Tours &amp; Travel Packages | Guided by an Egyptologist</td>
+              <td style="color:#065f46;font-weight:700;">Private Egypt Tours Led by a Real Egyptologist — Pickup from Cairo, Hurghada &amp; Luxor</td>
+            </tr>
+          </table>
+
+          <h3>How to Change It — Part 1 (WordPress Site Identity)</h3>
+          <div class="step">
+            <div class="step-header">
+              <div class="step-num">1</div>
+              <div class="step-title">Go to WordPress Appearance → Customize</div>
+            </div>
+            <div class="step-body">
+              <div class="path">
+                WordPress admin menu <span class="arrow">→</span> <span class="click">Appearance</span> <span class="arrow">→</span> <span class="click">Customize</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-header">
+              <div class="step-num">2</div>
+              <div class="step-title">Open Site Identity</div>
+            </div>
+            <div class="step-body">
+              <div class="path">
+                Left panel in Customizer <span class="arrow">→</span> <span class="click">Site Identity</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-header">
+              <div class="step-num">3</div>
+              <div class="step-title">Replace the Tagline field</div>
+            </div>
+            <div class="step-body">
+              <p>Find the <strong>Tagline</strong> field. Clear it completely and paste:</p>
+              <div class="copy-box">
+                <div class="copy-label">New Tagline — Paste This</div>
+                <div class="copy-content">Private Egypt Tours Led by a Real Egyptologist — Pickup from Cairo, Hurghada & Luxor</div>
+              </div>
+              <div class="path">
+                Click <span class="click">Publish</span> (blue button at the top of the Customizer panel)
+              </div>
+            </div>
+          </div>
+
+          <h3>How to Change It — Part 2 (Rank Math Homepage SEO Title)</h3>
+          <div class="step">
+            <div class="step-header">
+              <div class="step-num">4</div>
+              <div class="step-title">Also update the Rank Math title on the Home page</div>
+            </div>
+            <div class="step-body">
+              <div class="path">
+                <span class="click">Pages</span> <span class="arrow">→</span> <span class="click">Home 1</span> (or Home) <span class="arrow">→</span> <span class="click">Edit</span> <span class="arrow">→</span> scroll to <span class="click">Rank Math panel</span> <span class="arrow">→</span> <span class="click">Edit Snippet</span>
+              </div>
+              <p>Update the <strong>Title</strong> field in the snippet to:</p>
+              <div class="copy-box">
+                <div class="copy-label">Homepage SEO Title — Paste This</div>
+                <div class="copy-content">Private Egypt Tours | Pickup from Cairo, Hurghada & Luxor | Access Egypt Travel</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+      <!-- ══════ STEP 5: PICKUP LOCATIONS ══════ -->
+      <div class="section" id="s5">
+        <div class="section-header">
+          <span class="badge badge-phase2">Phase 2</span>
+          <h2>Step 5 — Add Pickup Location Mentions Across the Site</h2>
+        </div>
+        <div class="section-body">
+
+          <div class="why-box"><strong>Why this is your biggest SEO opportunity:</strong> American tourists at Red Sea resorts (Hurghada, Sharm el-Sheikh) regularly search "Hurghada to Luxor day trip" or "day tour from Hurghada." This is a high-intent search — they want to book something. Access Egypt Travel offers exactly this, but the words "Hurghada to Luxor" appear almost nowhere on the site right now. Same for "Cairo to Luxor." Both are easy wins.</div>
+
+          <p>Add the pickup location text to each of these places — the developer can do this, or you can do it yourself in Elementor:</p>
+
+          <table>
+            <tr><th>Where on the Site</th><th>What to Add</th><th>Exact Text to Use</th></tr>
+            <tr>
+              <td>Homepage — Hero section subtitle</td>
+              <td>One line below the main headline</td>
+              <td>
+                <div class="copy-box" style="margin:4px 0;">
+                  <div class="copy-content">Pickup available from Cairo, Hurghada & Luxor</div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>Each tour card on tour listing pages</td>
+              <td>A small "Departs from:" line under the tour title</td>
+              <td>
+                <div class="copy-box" style="margin:4px 0;">
+                  <div class="copy-content">📍 Departs from: Hurghada or Cairo</div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>Each individual tour page — first paragraph</td>
+              <td>Mention pickup in the opening description</td>
+              <td>
+                <div class="copy-box" style="margin:4px 0;">
+                  <div class="copy-content">This tour is available with hotel pickup from Cairo or Hurghada, with transfer to Luxor included.</div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>Contact page — Address/Location section</td>
+              <td>Replace single "Hurghada" address with multi-city</td>
+              <td>
+                <div class="copy-box" style="margin:4px 0;">
+                  <div class="copy-content">Pickup locations: Cairo · Hurghada · Luxor</div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>Footer copyright bar</td>
+              <td>Add location strip after copyright text</td>
+              <td>
+                <div class="copy-box" style="margin:4px 0;">
+                  <div class="copy-content">📍 Cairo · Hurghada · Luxor</div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>About Us page — bio section</td>
+              <td>Mention service area in the last paragraph</td>
+              <td>
+                <div class="copy-box" style="margin:4px 0;">
+                  <div class="copy-content">We serve travelers with hotel pickups from Cairo, Hurghada, and Luxor — wherever your Egypt journey starts, we come to you.</div>
+                </div>
+              </td>
+            </tr>
+          </table>
+
+        </div>
+      </div>
+
+
+      <!-- ══════ STEP 6: FAQS ══════ -->
+      <div class="section" id="s6">
+        <div class="section-header">
+          <span class="badge badge-phase2">Phase 2</span>
+          <h2>Step 6 — Add 2 New FAQ Entries (Pickup Location Questions)</h2>
+        </div>
+        <div class="section-body">
+
+          <div class="why-box"><strong>Why:</strong> These two questions target the exact searches people type when they're at a Hurghada resort and want to see Luxor, or when they're transiting through Cairo. FAQ content on a page also creates "rich snippet" potential — Google sometimes shows FAQ accordion results directly in search, which dramatically increases click-through rate.</div>
+
+          <p>Add these two questions and answers to your FAQ page. Open the FAQ page in Elementor, find the FAQ/accordion widget, and add them:</p>
+
+          <div class="step">
+            <div class="step-header">
+              <div class="step-num">FAQ 1</div>
+              <div class="step-title">Do you pick up from Hurghada?</div>
+            </div>
+            <div class="step-body">
+              <p><strong>Question to enter:</strong></p>
+              <div class="copy-box">
+                <div class="copy-label">Question Text</div>
+                <div class="copy-content">Do you pick up from Hurghada?</div>
+              </div>
+              <p><strong>Answer to enter:</strong></p>
+              <div class="copy-box">
+                <div class="copy-label">Answer Text</div>
+                <div class="copy-content">Yes — hotel pickups from Hurghada are one of our most popular options. Transfer to Luxor is included in your package and takes approximately 3 hours through the Eastern Desert. Many American travelers book a Red Sea resort first and then join us for Luxor — it's one of the most efficient ways to combine beach and ancient history in one Egypt trip. Pickup times are arranged based on your tour schedule and hotel location. Contact us to add this to your package.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-header">
+              <div class="step-num">FAQ 2</div>
+              <div class="step-title">Can I join a tour from Cairo?</div>
+            </div>
+            <div class="step-body">
+              <p><strong>Question to enter:</strong></p>
+              <div class="copy-box">
+                <div class="copy-label">Question Text</div>
+                <div class="copy-content">Can I join a tour from Cairo?</div>
+              </div>
+              <p><strong>Answer to enter:</strong></p>
+              <div class="copy-box">
+                <div class="copy-label">Answer Text</div>
+                <div class="copy-content">Absolutely. We offer hotel pickups from Cairo. For the Cairo-to-Luxor transfer, you have two options: (1) Domestic flight — EgyptAir Cairo to Luxor takes approximately 1 hour and typically costs $60–100 USD. This is what we recommend for most travelers. (2) Road transfer — approximately 8–10 hours through the Nile Valley. Most guests prefer the flight. We arrange everything — just let us know your preference when you contact us to book.</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+      <!-- ══════ STEP 7: CONTENT PAGES ══════ -->
+      <div class="section" id="s7">
+        <div class="section-header">
+          <span class="badge badge-content">Phase 2 — Content</span>
+          <h2>Step 7 — Six Content Pages to Build for Organic Traffic</h2>
+        </div>
+        <div class="section-body">
+
+          <div class="why-box"><strong>Why:</strong> These are "research phase" pages — content that Americans search for before they've decided to book. A traveler who lands on "Is Egypt Safe for Americans?" is probably 3–4 weeks away from booking. If they trust your answer, they'll book with you. These pages are also where Rank Math + good writing = long-term free traffic.</div>
+
+          <div class="note">Each of these pages can be drafted using the <code>egypt-content</code> Claude skill. Tell Claude: "Write the 'Is Egypt Safe for Americans?' page" and it will produce a ready-to-publish draft in the brand voice.</div>
+
+          <table>
+            <tr><th>#</th><th>Page Title</th><th>Target Keyword</th><th>Length</th><th>Why It Matters</th></tr>
+            <tr>
+              <td>1</td>
+              <td><strong>Egypt Visa Requirements for American Citizens</strong></td>
+              <td><code>egypt visa requirements for americans</code></td>
+              <td>800–1,000 words</td>
+              <td>Extremely high search volume from the US. The e-Visa process is simple — this is a fast win. End with a CTA to book a tour.</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td><strong>Is Egypt Safe for American Tourists?</strong></td>
+              <td><code>is egypt safe for americans</code></td>
+              <td>800–1,000 words</td>
+              <td>The #1 concern American travelers have before booking. Address it head-on with facts, not fluff. Builds trust directly.</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td><strong>Hurghada to Luxor Day Tours — Complete Guide</strong></td>
+              <td><code>hurghada to luxor day trip</code></td>
+              <td>600–800 words</td>
+              <td>Captures Red Sea resort travelers who want Luxor. Links directly to Luxor Tours page. High buyer intent.</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td><strong>Best Time to Visit Egypt</strong></td>
+              <td><code>best time to visit egypt</code></td>
+              <td>800–1,000 words</td>
+              <td>Evergreen content with very high search volume. Addresses the heat concern Americans have (very important).</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td><strong>What to Pack for Egypt: Complete Packing List</strong></td>
+              <td><code>what to pack for egypt</code></td>
+              <td>600–800 words</td>
+              <td>List-format, highly shareable. Great for social media repurposing. Builds trust as a knowledgeable source.</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td><strong>Cairo to Luxor: Your Complete Tour Guide</strong></td>
+              <td><code>cairo to luxor tour</code></td>
+              <td>600–800 words</td>
+              <td>Captures Cairo-based or transit travelers. Links to Egypt Packages page. High buyer intent.</td>
+            </tr>
+          </table>
+
+          <h3>How to Create Each Page in WordPress</h3>
+          <div class="step">
+            <div class="step-header">
+              <div class="step-num">1</div>
+              <div class="step-title">Generate the draft content first (using Claude)</div>
+            </div>
+            <div class="step-body">
+              <p>Before creating the page in WordPress, get the draft text ready. Ask Claude: <em>"Write the '[Page Title]' page for Access Egypt Travel"</em> — the <code>egypt-content</code> skill will handle brand voice and structure.</p>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-header">
+              <div class="step-num">2</div>
+              <div class="step-title">Create the page in WordPress</div>
+            </div>
+            <div class="step-body">
+              <div class="path">
+                <span class="click">Pages</span> <span class="arrow">→</span> <span class="click">Add New</span> <span class="arrow">→</span> give it a title <span class="arrow">→</span> click <span class="click">Edit with Elementor</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-header">
+              <div class="step-num">3</div>
+              <div class="step-title">Paste the content and set Rank Math</div>
+            </div>
+            <div class="step-body">
+              <p>Build the page layout in Elementor, paste the content into text widgets. Then: close Elementor, go back to the page editor, scroll to the Rank Math panel, and set the Focus Keyword from the table above.</p>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-header">
+              <div class="step-num">4</div>
+              <div class="step-title">Add it to the navigation menu (Traveler Resources)</div>
+            </div>
+            <div class="step-body">
+              <div class="path">
+                <span class="click">Appearance</span> <span class="arrow">→</span> <span class="click">Menus</span> <span class="arrow">→</span> find the footer menu <span class="arrow">→</span> add the new page under <span class="click">Traveler Resources</span> column
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+      <!-- ══════ SUMMARY ══════ -->
+      <div class="section" id="summary">
+        <div class="section-header">
+          <h2>All Tasks — Summary &amp; Checklist</h2>
+        </div>
+        <div class="section-body">
+          <table class="summary-table">
+            <tr><th>#</th><th>Task</th><th>When</th><th>Time</th><th>Done?</th></tr>
+            <tr><td>1</td><td>Submit sitemap to Google Search Console</td><td>Right after developer Phase 1</td><td>10 min</td><td>☐</td></tr>
+            <tr><td>2</td><td>Request removal of indexed junk URLs</td><td>Same session</td><td>15 min</td><td>☐</td></tr>
+            <tr><td>3</td><td>Set Rank Math focus keyword — Home page</td><td>Phase 2</td><td>5 min</td><td>☐</td></tr>
+            <tr><td>4</td><td>Set Rank Math focus keyword — Egypt Packages</td><td>Phase 2</td><td>5 min</td><td>☐</td></tr>
+            <tr><td>5</td><td>Set Rank Math focus keyword — Luxor Tours</td><td>Phase 2</td><td>5 min</td><td>☐</td></tr>
+            <tr><td>6</td><td>Set Rank Math focus keyword — Nile Cruise</td><td>Phase 2</td><td>5 min</td><td>☐</td></tr>
+            <tr><td>7</td><td>Set Rank Math focus keyword — Tailor-Made Tours</td><td>Phase 2</td><td>5 min</td><td>☐</td></tr>
+            <tr><td>8</td><td>Set Rank Math focus keyword — Contact, About, FAQ</td><td>Phase 2</td><td>10 min</td><td>☐</td></tr>
+            <tr><td>9</td><td>Write meta description — Home page</td><td>Phase 2</td><td>5 min</td><td>☐</td></tr>
+            <tr><td>10</td><td>Write meta description — all other 6 pages</td><td>Phase 2</td><td>15 min</td><td>☐</td></tr>
+            <tr><td>11</td><td>Update site tagline (Appearance → Customize)</td><td>Phase 2</td><td>5 min</td><td>☐</td></tr>
+            <tr><td>12</td><td>Update Rank Math homepage SEO title</td><td>Phase 2</td><td>5 min</td><td>☐</td></tr>
+            <tr><td>13</td><td>Add pickup location text across the site (6 locations)</td><td>Phase 2</td><td>45 min</td><td>☐</td></tr>
+            <tr><td>14</td><td>Add FAQ: "Do you pick up from Hurghada?"</td><td>Phase 2</td><td>10 min</td><td>☐</td></tr>
+            <tr><td>15</td><td>Add FAQ: "Can I join a tour from Cairo?"</td><td>Phase 2</td><td>10 min</td><td>☐</td></tr>
+            <tr><td>16</td><td>Create "Egypt Visa Requirements for Americans" page</td><td>Content phase</td><td>1–2 hrs</td><td>☐</td></tr>
+            <tr><td>17</td><td>Create "Is Egypt Safe for American Tourists?" page</td><td>Content phase</td><td>1–2 hrs</td><td>☐</td></tr>
+            <tr><td>18</td><td>Create "Hurghada to Luxor Day Tours" page</td><td>Content phase</td><td>1–2 hrs</td><td>☐</td></tr>
+            <tr><td>19</td><td>Create "Best Time to Visit Egypt" page</td><td>Content phase</td><td>1–2 hrs</td><td>☐</td></tr>
+            <tr><td>20</td><td>Create "What to Pack for Egypt" page</td><td>Content phase</td><td>1 hr</td><td>☐</td></tr>
+            <tr><td>21</td><td>Create "Cairo to Luxor Tour Guide" page</td><td>Content phase</td><td>1 hr</td><td>☐</td></tr>
+          </table>
+        </div>
+      </div>
+
+    </div><!-- end container -->
+
+    <div class="footer-doc">
+      Access Egypt Travel — SEO Plan Phase 2 · June 2026 · info@accessegypttravel.com · Do after developer completes Phase 1
+    </div>
+
+  </div><!-- end main content -->
+</div><!-- end page layout -->
+
+<script>
+  // Highlight active TOC item based on scroll position
+  const sections = document.querySelectorAll('[id]');
+  const tocLinks = document.querySelectorAll('.toc-sidebar a[href^="#"]');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 120) current = s.id;
+    });
+    tocLinks.forEach(a => {
+      a.classList.remove('active');
+      if (a.getAttribute('href') === '#' + current) a.classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Access Egypt Travel — Design Mockup</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: #222; }
+
+  /* ── MOCKUP LABEL ── */
+  .mockup-banner { background: #7c3aed; color: white; text-align: center; padding: 10px; font-size: 13px; font-weight: 600; letter-spacing: 0.5px; position: sticky; top: 0; z-index: 1000; }
+  .mockup-banner a { color: #c4b5fd; text-decoration: none; margin-left: 12px; }
+
+  /* ── TOP BAR ── */
+  .top-bar { background: #1a0f00; color: #d4af6a; padding: 8px 40px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; }
+  .top-bar-left { display: flex; gap: 20px; align-items: center; }
+  .top-bar-left a { color: #d4af6a; text-decoration: none; display: flex; align-items: center; gap: 6px; }
+  .top-bar-left a:hover { color: white; }
+  .top-bar-right .cta-btn { background: #b5451b; color: white; padding: 7px 20px; border-radius: 4px; font-size: 13px; font-weight: 700; text-decoration: none; letter-spacing: 0.3px; transition: background 0.2s; }
+  .top-bar-right .cta-btn:hover { background: #943a17; }
+
+  /* ── HEADER / NAV ── */
+  .header { background: white; border-bottom: 1px solid #f0ece4; padding: 0 40px; display: flex; align-items: center; justify-content: space-between; height: 80px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  .logo { display: flex; align-items: center; gap: 12px; }
+  .logo-icon { width: 58px; height: 58px; background: #f5f0e8; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; }
+  .logo-text { line-height: 1.2; }
+  .logo-text .name { font-size: 15px; font-weight: 800; color: #2c1a0e; letter-spacing: 1px; text-transform: uppercase; }
+  .logo-text .sub { font-size: 10px; color: #8b7355; letter-spacing: 1.5px; text-transform: uppercase; }
+  nav { display: flex; align-items: center; gap: 4px; }
+  nav a { padding: 10px 14px; color: #3a2a1a; font-size: 13.5px; font-weight: 600; text-decoration: none; border-radius: 4px; transition: all 0.15s; letter-spacing: 0.2px; white-space: nowrap; }
+  nav a:hover { background: #f5f0e8; color: #b5451b; }
+  nav a.active { color: #b5451b; }
+  .nav-dropdown { position: relative; display: inline-block; }
+  .nav-dropdown > a::after { content: ' ▾'; font-size: 10px; }
+  .dropdown-menu { display: none; position: absolute; top: 100%; left: 0; background: white; border: 1px solid #f0ece4; border-radius: 6px; box-shadow: 0 8px 24px rgba(0,0,0,0.12); min-width: 220px; z-index: 100; padding: 8px 0; }
+  .nav-dropdown:hover .dropdown-menu { display: block; }
+  .dropdown-menu a { display: block; padding: 10px 18px; color: #3a2a1a; font-size: 13.5px; font-weight: 500; text-decoration: none; }
+  .dropdown-menu a:hover { background: #fdf8f2; color: #b5451b; }
+  .dropdown-menu .divider { height: 1px; background: #f0ece4; margin: 4px 0; }
+  .dropdown-menu .note { padding: 6px 18px 10px; font-size: 11px; color: #9a8670; font-style: italic; }
+
+  /* ── HERO ── */
+  .hero { position: relative; height: 580px; background: linear-gradient(135deg, #2c1a0e 0%, #4a3520 40%, #1a3a2e 100%); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .hero-bg { position: absolute; inset: 0; background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 580"><rect fill="%231a0f00" width="800" height="580"/><polygon fill="%23362010" points="200,580 400,200 600,580"/><polygon fill="%232a1a0a" points="100,580 300,250 500,580"/><polygon fill="%23442818" points="300,580 500,180 700,580"/><circle fill="%23d4af6a22" cx="650" cy="100" r="200"/></svg>'); background-size: cover; opacity: 0.9; }
+  .hero-overlay { position: absolute; inset: 0; background: rgba(15,8,0,0.55); }
+  .hero-content { position: relative; text-align: center; color: white; padding: 20px; max-width: 750px; }
+  .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.12); border: 1px solid rgba(212,175,106,0.4); color: #d4af6a; padding: 6px 16px; border-radius: 20px; font-size: 12px; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; margin-bottom: 20px; }
+  .hero h1 { font-size: 52px; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; line-height: 1.1; margin-bottom: 16px; text-shadow: 0 2px 20px rgba(0,0,0,0.5); }
+  .hero h1 span { color: #d4af6a; }
+  .hero p { font-size: 18px; color: rgba(255,255,255,0.85); margin-bottom: 30px; line-height: 1.6; }
+  .hero-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .hero-btn-primary { background: #b5451b; color: white; padding: 14px 32px; border-radius: 5px; font-weight: 700; text-decoration: none; font-size: 15px; transition: background 0.2s; }
+  .hero-btn-primary:hover { background: #943a17; }
+  .hero-btn-secondary { background: rgba(255,255,255,0.1); border: 2px solid rgba(255,255,255,0.4); color: white; padding: 14px 32px; border-radius: 5px; font-weight: 700; text-decoration: none; font-size: 15px; transition: all 0.2s; }
+  .hero-btn-secondary:hover { background: rgba(255,255,255,0.2); }
+  .hero-tripadvisor { position: absolute; bottom: 28px; right: 40px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; padding: 10px 16px; display: flex; align-items: center; gap: 10px; color: white; font-size: 12px; }
+  .ta-circle { width: 42px; height: 42px; background: #34e0a1; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 900; color: #000; }
+  .hero-pickup { position: absolute; bottom: 28px; left: 40px; background: rgba(0,0,0,0.4); border: 1px solid rgba(212,175,106,0.3); border-radius: 8px; padding: 10px 18px; color: #d4af6a; font-size: 12px; font-weight: 600; letter-spacing: 0.5px; }
+
+  /* ── TRUST STRIP ── */
+  .trust-strip { background: #fdf8f2; border-bottom: 1px solid #f0e8d8; padding: 20px 40px; display: flex; align-items: center; justify-content: center; gap: 40px; flex-wrap: wrap; }
+  .trust-item { display: flex; align-items: center; gap: 10px; color: #5a4030; font-size: 13px; font-weight: 600; }
+  .trust-icon { width: 36px; height: 36px; background: #f0e8d0; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; }
+  .trust-divider { width: 1px; height: 30px; background: #e0d4c0; }
+
+  /* ── SECTION LABEL ── */
+  .section-label { background: #f0f4ff; border-left: 4px solid #7c3aed; padding: 8px 16px; margin: 0; font-size: 12px; color: #5b21b6; font-weight: 700; letter-spacing: 0.5px; }
+
+  /* ── TOURS PREVIEW ── */
+  .tours-section { padding: 60px 40px; background: white; }
+  .section-heading { text-align: center; margin-bottom: 40px; }
+  .section-heading h2 { font-size: 32px; font-weight: 800; color: #2c1a0e; margin-bottom: 8px; }
+  .section-heading p { color: #7a6a5a; font-size: 16px; }
+  .section-heading .line { width: 50px; height: 3px; background: #d4af6a; margin: 12px auto 0; border-radius: 2px; }
+  .tours-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1100px; margin: 0 auto; }
+  .tour-card { border-radius: 10px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.08); border: 1px solid #f0ece4; transition: transform 0.2s, box-shadow 0.2s; }
+  .tour-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
+  .tour-img { height: 200px; display: flex; align-items: center; justify-content: center; font-size: 48px; position: relative; }
+  .tour-img.c1 { background: linear-gradient(135deg, #c4a45a, #8b6914); }
+  .tour-img.c2 { background: linear-gradient(135deg, #2c5f6e, #1a3a45); }
+  .tour-img.c3 { background: linear-gradient(135deg, #6e3a1a, #3a1a0a); }
+  .featured-tag { position: absolute; top: 12px; left: 12px; background: #b5451b; color: white; font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 3px; letter-spacing: 0.5px; text-transform: uppercase; }
+  .tour-body { padding: 18px; }
+  .tour-body h3 { font-size: 15px; font-weight: 700; color: #2c1a0e; margin-bottom: 6px; line-height: 1.4; }
+  .tour-body .pickup { font-size: 12px; color: #8b7355; margin-bottom: 10px; }
+  .tour-body .price { color: #b5451b; font-weight: 800; font-size: 18px; }
+  .tour-body .price span { font-size: 12px; font-weight: 400; color: #8b7355; }
+  .tour-body .explore { float: right; color: #b5451b; font-size: 13px; font-weight: 600; text-decoration: none; }
+
+  /* ── EGYPTOLOGIST STRIP ── */
+  .egyptologist { background: #2c1a0e; color: white; padding: 50px 40px; display: flex; align-items: center; gap: 50px; max-width: 100%; }
+  .egyptologist-avatar { width: 120px; height: 120px; border-radius: 50%; background: linear-gradient(135deg, #d4af6a, #8b6914); display: flex; align-items: center; justify-content: center; font-size: 48px; flex-shrink: 0; border: 4px solid rgba(212,175,106,0.4); }
+  .egyptologist-text h2 { font-size: 26px; font-weight: 800; color: #d4af6a; margin-bottom: 8px; }
+  .egyptologist-text p { color: rgba(255,255,255,0.8); font-size: 15px; line-height: 1.7; max-width: 700px; }
+  .egyptologist-stats { display: flex; gap: 40px; margin-top: 20px; }
+  .stat { text-align: center; }
+  .stat .num { font-size: 28px; font-weight: 900; color: #d4af6a; }
+  .stat .lbl { font-size: 12px; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.5px; }
+
+  /* ── FOOTER PHOTO STRIP ── */
+  .photo-strip { background: #fdf8f2; padding: 50px 40px; text-align: center; }
+  .photo-strip h2 { font-size: 26px; font-weight: 800; color: #2c1a0e; margin-bottom: 8px; }
+  .photo-strip p { color: #7a6a5a; margin-bottom: 24px; font-size: 15px; }
+  .photo-grid { display: flex; gap: 10px; justify-content: center; margin-bottom: 20px; flex-wrap: wrap; }
+  .photo-thumb { width: 150px; height: 150px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 36px; }
+  .photo-thumb.p1 { background: linear-gradient(135deg, #c4a45a, #7a5a14); }
+  .photo-thumb.p2 { background: linear-gradient(135deg, #3a6e5a, #1a3a2a); }
+  .photo-thumb.p3 { background: linear-gradient(135deg, #5a3a6e, #2a1a3a); }
+  .photo-thumb.p4 { background: linear-gradient(135deg, #6e5a3a, #3a2a1a); }
+  .photo-thumb.p5 { background: linear-gradient(135deg, #3a5a6e, #1a2a3a); }
+  .photo-thumb.p6 { background: linear-gradient(135deg, #6e3a5a, #3a1a2a); }
+  .photo-strip-actions { display: flex; gap: 12px; justify-content: center; }
+  .strip-btn { padding: 10px 24px; border-radius: 5px; font-weight: 700; font-size: 14px; text-decoration: none; }
+  .strip-btn.primary { background: #2c1a0e; color: white; }
+  .strip-btn.secondary { border: 2px solid #2c1a0e; color: #2c1a0e; }
+  .hashtag { margin-top: 14px; color: #26a97a; font-weight: 700; font-size: 13px; }
+
+  /* ── FOOTER ── */
+  footer { background: #212121; color: #ccc; }
+  .footer-main { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; padding: 50px 60px; max-width: 1300px; margin: 0 auto; }
+  .footer-col h4 { color: white; font-size: 14px; font-weight: 700; margin-bottom: 18px; letter-spacing: 0.5px; text-transform: uppercase; border-bottom: 2px solid #b5451b; padding-bottom: 10px; display: inline-block; }
+  .footer-col a { display: block; color: #aaa; font-size: 13.5px; text-decoration: none; margin-bottom: 9px; line-height: 1.4; transition: color 0.15s; }
+  .footer-col a:hover { color: #d4af6a; }
+  .footer-col .contact-line { display: flex; align-items: flex-start; gap: 8px; color: #aaa; font-size: 13.5px; margin-bottom: 9px; }
+  .footer-col .contact-line .icon { font-size: 15px; flex-shrink: 0; margin-top: 1px; }
+  .footer-col .contact-line a { display: inline; color: #aaa; margin: 0; }
+  .footer-social { display: flex; gap: 10px; margin-top: 16px; }
+  .social-icon { width: 34px; height: 34px; border-radius: 50%; background: #333; display: flex; align-items: center; justify-content: center; font-size: 15px; text-decoration: none; transition: background 0.2s; }
+  .social-icon:hover { background: #b5451b; }
+  .footer-schedule { display: inline-block; margin-top: 14px; background: #b5451b; color: white; padding: 9px 18px; border-radius: 4px; font-size: 13px; font-weight: 700; text-decoration: none; transition: background 0.2s; }
+  .footer-schedule:hover { background: #943a17; }
+  .footer-note { font-size: 11.5px; color: #666; font-style: italic; margin-top: 6px; line-height: 1.5; }
+  .footer-bottom { background: #161616; padding: 16px 60px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+  .footer-bottom p { font-size: 12.5px; color: #666; }
+  .footer-bottom-links { display: flex; gap: 20px; }
+  .footer-bottom-links a { font-size: 12.5px; color: #666; text-decoration: none; }
+  .footer-bottom-links a:hover { color: #d4af6a; }
+  .footer-logo { margin-bottom: 16px; }
+  .footer-logo .name { font-size: 16px; font-weight: 800; color: white; letter-spacing: 1px; text-transform: uppercase; }
+  .footer-logo .sub { font-size: 10px; color: #666; letter-spacing: 1.5px; text-transform: uppercase; margin-top: 2px; }
+  .footer-tagline { font-size: 13px; color: #888; margin-bottom: 16px; font-style: italic; line-height: 1.5; }
+
+  /* ── ANNOTATIONS ── */
+  .annotation { position: relative; }
+  .ann-tag { display: inline-block; background: #7c3aed; color: white; font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 3px; vertical-align: middle; margin-left: 6px; letter-spacing: 0.3px; }
+  .ann-new { background: #059669; }
+  .ann-change { background: #d97706; }
+  .ann-ref { background: #0284c7; }
+</style>
+</head>
+<body>
+
+<!-- MOCKUP BANNER -->
+<div class="mockup-banner">
+  🎨 DESIGN MOCKUP — For developer reference only. Not the live site.
+  <a href="developer-plan.html">→ View Full Developer Plan</a>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<div class="section-label">▼ TOP BAR — Updated with US number + "Request a Quote" CTA <span class="ann-tag ann-change">CHANGED</span></div>
+<div class="top-bar">
+  <div class="top-bar-left">
+    <a href="tel:+17727820494">🇺🇸 +1 772 782 0494</a>
+    <a href="https://wa.me/20120140578">💬 WhatsApp: +20 12 014-0578</a>
+    <a href="mailto:info@accessegypttravel.com">✉️ info@accessegypttravel.com</a>
+  </div>
+  <div class="top-bar-right">
+    <a href="mailto:info@accessegypttravel.com" class="cta-btn">Request a Quote</a>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<div class="section-label">▼ HEADER + NAVIGATION — Restructured with Tours dropdown, Reviews, FAQs as top-level <span class="ann-tag ann-change">CHANGED</span></div>
+<div class="header">
+  <div class="logo">
+    <div class="logo-icon">𓂀</div>
+    <div class="logo-text">
+      <div class="name">Access Egypt Travel</div>
+      <div class="sub">Private Tours · Egyptologist Guided</div>
+    </div>
+  </div>
+  <nav>
+    <a href="#">Home</a>
+    <div class="nav-dropdown">
+      <a href="#">Tours</a>
+      <div class="dropdown-menu">
+        <a href="#">Egypt Packages</a>
+        <a href="#">Luxor Day Tours</a>
+        <a href="#">Nile Cruise</a>
+        <a href="#">Tailor-Made Tours</a>
+        <div class="divider"></div>
+        <a href="#">Hurghada to Luxor Tours</a>
+        <a href="#">Cairo to Luxor Tours</a>
+        <div class="note">📍 Pickup from Cairo, Hurghada & Luxor</div>
+      </div>
+    </div>
+    <a href="#">Reviews</a>
+    <a href="#">FAQs</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+    <a href="#" class="active" style="background:#b5451b;color:white;padding:8px 16px;border-radius:6px;">💳 Pay Now</a>
+  </nav>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<div class="section-label">▼ HERO — TripAdvisor badge + pickup locations strip <span class="ann-tag ann-change">CHANGED</span></div>
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge">✦ Egyptologist-Guided Private Tours</div>
+    <h1>Handcrafted Private<br><span>Egypt Tours</span></h1>
+    <p>Expert planning. Unmatched local knowledge. Pickup from Cairo, Hurghada & Luxor.</p>
+    <div class="hero-actions">
+      <a href="mailto:info@accessegypttravel.com" class="hero-btn-primary">Request a Quote →</a>
+      <a href="#" class="hero-btn-secondary">View All Tours</a>
+    </div>
+  </div>
+  <div class="hero-tripadvisor">
+    <div class="ta-circle">🦉</div>
+    <div>
+      <div style="font-weight:800;font-size:13px;">Travelers' Choice</div>
+      <div style="color:rgba(255,255,255,0.7);font-size:11px;">TripAdvisor 2026</div>
+    </div>
+  </div>
+  <div class="hero-pickup">📍 Pickup: Cairo · Hurghada · Luxor</div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<div class="section-label">▼ TRUST STRIP — Credentials & differentiators <span class="ann-tag ann-new">NEW</span></div>
+<div class="trust-strip">
+  <div class="trust-item"><div class="trust-icon">🎓</div> BSc Egyptology · 22 Years Experience</div>
+  <div class="trust-divider"></div>
+  <div class="trust-item"><div class="trust-icon">🔒</div> Private Tours · Small Groups Only</div>
+  <div class="trust-divider"></div>
+  <div class="trust-item"><div class="trust-icon">🇺🇸</div> US-Based Support · EST Hours</div>
+  <div class="trust-divider"></div>
+  <div class="trust-item"><div class="trust-icon">💬</div> Responds Within 2 Hours</div>
+  <div class="trust-divider"></div>
+  <div class="trust-item"><div class="trust-icon">📍</div> Cairo · Hurghada · Luxor Pickup</div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<div class="section-label">▼ TOUR CARDS — Sample of updated card format with pickup location shown</div>
+<div class="tours-section">
+  <div class="section-heading">
+    <h2>Egypt Tour Packages</h2>
+    <p>Private, expert-led tours departing from Cairo, Hurghada & Luxor</p>
+    <div class="line"></div>
+  </div>
+  <div class="tours-grid">
+    <div class="tour-card">
+      <div class="tour-img c1"><span style="font-size:60px;">🏛️</span><div class="featured-tag">Featured</div></div>
+      <div class="tour-body">
+        <h3>8 Days — Cairo, Giza Pyramids & Nile Cruise Adventure</h3>
+        <div class="pickup">📍 Departs from: Cairo or Hurghada</div>
+        <div class="price">From $2,500 <span>/ per person</span></div>
+        <a href="#" class="explore">Explore →</a>
+      </div>
+    </div>
+    <div class="tour-card">
+      <div class="tour-img c2"><span style="font-size:60px;">🚢</span></div>
+      <div class="tour-body">
+        <h3>5 Days — Nile River Cruise, Luxor to Aswan</h3>
+        <div class="pickup">📍 Departs from: Hurghada or Luxor</div>
+        <div class="price">From $1,700 <span>/ per person</span></div>
+        <a href="#" class="explore">Explore →</a>
+      </div>
+    </div>
+    <div class="tour-card">
+      <div class="tour-img c3"><span style="font-size:60px;">🗿</span></div>
+      <div class="tour-body">
+        <h3>11 Days — Complete Egypt: Cairo & Nile Cruise</h3>
+        <div class="pickup">📍 Departs from: Cairo or Hurghada</div>
+        <div class="price">From $3,500 <span>/ per person</span></div>
+        <a href="#" class="explore">Explore →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<div class="section-label">▼ EGYPTOLOGIST SECTION — John Gamil feature (currently missing from site) <span class="ann-tag ann-new">NEW</span></div>
+<div class="egyptologist">
+  <div class="egyptologist-avatar">𓂀</div>
+  <div class="egyptologist-text">
+    <h2>Your Guide: John Gamil, Egyptologist</h2>
+    <p>A native Egyptian who lived in the United States for many years, John holds a Bachelor's degree in Egyptology and has guided travelers from across the world for over 22 years. His storytelling connects ancient history to the contemporary Egypt you'll experience — making every site come alive in a way no script-reading guide ever could.</p>
+    <div class="egyptologist-stats">
+      <div class="stat"><div class="num">22+</div><div class="lbl">Years Experience</div></div>
+      <div class="stat"><div class="num">BSc</div><div class="lbl">Egyptology, 2000</div></div>
+      <div class="stat"><div class="num">🇺🇸</div><div class="lbl">US-Familiar</div></div>
+      <div class="stat"><div class="num">100%</div><div class="lbl">Private Tours</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<div class="section-label">▼ PHOTO STRIP — Customer trip photos above footer (Gate 1 / Osiris style) <span class="ann-tag ann-new">NEW</span></div>
+<div class="photo-strip">
+  <h2>Travel With Us — See Egypt Through Their Eyes</h2>
+  <p>Real photos from real travelers. Every trip is different. Every story is yours.</p>
+  <div class="photo-grid">
+    <div class="photo-thumb p1">🏛️</div>
+    <div class="photo-thumb p2">🌊</div>
+    <div class="photo-thumb p3">🌅</div>
+    <div class="photo-thumb p4">🐪</div>
+    <div class="photo-thumb p5">⛵</div>
+    <div class="photo-thumb p6">🗿</div>
+  </div>
+  <div class="photo-strip-actions">
+    <a href="#" class="strip-btn primary">View Full Gallery</a>
+    <a href="https://www.tripadvisor.com/Attraction_Review-g294205-d25314995-Reviews-Access_Egypt_travel-Luxor_Nile_River_Valley.html" class="strip-btn secondary">Read TripAdvisor Reviews</a>
+  </div>
+  <div class="hashtag">#AccessEgyptTravel</div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<div class="section-label">▼ FOOTER — 4-column Osiris-style, charcoal #212121, white logo treatment <span class="ann-tag ann-change">REBUILT</span></div>
+<footer>
+  <div class="footer-main">
+
+    <!-- COL 1: Brand + Social -->
+    <div class="footer-col">
+      <div class="footer-logo">
+        <div class="name">Access Egypt Travel</div>
+        <div class="sub">Private · Egyptologist-Guided</div>
+      </div>
+      <div class="footer-tagline">"Private Egypt Tours Led by a Real Egyptologist — Pickup from Cairo, Hurghada & Luxor"</div>
+      <div class="footer-social">
+        <a href="https://www.facebook.com/accessegypttravel/" class="social-icon" title="Facebook">f</a>
+        <a href="https://www.instagram.com/accessegypttravel/" class="social-icon" title="Instagram">📷</a>
+        <a href="https://www.tripadvisor.com/Attraction_Review-g294205-d25314995-Reviews-Access_Egypt_travel-Luxor_Nile_River_Valley.html" class="social-icon" title="TripAdvisor">🦉</a>
+        <a href="https://wa.me/20120140578" class="social-icon" title="WhatsApp">💬</a>
+      </div>
+      <p class="footer-note" style="margin-top:14px;">© 2026 Access Egypt Travel LLC.<br>All Rights Reserved.</p>
+    </div>
+
+    <!-- COL 2: Egypt Tours -->
+    <div class="footer-col">
+      <h4>Egypt Tours</h4>
+      <a href="#">Egypt Packages</a>
+      <a href="#">Luxor Day Tours</a>
+      <a href="#">Nile Cruise</a>
+      <a href="#">Tailor-Made Tours</a>
+      <a href="#" style="color:#8a8a8a;">Hurghada to Luxor Tours</a>
+      <a href="#" style="color:#8a8a8a;">Cairo to Luxor Tours</a>
+      <div style="height:10px;"></div>
+      <a href="#">About John Gamil</a>
+      <a href="#">Our Mission</a>
+      <a href="#">Trip Photo Albums</a>
+    </div>
+
+    <!-- COL 3: Traveler Resources -->
+    <div class="footer-col">
+      <h4>Traveler Resources</h4>
+      <a href="#">Visa Requirements for Americans</a>
+      <a href="#">Best Time to Visit Egypt</a>
+      <a href="#">Hurghada to Luxor: Complete Guide</a>
+      <a href="#">Is Egypt Safe for Americans?</a>
+      <a href="#">What to Pack for Egypt</a>
+      <a href="#">Egypt Travel FAQ</a>
+      <p class="footer-note" style="margin-top:10px;">In-depth travel guides for American travelers planning their first Egypt trip.</p>
+    </div>
+
+    <!-- COL 4: Contact -->
+    <div class="footer-col">
+      <h4>Contact Us</h4>
+      <div class="contact-line"><span class="icon">📍</span><span>Pickup: Cairo · Hurghada · Luxor</span></div>
+      <div class="contact-line"><span class="icon">🇺🇸</span><a href="tel:+17727820494">+1 772 782 0494</a></div>
+      <div class="contact-line"><span class="icon">💬</span><a href="https://wa.me/20120140578">+20 12 014-0578 (WhatsApp)</a></div>
+      <div class="contact-line"><span class="icon">✉️</span><a href="mailto:info@accessegypttravel.com">info@accessegypttravel.com</a></div>
+      <a href="https://calendly.com/accessegypttravel/30min" class="footer-schedule">📅 Schedule a Free Call →</a>
+      <p class="footer-note" style="margin-top:10px;">Mon–Sat · 9am–6pm EST<br>We respond within 2 hours.</p>
+      <div style="height:12px;"></div>
+      <a href="#">Reservation Policy</a>
+      <a href="#">Terms & Conditions</a>
+      <a href="#">Privacy Policy</a>
+    </div>
+
+  </div>
+
+  <!-- FOOTER BOTTOM BAR -->
+  <div class="footer-bottom">
+    <p>© 2026 Access Egypt Travel LLC · All Rights Reserved · 📍 Cairo · Hurghada · Luxor · 🇺🇸 +1 772 782 0494</p>
+    <div class="footer-bottom-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms & Conditions</a>
+      <a href="#">Reservation Policy</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
