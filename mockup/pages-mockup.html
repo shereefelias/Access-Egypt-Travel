@@ -223,6 +223,31 @@
   .why-item h4 { font-size: 14px; font-weight: 700; color: #2c1a0e; margin-bottom: 4px; }
   .why-item p { font-size: 13.5px; color: #5a4030; line-height: 1.5; }
 
+  /* ── TEAM SECTION ── */
+  .team-section-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #8b7355; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #f0e8d8; }
+  .team-leader-row { display: grid; grid-template-columns: 240px 1fr; gap: 40px; align-items: start; margin-bottom: 48px; }
+  .team-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 48px; }
+  .team-grid-5 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; margin-bottom: 16px; }
+  .team-card { background: white; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); overflow: hidden; text-align: center; border: 1px solid #f0e8d8; }
+  .team-card.featured { box-shadow: 0 4px 24px rgba(0,0,0,0.12); border-color: #d4af6a; }
+  .team-photo { background: linear-gradient(135deg, #d4af6a, #8b6914); display: flex; align-items: center; justify-content: center; font-size: 48px; overflow: hidden; }
+  .team-photo.lg { height: 240px; }
+  .team-photo.md { height: 180px; }
+  .team-photo.sm { height: 130px; font-size: 32px; }
+  .team-photo img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
+  .team-info { padding: 16px 14px 18px; }
+  .team-info.lg { padding: 20px; }
+  .team-name { font-size: 17px; font-weight: 800; color: #2c1a0e; margin-bottom: 2px; }
+  .team-name.sm { font-size: 14px; }
+  .team-role { font-size: 11.5px; color: #b5451b; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; }
+  .team-role.sm { font-size: 10.5px; margin-bottom: 8px; }
+  .team-bio { font-size: 13px; color: #5a4030; line-height: 1.6; margin-bottom: 12px; }
+  .team-bio.sm { font-size: 12px; }
+  .team-badges { display: flex; flex-wrap: wrap; gap: 5px; justify-content: center; }
+  .team-badge { background: #fdf8f2; border: 1px solid #e8dfc8; color: #5a4030; font-size: 10.5px; font-weight: 600; padding: 3px 8px; border-radius: 4px; }
+  .team-badge.gold { background: #fffbeb; border-color: #d4af6a; color: #92400e; }
+  .guide-specialty { font-size: 11px; color: #8b7355; margin-top: 6px; line-height: 1.4; }
+
   /* ════════════════════════════
      CONTACT PAGE
   ════════════════════════════ */
@@ -2074,32 +2099,35 @@
      ABOUT PAGE
 ════════════════════════════════════════════ -->
 <div id="about" class="page-section">
-<div class="page-label">ABOUT US PAGE <span>John Gamil's story + why Access Egypt Travel</span></div>
+<div class="page-label">ABOUT US PAGE <span>Meet the team behind Access Egypt Travel</span></div>
 
 <div class="top-bar"><div><a href="tel:+17727820494">🇺🇸 +1 772 782 0494</a><a href="https://wa.me/20120140578">💬 WhatsApp</a><a href="mailto:info@accessegypttravel.com">✉️ info@accessegypttravel.com</a></div><a href="mailto:info@accessegypttravel.com" class="cta-btn">Request a Quote</a></div>
 <div class="site-header"><img src="Logo_Green_3.png" alt="Access Egypt Travel" class="site-logo-img"><nav><a href="#">Home</a><a href="#">Tours ▾</a><a href="#">Reviews</a><a href="#">FAQs</a><a href="#" class="active">About</a><a href="#">Contact</a></nav></div>
 
 <div class="about-hero">
   <div style="padding-bottom:50px;">
-    <h1 style="font-size:48px;font-weight:900;margin-bottom:12px;line-height:1.1;">Meet Your <span style="color:#d4af6a;">Egyptologist</span></h1>
-    <p style="font-size:18px;color:rgba(255,255,255,0.85);max-width:620px;line-height:1.6;">Not just a guide. A BSc-educated Egyptologist with 22 years in the field — who happens to understand exactly what American travelers need from an Egypt trip.</p>
+    <h1 style="font-size:48px;font-weight:900;margin-bottom:12px;line-height:1.1;">The People Behind <span style="color:#d4af6a;">Your Egypt Trip</span></h1>
+    <p style="font-size:18px;color:rgba(255,255,255,0.85);max-width:640px;line-height:1.6;">A tight-knit team of Egyptologists, operations experts, and local guides — all united by one goal: giving you the Egypt trip you'll talk about for the rest of your life.</p>
   </div>
 </div>
 
 <div class="about-body">
-  <div class="about-profile">
-    <div class="profile-card">
-      <div class="profile-photo"><img src="John_portfolio.jpg" alt="John Gamil — Owner &amp; Lead Egyptologist, Access Egypt Travel"></div>
-      <div class="profile-info">
-        <div class="pname">John Gamil</div>
-        <div class="ptitle">Owner · Lead Egyptologist</div>
-        <div class="profile-badges">
-          <span class="profile-badge">BSc Egyptology, 2000</span>
-          <span class="profile-badge">22 Years Experience</span>
-          <span class="profile-badge">US-Familiar</span>
-          <span class="profile-badge">Private Tours Only</span>
+
+  <!-- ── FOUNDER ── -->
+  <div class="team-section-label">Founder &amp; Lead Egyptologist</div>
+  <div class="team-leader-row">
+    <div class="team-card featured">
+      <div class="team-photo lg"><img src="John_portfolio.jpg" alt="John Gamil — Founder &amp; Lead Egyptologist"></div>
+      <div class="team-info lg">
+        <div class="team-name">John Gamil</div>
+        <div class="team-role">Founder · Lead Egyptologist</div>
+        <div class="team-badges">
+          <span class="team-badge gold">BSc Egyptology, 2000</span>
+          <span class="team-badge">22 Yrs Experience</span>
+          <span class="team-badge">US-Familiar</span>
+          <span class="team-badge">Private Tours Only</span>
         </div>
-        <div class="profile-social">
+        <div class="profile-social" style="margin-top:14px;">
           <a href="https://www.facebook.com/accessegypttravel/">f</a>
           <a href="https://www.instagram.com/accessegypttravel/">📷</a>
           <a href="https://www.tripadvisor.com/Attraction_Review-g294205-d25314995-Reviews-Access_Egypt_travel-Luxor_Nile_River_Valley.html">🦉</a>
@@ -2125,15 +2153,133 @@
 
   <div class="about-quote">
     <blockquote>"The pyramids don't need me to make them impressive — Khufu handled that 4,500 years ago. What I bring is the story behind them. The why. The who. The arguments that Egyptologists still have today. That's what turns a great photo into an experience you actually remember."</blockquote>
-    <cite>— John Gamil, Owner, Access Egypt Travel</cite>
+    <cite>— John Gamil, Founder, Access Egypt Travel</cite>
   </div>
 
-  <div class="why-us">
+  <!-- ── LEADERSHIP TEAM ── -->
+  <div class="team-section-label" style="margin-top:48px;">Leadership Team</div>
+  <div class="team-grid-3">
+
+    <div class="team-card">
+      <div class="team-photo md" style="background:linear-gradient(135deg,#2c5282,#1a365d);">🏦</div>
+      <div class="team-info">
+        <div class="team-name">Hani Kamel</div>
+        <div class="team-role">Chief Financial Officer</div>
+        <div class="team-bio">Keeps the numbers honest and the pricing transparent. Hani ensures every USD quoted to our clients is accurate, competitive, and free of hidden fees — from supplier contracts to client invoices.</div>
+        <div class="team-badges">
+          <span class="team-badge">Finance &amp; Operations</span>
+          <span class="team-badge">USD Pricing</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <div class="team-photo md" style="background:linear-gradient(135deg,#276749,#1c4532);">💻</div>
+      <div class="team-info">
+        <div class="team-name">Shereef Elias</div>
+        <div class="team-role">Chief Technology Officer</div>
+        <div class="team-bio">Builds and maintains the digital experience — from the booking system and website to the tools that let John's team respond to clients within 2 hours, every time. Based in the US.</div>
+        <div class="team-badges">
+          <span class="team-badge">Web &amp; Booking Systems</span>
+          <span class="team-badge">US-Based</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <div class="team-photo md" style="background:linear-gradient(135deg,#744210,#4a2000);">⚙️</div>
+      <div class="team-info">
+        <div class="team-name">George</div>
+        <div class="team-role">Senior Developer</div>
+        <div class="team-bio">Turns ideas into features — from custom tour landing pages to the client portal and payment integrations. Works closely with Shereef to keep the tech stack fast, reliable, and traveler-friendly.</div>
+        <div class="team-badges">
+          <span class="team-badge">Frontend &amp; Backend</span>
+          <span class="team-badge">Integrations</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── TOUR GUIDES ── -->
+  <div class="team-section-label" style="margin-top:8px;">Our Tour Guides</div>
+  <p style="font-size:14px;color:#5a4030;margin-bottom:24px;line-height:1.6;">Every guide on our roster holds a Ministry of Tourism license and speaks fluent English. They're not script-readers — they're specialists with decades of on-site experience at Egypt's most important sites.</p>
+  <div class="team-grid-5">
+
+    <div class="team-card">
+      <div class="team-photo sm" style="background:linear-gradient(135deg,#b7791f,#744210);">🏛️</div>
+      <div class="team-info" style="padding:12px 10px 14px;">
+        <div class="team-name sm">Ahmed Hassan</div>
+        <div class="team-role sm">Senior Guide · Cairo</div>
+        <div class="guide-specialty">Pyramids &amp; GEM specialist. 18 years guiding Cairo's pharaonic sites.</div>
+        <div class="team-badges" style="margin-top:8px;">
+          <span class="team-badge">Cairo</span>
+          <span class="team-badge">Licensed</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <div class="team-photo sm" style="background:linear-gradient(135deg,#2b6cb0,#1a365d);">👑</div>
+      <div class="team-info" style="padding:12px 10px 14px;">
+        <div class="team-name sm">Mostafa Saad</div>
+        <div class="team-role sm">Senior Guide · Luxor</div>
+        <div class="guide-specialty">Valley of the Kings expert. 15 years specializing in West Bank archaeology.</div>
+        <div class="team-badges" style="margin-top:8px;">
+          <span class="team-badge">Luxor</span>
+          <span class="team-badge">Licensed</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <div class="team-photo sm" style="background:linear-gradient(135deg,#276749,#1c4532);">⛵</div>
+      <div class="team-info" style="padding:12px 10px 14px;">
+        <div class="team-name sm">Omar Youssef</div>
+        <div class="team-role sm">Guide · Aswan &amp; Nile</div>
+        <div class="guide-specialty">Nile cruise and Aswan specialist. Nubian culture and Abu Simbel authority.</div>
+        <div class="team-badges" style="margin-top:8px;">
+          <span class="team-badge">Aswan</span>
+          <span class="team-badge">Licensed</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <div class="team-photo sm" style="background:linear-gradient(135deg,#702459,#4a1942);">🕌</div>
+      <div class="team-info" style="padding:12px 10px 14px;">
+        <div class="team-name sm">Nadia Rashid</div>
+        <div class="team-role sm">Guide · Islamic Cairo</div>
+        <div class="guide-specialty">Coptic and Islamic Cairo expert. Brings the medieval city to life for first-time visitors.</div>
+        <div class="team-badges" style="margin-top:8px;">
+          <span class="team-badge">Cairo</span>
+          <span class="team-badge">Licensed</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <div class="team-photo sm" style="background:linear-gradient(135deg,#c05621,#7b341e);">🌅</div>
+      <div class="team-info" style="padding:12px 10px 14px;">
+        <div class="team-name sm">Karim Farouk</div>
+        <div class="team-role sm">Guide · Multi-Region</div>
+        <div class="guide-specialty">Covers full Egypt itineraries. Specializes in sunrise balloon rides and extended Nile voyages.</div>
+        <div class="team-badges" style="margin-top:8px;">
+          <span class="team-badge">All Regions</span>
+          <span class="team-badge">Licensed</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── WHY US ── -->
+  <div class="why-us" style="margin-top:40px;">
     <h3>Why Travelers Choose Access Egypt Travel</h3>
     <div class="why-grid">
       <div class="why-item">
         <span class="why-icon">🎓</span>
-        <div><h4>Real Egyptologist, Not a Script-Reader</h4><p>John holds a BSc in Egyptology and has spent 22 years studying and explaining these sites. The depth of knowledge is different — and you'll feel it on Day 1.</p></div>
+        <div><h4>Real Egyptologists, Not Script-Readers</h4><p>Every guide on our team holds a Ministry of Tourism license and deep field experience. The depth of knowledge is different — and you'll feel it on Day 1.</p></div>
       </div>
       <div class="why-item">
         <span class="why-icon">👥</span>
@@ -2141,7 +2287,7 @@
       </div>
       <div class="why-item">
         <span class="why-icon">🇺🇸</span>
-        <div><h4>Built for American Travelers</h4><p>USD pricing. US-compatible logistics. Support in US time zones. John lived in America — he knows your questions before you ask them.</p></div>
+        <div><h4>Built for American Travelers</h4><p>USD pricing. US-compatible logistics. Support in US time zones. John and Shereef are US-based — we know your questions before you ask them.</p></div>
       </div>
       <div class="why-item">
         <span class="why-icon">📍</span>
@@ -2149,7 +2295,7 @@
       </div>
       <div class="why-item">
         <span class="why-icon">💬</span>
-        <div><h4>Direct Contact — No Call Centers</h4><p>When you message us, you reach us. Responses within 2 hours during business hours. Questions answered by the person who will actually guide your tour.</p></div>
+        <div><h4>Direct Contact — No Call Centers</h4><p>When you message us, you reach us. Responses within 2 hours during business hours. Questions answered by a real person on our team.</p></div>
       </div>
       <div class="why-item">
         <span class="why-icon">💰</span>
@@ -2157,6 +2303,7 @@
       </div>
     </div>
   </div>
+
 </div>
 </div><!-- end about page -->
 
@@ -2536,7 +2683,7 @@
 <div class="site-footer">
   <div class="footer-main">
     <div class="footer-col"><img src="site_icon.png" alt="Access Egypt Travel" style="height:70px;width:auto;display:block;margin-bottom:10px;"><div style="font-size:11px;color:#666;text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;">Private · Egyptologist-Guided</div><a href="#">Egypt Packages</a><a href="#">Luxor Tours</a><a href="#">Nile Cruise</a><a href="#">Tailor-Made Tours</a></div>
-    <div class="footer-col"><h4>Travel Resources</h4><a href="#">Egypt Visa for Americans</a><a href="#">Best Time to Visit</a><a href="#">Hurghada to Luxor Guide</a><a href="#">Is Egypt Safe?</a><a href="#">What to Pack</a></div>
+    <div class="footer-col"><h4>Travel Resources</h4><a href="#">Egypt Visa for Americans</a><a href="#">Best Time to Visit</a><a href="#">Hurghada to Luxor Tour</a><a href="#">Is Egypt Safe?</a><a href="#">What to Pack</a></div>
     <div class="footer-col"><h4>Why Choose Us</h4><a href="#">Real Egyptologist Guide</a><a href="#">100% Private Tours</a><a href="#">Cairo · Hurghada · Luxor Pickup</a><a href="#">US-Based Support</a><a href="#">TripAdvisor Reviews</a></div>
     <div class="footer-col"><h4>Contact Us</h4><a href="tel:+17727820494">🇺🇸 +1 772 782 0494</a><a href="https://wa.me/20120140578">💬 +20 12 014-0578</a><a href="mailto:info@accessegypttravel.com">✉️ info@accessegypttravel.com</a><a href="https://cal.com/accessegypttravel/30min" style="color:#d4af6a;font-weight:700;margin-top:8px;">📅 Schedule a Free Call →</a></div>
   </div>
