@@ -12,12 +12,20 @@
   .mockup-banner { background: #7c3aed; color: white; text-align: center; padding: 10px 20px; font-size: 13px; font-weight: 600; position: sticky; top: 0; z-index: 1000; display: flex; justify-content: center; align-items: center; gap: 20px; flex-wrap: wrap; }
   .mockup-banner a { color: #ddd6fe; text-decoration: none; padding: 4px 12px; border: 1px solid rgba(255,255,255,0.3); border-radius: 4px; font-size: 12px; }
   .mockup-banner a:hover { background: rgba(255,255,255,0.15); }
+  .mb-dropdown { position: relative; display: inline-block; }
+  .mb-dropdown-btn { color: #ddd6fe; text-decoration: none; padding: 4px 12px; border: 1px solid rgba(255,255,255,0.3); border-radius: 4px; font-size: 12px; cursor: pointer; background: none; font-weight: 600; font-family: inherit; display: flex; align-items: center; gap: 5px; }
+  .mb-dropdown-btn:hover { background: rgba(255,255,255,0.15); }
+  .mb-dropdown-menu { display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background: #5b21b6; border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; min-width: 200px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.3); z-index: 2000; padding-top: 6px; }
+  .mb-dropdown-menu a { display: block; color: #ddd6fe; text-decoration: none; padding: 9px 16px; font-size: 12px; border: none; border-radius: 0; text-align: left; }
+  .mb-dropdown-menu a:hover { background: rgba(255,255,255,0.15); }
+  .mb-dropdown:hover .mb-dropdown-menu { display: block; }
   .top-bar { background: #1a0f00; color: #d4af6a; padding: 8px 40px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; }
   .top-bar a { color: #d4af6a; text-decoration: none; margin-right: 20px; }
   .top-bar .cta-btn { background: #b5451b; color: white; padding: 7px 20px; border-radius: 4px; font-size: 13px; font-weight: 700; text-decoration: none; }
   .site-header { background: white; border-bottom: 1px solid #f0ece4; padding: 0 40px; display: flex; align-items: center; justify-content: space-between; height: 74px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
   .logo-text .name { font-size: 15px; font-weight: 800; color: #2c1a0e; letter-spacing: 1px; text-transform: uppercase; }
   .logo-text .sub { font-size: 10px; color: #8b7355; letter-spacing: 1.5px; text-transform: uppercase; }
+  .site-logo-img { height: 56px; width: auto; display: block; }
   nav { display: flex; gap: 4px; }
   nav a { padding: 10px 14px; color: #3a2a1a; font-size: 13.5px; font-weight: 600; text-decoration: none; border-radius: 4px; }
   nav a:hover, nav a.active { color: #b5451b; background: #fdf5ef; }
@@ -39,7 +47,7 @@
   /* ════════════════════════════
      TOUR PAGE
   ════════════════════════════ */
-  .tour-hero { background: linear-gradient(135deg, #1a0f00 0%, #3a2010 50%, #1a2a3a 100%); padding: 70px 60px 50px; color: white; position: relative; }
+  /* .tour-hero base style defined below with background image */
   .tour-hero-inner { max-width: 860px; }
   .tour-crumb { font-size: 12px; color: rgba(255,255,255,0.5); margin-bottom: 14px; }
   .tour-crumb a { color: #d4af6a; text-decoration: none; }
@@ -57,20 +65,19 @@
   .tour-hero-badge { position: absolute; top: 30px; right: 60px; background: #b5451b; color: white; padding: 10px 18px; border-radius: 6px; font-size: 12px; font-weight: 700; text-align: center; line-height: 1.5; }
 
   /* ── TOUR HERO (redesigned) ── */
-  .tour-hero { background: linear-gradient(to bottom, rgba(44,15,0,0.72) 0%, rgba(10,8,4,0.96) 75%, #0d0a06 100%), url('') center/cover no-repeat; padding: 54px 60px 0; color: white; position: relative; }
-  .tour-hero-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 44px; }
+  .tour-hero { background: linear-gradient(to bottom, rgba(10,6,2,0.15) 0%, rgba(10,6,2,0.25) 50%, rgba(10,6,2,0.82) 100%), url('tour_background.jpg') center/cover no-repeat; min-height: 500px; padding: 0 60px 0; color: white; position: relative; display: flex; flex-direction: column; justify-content: flex-end; }
+  .tour-hero-top { display: flex; justify-content: space-between; align-items: flex-end; padding-bottom: 36px; }
   .tour-hero-left { flex: 1; }
   .tour-duration-badge { display: flex; align-items: center; gap: 8px; background: #4a7c59; color: white; padding: 9px 16px; border-radius: 5px; font-size: 13.5px; font-weight: 700; white-space: nowrap; margin-top: 4px; }
 
-  /* ── TOUR STATS BAR ── */
-  .tour-stats-bar { background: #1a1208; border-top: 1px solid rgba(212,175,106,0.2); padding: 0 60px; display: flex; align-items: center; gap: 0; }
-  .tour-stat-item { display: flex; align-items: center; gap: 7px; padding: 10px 20px 10px 0; margin-right: 20px; border-right: 1px solid rgba(255,255,255,0.1); font-size: 11.5px; font-weight: 600; color: rgba(255,255,255,0.85); white-space: nowrap; }
-  .tour-stat-item:last-child { border-right: none; }
-  .tour-stat-item .si-icon { font-size: 14px; }
+  /* ── TOUR STATS PILLS (inside hero) ── */
+  .tour-stats-bar { display: flex; flex-wrap: wrap; gap: 10px; padding: 16px 0 36px; justify-content: flex-start; max-width: 600px; }
+  .tour-stat-item { display: flex; align-items: center; gap: 6px; background: rgba(0,0,0,0.45); backdrop-filter: blur(6px); border: 1px solid rgba(255,255,255,0.18); border-radius: 999px; padding: 6px 14px; font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.92); white-space: nowrap; }
+  .tour-stat-item .si-icon { font-size: 13px; }
 
-  /* ── TOUR SUB-NAV (integrated into hero bottom, sticky on scroll) ── */
+  /* ── TOUR SUB-NAV ── */
   .tour-subnav { background: #0d0a06; position: sticky; top: 42px; z-index: 100; border-bottom: 1px solid rgba(255,255,255,0.08); overflow: visible; }
-  .tour-subnav-inner { max-width: 1100px; margin: 0 auto; padding: 0 60px; padding-right: 460px; display: flex; position: relative; }
+  .tour-subnav-inner { max-width: 1100px; margin: 0 auto; padding: 0 60px; padding-right: 340px; display: flex; position: relative; }
   .subnav-right-group { position: absolute; right: 60px; top: 50%; transform: translateY(-50%); display: flex; align-items: flex-start; gap: 16px; z-index: 101; }
   .tour-subnav-links { display: flex; overflow-x: auto; flex: 1; min-width: 0; }
   .tour-subnav-links a { padding: 17px 16px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.55); text-decoration: none; border-bottom: 3px solid transparent; transition: color 0.15s, border-color 0.15s; white-space: nowrap; display: block; }
@@ -182,14 +189,15 @@
   /* ════════════════════════════
      ABOUT PAGE
   ════════════════════════════ */
-  .about-hero { background: linear-gradient(135deg, #2c1a0e 0%, #1a3a2e 100%); padding: 80px 60px; color: white; text-align: center; }
+  .about-hero { background: linear-gradient(to bottom, rgba(10,6,2,0.15) 0%, rgba(10,6,2,0.25) 50%, rgba(10,6,2,0.82) 100%), url('tour_background.jpg') center/cover no-repeat; min-height: 500px; padding: 0 60px; color: white; display: flex; flex-direction: column; justify-content: flex-end; }
   .about-hero h1 { font-size: 44px; font-weight: 900; margin-bottom: 14px; }
   .about-hero h1 span { color: #d4af6a; }
   .about-hero p { font-size: 18px; color: rgba(255,255,255,0.8); max-width: 600px; margin: 0 auto; line-height: 1.6; }
   .about-body { max-width: 1000px; margin: 0 auto; padding: 60px 40px; }
   .about-profile { display: grid; grid-template-columns: 280px 1fr; gap: 50px; margin-bottom: 60px; align-items: start; }
   .profile-card { background: white; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); overflow: hidden; text-align: center; }
-  .profile-photo { height: 280px; background: linear-gradient(135deg, #d4af6a, #8b6914); display: flex; align-items: center; justify-content: center; font-size: 80px; }
+  .profile-photo { height: 280px; background: linear-gradient(135deg, #d4af6a, #8b6914); display: flex; align-items: center; justify-content: center; font-size: 80px; overflow: hidden; }
+  .profile-photo img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
   .profile-info { padding: 20px; }
   .profile-info .pname { font-size: 20px; font-weight: 800; color: #2c1a0e; }
   .profile-info .ptitle { font-size: 13px; color: #8b7355; text-transform: uppercase; letter-spacing: 0.5px; margin: 4px 0 14px; }
@@ -218,12 +226,12 @@
   /* ════════════════════════════
      CONTACT PAGE
   ════════════════════════════ */
-  .contact-hero { background: linear-gradient(135deg, #0f4c35 0%, #1a3a2a 100%); padding: 70px 60px; color: white; text-align: center; }
+  .contact-hero { background: linear-gradient(to bottom, rgba(10,6,2,0.15) 0%, rgba(10,6,2,0.25) 50%, rgba(10,6,2,0.82) 100%), url('tour_background.jpg') center/cover no-repeat; min-height: 500px; padding: 0 60px; color: white; display: flex; flex-direction: column; justify-content: flex-end; }
   .contact-hero h1 { font-size: 42px; font-weight: 900; margin-bottom: 14px; }
   .contact-hero h1 span { color: #34d399; }
   .contact-hero p { font-size: 17px; color: rgba(255,255,255,0.8); max-width: 550px; margin: 0 auto; line-height: 1.6; }
   .contact-body { max-width: 1060px; margin: 0 auto; padding: 50px 40px; }
-  .contact-channels { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 40px; }
+  .contact-channels { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 40px; }
   .channel-card { background: white; border-radius: 10px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); padding: 24px; text-align: center; border-top: 4px solid #2c1a0e; }
   .channel-card .ch-icon { font-size: 36px; margin-bottom: 10px; }
   .channel-card h3 { font-size: 15px; font-weight: 800; color: #2c1a0e; margin-bottom: 6px; }
@@ -261,7 +269,7 @@
   /* ════════════════════════════
      FAQ PAGE
   ════════════════════════════ */
-  .faq-hero { background: linear-gradient(135deg, #1a1a2e 0%, #2c1a0e 100%); padding: 70px 60px; color: white; text-align: center; }
+  .faq-hero { background: linear-gradient(to bottom, rgba(10,6,2,0.15) 0%, rgba(10,6,2,0.25) 50%, rgba(10,6,2,0.82) 100%), url('tour_background.jpg') center/cover no-repeat; min-height: 500px; padding: 0 60px; color: white; display: flex; flex-direction: column; justify-content: flex-end; }
   .faq-hero h1 { font-size: 42px; font-weight: 900; margin-bottom: 14px; }
   .faq-hero h1 span { color: #d4af6a; }
   .faq-hero p { font-size: 17px; color: rgba(255,255,255,0.8); max-width: 580px; margin: 0 auto 24px; line-height: 1.6; }
@@ -286,13 +294,13 @@
   .faq-cta-btns a.secondary { background: rgba(255,255,255,0.1); border: 2px solid rgba(255,255,255,0.3); color: white; }
 
   /* ── SHARED FOOTER ── */
-  .site-footer { background: #212121; color: #aaa; }
+  .site-footer { background: #ffffff; color: #555; border-top: 1px solid #e5e7eb; }
   .footer-main { display: grid; grid-template-columns: repeat(4, 1fr); gap: 36px; padding: 46px 60px; max-width: 1300px; margin: 0 auto; }
-  .footer-col h4 { color: white; font-size: 13px; font-weight: 700; margin-bottom: 14px; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 2px solid #b5451b; padding-bottom: 8px; display: inline-block; }
-  .footer-col a { display: block; color: #aaa; font-size: 13px; text-decoration: none; margin-bottom: 7px; }
-  .footer-col a:hover { color: #d4af6a; }
-  .footer-bottom { background: #161616; padding: 14px 60px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
-  .footer-bottom p, .footer-bottom a { font-size: 12px; color: #555; text-decoration: none; }
+  .footer-col h4 { color: #2c1a0e; font-size: 13px; font-weight: 700; margin-bottom: 14px; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 2px solid #b5451b; padding-bottom: 8px; display: inline-block; }
+  .footer-col a { display: block; color: #555; font-size: 13px; text-decoration: none; margin-bottom: 7px; }
+  .footer-col a:hover { color: #b5451b; }
+  .footer-bottom { background: #f5f0e8; padding: 14px 60px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+  .footer-bottom p, .footer-bottom a { font-size: 12px; color: #8b7355; text-decoration: none; }
 
   /* ── DATE TOGGLE ── */
   .date-toggle { display: flex; gap: 8px; margin-bottom: 10px; }
@@ -318,7 +326,7 @@
   .route-pill.optional.clickable:hover { background: #d4af6a; color: #2c1a0e; }
 
   /* ── PAYMENT PAGE ── */
-  .payment-hero { background: linear-gradient(135deg, #1a2a1a 0%, #0f3020 100%); padding: 70px 60px; color: white; text-align: center; }
+  .payment-hero { background: linear-gradient(to bottom, rgba(10,6,2,0.15) 0%, rgba(10,6,2,0.25) 50%, rgba(10,6,2,0.82) 100%), url('tour_background.jpg') center/cover no-repeat; min-height: 500px; padding: 0 60px; color: white; display: flex; flex-direction: column; justify-content: flex-end; }
   .payment-hero h1 { font-size: 40px; font-weight: 900; margin-bottom: 12px; }
   .payment-hero h1 span { color: #34d399; }
   .payment-hero p { font-size: 16px; color: rgba(255,255,255,0.8); max-width: 520px; margin: 0 auto; line-height: 1.6; }
@@ -379,7 +387,16 @@
 <!-- FLOATING NAV -->
 <div class="mockup-banner">
   🎨 PAGE MOCKUPS — Access Egypt Travel
-  <a href="#tour">Tour Page</a>
+  <div class="mb-dropdown">
+    <button class="mb-dropdown-btn">Tour Pages ▾</button>
+    <div class="mb-dropdown-menu">
+      <a href="#tour">Tour A — 6 Days / Cairo &amp; Luxor</a>
+      <a href="#tour-b">Tour B — 8 Days / Cairo, Aswan &amp; Nile Cruise</a>
+      <a href="#tour-c">Tour C — 9 Days / Egypt Highlights + Cruise</a>
+      <a href="#tour-d">Tour D — 7 Days / Cairo, Luxor &amp; Aswan</a>
+      <a href="#tour-e">Tour E — 11 Days / Ultimate Odyssey</a>
+    </div>
+  </div>
   <a href="#about">About</a>
   <a href="#contact">Contact</a>
   <a href="#faqs">FAQs</a>
@@ -395,7 +412,7 @@
   <a href="mailto:info@accessegypttravel.com" class="cta-btn">Request a Quote</a>
 </div>
 <div class="site-header">
-  <div class="logo-text"><div class="name">𓂀 Access Egypt Travel</div><div class="sub">Private Tours · Egyptologist Guided</div></div>
+  <img src="Logo_Green_3.png" alt="Access Egypt Travel" class="site-logo-img">
   <nav>
     <a href="#">Home</a>
     <a href="#" class="active">Tours ▾</a>
@@ -420,15 +437,13 @@
       <div class="tour-title">6 Days / 5 Nights<br><span>Cairo &amp; Luxor Holiday</span></div>
     </div>
   </div>
-</div>
-
-<!-- TOUR STATS BAR -->
-<div class="tour-stats-bar">
-  <div class="tour-stat-item"><span class="si-icon">📅</span> 6 Days / 5 Nights</div>
-  <div class="tour-stat-item"><span class="si-icon">👥</span> 100% Private</div>
-  <div class="tour-stat-item"><span class="si-icon">📍</span> Cairo + Luxor</div>
-  <div class="tour-stat-item"><span class="si-icon">🎓</span> Egyptologist Guide</div>
-  <div class="tour-stat-item"><span class="si-icon">✈️</span> Pickup: Cairo or Hurghada</div>
+  <div class="tour-stats-bar">
+    <div class="tour-stat-item"><span class="si-icon">📅</span> 6 Days / 5 Nights</div>
+    <div class="tour-stat-item"><span class="si-icon">👥</span> 100% Private</div>
+    <div class="tour-stat-item"><span class="si-icon">📍</span> Cairo + Luxor</div>
+    <div class="tour-stat-item"><span class="si-icon">🎓</span> Egyptologist Guide</div>
+    <div class="tour-stat-item"><span class="si-icon">✈️</span> Pickup: Cairo or Hurghada</div>
+  </div>
 </div>
 
 <!-- STICKY SUB-NAV — sits at bottom of hero visually, sticks on scroll -->
@@ -730,23 +745,1351 @@
 
 
 <!-- ════════════════════════════════════════════════════
-     ABOUT PAGE
+     TOUR PAGE B — 8 Days
 ════════════════════════════════════════════════════ -->
+<div id="tour-b" class="page-section">
+<div class="page-label">TOUR PAGE — "8-Day Cairo, Aswan &amp; Nile Cruise" <span>8 days / 7 nights private itinerary</span></div>
+
+<div class="tour-hero">
+  <div class="tour-hero-top">
+    <div class="tour-hero-left">
+      <div class="tour-crumb"><a href="#" style="color:#d4af6a;text-decoration:none;">Home</a> › <a href="#" style="color:#d4af6a;text-decoration:none;">Tours</a> › 8 Days Cairo, Aswan &amp; Nile Cruise</div>
+      <div class="tour-title">8 Days / 7 Nights<br><span>Cairo, Aswan &amp; Nile Cruise</span></div>
+    </div>
+  </div>
+  <div class="tour-stats-bar">
+    <div class="tour-stat-item"><span class="si-icon">📅</span> 8 Days / 7 Nights</div>
+    <div class="tour-stat-item"><span class="si-icon">👥</span> 100% Private</div>
+    <div class="tour-stat-item"><span class="si-icon">📍</span> Cairo + Aswan + Nile Cruise</div>
+    <div class="tour-stat-item"><span class="si-icon">🎓</span> Egyptologist Guide</div>
+    <div class="tour-stat-item"><span class="si-icon">✈️</span> Pickup: Cairo or Hurghada</div>
+  </div>
+</div>
+
+<div class="tour-subnav" id="tourb-subnav">
+  <div class="tour-subnav-inner">
+    <div class="tour-subnav-links">
+      <a href="#tourb-overview" class="ts-active" data-section="tourb-overview">Overview</a>
+      <a href="#tourb-highlights" data-section="tourb-highlights">Highlights</a>
+      <a href="#tourb-itinerary" data-section="tourb-itinerary">Itinerary</a>
+      <a href="#tourb-accommodation" data-section="tourb-accommodation">Accommodation</a>
+      <a href="#tourb-inclusions" data-section="tourb-inclusions">Inclusions</a>
+    </div>
+    <div class="subnav-right-group">
+      <div class="subnav-widget">
+        <a href="mailto:info@accessegypttravel.com" class="subnav-book-btn">Request a Quote</a>
+        <div class="subnav-price">From <strong>$2,950</strong></div>
+        <div class="subnav-checks">✓ Private Tour &nbsp;&nbsp; ✓ Per Person</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="tour-body">
+  <div class="tour-main">
+
+    <div class="tour-section" id="tourb-overview">
+      <div class="tour-overview-intro">
+        <p>If you want a complete Egypt journey in just one week, this 8-day private package gives you the best of Cairo, Aswan, and a 3-night Nile cruise. Explore the Giza Pyramids, GEM, Philae Temple, and the temples of Kom Ombo, Edfu, and Luxor with one Egyptologist guide leading every step.</p>
+        <p>We handle airport meet &amp; assist, flights, transfers, hotels, cruise, entrance fees, and a private guide who knows how to make Egypt feel easy for American travelers. Relax, sail the Nile, and let us coordinate the logistics so you can focus on the monuments and the stories behind them.</p>
+      </div>
+
+      <h3>Tour At a Glance</h3>
+      <table class="pricing-table">
+        <tr><th>Detail</th><th></th></tr>
+        <tr><td>Duration</td><td><strong>8 Days / 7 Nights</strong></td></tr>
+        <tr><td>Tour Type</td><td><strong>100% Private — your group only</strong></td></tr>
+        <tr><td>Guide</td><td><strong>Licensed Egyptologist (English)</strong></td></tr>
+        <tr><td>Pickup</td><td><strong>Cairo International Airport or Hurghada</strong></td></tr>
+        <tr><td>Destinations</td><td><strong>Cairo (3 nights) → Aswan (1 night) → Nile Cruise (3 nights)</strong></td></tr>
+        <tr><td>Transport</td><td><strong>Domestic flights included</strong></td></tr>
+        <tr><td>Entry Visa</td><td><strong>Included</strong></td></tr>
+        <tr><td>Meals</td><td><strong>Breakfast + Lunch in Cairo/Aswan, all meals on cruise</strong></td></tr>
+        <tr><td>Price from</td><td><span class="price-highlight">$2,950 / person</span> (double occupancy)</td></tr>
+      </table>
+
+      <h3>Your Route</h3>
+      <div class="tour-map-section">
+        <img src="Access-Egypt-Travel-guide-map_v2.png" alt="Egypt Tour Route Map — Cairo to Luxor" class="tour-map-img">
+      </div>
+    </div>
+
+    <div class="tour-section" id="tourb-highlights">
+      <h3>Highlights</h3>
+      <div class="sites-grid">
+        <div class="site-item"><span class="site-icon">🏛️</span> Giza Pyramids &amp; the Sphinx</div>
+        <div class="site-item"><span class="site-icon">🏺</span> Grand Egyptian Museum (GEM)</div>
+        <div class="site-item"><span class="site-icon">🕌</span> Saladin Citadel &amp; Mohammed Ali Mosque</div>
+        <div class="site-item"><span class="site-icon">⛪</span> Coptic Cairo &amp; NMEC</div>
+        <div class="site-item"><span class="site-icon">🚤</span> Philae Temple by boat</div>
+        <div class="site-item"><span class="site-icon">🛡️</span> The High Dam</div>
+        <div class="site-item"><span class="site-icon">🏛️</span> Kom Ombo Temple</div>
+        <div class="site-item"><span class="site-icon">🏺</span> Edfu Temple</div>
+        <div class="site-item"><span class="site-icon">🏟️</span> Karnak Temple Complex</div>
+        <div class="site-item"><span class="site-icon">🌟</span> Luxor Temple by night</div>
+        <div class="site-item"><span class="site-icon">👑</span> Valley of the Kings</div>
+        <div class="site-item"><span class="site-icon">🏺</span> Hatshepsut Temple</div>
+        <div class="site-item"><span class="site-icon">🧑‍🎨</span> Deir el-Medina artisans' village</div>
+        <div class="site-item"><span class="site-icon">🗿</span> Colossi of Memnon</div>
+        <div class="site-item"><span class="site-icon">⛵</span> Felucca ride on the Nile</div>
+      </div>
+
+      <h3>Optional Add-Ons</h3>
+      <div class="addons-grid">
+        <div class="addon-item"><span class="addon-icon">🎈</span> Hot air balloon over Luxor at sunrise</div>
+        <div class="addon-item"><span class="addon-icon">✨</span> Sound &amp; Light Show at Karnak Temples</div>
+        <div class="addon-item"><span class="addon-icon">🍽️</span> Dinner cruise on the Nile in Cairo</div>
+        <div class="addon-item"><span class="addon-icon">🚗</span> Pickup from Hurghada or nearby resort</div>
+      </div>
+    </div>
+
+    <div class="tour-section" id="tourb-itinerary">
+      <h3>Day-by-Day Itinerary</h3>
+      <div class="itinerary">
+        <div class="day-block">
+          <div class="day-header">
+            <div class="day-num">Day 1</div>
+            <div><div class="day-location">Cairo</div><div class="day-title">Arrival &amp; Welcome</div></div>
+          </div>
+          <div class="day-body">Your dedicated representative meets you at Cairo International Airport with a name sign. Private transfer to your 5-star hotel. Check in, settle in, and meet your Egyptologist guide for a quick orientation. Rest of the day is yours. Overnight in Cairo.</div>
+        </div>
+        <div class="day-block">
+          <div class="day-header">
+            <div class="day-num">Day 2</div>
+            <div><div class="day-location">Cairo — Pharaonic</div><div class="day-title">Giza Pyramids, Sphinx &amp; GEM</div></div>
+          </div>
+          <div class="day-body">Beat the crowds at the Giza Plateau and stand before the Great Pyramid and Sphinx with your private guide. Lunch included. Afternoon at the Grand Egyptian Museum (GEM), home to the complete Tutankhamun collection. Overnight in Cairo.</div>
+        </div>
+        <div class="day-block">
+          <div class="day-header">
+            <div class="day-num">Day 3</div>
+            <div><div class="day-location">Cairo — Historic</div><div class="day-title">Citadel, Coptic Cairo &amp; NMEC</div></div>
+          </div>
+          <div class="day-body">Visit Saladin Citadel and the elegant Mohammed Ali Mosque, then explore Coptic Cairo and the National Museum of Egyptian Civilization (NMEC). Lunch included. Evening transfer to Cairo airport and fly to Aswan. Overnight in Aswan.</div>
+        </div>
+        <div class="day-block">
+          <div class="day-header">
+            <div class="day-num">Day 4</div>
+            <div><div class="day-location">Aswan</div><div class="day-title">Philae, High Dam &amp; Cruise Boarding</div></div>
+          </div>
+          <div class="day-body">Visit Philae Temple by boat, then the High Dam and the Unfinished Obelisk. Board your Nile cruise after lunch. Enjoy dinner and your first evening on the river. Overnight on board.</div>
+        </div>
+        <div class="day-block">
+          <div class="day-header">
+            <div class="day-num">Day 5</div>
+            <div><div class="day-location">Nile Cruise</div><div class="day-title">Felucca Ride &amp; Kom Ombo</div></div>
+          </div>
+          <div class="day-body">Start the morning with a felucca ride around Elephantine Island, then return to the ship and sail to Kom Ombo. Explore the twin temple of Kom Ombo before continuing to Edfu. Overnight in Edfu.</div>
+        </div>
+        <div class="day-block">
+          <div class="day-header">
+            <div class="day-num">Day 6</div>
+            <div><div class="day-location">Edfu → Luxor</div><div class="day-title">Edfu Temple &amp; Karnak + Luxor Temple</div></div>
+          </div>
+          <div class="day-body">Visit the beautifully preserved Edfu Temple, then sail through the Esna Lock toward Luxor. Arrive in the afternoon for Karnak Temple, followed by Luxor Temple lit at night — a completely different atmosphere. Overnight in Luxor.</div>
+        </div>
+        <div class="day-block">
+          <div class="day-header">
+            <div class="day-num">Day 7</div>
+            <div><div class="day-location">Luxor — West Bank</div><div class="day-title">Valley of the Kings, Hatshepsut &amp; Transfer</div></div>
+          </div>
+          <div class="day-body">Check out of the cruise, then visit the Valley of the Kings, Hatshepsut Temple, Deir el-Medina artisans' village, and the Colossi of Memnon. Lunch included, then private transfer to Luxor airport for your flight to Cairo. Overnight in Cairo airport hotel.</div>
+        </div>
+        <div class="day-block">
+          <div class="day-header">
+            <div class="day-num">Day 8</div>
+            <div><div class="day-location">Cairo</div><div class="day-title">Departure</div></div>
+          </div>
+          <div class="day-body">Breakfast at your hotel, then private transfer to Cairo airport for your departure flight. Our representative stays with you until you are checked in.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tour-section" id="tourb-accommodation">
+      <h3>Accommodation</h3>
+      <p style="font-size:14px;color:#5a4030;margin-bottom:18px;">Two accommodation tiers are available. Both are premium 4–5 star properties in the best locations. Upgrade at booking.</p>
+      <div class="hotel-grid">
+        <div class="hotel-card">
+          <div class="hotel-card-header comfort">⭐ Standard (Included)</div>
+          <div class="hotel-card-body">
+            <div class="hotel-row">
+              <div class="hotel-city">Cairo<br><span class="hotel-stars">★★★★★</span></div>
+              <div class="hotel-name">Pyramids-view 5-star property — Steigenberger Pyramids or similar. 3 nights.</div>
+            </div>
+            <div class="hotel-row">
+              <div class="hotel-city">Aswan<br><span class="hotel-stars">★★★★★</span></div>
+              <div class="hotel-name">5-star hotel in Aswan — Nile-view room, 1 night.</div>
+            </div>
+            <div class="hotel-row">
+              <div class="hotel-city">Nile Cruise<br><span class="hotel-stars">★★★★★</span></div>
+              <div class="hotel-name">3 nights on MS/Amwaj Livingstone or similar. Nile-view cabin.</div>
+            </div>
+          </div>
+        </div>
+        <div class="hotel-card">
+          <div class="hotel-card-header premium">✦ Premium Upgrade</div>
+          <div class="hotel-card-body">
+            <div class="hotel-row">
+              <div class="hotel-city">Cairo<br><span class="hotel-stars">★★★★★</span></div>
+              <div class="hotel-name">Four Seasons Cairo at Nile Plaza or Marriott Mena House. 3 nights.</div>
+            </div>
+            <div class="hotel-row">
+              <div class="hotel-city">Aswan<br><span class="hotel-stars">★★★★★</span></div>
+              <div class="hotel-name">Sofitel Legend Old Cataract or similar. 1 night.</div>
+            </div>
+            <div class="hotel-row">
+              <div class="hotel-city">Nile Cruise<br><span class="hotel-stars">★★★★★</span></div>
+              <div class="hotel-name">Ms. Mayfair, Ms. My Flower, or similar. 3 nights.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hotel-upgrade-note">💡 <strong>All rooms are private.</strong> Single supplement available. Family rooms available for groups with children. Ask us for current availability and upgrade pricing.</div>
+    </div>
+
+    <div class="tour-section" id="tourb-inclusions">
+      <h3 style="display:inline-block;background:#b5451b;color:white;padding:6px 18px;border-radius:4px;margin-bottom:22px;">Inclusions</h3>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-bottom:8px;">
+        <div>
+          <p style="font-size:15px;font-weight:700;color:#1a1a1a;margin-bottom:16px;">What is included in the tour</p>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:14px;">
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Airport meet &amp; assist by your dedicated representative</li>
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Entry visa to Egypt</li>
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Domestic flight Cairo → Aswan and return</li>
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>All airport &amp; inter-city transfers by private AC vehicles</li>
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>3 nights 5-star hotel in Cairo</li>
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>1 night 5-star hotel in Aswan</li>
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>3 nights cruise accommodation on the Nile</li>
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Breakfast &amp; lunch daily in Cairo and Aswan</li>
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>All meals on cruise — open buffet</li>
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>All entrance fees to listed sites</li>
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Private Egyptologist guide (English)</li>
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Bottled water and snacks during excursions</li>
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>All taxes and service charges</li>
+          </ul>
+        </div>
+
+        <div>
+          <p style="font-size:15px;font-weight:700;color:#1a1a1a;margin-bottom:16px;">What is NOT included in the tour</p>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:14px;">
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#dc2626;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="10" height="3" viewBox="0 0 10 3" fill="none"><rect x="0" y="0.5" width="10" height="2" rx="1" fill="white"/></svg></span>International airfare</li>
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#dc2626;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="10" height="3" viewBox="0 0 10 3" fill="none"><rect x="0" y="0.5" width="10" height="2" rx="1" fill="white"/></svg></span>Drinks not included (bottled water provided during excursions)</li>
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#dc2626;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="10" height="3" viewBox="0 0 10 3" fill="none"><rect x="0" y="0.5" width="10" height="2" rx="1" fill="white"/></svg></span>Gratuities for guides and drivers</li>
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#dc2626;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="10" height="3" viewBox="0 0 10 3" fill="none"><rect x="0" y="0.5" width="10" height="2" rx="1" fill="white"/></svg></span>Personal expenses — phone calls, laundry, souvenirs, etc.</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>Pricing</h3>
+      <table class="pricing-table">
+        <tr><th>Category</th><th>Price Per Person</th></tr>
+        <tr><td>Standard (double occupancy)</td><td><span class="price-highlight">From $2,950</span></td></tr>
+        <tr><td>Single supplement</td><td>+50% of base price</td></tr>
+        <tr><td>Group of 4–7 travelers</td><td>10% discount applied</td></tr>
+        <tr><td>Group of 8+ travelers</td><td>15% discount or bonus inclusions</td></tr>
+      </table>
+      <p style="font-size:13px;color:#8b7355;margin-top:8px;">All prices in USD. Contact us for current rates.</p>
+
+      <h3>Children's Policy</h3>
+      <table class="children-table">
+        <tr><th>Age</th><th>Price</th></tr>
+        <tr><td>Under 5 years</td><td>Free (max 1 child per booking)</td></tr>
+        <tr><td>Ages 5–11</td><td>50% of adult price</td></tr>
+        <tr><td>Ages 12 and over</td><td>Adult fare</td></tr>
+      </table>
+
+      <h3>Payment &amp; Cancellation Policy</h3>
+      <div class="note-box">💳 <strong>25% deposit</strong> secures your booking. Balance due before departure.</div>
+      <table class="cancel-table">
+        <tr><th>When You Cancel</th><th>Charge Applied</th></tr>
+        <tr><td>45+ days before arrival</td><td>No charge — full refund</td></tr>
+        <tr><td>30–45 days before arrival</td><td>20% of total trip price</td></tr>
+        <tr><td>1–30 days before arrival</td><td>50% of total trip price</td></tr>
+      </table>
+      <p style="font-size:13px;color:#8b7355;margin-top:8px;">Note: domestic transport cancellation fees may apply in addition to the above.</p>
+    </div>
+
+  </div><!-- end .tour-main -->
+
+  <div class="tour-sidebar">
+
+    <div style="border:2px solid #34d399;border-radius:10px;padding:18px 10px 18px 18px;background:white;margin-bottom:16px;margin-top:80px;">
+      <p style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:#6b7280;margin-bottom:10px;">Reviews</p>
+
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+        <svg width="28" height="18" viewBox="0 0 56 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="14" cy="18" r="14" fill="#34d399"/>
+          <circle cx="42" cy="18" r="14" fill="#34d399"/>
+          <circle cx="14" cy="18" r="6" fill="white"/>
+          <circle cx="42" cy="18" r="6" fill="white"/>
+          <circle cx="14" cy="18" r="3" fill="black"/>
+          <circle cx="42" cy="18" r="3" fill="black"/>
+        </svg>
+        <span style="font-size:15px;font-weight:700;color:#222;">Tripadvisor</span>
+      </div>
+
+      <a href="https://www.tripadvisor.com/Attraction_Review-g294205-d25314995-Reviews-Access_Egypt_travel-Luxor_Nile_River_Valley.html"
+         target="_blank"
+         style="font-size:16px;font-weight:800;color:#222;text-decoration:underline;display:block;margin-bottom:10px;">Access Egypt Travel</a>
+
+      <p style="font-size:11px;color:#6b7280;margin-bottom:4px;">Traveler Rating</p>
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+        <span style="display:flex;gap:3px;">
+          <span style="width:13px;height:13px;border-radius:50%;background:#34d399;display:inline-block;"></span>
+          <span style="width:13px;height:13px;border-radius:50%;background:#34d399;display:inline-block;"></span>
+          <span style="width:13px;height:13px;border-radius:50%;background:#34d399;display:inline-block;"></span>
+          <span style="width:13px;height:13px;border-radius:50%;background:#34d399;display:inline-block;"></span>
+          <span style="width:13px;height:13px;border-radius:50%;background:#34d399;display:inline-block;"></span>
+        </span>
+        <span style="font-size:13px;color:#374151;font-weight:700;">4.9 · 71 reviews</span>
+      </div>
+
+      <p style="font-size:11px;color:#6b7280;margin-bottom:2px;">Ranking</p>
+      <p style="font-size:17px;font-weight:900;color:#222;margin-bottom:12px;line-height:1.2;">
+        <sup style="font-size:12px;">#</sup>137 <span style="font-size:12px;font-weight:500;color:#6b7280;">of 1,289 Tours in Luxor</span>
+      </p>
+
+      <p style="font-size:11px;color:#6b7280;margin-bottom:5px;">Recent Traveler Reviews</p>
+      <p style="font-size:12.5px;color:#222;margin-bottom:4px;">"Unforgettable Unreal Experience"</p>
+      <p style="font-size:12.5px;color:#222;margin-bottom:4px;">"Nile Cruise Feb 2026"</p>
+      <p style="font-size:12.5px;color:#222;margin-bottom:4px;">"John makes history come alive"</p>
+      <p style="font-size:12.5px;color:#222;margin-bottom:12px;">"Luxor and Nile cruise to Aswan"</p>
+
+      <div style="display:flex;gap:14px;border-top:1px solid #e5e7eb;padding-top:10px;">
+        <a href="https://www.tripadvisor.com/Attraction_Review-g294205-d25314995-Reviews-Access_Egypt_travel-Luxor_Nile_River_Valley.html"
+           target="_blank" style="font-size:12.5px;color:#374151;text-decoration:underline;">Read reviews</a>
+        <span style="color:#d1d5db;">|</span>
+        <a href="https://www.tripadvisor.com/Attraction_Review-g294205-d25314995-Reviews-Access_Egypt_travel-Luxor_Nile_River_Valley.html#REVIEWS"
+           target="_blank" style="font-size:12.5px;color:#374151;text-decoration:underline;">Write a review</a>
+      </div>
+    </div>
+
+  </div><!-- end .tour-sidebar -->
+</div><!-- end .tour-body -->
+</div><!-- end tour page -->
+
+
+<!-- ════════════════════════════════════════════════════
+     TOUR PAGE C — 9 Days
+════════════════════════════════════════════════════ -->
+<div id="tour-c" class="page-section">
+<div class="page-label">TOUR PAGE — "9-Day Pyramid, Luxor &amp; Nile Cruise" <span>9 days / 8 nights private itinerary</span></div>
+
+<div class="tour-hero">
+  <div class="tour-hero-top">
+    <div class="tour-hero-left">
+      <div class="tour-crumb"><a href="#" style="color:#d4af6a;text-decoration:none;">Home</a> › <a href="#" style="color:#d4af6a;text-decoration:none;">Tours</a> › 9 Days Pyramids, Luxor &amp; Nile Cruise</div>
+      <div class="tour-title">9 Days / 8 Nights<br><span>Egypt Highlights + Nile Cruise</span></div>
+    </div>
+  </div>
+  <div class="tour-stats-bar">
+    <div class="tour-stat-item"><span class="si-icon">📅</span> 9 Days / 8 Nights</div>
+    <div class="tour-stat-item"><span class="si-icon">👥</span> 100% Private</div>
+    <div class="tour-stat-item"><span class="si-icon">📍</span> Cairo + Luxor + Aswan + Nile Cruise</div>
+    <div class="tour-stat-item"><span class="si-icon">🎓</span> Egyptologist Guide</div>
+    <div class="tour-stat-item"><span class="si-icon">✈️</span> Pickup: Cairo or anywhere in Egypt</div>
+  </div>
+</div>
+
+<div class="tour-subnav" id="tourc-subnav">
+  <div class="tour-subnav-inner">
+    <div class="tour-subnav-links">
+      <a href="#tourc-overview" class="ts-active" data-section="tourc-overview">Overview</a>
+      <a href="#tourc-highlights" data-section="tourc-highlights">Highlights</a>
+      <a href="#tourc-itinerary" data-section="tourc-itinerary">Itinerary</a>
+      <a href="#tourc-accommodation" data-section="tourc-accommodation">Accommodation</a>
+      <a href="#tourc-inclusions" data-section="tourc-inclusions">Inclusions</a>
+    </div>
+    <div class="subnav-right-group">
+      <div class="subnav-widget">
+        <a href="mailto:info@accessegypttravel.com" class="subnav-book-btn">Request a Quote</a>
+        <div class="subnav-price">From <strong>$3,250</strong></div>
+        <div class="subnav-checks">✓ Private Tour &nbsp;&nbsp; ✓ Per Person</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="tour-body">
+  <div class="tour-main">
+
+    <div class="tour-section" id="tourc-overview">
+      <div class="tour-overview-intro">
+        <p>This 9-day private Egypt package is perfect for travelers who want the classic monuments plus a relaxed Nile cruise. Spend four nights in Cairo, sail from Luxor to Aswan on a historic cruise, and enjoy the convenience of private transfers and an expert Egyptologist guide from Day 1.</p>
+        <p>You’ll visit the Pyramids, GEM, Luxor, the Valley of the Kings, and Aswan’s river temples with all logistics handled for you. The only thing left to do is choose whether to add a hot air balloon, Abu Simbel, or a Cairo dinner cruise.</p>
+      </div>
+
+      <h3>Tour At a Glance</h3>
+      <table class="pricing-table">
+        <tr><th>Detail</th><th></th></tr>
+        <tr><td>Duration</td><td><strong>9 Days / 8 Nights</strong></td></tr>
+        <tr><td>Tour Type</td><td><strong>100% Private — your group only</strong></td></tr>
+        <tr><td>Guide</td><td><strong>Licensed Egyptologist (English)</strong></td></tr>
+        <tr><td>Pickup</td><td><strong>Cairo International Airport or any location</strong></td></tr>
+        <tr><td>Destinations</td><td><strong>Cairo (4 nights) → Luxor (1 night) → Nile Cruise (4 nights)</strong></td></tr>
+        <tr><td>Transport</td><td><strong>Domestic flights included</strong></td></tr>
+        <tr><td>Entry Visa</td><td><strong>Included</strong></td></tr>
+        <tr><td>Meals</td><td><strong>Breakfast + Lunch in Cairo/Luxor, all meals on cruise</strong></td></tr>
+        <tr><td>Price from</td><td><span class="price-highlight">$3,250 / person</span> (double occupancy)</td></tr>
+      </table>
+
+      <h3>Your Route</h3>
+      <div class="tour-map-section">
+        <img src="Access-Egypt-Travel-guide-map_v2.png" alt="Egypt Tour Route Map — Cairo to Luxor" class="tour-map-img">
+      </div>
+    </div>
+
+    <div class="tour-section" id="tourc-highlights">
+      <h3>Highlights</h3>
+      <div class="sites-grid">
+        <div class="site-item"><span class="site-icon">🏛️</span> Giza Pyramids &amp; the Sphinx</div>
+        <div class="site-item"><span class="site-icon">🏺</span> Grand Egyptian Museum (GEM)</div>
+        <div class="site-item"><span class="site-icon">🕌</span> Saladin Citadel &amp; Mohammed Ali Mosque</div>
+        <div class="site-item"><span class="site-icon">⛪</span> Coptic Cairo &amp; NMEC</div>
+        <div class="site-item"><span class="site-icon">🏟️</span> Karnak Temple Complex</div>
+        <div class="site-item"><span class="site-icon">🌟</span> Luxor Temple by night</div>
+        <div class="site-item"><span class="site-icon">👑</span> Valley of the Kings</div>
+        <div class="site-item"><span class="site-icon">🏺</span> Hatshepsut Temple</div>
+        <div class="site-item"><span class="site-icon">🧑‍🎨</span> Deir el-Medina artisans' village</div>
+        <div class="site-item"><span class="site-icon">🗿</span> Colossi of Memnon</div>
+        <div class="site-item"><span class="site-icon">🏛️</span> Edfu Temple</div>
+        <div class="site-item"><span class="site-icon">🏺</span> Kom Ombo Temple</div>
+        <div class="site-item"><span class="site-icon">🚤</span> Philae Temple</div>
+        <div class="site-item"><span class="site-icon">🗺️</span> Unfinished Obelisk &amp; High Dam</div>
+        <div class="site-item"><span class="site-icon">🎨</span> Nubian Village visit</div>
+      </div>
+
+      <h3>Optional Add-Ons</h3>
+      <div class="addons-grid">
+        <div class="addon-item"><span class="addon-icon">🎈</span> Hot air balloon over Luxor at sunrise</div>
+        <div class="addon-item"><span class="addon-icon">✨</span> Sound &amp; Light Show at Karnak or Philae</div>
+        <div class="addon-item"><span class="addon-icon">🍽️</span> Dinner cruise on the Nile in Cairo</div>
+        <div class="addon-item"><span class="addon-icon">🏜️</span> Abu Simbel day trip (optional)</div>
+      </div>
+    </div>
+
+    <div class="tour-section" id="tourc-itinerary">
+      <h3>Day-by-Day Itinerary</h3>
+      <div class="itinerary">
+        <div class="day-block">
+          <div class="day-header">
+            <div class="day-num">Day 1</div>
+            <div><div class="day-location">Cairo</div><div class="day-title">Arrival &amp; Welcome</div></div>
+          </div>
+          <div class="day-body">Your representative meets you at Cairo International Airport and transfers you to your hotel. Check in, relax, and meet your Egyptologist guide for a short orientation. Overnight in Cairo.</div>
+        </div>
+        <div class="day-block">
+          <div class="day-header">
+            <div class="day-num">Day 2</div>
+            <div><div class="day-location">Cairo — Pharaonic</div><div class="day-title">Giza Pyramids, Sphinx &amp; GEM</div></div>
+          </div>
+          <div class="day-body">Beat the crowds at Giza, then visit the Sphinx and the Pyramids with your private guide. Afternoon at the Grand Egyptian Museum (GEM). Lunch included. Overnight in Cairo.</div>
+        </div>
+        <div class="day-block">
+          <div class="day-header">
+            <div class="day-num">Day 3</div>
+            <div><div class="day-location">Cairo — Cultural</div><div class="day-title">Citadel, Coptic Cairo &amp; NMEC</div></div>
+          </div>
+          <div class="day-body">Visit the Citadel and Mohammed Ali Mosque, then Coptic Cairo and the National Museum of Egyptian Civilization. Lunch included. Fly to Luxor in the evening. Overnight in Luxor.</div>
+        </div>
+        <div class="day-block">
+          <div class="day-header">
+            <div class="day-num">Day 4</div>
+            <div><div class="day-location">Luxor — East Bank</div><div class="day-title">Karnak Temple &amp; Cruise Boarding</div></div>
+          </div>
+          <div class="day-body">Visit Karnak Temple in the morning, then board your Nile cruise after lunch. Spend the evening sailing toward Edfu with dinner on board. Overnight on the cruise.</div>
+        </div>
+        <div class="day-block">
+          <div class="day-header">
+            <div class="day-num">Day 5</div>
+            <div><div class="day-location">Luxor — West Bank</div><div class="day-title">Valley of the Kings &amp; Deir el-Medina</div></div>
+          </div>
+          <div class="day-body">Explore the Valley of the Kings, Hatshepsut Temple, and Deir el-Medina artisans' village. Return to your ship and sail toward Edfu. Dinner on board. Overnight on the cruise.</div>
+        </div>
+        <div class="day-block">
+          <div class="day-header">
+            <div class="day-num">Day 6</div>
+            <div><div class="day-location">Edfu &amp; Kom Ombo</div><div class="day-title">Edfu Temple &amp; Kom Ombo Temple</div></div>
+          </div>
+          <div class="day-body">Visit the preserved Edfu Temple, then sail to Kom Ombo and tour the unique twin temple. Continue sailing to Aswan. Overnight in Aswan on board.</div>
+        </div>
+        <div class="day-block">
+          <div class="day-header">
+            <div class="day-num">Day 7</div>
+            <div><div class="day-location">Aswan</div><div class="day-title">Philae Temple, High Dam &amp; Nubian Village</div></div>
+          </div>
+          <div class="day-body">Visit Philae Temple by boat, the High Dam, and the Unfinished Obelisk. After lunch, tour a colorful Nubian village by boat. Dinner on board. Overnight in Aswan.</div>
+        </div>
+        <div class="day-block">
+          <div class="day-header">
+            <div class="day-num">Day 8</div>
+            <div><div class="day-location">Aswan → Cairo</div><div class="day-title">Return Flight to Cairo</div></div>
+          </div>
+          <div class="day-body">Check out of the cruise and transfer to Aswan airport for your flight to Cairo. Arrive Cairo and transfer to your airport hotel. Lunch included depending on flight timing. Overnight in Cairo.</div>
+        </div>
+        <div class="day-block">
+          <div class="day-header">
+            <div class="day-num">Day 9</div>
+            <div><div class="day-location">Cairo</div><div class="day-title">Departure</div></div>
+          </div>
+          <div class="day-body">Breakfast at the hotel, then private transfer to Cairo airport for your departure flight. Our representative assists you through check-in.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tour-section" id="tourc-accommodation">
+      <h3>Accommodation</h3>
+      <p style="font-size:14px;color:#5a4030;margin-bottom:18px;">Two accommodation tiers are available. Both are premium 5-star properties in top locations, with upgrade options at booking.</p>
+      <div class="hotel-grid">
+        <div class="hotel-card">
+          <div class="hotel-card-header comfort">⭐ Standard (Included)</div>
+          <div class="hotel-card-body">
+            <div class="hotel-row">
+              <div class="hotel-city">Cairo<br><span class="hotel-stars">★★★★★</span></div>
+              <div class="hotel-name">Pyramids-view 5-star property — Steigenberger Pyramids or similar. 4 nights.</div>
+            </div>
+            <div class="hotel-row">
+              <div class="hotel-city">Luxor<br><span class="hotel-stars">★★★★★</span></div>
+              <div class="hotel-name">Nile-view 5-star property — Steigenberger Nile Palace or similar. 1 night.</div>
+            </div>
+            <div class="hotel-row">
+              <div class="hotel-city">Nile Cruise<br><span class="hotel-stars">★★★★★</span></div>
+              <div class="hotel-name">4 nights on MS/Amwaj Livingstone or similar. Nile-view cabin.</div>
+            </div>
+          </div>
+        </div>
+        <div class="hotel-card">
+          <div class="hotel-card-header premium">✦ Premium Upgrade</div>
+          <div class="hotel-card-body">
+            <div class="hotel-row">
+              <div class="hotel-city">Cairo<br><span class="hotel-stars">★★★★★</span></div>
+              <div class="hotel-name">Four Seasons Cairo at Nile Plaza or Marriott Mena House. 4 nights.</div>
+            </div>
+            <div class="hotel-row">
+              <div class="hotel-city">Luxor<br><span class="hotel-stars">★★★★★</span></div>
+              <div class="hotel-name">Sofitel Winter Palace Luxor or similar. 1 night.</div>
+            </div>
+            <div class="hotel-row">
+              <div class="hotel-city">Nile Cruise<br><span class="hotel-stars">★★★★★</span></div>
+              <div class="hotel-name">Ms. Mayfair, Ms. My Flower, or similar. 4 nights.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hotel-upgrade-note">💡 <strong>All rooms are private.</strong> Single supplement available. Family rooms available for groups with children. Ask us for current availability and upgrade pricing.</div>
+    </div>
+
+    <div class="tour-section" id="tourc-inclusions">
+      <h3 style="display:inline-block;background:#b5451b;color:white;padding:6px 18px;border-radius:4px;margin-bottom:22px;">Inclusions</h3>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-bottom:8px;">
+        <div>
+          <p style="font-size:15px;font-weight:700;color:#1a1a1a;margin-bottom:16px;">What is included in the tour</p>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:14px;">
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Airport meet &amp; assist by your dedicated representative</li>
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Entry visa to Egypt</li>
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Domestic flights included</li>
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>All airport &amp; inter-city transfers by private AC vehicles</li>
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>4 nights 5-star hotel in Cairo</li>
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>1 night 5-star hotel in Luxor</li>
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>4 nights cruise accommodation on the Nile</li>
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Breakfast &amp; lunch daily in Cairo and Luxor</li>
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>All meals on cruise — open buffet</li>
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>All entrance fees to listed sites</li>
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Private Egyptologist guide (English)</li>
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Bottled water and snacks during excursions</li>
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>All taxes and service charges</li>
+          </ul>
+        </div>
+
+        <div>
+          <p style="font-size:15px;font-weight:700;color:#1a1a1a;margin-bottom:16px;">What is NOT included in the tour</p>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:14px;">
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#dc2626;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="10" height="3" viewBox="0 0 10 3" fill="none"><rect x="0" y="0.5" width="10" height="2" rx="1" fill="white"/></svg></span>International airfare</li>
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#dc2626;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="10" height="3" viewBox="0 0 10 3" fill="none"><rect x="0" y="0.5" width="10" height="2" rx="1" fill="white"/></svg></span>Drinks not included (bottled water provided during excursions)</li>
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#dc2626;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="10" height="3" viewBox="0 0 10 3" fill="none"><rect x="0" y="0.5" width="10" height="2" rx="1" fill="white"/></svg></span>Gratuities for guides and drivers</li>
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#dc2626;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="10" height="3" viewBox="0 0 10 3" fill="none"><rect x="0" y="0.5" width="10" height="2" rx="1" fill="white"/></svg></span>Personal expenses — phone calls, laundry, souvenirs, etc.</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>Pricing</h3>
+      <table class="pricing-table">
+        <tr><th>Category</th><th>Price Per Person</th></tr>
+        <tr><td>Standard (double occupancy)</td><td><span class="price-highlight">From $3,250</span></td></tr>
+        <tr><td>Single supplement</td><td>+50% of base price</td></tr>
+        <tr><td>Group of 4–7 travelers</td><td>10% discount applied</td></tr>
+        <tr><td>Group of 8+ travelers</td><td>15% discount or bonus inclusions</td></tr>
+      </table>
+      <p style="font-size:13px;color:#8b7355;margin-top:8px;">All prices in USD. Contact us for current rates.</p>
+
+      <h3>Children's Policy</h3>
+      <table class="children-table">
+        <tr><th>Age</th><th>Price</th></tr>
+        <tr><td>Under 5 years</td><td>Free (max 1 child per booking)</td></tr>
+        <tr><td>Ages 5–11</td><td>50% of adult price</td></tr>
+        <tr><td>Ages 12 and over</td><td>Adult fare</td></tr>
+      </table>
+
+      <h3>Payment &amp; Cancellation Policy</h3>
+      <div class="note-box">💳 <strong>25% deposit</strong> secures your booking. Balance due before departure.</div>
+      <table class="cancel-table">
+        <tr><th>When You Cancel</th><th>Charge Applied</th></tr>
+        <tr><td>45+ days before arrival</td><td>No charge — full refund</td></tr>
+        <tr><td>30–45 days before arrival</td><td>20% of total trip price</td></tr>
+        <tr><td>1–30 days before arrival</td><td>50% of total trip price</td></tr>
+      </table>
+      <p style="font-size:13px;color:#8b7355;margin-top:8px;">Note: domestic transport cancellation fees may apply in addition to the above.</p>
+    </div>
+
+  </div><!-- end .tour-main -->
+
+  <div class="tour-sidebar">
+
+    <div style="border:2px solid #34d399;border-radius:10px;padding:18px 10px 18px 18px;background:white;margin-bottom:16px;margin-top:80px;">
+      <p style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:#6b7280;margin-bottom:10px;">Reviews</p>
+
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+        <svg width="28" height="18" viewBox="0 0 56 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="14" cy="18" r="14" fill="#34d399"/>
+          <circle cx="42" cy="18" r="14" fill="#34d399"/>
+          <circle cx="14" cy="18" r="6" fill="white"/>
+          <circle cx="42" cy="18" r="6" fill="white"/>
+          <circle cx="14" cy="18" r="3" fill="black"/>
+          <circle cx="42" cy="18" r="3" fill="black"/>
+        </svg>
+        <span style="font-size:15px;font-weight:700;color:#222;">Tripadvisor</span>
+      </div>
+
+      <a href="https://www.tripadvisor.com/Attraction_Review-g294205-d25314995-Reviews-Access_Egypt_travel-Luxor_Nile_River_Valley.html"
+         target="_blank"
+         style="font-size:16px;font-weight:800;color:#222;text-decoration:underline;display:block;margin-bottom:10px;">Access Egypt Travel</a>
+
+      <p style="font-size:11px;color:#6b7280;margin-bottom:4px;">Traveler Rating</p>
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+        <span style="display:flex;gap:3px;">
+          <span style="width:13px;height:13px;border-radius:50%;background:#34d399;display:inline-block;"></span>
+          <span style="width:13px;height:13px;border-radius:50%;background:#34d399;display:inline-block;"></span>
+          <span style="width:13px;height:13px;border-radius:50%;background:#34d399;display:inline-block;"></span>
+          <span style="width:13px;height:13px;border-radius:50%;background:#34d399;display:inline-block;"></span>
+          <span style="width:13px;height:13px;border-radius:50%;background:#34d399;display:inline-block;"></span>
+        </span>
+        <span style="font-size:13px;color:#374151;font-weight:700;">4.9 · 71 reviews</span>
+      </div>
+
+      <p style="font-size:11px;color:#6b7280;margin-bottom:2px;">Ranking</p>
+      <p style="font-size:17px;font-weight:900;color:#222;margin-bottom:12px;line-height:1.2;">
+        <sup style="font-size:12px;">#</sup>137 <span style="font-size:12px;font-weight:500;color:#6b7280;">of 1,289 Tours in Luxor</span>
+      </p>
+
+      <p style="font-size:11px;color:#6b7280;margin-bottom:5px;">Recent Traveler Reviews</p>
+      <p style="font-size:12.5px;color:#222;margin-bottom:4px;">"Unforgettable Unreal Experience"</p>
+      <p style="font-size:12.5px;color:#222;margin-bottom:4px;">"Nile Cruise Feb 2026"</p>
+      <p style="font-size:12.5px;color:#222;margin-bottom:4px;">"John makes history come alive"</p>
+      <p style="font-size:12.5px;color:#222;margin-bottom:12px;">"Luxor and Nile cruise to Aswan"</p>
+
+      <div style="display:flex;gap:14px;border-top:1px solid #e5e7eb;padding-top:10px;">
+        <a href="https://www.tripadvisor.com/Attraction_Review-g294205-d25314995-Reviews-Access_Egypt_travel-Luxor_Nile_River_Valley.html"
+           target="_blank" style="font-size:12.5px;color:#374151;text-decoration:underline;">Read reviews</a>
+        <span style="color:#d1d5db;">|</span>
+        <a href="https://www.tripadvisor.com/Attraction_Review-g294205-d25314995-Reviews-Access_Egypt_travel-Luxor_Nile_River_Valley.html#REVIEWS"
+           target="_blank" style="font-size:12.5px;color:#374151;text-decoration:underline;">Write a review</a>
+      </div>
+    </div>
+
+  </div><!-- end .tour-sidebar -->
+</div><!-- end .tour-body -->
+</div><!-- end tour page -->
+
+
+<!-- ════════════════════════════════════════════════════
+     TOUR PAGE D — 7 Days
+════════════════════════════════════════════════════ -->
+<div id="tour-d" class="page-section">
+<div class="page-label">TOUR PAGE — "7-Day Cairo, Luxor &amp; Aswan Holiday" <span>7 days / 6 nights private itinerary</span></div>
+
+<div class="tour-hero">
+  <div class="tour-hero-top">
+    <div class="tour-hero-left">
+      <div class="tour-crumb"><a href="#" style="color:#d4af6a;text-decoration:none;">Home</a> › <a href="#" style="color:#d4af6a;text-decoration:none;">Tours</a> › 7 Days Cairo, Luxor &amp; Aswan</div>
+      <div class="tour-title">7 Days / 6 Nights<br><span>Cairo, Luxor &amp; Aswan Holiday</span></div>
+    </div>
+  </div>
+  <div class="tour-stats-bar">
+    <div class="tour-stat-item"><span class="si-icon">📅</span> 7 Days / 6 Nights</div>
+    <div class="tour-stat-item"><span class="si-icon">👥</span> 100% Private</div>
+    <div class="tour-stat-item"><span class="si-icon">📍</span> Cairo + Luxor + Aswan</div>
+    <div class="tour-stat-item"><span class="si-icon">🎓</span> Egyptologist Guide</div>
+    <div class="tour-stat-item"><span class="si-icon">✈️</span> Pickup: Cairo or Hurghada</div>
+  </div>
+</div>
+
+<div class="tour-subnav" id="tourd-subnav">
+  <div class="tour-subnav-inner">
+    <div class="tour-subnav-links">
+      <a href="#tourd-overview" class="ts-active" data-section="tourd-overview">Overview</a>
+      <a href="#tourd-highlights" data-section="tourd-highlights">Highlights</a>
+      <a href="#tourd-itinerary" data-section="tourd-itinerary">Itinerary</a>
+      <a href="#tourd-accommodation" data-section="tourd-accommodation">Accommodation</a>
+      <a href="#tourd-inclusions" data-section="tourd-inclusions">Inclusions</a>
+    </div>
+    <div class="subnav-right-group">
+      <div class="subnav-widget">
+        <a href="mailto:info@accessegypttravel.com" class="subnav-book-btn">Request a Quote</a>
+        <div class="subnav-price">From <strong>$2,350</strong></div>
+        <div class="subnav-checks">✓ Private Tour &nbsp;&nbsp; ✓ Per Person</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="tour-body">
+  <div class="tour-main">
+
+    <div class="tour-section" id="tourd-overview">
+      <div class="tour-overview-intro">
+        <p>Your all-access pass to Egypt's greatest open-air museums. This 7-day private package covers the most iconic treasures of Cairo, Luxor, and Aswan — from the Giza Pyramids and the spectacular Grand Egyptian Museum to the Valley of the Kings, Karnak, Edfu, and Philae. One Egyptologist guide, one week, the entire ancient world.</p>
+        <p>Domestic flights are included, so you travel efficiently and spend your time at the monuments — not on the road. Perfect for travelers who want the complete Egypt experience without extending into a Nile cruise.</p>
+      </div>
+
+      <h3>Tour At a Glance</h3>
+      <table class="pricing-table">
+        <tr><th>Detail</th><th></th></tr>
+        <tr><td>Duration</td><td><strong>7 Days / 6 Nights</strong></td></tr>
+        <tr><td>Tour Type</td><td><strong>100% Private — your group only</strong></td></tr>
+        <tr><td>Guide</td><td><strong>Licensed Egyptologist (English)</strong></td></tr>
+        <tr><td>Pickup</td><td><strong>Cairo International Airport or Hurghada</strong></td></tr>
+        <tr><td>Destinations</td><td><strong>Cairo (2 nights) → Luxor (2 nights) → Aswan (1 night)</strong></td></tr>
+        <tr><td>Transport</td><td><strong>Domestic flights included (Cairo → Luxor, Aswan → Cairo)</strong></td></tr>
+        <tr><td>Entry Visa</td><td><strong>Included</strong></td></tr>
+        <tr><td>Meals</td><td><strong>Breakfast &amp; lunch daily (Days 2–6) — 10 meals total</strong></td></tr>
+        <tr><td>Price from</td><td><span class="price-highlight">$2,350 / person</span> (double occupancy)</td></tr>
+      </table>
+
+      <h3>Your Route</h3>
+      <div class="tour-map-section">
+        <img src="Access-Egypt-Travel-guide-map_v2.png" alt="Egypt Tour Route Map — Cairo to Luxor to Aswan" class="tour-map-img">
+      </div>
+    </div>
+
+    <div class="tour-section" id="tourd-highlights">
+      <h3>Highlights</h3>
+      <div class="sites-grid">
+        <div class="site-item"><span class="site-icon">🏛️</span> Giza Pyramids &amp; the Sphinx</div>
+        <div class="site-item"><span class="site-icon">🏺</span> Grand Egyptian Museum (GEM)</div>
+        <div class="site-item"><span class="site-icon">🕌</span> Saladin Citadel &amp; Mohammed Ali Mosque</div>
+        <div class="site-item"><span class="site-icon">⛪</span> Coptic Cairo &amp; NMEC Royal Mummies</div>
+        <div class="site-item"><span class="site-icon">🏟️</span> Karnak Temple Complex</div>
+        <div class="site-item"><span class="site-icon">🌟</span> Luxor Temple</div>
+        <div class="site-item"><span class="site-icon">👑</span> Valley of the Kings</div>
+        <div class="site-item"><span class="site-icon">🏺</span> Hatshepsut Temple</div>
+        <div class="site-item"><span class="site-icon">🧑‍🎨</span> Deir el-Medina artisans' village</div>
+        <div class="site-item"><span class="site-icon">🗿</span> Colossi of Memnon</div>
+        <div class="site-item"><span class="site-icon">⛵</span> Felucca sunset ride on the Nile</div>
+        <div class="site-item"><span class="site-icon">🏛️</span> Edfu Temple</div>
+        <div class="site-item"><span class="site-icon">🚤</span> Philae Temple</div>
+        <div class="site-item"><span class="site-icon">🗺️</span> Unfinished Obelisk &amp; High Dam</div>
+        <div class="site-item"><span class="site-icon">🎨</span> Nubian Village</div>
+      </div>
+
+      <h3>Optional Add-Ons</h3>
+      <div class="addons-grid">
+        <div class="addon-item"><span class="addon-icon">🎈</span> Hot air balloon over Luxor at sunrise</div>
+        <div class="addon-item"><span class="addon-icon">✨</span> Sound &amp; Light Show at Karnak Temples</div>
+        <div class="addon-item"><span class="addon-icon">🍽️</span> Dinner cruise on the Nile in Cairo</div>
+        <div class="addon-item"><span class="addon-icon">🚗</span> Pickup from Hurghada or nearby city</div>
+      </div>
+    </div>
+
+    <div class="tour-section" id="tourd-itinerary">
+      <h3>Day-by-Day Itinerary</h3>
+      <div class="itinerary">
+        <div class="day-block">
+          <div class="day-header">
+            <div class="day-num">Day 1</div>
+            <div><div class="day-location">Cairo</div><div class="day-title">Arrival &amp; Welcome</div></div>
+          </div>
+          <div class="day-body">Your dedicated representative meets you at Cairo International Airport with a nameplate. Private transfer to your 5-star hotel. Check in and meet your Egyptologist guide for a brief orientation — what to expect, tips for the days ahead, and any questions answered. Rest of the day free. Dinner on your own. Overnight in Cairo.</div>
+        </div>
+        <div class="day-block">
+          <div class="day-header">
+            <div class="day-num">Day 2</div>
+            <div><div class="day-location">Cairo — Pharaonic</div><div class="day-title">Giza Pyramids, Sphinx &amp; Grand Egyptian Museum</div></div>
+          </div>
+          <div class="day-body">An early start to beat the crowds at the Giza Plateau — stand before the astonishing Pyramids and the legendary Sphinx with your private guide. Lunch included. Afternoon at the Grand Egyptian Museum (GEM), now fully open and home to the complete Tutankhamun collection. Overnight in Cairo.</div>
+        </div>
+        <div class="day-block">
+          <div class="day-header">
+            <div class="day-num">Day 3</div>
+            <div><div class="day-location">Cairo — Islamic &amp; Coptic → Fly to Luxor</div><div class="day-title">Citadel, Coptic Cairo, NMEC &amp; Flight South</div></div>
+          </div>
+          <div class="day-body">Visit Saladin Citadel and the magnificent Mohammed Ali Mosque — the best view of Cairo from any point in the city. Then the ancient streets of Coptic Cairo, one of the oldest Christian communities in the world. The National Museum of Egyptian Civilization (NMEC), home to the royal mummies. Lunch included. Transfer to Cairo airport and fly to Luxor (approx. 1 hour). Overnight in Luxor.</div>
+        </div>
+        <div class="day-block">
+          <div class="day-header">
+            <div class="day-num">Day 4</div>
+            <div><div class="day-location">Luxor — East Bank</div><div class="day-title">Karnak Temples &amp; Luxor Temple</div></div>
+          </div>
+          <div class="day-body">Visit Karnak Temple — the largest monumental complex in the world and the history book of Ancient Egypt. Then Luxor Temple, a different experience in the golden glow of late afternoon light. Stroll the legendary Sphinx Avenue. Lunch included. Overnight in Luxor.</div>
+        </div>
+        <div class="day-block">
+          <div class="day-header">
+            <div class="day-num">Day 5</div>
+            <div><div class="day-location">Luxor — West Bank</div><div class="day-title">Valley of the Kings, Hatshepsut &amp; Felucca Ride</div></div>
+          </div>
+          <div class="day-body">Cross to the West Bank for the Valley of the Kings — 3 royal tombs plus the extraordinary tomb of Ramesses V &amp; VI, with dazzling untouched colors from 3,000 years ago. Then Hatshepsut Temple rising majestically out of the desert cliffs. The artisans' village at Deir el-Medina, where pharaoh's craftsmen lived. Colossi of Memnon on the way back. Lunch included. Sunset felucca ride on the Nile. Overnight in Luxor.</div>
+        </div>
+        <div class="day-block">
+          <div class="day-header">
+            <div class="day-num">Day 6</div>
+            <div><div class="day-location">Luxor → Edfu → Aswan</div><div class="day-title">Edfu Temple &amp; Transfer to Aswan</div></div>
+          </div>
+          <div class="day-body">Hotel checkout. Private transfer to Aswan with a stop at Edfu to visit Egypt's most perfectly preserved ancient sanctuary — walk through the massive gateways of the falcon-headed god Horus, where time has stood still for over two millennia. Arrive Aswan and check in to your 5-star hotel. Overnight in Aswan.</div>
+        </div>
+        <div class="day-block">
+          <div class="day-header">
+            <div class="day-num">Day 7</div>
+            <div><div class="day-location">Aswan → Departure</div><div class="day-title">Philae Temple, High Dam &amp; Final Departure</div></div>
+          </div>
+          <div class="day-body">Visit Philae Temple by boat — the floating sanctuary of Isis, surrounded by water on all sides. The Unfinished Obelisk, still lying in the ancient granite quarry. The High Dam, overlooking Lake Nasser — the largest man-made lake in the world. Optional Nubian Village visit by motor boat. Transfer to Aswan airport for your flight to Cairo and international connection home.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tour-section" id="tourd-accommodation">
+      <h3>Accommodation</h3>
+      <p style="font-size:14px;color:#5a4030;margin-bottom:18px;">Two accommodation tiers are available. Both are premium 5-star properties in prime locations, with upgrade options at booking.</p>
+      <div class="hotel-grid">
+        <div class="hotel-card">
+          <div class="hotel-card-header comfort">⭐ Standard (Included)</div>
+          <div class="hotel-card-body">
+            <div class="hotel-row">
+              <div class="hotel-city">Cairo<br><span class="hotel-stars">★★★★★</span></div>
+              <div class="hotel-name">Pyramids-view 5-star property — Steigenberger Pyramids or similar. 2 nights.</div>
+            </div>
+            <div class="hotel-row">
+              <div class="hotel-city">Luxor<br><span class="hotel-stars">★★★★★</span></div>
+              <div class="hotel-name">Nile-view 5-star property — Steigenberger Nile Palace or similar. 2 nights.</div>
+            </div>
+            <div class="hotel-row">
+              <div class="hotel-city">Aswan<br><span class="hotel-stars">★★★★★</span></div>
+              <div class="hotel-name">5-star Nile-view property — Sofitel Legend Old Cataract or similar. 1 night.</div>
+            </div>
+          </div>
+        </div>
+        <div class="hotel-card">
+          <div class="hotel-card-header premium">✦ Premium Upgrade</div>
+          <div class="hotel-card-body">
+            <div class="hotel-row">
+              <div class="hotel-city">Cairo<br><span class="hotel-stars">★★★★★</span></div>
+              <div class="hotel-name">Four Seasons Cairo at Nile Plaza or Marriott Mena House (Pyramids view). 2 nights.</div>
+            </div>
+            <div class="hotel-row">
+              <div class="hotel-city">Luxor<br><span class="hotel-stars">★★★★★</span></div>
+              <div class="hotel-name">Sofitel Winter Palace Luxor — historic colonial property on the Nile. 2 nights.</div>
+            </div>
+            <div class="hotel-row">
+              <div class="hotel-city">Aswan<br><span class="hotel-stars">★★★★★</span></div>
+              <div class="hotel-name">Mövenpick Resort Aswan or Basma Hotel Aswan. 1 night.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hotel-upgrade-note">💡 <strong>All rooms are private.</strong> Single supplement available. Family rooms available for groups with children. Ask us for current availability and upgrade pricing.</div>
+    </div>
+
+    <div class="tour-section" id="tourd-inclusions">
+      <h3 style="display:inline-block;background:#b5451b;color:white;padding:6px 18px;border-radius:4px;margin-bottom:22px;">Inclusions</h3>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-bottom:8px;">
+        <div>
+          <p style="font-size:15px;font-weight:700;color:#1a1a1a;margin-bottom:16px;">What is included in the tour</p>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:14px;">
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Airport meet &amp; assist by your dedicated representative</li>
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Entry visa to Egypt</li>
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Domestic flights (Cairo → Luxor and Aswan → Cairo)</li>
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>All airport &amp; inter-city transfers by private AC vehicles</li>
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>2 nights 5-star hotel in Cairo</li>
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>2 nights 5-star hotel in Luxor</li>
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>1 night 5-star hotel in Aswan</li>
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Breakfast &amp; lunch daily (Days 2–6) — 10 meals total</li>
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>All entrance fees to listed sites</li>
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Private Egyptologist guide (English — other languages on request)</li>
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Bottled water and snacks during excursions</li>
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>All taxes and service charges</li>
+          </ul>
+        </div>
+
+        <div>
+          <p style="font-size:15px;font-weight:700;color:#1a1a1a;margin-bottom:16px;">What is NOT included in the tour</p>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:14px;">
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#dc2626;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="10" height="3" viewBox="0 0 10 3" fill="none"><rect x="0" y="0.5" width="10" height="2" rx="1" fill="white"/></svg></span>International airfare</li>
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#dc2626;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="10" height="3" viewBox="0 0 10 3" fill="none"><rect x="0" y="0.5" width="10" height="2" rx="1" fill="white"/></svg></span>Drinks (bottled water provided during excursions)</li>
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#dc2626;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="10" height="3" viewBox="0 0 10 3" fill="none"><rect x="0" y="0.5" width="10" height="2" rx="1" fill="white"/></svg></span>Gratuities for guides and drivers</li>
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#dc2626;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="10" height="3" viewBox="0 0 10 3" fill="none"><rect x="0" y="0.5" width="10" height="2" rx="1" fill="white"/></svg></span>Personal expenses — phone calls, laundry, souvenirs, etc.</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>Pricing</h3>
+      <table class="pricing-table">
+        <tr><th>Category</th><th>Price Per Person</th></tr>
+        <tr><td>Standard (double occupancy)</td><td><span class="price-highlight">From $2,350</span></td></tr>
+        <tr><td>Single supplement</td><td>+50% of base price</td></tr>
+        <tr><td>Group of 4–7 travelers</td><td>10% discount — Exclusive Offer</td></tr>
+        <tr><td>Group of 8+ travelers</td><td>15% discount or bonus inclusions</td></tr>
+      </table>
+      <p style="font-size:13px;color:#8b7355;margin-top:8px;">All prices in USD. Contact us for current rates.</p>
+
+      <h3>Children's Policy</h3>
+      <table class="children-table">
+        <tr><th>Age</th><th>Price</th></tr>
+        <tr><td>Under 5 years</td><td>Free (max 1 child per booking)</td></tr>
+        <tr><td>Ages 5–11</td><td>50% of adult price</td></tr>
+        <tr><td>Ages 12 and over</td><td>Adult fare</td></tr>
+      </table>
+
+      <h3>Payment &amp; Cancellation Policy</h3>
+      <div class="note-box">💳 <strong>25% deposit</strong> secures your booking. Balance due before departure.</div>
+      <table class="cancel-table">
+        <tr><th>When You Cancel</th><th>Charge Applied</th></tr>
+        <tr><td>45+ days before arrival</td><td>No charge — full refund</td></tr>
+        <tr><td>30–45 days before arrival</td><td>20% of total trip price</td></tr>
+        <tr><td>1–30 days before arrival</td><td>50% of total trip price</td></tr>
+      </table>
+      <p style="font-size:13px;color:#8b7355;margin-top:8px;">Note: domestic transport cancellation fees may apply in addition to the above.</p>
+    </div>
+
+  </div><!-- end .tour-main -->
+
+  <div class="tour-sidebar">
+
+    <div style="border:2px solid #34d399;border-radius:10px;padding:18px 10px 18px 18px;background:white;margin-bottom:16px;margin-top:80px;">
+      <p style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:#6b7280;margin-bottom:10px;">Reviews</p>
+
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+        <svg width="28" height="18" viewBox="0 0 56 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="14" cy="18" r="14" fill="#34d399"/>
+          <circle cx="42" cy="18" r="14" fill="#34d399"/>
+          <circle cx="14" cy="18" r="6" fill="white"/>
+          <circle cx="42" cy="18" r="6" fill="white"/>
+          <circle cx="14" cy="18" r="3" fill="black"/>
+          <circle cx="42" cy="18" r="3" fill="black"/>
+        </svg>
+        <span style="font-size:15px;font-weight:700;color:#222;">Tripadvisor</span>
+      </div>
+
+      <a href="https://www.tripadvisor.com/Attraction_Review-g294205-d25314995-Reviews-Access_Egypt_travel-Luxor_Nile_River_Valley.html"
+         target="_blank"
+         style="font-size:16px;font-weight:800;color:#222;text-decoration:underline;display:block;margin-bottom:10px;">Access Egypt Travel</a>
+
+      <p style="font-size:11px;color:#6b7280;margin-bottom:4px;">Traveler Rating</p>
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+        <span style="display:flex;gap:3px;">
+          <span style="width:13px;height:13px;border-radius:50%;background:#34d399;display:inline-block;"></span>
+          <span style="width:13px;height:13px;border-radius:50%;background:#34d399;display:inline-block;"></span>
+          <span style="width:13px;height:13px;border-radius:50%;background:#34d399;display:inline-block;"></span>
+          <span style="width:13px;height:13px;border-radius:50%;background:#34d399;display:inline-block;"></span>
+          <span style="width:13px;height:13px;border-radius:50%;background:#34d399;display:inline-block;"></span>
+        </span>
+        <span style="font-size:13px;color:#374151;font-weight:700;">4.9 · 71 reviews</span>
+      </div>
+
+      <p style="font-size:11px;color:#6b7280;margin-bottom:2px;">Ranking</p>
+      <p style="font-size:17px;font-weight:900;color:#222;margin-bottom:12px;line-height:1.2;">
+        <sup style="font-size:12px;">#</sup>137 <span style="font-size:12px;font-weight:500;color:#6b7280;">of 1,289 Tours in Luxor</span>
+      </p>
+
+      <p style="font-size:11px;color:#6b7280;margin-bottom:5px;">Recent Traveler Reviews</p>
+      <p style="font-size:12.5px;color:#222;margin-bottom:4px;">"Unforgettable Unreal Experience"</p>
+      <p style="font-size:12.5px;color:#222;margin-bottom:4px;">"Nile Cruise Feb 2026"</p>
+      <p style="font-size:12.5px;color:#222;margin-bottom:4px;">"John makes history come alive"</p>
+      <p style="font-size:12.5px;color:#222;margin-bottom:12px;">"Luxor and Nile cruise to Aswan"</p>
+
+      <div style="display:flex;gap:14px;border-top:1px solid #e5e7eb;padding-top:10px;">
+        <a href="https://www.tripadvisor.com/Attraction_Review-g294205-d25314995-Reviews-Access_Egypt_travel-Luxor_Nile_River_Valley.html"
+           target="_blank" style="font-size:12.5px;color:#374151;text-decoration:underline;">Read reviews</a>
+        <span style="color:#d1d5db;">|</span>
+        <a href="https://www.tripadvisor.com/Attraction_Review-g294205-d25314995-Reviews-Access_Egypt_travel-Luxor_Nile_River_Valley.html#REVIEWS"
+           target="_blank" style="font-size:12.5px;color:#374151;text-decoration:underline;">Write a review</a>
+      </div>
+    </div>
+
+  </div><!-- end .tour-sidebar -->
+</div><!-- end .tour-body -->
+</div><!-- end tour page -->
+
+
+<!-- ════════════════════════════════════════════════════
+     TOUR PAGE E — 11 Days
+════════════════════════════════════════════════════ -->
+<div id="tour-e" class="page-section">
+<div class="page-label">TOUR PAGE — "11-Day Ultimate Egyptian Odyssey" <span>11 days / 10 nights private itinerary with Nile Cruise</span></div>
+
+<div class="tour-hero">
+  <div class="tour-hero-top">
+    <div class="tour-hero-left">
+      <div class="tour-crumb"><a href="#" style="color:#d4af6a;text-decoration:none;">Home</a> › <a href="#" style="color:#d4af6a;text-decoration:none;">Tours</a> › 11 Days Ultimate Egyptian Odyssey</div>
+      <div class="tour-title">11 Days / 10 Nights<br><span>The Ultimate Egyptian Odyssey</span></div>
+    </div>
+  </div>
+  <div class="tour-stats-bar">
+    <div class="tour-stat-item"><span class="si-icon">📅</span> 11 Days / 10 Nights</div>
+    <div class="tour-stat-item"><span class="si-icon">👥</span> 100% Private</div>
+    <div class="tour-stat-item"><span class="si-icon">📍</span> Cairo + Luxor + Nile Cruise + Aswan</div>
+    <div class="tour-stat-item"><span class="si-icon">🎓</span> Egyptologist Guide</div>
+    <div class="tour-stat-item"><span class="si-icon">✈️</span> Pickup: Cairo or Hurghada</div>
+  </div>
+</div>
+
+<div class="tour-subnav" id="toure-subnav">
+  <div class="tour-subnav-inner">
+    <div class="tour-subnav-links">
+      <a href="#toure-overview" class="ts-active" data-section="toure-overview">Overview</a>
+      <a href="#toure-highlights" data-section="toure-highlights">Highlights</a>
+      <a href="#toure-itinerary" data-section="toure-itinerary">Itinerary</a>
+      <a href="#toure-accommodation" data-section="toure-accommodation">Accommodation</a>
+      <a href="#toure-inclusions" data-section="toure-inclusions">Inclusions</a>
+    </div>
+    <div class="subnav-right-group">
+      <div class="subnav-widget">
+        <a href="mailto:info@accessegypttravel.com" class="subnav-book-btn">Request a Quote</a>
+        <div class="subnav-price">From <strong>$3,950</strong></div>
+        <div class="subnav-checks">✓ Private Tour &nbsp;&nbsp; ✓ Per Person</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="tour-body">
+  <div class="tour-main">
+
+    <div class="tour-section" id="toure-overview">
+      <div class="tour-overview-intro">
+        <p>Step into a world where ancient legends meet modern marvels. This is Egypt without compromise — the colossal Giza Pyramids, the breathtaking Grand Egyptian Museum, a majestic Nile cruise through Luxor and Aswan, and every iconic monument between. Eleven days. One Egyptologist guide. The greatest story ever told.</p>
+        <p>From the Pyramids to the temples of Edfu and Philae, from the Valley of the Kings to a Nubian village at sunset, this is the complete Egypt experience. Your floating boutique hotel — the Nile cruise ship — handles the miles while you sleep, waking you up each morning at a new wonder of the ancient world.</p>
+      </div>
+
+      <h3>Tour At a Glance</h3>
+      <table class="pricing-table">
+        <tr><th>Detail</th><th></th></tr>
+        <tr><td>Duration</td><td><strong>11 Days / 10 Nights</strong></td></tr>
+        <tr><td>Tour Type</td><td><strong>100% Private — your group only</strong></td></tr>
+        <tr><td>Guide</td><td><strong>Licensed Egyptologist (English)</strong></td></tr>
+        <tr><td>Pickup</td><td><strong>Cairo International Airport or Hurghada</strong></td></tr>
+        <tr><td>Destinations</td><td><strong>Cairo (3 nights) → Luxor (1 night) → Nile Cruise (4 nights) → Aswan → Cairo</strong></td></tr>
+        <tr><td>Transport</td><td><strong>Domestic flights included (Cairo → Luxor, Aswan → Cairo)</strong></td></tr>
+        <tr><td>Entry Visa</td><td><strong>Included</strong></td></tr>
+        <tr><td>Meals</td><td><strong>Breakfast &amp; lunch in Cairo/Luxor; all meals on cruise (open buffet)</strong></td></tr>
+        <tr><td>Price from</td><td><span class="price-highlight">$3,950 / person</span> (double occupancy)</td></tr>
+      </table>
+
+      <h3>Your Route</h3>
+      <div class="tour-map-section">
+        <img src="Access-Egypt-Travel-guide-map_v2.png" alt="Egypt Tour Route Map — Cairo, Luxor, Nile Cruise, Aswan" class="tour-map-img">
+      </div>
+    </div>
+
+    <div class="tour-section" id="toure-highlights">
+      <h3>Highlights</h3>
+      <div class="sites-grid">
+        <div class="site-item"><span class="site-icon">🏛️</span> Giza Pyramids &amp; the Sphinx</div>
+        <div class="site-item"><span class="site-icon">🏺</span> Grand Egyptian Museum (GEM)</div>
+        <div class="site-item"><span class="site-icon">🕌</span> Saladin Citadel &amp; Mohammed Ali Mosque</div>
+        <div class="site-item"><span class="site-icon">⛪</span> Coptic Cairo &amp; NMEC Royal Mummies</div>
+        <div class="site-item"><span class="site-icon">🏟️</span> Karnak Temple Complex</div>
+        <div class="site-item"><span class="site-icon">🌟</span> Luxor Temple at twilight (lit up at night)</div>
+        <div class="site-item"><span class="site-icon">🐎</span> Horse-drawn carriage city tour of Luxor</div>
+        <div class="site-item"><span class="site-icon">👑</span> Valley of the Kings</div>
+        <div class="site-item"><span class="site-icon">🏺</span> Hatshepsut Temple</div>
+        <div class="site-item"><span class="site-icon">🧑‍🎨</span> Deir el-Medina artisans' village</div>
+        <div class="site-item"><span class="site-icon">🏛️</span> Madinet Habu Temple</div>
+        <div class="site-item"><span class="site-icon">👸</span> Valley of the Queens</div>
+        <div class="site-item"><span class="site-icon">📜</span> The Nobles' Tombs</div>
+        <div class="site-item"><span class="site-icon">🗿</span> Colossi of Memnon</div>
+        <div class="site-item"><span class="site-icon">🏛️</span> Edfu Temple</div>
+        <div class="site-item"><span class="site-icon">🏺</span> Kom Ombo Temple</div>
+        <div class="site-item"><span class="site-icon">🚤</span> Philae Temple</div>
+        <div class="site-item"><span class="site-icon">🗺️</span> Unfinished Obelisk &amp; High Dam</div>
+        <div class="site-item"><span class="site-icon">🎨</span> Nubian Village by motor boat</div>
+      </div>
+
+      <h3>Optional Add-Ons</h3>
+      <div class="addons-grid">
+        <div class="addon-item"><span class="addon-icon">✨</span> Sound &amp; Light Show at the Pyramids</div>
+        <div class="addon-item"><span class="addon-icon">🍽️</span> Dinner cruise on the Nile in Cairo</div>
+        <div class="addon-item"><span class="addon-icon">🎈</span> Hot air balloon over Luxor at sunrise</div>
+        <div class="addon-item"><span class="addon-icon">✨</span> Sound &amp; Light Show at Karnak or Philae</div>
+        <div class="addon-item"><span class="addon-icon">🏜️</span> Abu Simbel day trip from Aswan</div>
+        <div class="addon-item"><span class="addon-icon">🛕</span> Dendera Temple excursion</div>
+      </div>
+    </div>
+
+    <div class="tour-section" id="toure-itinerary">
+      <h3>Day-by-Day Itinerary</h3>
+      <div class="itinerary">
+        <div class="day-block">
+          <div class="day-header">
+            <div class="day-num">Day 1</div>
+            <div><div class="day-location">Cairo</div><div class="day-title">Arrival &amp; Welcome</div></div>
+          </div>
+          <div class="day-body">Your dedicated representative meets you at Cairo International Airport with a nameplate. Private transfer to your 5-star hotel. Check in and meet your Egyptologist guide for a brief orientation — what to expect, tips for the days ahead, and any questions answered. Rest of the day free. Dinner on your own. Overnight in Cairo.</div>
+        </div>
+        <div class="day-block">
+          <div class="day-header">
+            <div class="day-num">Day 2</div>
+            <div><div class="day-location">Cairo — Pharaonic</div><div class="day-title">Giza Pyramids, Sphinx &amp; Grand Egyptian Museum</div></div>
+          </div>
+          <div class="day-body">An early start to beat the crowds at the Giza Plateau — stand before the astonishing Pyramids and the legendary Sphinx. Lunch included. Afternoon at the Grand Egyptian Museum (GEM), newly fully open and home to the complete Tutankhamun collection. Overnight in Cairo.</div>
+        </div>
+        <div class="day-block">
+          <div class="day-header">
+            <div class="day-num">Day 3</div>
+            <div><div class="day-location">Cairo — Islamic &amp; Coptic</div><div class="day-title">Citadel, Coptic Cairo &amp; NMEC</div></div>
+          </div>
+          <div class="day-body">Saladin Citadel and the beautiful Mohammed Ali alabaster Mosque — the best panoramic view of Cairo from any point in the city. Then the ancient churches of Coptic Cairo, where the Holy Family stayed. The National Museum of Egyptian Civilization (NMEC), home to Egypt's most famous royal mummies. Lunch included. Overnight in Cairo.</div>
+        </div>
+        <div class="day-block">
+          <div class="day-header">
+            <div class="day-num">Day 4</div>
+            <div><div class="day-location">Cairo → Luxor — East Bank</div><div class="day-title">Fly to Luxor, Karnak &amp; Board Cruise</div></div>
+          </div>
+          <div class="day-body">Transfer to Cairo airport and fly to Luxor (approx. 1 hour). Visit Karnak Temples — the largest monumental complex in the world, the history book of Ancient Egypt. Board your Nile cruise ship for check-in and lunch. We bypass Luxor Temple in the daytime deliberately: as the sun sets, join your guide for Luxor Temple bathed in golden twilight — an extraordinary experience. Dinner on board. Overnight in Luxor on the cruise.</div>
+        </div>
+        <div class="day-block">
+          <div class="day-header">
+            <div class="day-num">Day 5</div>
+            <div><div class="day-location">Luxor — West Bank</div><div class="day-title">Valley of the Kings, Hatshepsut &amp; Deir el-Medina</div></div>
+          </div>
+          <div class="day-body">Early breakfast on board, then into the mountains of western Thebes for the Valley of the Kings — 3 royal tombs plus the extraordinary tomb of Ramesses V &amp; VI with dazzling, untouched colors from 3,000 years ago. Hatshepsut Temple rising majestically out of the desert cliffs. The artisans' village at Deir el-Medina — ancient Egypt at its most human. Colossi of Memnon on the way back. Lunch on board. Afternoon sailing toward Edfu. Dinner on board. Overnight in Edfu.</div>
+        </div>
+        <div class="day-block">
+          <div class="day-header">
+            <div class="day-num">Day 6</div>
+            <div><div class="day-location">Edfu &amp; Kom Ombo</div><div class="day-title">Edfu Temple &amp; Kom Ombo Temple</div></div>
+          </div>
+          <div class="day-body">Breakfast on board, then Egypt's most preserved ancient sanctuary — walk through the massive gateways and towering halls of the falcon-headed deity Horus at Edfu, where time has stood still for over two millennia. Back to the boat, set sail with the Nile scenery all around. Dock at Kom Ombo in the afternoon and visit Egypt's only twin temple, dedicated to two deities. Continue sailing to Aswan. Dinner on board. Overnight in Aswan.</div>
+        </div>
+        <div class="day-block">
+          <div class="day-header">
+            <div class="day-num">Day 7</div>
+            <div><div class="day-location">Aswan</div><div class="day-title">Philae Temple, High Dam, Obelisk &amp; Nubian Village</div></div>
+          </div>
+          <div class="day-body">Breakfast on board. Cross by boat to Philae Temple — the floating sanctuary of Isis, surrounded by water on all sides, feels like stepping into a living postcard. The High Dam, overlooking Lake Nasser — the largest man-made lake in the world. The Unfinished Obelisk, still lying in its ancient granite quarry, the largest and heaviest ever attempted. Lunch on board. Special visit by motor boat to the Nubian Village — rainbow-painted houses, tiny streets, and Nubian people in their natural habitat. A photographer's dream. Dinner on board. Overnight in Aswan.</div>
+        </div>
+        <div class="day-block">
+          <div class="day-header">
+            <div class="day-num">Day 8</div>
+            <div><div class="day-location">Aswan</div><div class="day-title">Free Day (Abu Simbel Optional)</div></div>
+          </div>
+          <div class="day-body">A relaxed day with all meals included on board the cruise ship. Enjoy the Nile views, the ship's deck, or simply decompress. Optional: take a day trip to Abu Simbel, the colossal temples of Ramesses II carved into a cliff face — one of Egypt's most extraordinary sights. Overnight in Aswan on the cruise.</div>
+        </div>
+        <div class="day-block">
+          <div class="day-header">
+            <div class="day-num">Day 9</div>
+            <div><div class="day-location">Aswan → Cairo</div><div class="day-title">Scenic Nile Morning &amp; Flight to Cairo</div></div>
+          </div>
+          <div class="day-body">Check out of the cruise ship — your representative assists with luggage and transfers you to Aswan airport for your flight to Cairo. Lunch included in Aswan or Cairo depending on flight timing. Arrive Cairo and transfer to your airport hotel. Overnight in Cairo.</div>
+        </div>
+        <div class="day-block">
+          <div class="day-header">
+            <div class="day-num">Day 10</div>
+            <div><div class="day-location">Cairo</div><div class="day-title">Optional Cairo Bonus Day</div></div>
+          </div>
+          <div class="day-body">A bonus day in Cairo — use it for anything you'd like to revisit, a dinner cruise on the Nile, Khan el-Khalili bazaar, or simply rest. Your representative is on hand for any arrangements. Overnight in Cairo.</div>
+        </div>
+        <div class="day-block">
+          <div class="day-header">
+            <div class="day-num">Day 11</div>
+            <div><div class="day-location">Cairo</div><div class="day-title">Final Departure</div></div>
+          </div>
+          <div class="day-body">Breakfast at the hotel. Your representative picks you up and assists with luggage all the way to check-in for your international flight home. Safe travels — Egypt will stay with you.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tour-section" id="toure-accommodation">
+      <h3>Accommodation</h3>
+      <p style="font-size:14px;color:#5a4030;margin-bottom:18px;">We offer two accommodation tiers. Both are 5-star properties in prime locations. Upgrade at the time of booking — just let us know.</p>
+      <div class="hotel-grid">
+        <div class="hotel-card">
+          <div class="hotel-card-header comfort">⭐ Standard (Included)</div>
+          <div class="hotel-card-body">
+            <div class="hotel-row">
+              <div class="hotel-city">Cairo<br><span class="hotel-stars">★★★★★</span></div>
+              <div class="hotel-name">Pyramids-view 5-star property — Steigenberger Pyramids or similar. 3 nights.</div>
+            </div>
+            <div class="hotel-row">
+              <div class="hotel-city">Luxor<br><span class="hotel-stars">★★★★★</span></div>
+              <div class="hotel-name">Nile-view 5-star property — Steigenberger Nile Palace or similar. 1 night.</div>
+            </div>
+            <div class="hotel-row">
+              <div class="hotel-city">Nile Cruise<br><span class="hotel-stars">★★★★★</span></div>
+              <div class="hotel-name">4 nights on MS Amwaj Livingstone or similar. Nile-view cabin.</div>
+            </div>
+          </div>
+        </div>
+        <div class="hotel-card">
+          <div class="hotel-card-header premium">✦ Premium Upgrade</div>
+          <div class="hotel-card-body">
+            <div class="hotel-row">
+              <div class="hotel-city">Cairo<br><span class="hotel-stars">★★★★★</span></div>
+              <div class="hotel-name">Four Seasons Cairo at Nile Plaza or Marriott Mena House (Pyramids view). 3 nights.</div>
+            </div>
+            <div class="hotel-row">
+              <div class="hotel-city">Luxor<br><span class="hotel-stars">★★★★★</span></div>
+              <div class="hotel-name">Sofitel Winter Palace Luxor — historic colonial property on the Nile. 1 night.</div>
+            </div>
+            <div class="hotel-row">
+              <div class="hotel-city">Nile Cruise<br><span class="hotel-stars">★★★★★</span></div>
+              <div class="hotel-name">Ms. Mayfair, Ms. My Flower, Ms. Acamar or similar. 4 nights.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hotel-upgrade-note">💡 <strong>All rooms are private, Nile view.</strong> Single supplement available. Family rooms available for groups with children. Ask us at booking for current room availability and upgrade pricing.</div>
+    </div>
+
+    <div class="tour-section" id="toure-inclusions">
+      <h3 style="display:inline-block;background:#b5451b;color:white;padding:6px 18px;border-radius:4px;margin-bottom:22px;">Inclusions</h3>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-bottom:8px;">
+        <div>
+          <p style="font-size:15px;font-weight:700;color:#1a1a1a;margin-bottom:16px;">What is included in the tour</p>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:14px;">
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Airport meet &amp; assist by your dedicated representative</li>
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Entry visa to Egypt</li>
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Domestic flights (Cairo → Luxor and Aswan → Cairo)</li>
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>All airport &amp; inter-city transfers by private AC vehicles</li>
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>3 nights 5-star hotel in Cairo</li>
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>1 night 5-star hotel in Luxor</li>
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>4 nights 5-star Nile cruise ship</li>
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Breakfast &amp; lunch daily in Cairo and Luxor</li>
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>All meals on cruise (open buffet — breakfast, lunch &amp; dinner)</li>
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>All entrance fees to listed sites</li>
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Private Egyptologist guide (English — other languages on request)</li>
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Bottled water and snacks during all excursions</li>
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>All taxes and service charges</li>
+          </ul>
+        </div>
+
+        <div>
+          <p style="font-size:15px;font-weight:700;color:#1a1a1a;margin-bottom:16px;">What is NOT included in the tour</p>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:14px;">
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#dc2626;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="10" height="3" viewBox="0 0 10 3" fill="none"><rect x="0" y="0.5" width="10" height="2" rx="1" fill="white"/></svg></span>International airfare</li>
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#dc2626;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="10" height="3" viewBox="0 0 10 3" fill="none"><rect x="0" y="0.5" width="10" height="2" rx="1" fill="white"/></svg></span>Drinks (bottled water provided during excursions)</li>
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#dc2626;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="10" height="3" viewBox="0 0 10 3" fill="none"><rect x="0" y="0.5" width="10" height="2" rx="1" fill="white"/></svg></span>Gratuities for guides and drivers</li>
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#dc2626;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="10" height="3" viewBox="0 0 10 3" fill="none"><rect x="0" y="0.5" width="10" height="2" rx="1" fill="white"/></svg></span>Personal expenses — phone calls, laundry, souvenirs, etc.</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>Pricing</h3>
+      <table class="pricing-table">
+        <tr><th>Category</th><th>Price Per Person</th></tr>
+        <tr><td>Standard (double occupancy)</td><td><span class="price-highlight">From $3,950</span></td></tr>
+        <tr><td>Single supplement</td><td>+50% of base price</td></tr>
+        <tr><td>Group of 4–7 travelers</td><td>10% discount applied</td></tr>
+        <tr><td>Group of 8+ travelers</td><td>15% discount or bonus inclusions</td></tr>
+      </table>
+      <p style="font-size:13px;color:#8b7355;margin-top:8px;">All prices in USD. Contact us for current rates.</p>
+
+      <h3>Children's Policy</h3>
+      <table class="children-table">
+        <tr><th>Age</th><th>Price</th></tr>
+        <tr><td>Under 5 years</td><td>Free (max 1 child per booking)</td></tr>
+        <tr><td>Ages 5–11</td><td>50% of adult price</td></tr>
+        <tr><td>Ages 12 and over</td><td>Adult fare</td></tr>
+      </table>
+
+      <h3>Payment &amp; Cancellation Policy</h3>
+      <div class="note-box">💳 <strong>25% deposit</strong> secures your booking. Balance due before departure.</div>
+      <table class="cancel-table">
+        <tr><th>When You Cancel</th><th>Charge Applied</th></tr>
+        <tr><td>45+ days before arrival</td><td>No charge — full refund</td></tr>
+        <tr><td>30–45 days before arrival</td><td>20% of total trip price</td></tr>
+        <tr><td>1–30 days before arrival</td><td>50% of total trip price</td></tr>
+      </table>
+      <p style="font-size:13px;color:#8b7355;margin-top:8px;">Note: domestic transport cancellation fees may apply in addition to the above.</p>
+    </div>
+
+  </div><!-- end .tour-main -->
+
+  <div class="tour-sidebar">
+
+    <div style="border:2px solid #34d399;border-radius:10px;padding:18px 10px 18px 18px;background:white;margin-bottom:16px;margin-top:80px;">
+      <p style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:#6b7280;margin-bottom:10px;">Reviews</p>
+
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+        <svg width="28" height="18" viewBox="0 0 56 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="14" cy="18" r="14" fill="#34d399"/>
+          <circle cx="42" cy="18" r="14" fill="#34d399"/>
+          <circle cx="14" cy="18" r="6" fill="white"/>
+          <circle cx="42" cy="18" r="6" fill="white"/>
+          <circle cx="14" cy="18" r="3" fill="black"/>
+          <circle cx="42" cy="18" r="3" fill="black"/>
+        </svg>
+        <span style="font-size:15px;font-weight:700;color:#222;">Tripadvisor</span>
+      </div>
+
+      <a href="https://www.tripadvisor.com/Attraction_Review-g294205-d25314995-Reviews-Access_Egypt_travel-Luxor_Nile_River_Valley.html"
+         target="_blank"
+         style="font-size:16px;font-weight:800;color:#222;text-decoration:underline;display:block;margin-bottom:10px;">Access Egypt Travel</a>
+
+      <p style="font-size:11px;color:#6b7280;margin-bottom:4px;">Traveler Rating</p>
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+        <span style="display:flex;gap:3px;">
+          <span style="width:13px;height:13px;border-radius:50%;background:#34d399;display:inline-block;"></span>
+          <span style="width:13px;height:13px;border-radius:50%;background:#34d399;display:inline-block;"></span>
+          <span style="width:13px;height:13px;border-radius:50%;background:#34d399;display:inline-block;"></span>
+          <span style="width:13px;height:13px;border-radius:50%;background:#34d399;display:inline-block;"></span>
+          <span style="width:13px;height:13px;border-radius:50%;background:#34d399;display:inline-block;"></span>
+        </span>
+        <span style="font-size:13px;color:#374151;font-weight:700;">4.9 · 71 reviews</span>
+      </div>
+
+      <p style="font-size:11px;color:#6b7280;margin-bottom:2px;">Ranking</p>
+      <p style="font-size:17px;font-weight:900;color:#222;margin-bottom:12px;line-height:1.2;">
+        <sup style="font-size:12px;">#</sup>137 <span style="font-size:12px;font-weight:500;color:#6b7280;">of 1,289 Tours in Luxor</span>
+      </p>
+
+      <p style="font-size:11px;color:#6b7280;margin-bottom:5px;">Recent Traveler Reviews</p>
+      <p style="font-size:12.5px;color:#222;margin-bottom:4px;">"Unforgettable Unreal Experience"</p>
+      <p style="font-size:12.5px;color:#222;margin-bottom:4px;">"Nile Cruise Feb 2026"</p>
+      <p style="font-size:12.5px;color:#222;margin-bottom:4px;">"John makes history come alive"</p>
+      <p style="font-size:12.5px;color:#222;margin-bottom:12px;">"Luxor and Nile cruise to Aswan"</p>
+
+      <div style="display:flex;gap:14px;border-top:1px solid #e5e7eb;padding-top:10px;">
+        <a href="https://www.tripadvisor.com/Attraction_Review-g294205-d25314995-Reviews-Access_Egypt_travel-Luxor_Nile_River_Valley.html"
+           target="_blank" style="font-size:12.5px;color:#374151;text-decoration:underline;">Read reviews</a>
+        <span style="color:#d1d5db;">|</span>
+        <a href="https://www.tripadvisor.com/Attraction_Review-g294205-d25314995-Reviews-Access_Egypt_travel-Luxor_Nile_River_Valley.html#REVIEWS"
+           target="_blank" style="font-size:12.5px;color:#374151;text-decoration:underline;">Write a review</a>
+      </div>
+    </div>
+
+  </div><!-- end .tour-sidebar -->
+</div><!-- end .tour-body -->
+</div><!-- end tour page -->
+
+
+<!-- ════════════════════════════════════════════════════
+     ABOUT PAGE
+════════════════════════════════════════════ -->
 <div id="about" class="page-section">
 <div class="page-label">ABOUT US PAGE <span>John Gamil's story + why Access Egypt Travel</span></div>
 
 <div class="top-bar"><div><a href="tel:+17727820494">🇺🇸 +1 772 782 0494</a><a href="https://wa.me/20120140578">💬 WhatsApp</a><a href="mailto:info@accessegypttravel.com">✉️ info@accessegypttravel.com</a></div><a href="mailto:info@accessegypttravel.com" class="cta-btn">Request a Quote</a></div>
-<div class="site-header"><div class="logo-text"><div class="name">𓂀 Access Egypt Travel</div><div class="sub">Private Tours · Egyptologist Guided</div></div><nav><a href="#">Home</a><a href="#">Tours ▾</a><a href="#">Reviews</a><a href="#">FAQs</a><a href="#" class="active">About</a><a href="#">Contact</a></nav></div>
+<div class="site-header"><img src="Logo_Green_3.png" alt="Access Egypt Travel" class="site-logo-img"><nav><a href="#">Home</a><a href="#">Tours ▾</a><a href="#">Reviews</a><a href="#">FAQs</a><a href="#" class="active">About</a><a href="#">Contact</a></nav></div>
 
 <div class="about-hero">
-  <h1>Meet Your <span>Egyptologist</span></h1>
-  <p>Not just a guide. A BSc-educated Egyptologist with 22 years in the field — who happens to understand exactly what American travelers need from an Egypt trip.</p>
+  <div style="padding-bottom:50px;">
+    <h1 style="font-size:48px;font-weight:900;margin-bottom:12px;line-height:1.1;">Meet Your <span style="color:#d4af6a;">Egyptologist</span></h1>
+    <p style="font-size:18px;color:rgba(255,255,255,0.85);max-width:620px;line-height:1.6;">Not just a guide. A BSc-educated Egyptologist with 22 years in the field — who happens to understand exactly what American travelers need from an Egypt trip.</p>
+  </div>
 </div>
 
 <div class="about-body">
   <div class="about-profile">
     <div class="profile-card">
-      <div class="profile-photo">𓂀</div>
+      <div class="profile-photo"><img src="John_portfolio.jpg" alt="John Gamil — Owner &amp; Lead Egyptologist, Access Egypt Travel"></div>
       <div class="profile-info">
         <div class="pname">John Gamil</div>
         <div class="ptitle">Owner · Lead Egyptologist</div>
@@ -825,24 +2168,18 @@
 <div class="page-label">CONTACT PAGE — Fully fledged multi-channel hub <span>All channels shown</span></div>
 
 <div class="top-bar"><div><a href="tel:+17727820494">🇺🇸 +1 772 782 0494</a><a href="https://wa.me/20120140578">💬 WhatsApp</a><a href="mailto:info@accessegypttravel.com">✉️ info@accessegypttravel.com</a></div><a href="mailto:info@accessegypttravel.com" class="cta-btn">Request a Quote</a></div>
-<div class="site-header"><div class="logo-text"><div class="name">𓂀 Access Egypt Travel</div><div class="sub">Private Tours · Egyptologist Guided</div></div><nav><a href="#">Home</a><a href="#">Tours ▾</a><a href="#">Reviews</a><a href="#">FAQs</a><a href="#">About</a><a href="#" class="active">Contact</a></nav></div>
+<div class="site-header"><img src="Logo_Green_3.png" alt="Access Egypt Travel" class="site-logo-img"><nav><a href="#">Home</a><a href="#">Tours ▾</a><a href="#">Reviews</a><a href="#">FAQs</a><a href="#">About</a><a href="#" class="active">Contact</a></nav></div>
 
 <div class="contact-hero">
-  <h1>Let's Plan Your <span>Egypt Trip</span></h1>
-  <p>Pick the channel that works best for you. We respond within 2 hours during business hours, EST.</p>
+  <div style="padding-bottom:50px;">
+    <h1 style="font-size:48px;font-weight:900;margin-bottom:12px;line-height:1.1;">Let's Plan Your <span style="color:#d4af6a;">Egypt Trip</span></h1>
+    <p style="font-size:18px;color:rgba(255,255,255,0.85);max-width:620px;line-height:1.6;">Pick the channel that works best for you. We respond within 2 hours during business hours, EST.</p>
+  </div>
 </div>
 
 <div class="contact-body">
 
   <div class="contact-channels">
-
-    <div class="channel-card">
-      <div class="ch-icon">📅</div>
-      <h3>Schedule a Free Call</h3>
-      <p>30-minute call with John directly. Pick a time that works for your US timezone. No obligation.</p>
-      <div class="ch-detail">calendly.com/accessegypttravel</div>
-      <a href="https://calendly.com/accessegypttravel/30min" class="ch-btn primary">Book a Call →</a>
-    </div>
 
     <div class="channel-card">
       <div class="ch-icon">💬</div>
@@ -870,18 +2207,10 @@
 
     <div class="channel-card">
       <div class="ch-icon">📹</div>
-      <h3>Schedule a Zoom Call</h3>
-      <p>Prefer face-to-face? Schedule a Zoom call with John via Calendly — pick a time that works for your timezone.</p>
-      <div class="ch-detail">Zoom call · 30 minutes · no obligation</div>
-      <a href="https://calendly.com/accessegypttravel/30min" class="ch-btn zoom">Schedule Zoom Call →</a>
-    </div>
-
-    <div class="channel-card">
-      <div class="ch-icon">🎥</div>
-      <h3>Schedule a Google Meet Call</h3>
-      <p>Prefer Google Meet? Schedule via Calendly and select "Google Meet" as your video option — you'll get a Meet link in your confirmation email.</p>
-      <div class="ch-detail">Google Meet · 30 minutes · auto-generated link</div>
-      <a href="https://calendly.com/accessegypttravel/30min" class="ch-btn meet">Schedule Google Meet →</a>
+      <h3>Video Call with John</h3>
+      <p>Prefer face-to-face? Book a 30-minute video call — choose Zoom or Google Meet when you pick your time slot. No obligation.</p>
+      <div class="ch-detail">Zoom or Google Meet · 30 min · your timezone</div>
+      <a href="https://cal.com/accessegypttravel/30min" class="ch-btn zoom">Schedule Video Call →</a>
     </div>
 
   </div>
@@ -970,12 +2299,14 @@
 <div class="page-label">FAQS PAGE — Question &amp; answer format with category grouping <span>Accordion style in Elementor</span></div>
 
 <div class="top-bar"><div><a href="tel:+17727820494">🇺🇸 +1 772 782 0494</a><a href="https://wa.me/20120140578">💬 WhatsApp</a><a href="mailto:info@accessegypttravel.com">✉️ info@accessegypttravel.com</a></div><a href="mailto:info@accessegypttravel.com" class="cta-btn">Request a Quote</a></div>
-<div class="site-header"><div class="logo-text"><div class="name">𓂀 Access Egypt Travel</div><div class="sub">Private Tours · Egyptologist Guided</div></div><nav><a href="#">Home</a><a href="#">Tours ▾</a><a href="#">Reviews</a><a href="#" class="active">FAQs</a><a href="#">About</a><a href="#">Contact</a></nav></div>
+<div class="site-header"><img src="Logo_Green_3.png" alt="Access Egypt Travel" class="site-logo-img"><nav><a href="#">Home</a><a href="#">Tours ▾</a><a href="#">Reviews</a><a href="#" class="active">FAQs</a><a href="#">About</a><a href="#">Contact</a></nav></div>
 
 <div class="faq-hero">
-  <h1>Frequently Asked <span>Questions</span></h1>
-  <p>Everything American travelers want to know before booking an Egypt trip — answered honestly.</p>
-  <a href="https://calendly.com/accessegypttravel/30min" class="faq-cta-hero">📅 Still have a question? Schedule a free call →</a>
+  <div style="padding-bottom:50px;">
+    <h1 style="font-size:48px;font-weight:900;margin-bottom:12px;line-height:1.1;">Frequently Asked <span style="color:#d4af6a;">Questions</span></h1>
+    <p style="font-size:18px;color:rgba(255,255,255,0.85);max-width:620px;line-height:1.6;margin-bottom:20px;">Everything American travelers want to know before booking an Egypt trip — answered honestly.</p>
+    <a href="https://cal.com/accessegypttravel/30min" class="faq-cta-hero">📅 Still have a question? Schedule a free call →</a>
+  </div>
 </div>
 
 <div class="faq-body">
@@ -1036,7 +2367,7 @@
 
     <div class="faq-item">
       <div class="faq-q open">How do I book a tour?</div>
-      <div class="faq-a">Start by <strong>contacting us</strong> — via the form on this page, WhatsApp, email, or by scheduling a free Calendly call. We'll confirm your dates, group size, and interests, then send you a custom quote. Once you're happy with the plan, a <strong>25% deposit</strong> holds your dates. No payment platform needed yet — we'll walk you through the payment process step by step. Balance is due before your departure.</div>
+      <div class="faq-a">Start by <strong>contacting us</strong> — via the form on this page, WhatsApp, email, or by scheduling a free video call (Zoom or Google Meet). We'll confirm your dates, group size, and interests, then send you a custom quote. Once you're happy with the plan, a <strong>25% deposit</strong> holds your dates. No payment platform needed yet — we'll walk you through the payment process step by step. Balance is due before your departure.</div>
     </div>
     <div class="faq-item">
       <div class="faq-q">What payment methods do you accept?</div>
@@ -1074,7 +2405,7 @@
     <h3>Still Have a Question?</h3>
     <p>There's no such thing as a question that's too basic. We want you to feel completely prepared before you book.</p>
     <div class="faq-cta-btns">
-      <a href="https://calendly.com/accessegypttravel/30min" class="primary">📅 Schedule a Free 30-Min Call</a>
+      <a href="https://cal.com/accessegypttravel/30min" class="primary">📅 Schedule a Free 30-Min Call</a>
       <a href="https://wa.me/20120140578" class="secondary">💬 Ask via WhatsApp</a>
     </div>
   </div>
@@ -1090,11 +2421,13 @@
 <div class="page-label">PAYMENT PAGE — PayPal &amp; Square credentials arriving <strong>Monday June 9</strong>. Structure is ready — replace "Coming Soon" divs with live button codes when credentials arrive. <span>Email payment: live now</span></div>
 
 <div class="top-bar"><div><a href="tel:+17727820494">🇺🇸 +1 772 782 0494</a><a href="https://wa.me/20120140578">💬 WhatsApp</a><a href="mailto:info@accessegypttravel.com">✉️ info@accessegypttravel.com</a></div><a href="mailto:info@accessegypttravel.com" class="cta-btn">Request a Quote</a></div>
-<div class="site-header"><div class="logo-text"><div class="name">𓂀 Access Egypt Travel</div><div class="sub">Private Tours · Egyptologist Guided</div></div><nav><a href="#">Home</a><a href="#">Tours ▾</a><a href="#">Reviews</a><a href="#">FAQs</a><a href="#">About</a><a href="#" class="active">Contact</a></nav></div>
+<div class="site-header"><img src="Logo_Green_3.png" alt="Access Egypt Travel" class="site-logo-img"><nav><a href="#">Home</a><a href="#">Tours ▾</a><a href="#">Reviews</a><a href="#">FAQs</a><a href="#">About</a><a href="#" class="active">Contact</a></nav></div>
 
 <div class="payment-hero">
-  <h1>Secure Your <span>Egypt Tour</span></h1>
-  <p>A 25% deposit holds your dates. The balance is due before your departure. All payments in USD — no hidden fees.</p>
+  <div style="padding-bottom:50px;">
+    <h1 style="font-size:48px;font-weight:900;margin-bottom:12px;line-height:1.1;">Secure Your <span style="color:#d4af6a;">Egypt Tour</span></h1>
+    <p style="font-size:18px;color:rgba(255,255,255,0.85);max-width:620px;line-height:1.6;">A 25% deposit holds your dates. The balance is due before your departure. All payments in USD — no hidden fees.</p>
+  </div>
 </div>
 
 <div class="payment-body">
@@ -1202,10 +2535,10 @@
 ════════════════════════════════════════════════════ -->
 <div class="site-footer">
   <div class="footer-main">
-    <div class="footer-col"><div style="font-size:15px;font-weight:800;color:white;margin-bottom:6px;">𓂀 Access Egypt Travel</div><div style="font-size:11px;color:#666;text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;">Private · Egyptologist-Guided</div><a href="#">Egypt Packages</a><a href="#">Luxor Tours</a><a href="#">Nile Cruise</a><a href="#">Tailor-Made Tours</a></div>
+    <div class="footer-col"><img src="site_icon.png" alt="Access Egypt Travel" style="height:70px;width:auto;display:block;margin-bottom:10px;"><div style="font-size:11px;color:#666;text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;">Private · Egyptologist-Guided</div><a href="#">Egypt Packages</a><a href="#">Luxor Tours</a><a href="#">Nile Cruise</a><a href="#">Tailor-Made Tours</a></div>
     <div class="footer-col"><h4>Travel Resources</h4><a href="#">Egypt Visa for Americans</a><a href="#">Best Time to Visit</a><a href="#">Hurghada to Luxor Guide</a><a href="#">Is Egypt Safe?</a><a href="#">What to Pack</a></div>
     <div class="footer-col"><h4>Why Choose Us</h4><a href="#">Real Egyptologist Guide</a><a href="#">100% Private Tours</a><a href="#">Cairo · Hurghada · Luxor Pickup</a><a href="#">US-Based Support</a><a href="#">TripAdvisor Reviews</a></div>
-    <div class="footer-col"><h4>Contact Us</h4><a href="tel:+17727820494">🇺🇸 +1 772 782 0494</a><a href="https://wa.me/20120140578">💬 +20 12 014-0578</a><a href="mailto:info@accessegypttravel.com">✉️ info@accessegypttravel.com</a><a href="https://calendly.com/accessegypttravel/30min" style="color:#d4af6a;font-weight:700;margin-top:8px;">📅 Schedule a Free Call →</a></div>
+    <div class="footer-col"><h4>Contact Us</h4><a href="tel:+17727820494">🇺🇸 +1 772 782 0494</a><a href="https://wa.me/20120140578">💬 +20 12 014-0578</a><a href="mailto:info@accessegypttravel.com">✉️ info@accessegypttravel.com</a><a href="https://cal.com/accessegypttravel/30min" style="color:#d4af6a;font-weight:700;margin-top:8px;">📅 Schedule a Free Call →</a></div>
   </div>
   <div class="footer-bottom"><p>© 2026 Access Egypt Travel LLC · All Rights Reserved · 📍 Cairo · Hurghada · Luxor · 🇺🇸 +1 772 782 0494</p><div style="display:flex;gap:16px;"><a href="#">Privacy Policy</a><a href="#">Terms</a><a href="#">Cancellation Policy</a></div></div>
 </div>
@@ -1222,8 +2555,10 @@ function toggleDateMode(mode) {
 <script>
 /* ── TOUR SUB-NAV: scroll-aware active tab ── */
 (function() {
-  var sections = ['tour-overview','tour-highlights','tour-itinerary','tour-accommodation','tour-inclusions'];
   var links = document.querySelectorAll('.tour-subnav-links a[data-section]');
+  var sections = Array.from(document.querySelectorAll('.tour-section[id]')).map(function(el) {
+    return el.id;
+  });
 
   function setActive(id) {
     links.forEach(function(a) {
