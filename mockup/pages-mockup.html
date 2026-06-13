@@ -30,6 +30,15 @@
   nav a { padding: 10px 14px; color: #3a2a1a; font-size: 13.5px; font-weight: 600; text-decoration: none; border-radius: 4px; }
   nav a:hover, nav a.active { color: #b5451b; background: #fdf5ef; }
 
+  /* ── SITE NAV DROPDOWN ── */
+  .nav-dropdown { position: relative; display: inline-block; }
+  .nav-dropdown > a { display: flex; align-items: center; gap: 4px; }
+  .nav-dropdown-menu { display: none; position: absolute; top: calc(100% + 4px); left: 50%; transform: translateX(-50%); background: white; border: 1px solid #f0e8d8; border-radius: 8px; min-width: 260px; box-shadow: 0 8px 24px rgba(0,0,0,0.12); z-index: 500; overflow: hidden; }
+  .nav-dropdown-menu a { display: block; padding: 10px 16px; font-size: 13px; font-weight: 600; color: #3a2a1a; text-decoration: none; border-bottom: 1px solid #f5f0ea; }
+  .nav-dropdown-menu a:last-child { border-bottom: none; }
+  .nav-dropdown-menu a:hover { background: #fdf5ef; color: #b5451b; }
+  .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+
   /* ── PAGE SECTION WRAPPERS ── */
   .page-section { border-top: 6px solid #7c3aed; margin-bottom: 0; }
   .page-label { background: #7c3aed; color: white; padding: 12px 40px; font-size: 13px; font-weight: 700; letter-spacing: 0.5px; display: flex; align-items: center; gap: 12px; }
@@ -324,8 +333,17 @@
   .footer-col h4 { color: #2c1a0e; font-size: 13px; font-weight: 700; margin-bottom: 14px; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 2px solid #b5451b; padding-bottom: 8px; display: inline-block; }
   .footer-col a { display: block; color: #555; font-size: 13px; text-decoration: none; margin-bottom: 7px; }
   .footer-col a:hover { color: #b5451b; }
+  .footer-col .contact-line { display: flex; align-items: flex-start; gap: 8px; color: #555; font-size: 13px; margin-bottom: 8px; }
+  .footer-col .contact-line a { display: inline; margin: 0; }
+  .footer-social { display: flex; gap: 10px; margin-top: 16px; }
+  .social-icon { width: 34px; height: 34px; border-radius: 50%; background: #333; color: white; display: flex; align-items: center; justify-content: center; font-size: 14px; text-decoration: none; transition: background 0.2s; }
+  .social-icon:hover { background: #b5451b; }
+  .footer-schedule { display: inline-block; margin-top: 14px; background: #b5451b; color: white; padding: 9px 18px; border-radius: 4px; font-size: 13px; font-weight: 700; text-decoration: none; transition: background 0.2s; }
+  .footer-schedule:hover { background: #943a17; }
+  .footer-note { font-size: 11.5px; color: #8b7355; font-style: italic; margin-top: 6px; line-height: 1.5; }
   .footer-bottom { background: #f5f0e8; padding: 14px 60px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
   .footer-bottom p, .footer-bottom a { font-size: 12px; color: #8b7355; text-decoration: none; }
+  .footer-bottom a:hover { color: #b5451b; }
 
   /* ── DATE TOGGLE ── */
   .date-toggle { display: flex; gap: 8px; margin-bottom: 10px; }
@@ -415,11 +433,11 @@
   <div class="mb-dropdown">
     <button class="mb-dropdown-btn">Tour Pages ▾</button>
     <div class="mb-dropdown-menu">
-      <a href="#tour">Tour A — 6 Days / Cairo &amp; Luxor</a>
-      <a href="#tour-b">Tour B — 8 Days / Cairo, Aswan &amp; Nile Cruise</a>
-      <a href="#tour-c">Tour C — 9 Days / Egypt Highlights + Cruise</a>
-      <a href="#tour-d">Tour D — 7 Days / Cairo, Luxor &amp; Aswan</a>
-      <a href="#tour-e">Tour E — 11 Days / Ultimate Odyssey</a>
+      <a href="#tour">6 Days / 5 Nights — Cairo &amp; Luxor Holiday</a>
+      <a href="#tour-d">7 Days / 6 Nights — Cairo, Luxor &amp; Aswan</a>
+      <a href="#tour-b">8 Days / 7 Nights — Cairo, Aswan &amp; Nile Cruise</a>
+      <a href="#tour-c">9 Days / 8 Nights — Cairo, Pyramids &amp; Nile Cruise</a>
+      <a href="#tour-e">11 Days / 10 Nights — The Ultimate Egyptian Odyssey</a>
     </div>
   </div>
   <a href="#about">About</a>
@@ -440,7 +458,7 @@
   <img src="Logo_Green_3.png" alt="Access Egypt Travel" class="site-logo-img">
   <nav>
     <a href="#">Home</a>
-    <a href="#" class="active">Tours ▾</a>
+    <div class="nav-dropdown"><a href="#" class="active">Tours ▾</a><div class="nav-dropdown-menu"><a href="#tour">6 Days / 5 Nights — Cairo &amp; Luxor Holiday</a><a href="#tour-d">7 Days / 6 Nights — Cairo, Luxor &amp; Aswan</a><a href="#tour-b">8 Days / 7 Nights — Cairo, Aswan &amp; Nile Cruise</a><a href="#tour-c">9 Days / 8 Nights — Cairo, Pyramids &amp; Nile Cruise</a><a href="#tour-e">11 Days / 10 Nights — The Ultimate Egyptian Odyssey</a></div></div>
     <a href="#">Reviews</a>
     <a href="#">FAQs</a>
     <a href="#">About</a>
@@ -484,7 +502,7 @@
     <div class="subnav-right-group">
       <div class="subnav-widget">
         <a href="mailto:info@accessegypttravel.com" class="subnav-book-btn">Request a Quote</a>
-        <div class="subnav-price">From <strong>$1,900</strong></div>
+        <div class="subnav-price">From <strong>$1,950</strong></div>
         <div class="subnav-checks">✓ Private Tour &nbsp;&nbsp; ✓ Per Person</div>
       </div>
     </div>
@@ -514,7 +532,7 @@
         <tr><td>Transport Cairo→Luxor</td><td><strong>Domestic flight — included</strong></td></tr>
         <tr><td>Visa</td><td><strong>Included</strong></td></tr>
         <tr><td>Meals</td><td><strong>Breakfast + Lunch (Days 1–5)</strong></td></tr>
-        <tr><td>Price from</td><td><span class="price-highlight">$1,900 / person</span> (double occupancy)</td></tr>
+        <tr><td>Price from</td><td><span class="price-highlight">$1,950 / person</span> (double occupancy)</td></tr>
       </table>
 
       <h3>Your Route</h3>
@@ -584,7 +602,7 @@
             <div class="day-num">Day 4</div>
             <div><div class="day-location">Cairo → Luxor</div><div class="day-title">Travel Day + East Bank Arrival</div></div>
           </div>
-          <div class="day-body">Transfer to Luxor — by domestic flight (EgyptAir, ~1 hour) or overnight train (your choice; see pricing). Check in to your Luxor hotel. Evening: Karnak Temples and Luxor Temple lit up at sunset — a completely different experience from the daytime.</div>
+          <div class="day-body">Transfer to Luxor by domestic flight (EgyptAir, ~1 hour). Check in to your Luxor hotel. Evening: Karnak Temples and Luxor Temple lit up at sunset — a completely different experience from the daytime.</div>
         </div>
         <div class="day-block">
           <div class="day-header">
@@ -680,7 +698,7 @@
       <h3>Pricing</h3>
       <table class="pricing-table">
         <tr><th>Category</th><th>Price Per Person</th></tr>
-        <tr><td>Standard (double occupancy)</td><td><span class="price-highlight">From $1,900</span></td></tr>
+        <tr><td>Standard (double occupancy)</td><td><span class="price-highlight">From $1,950</span></td></tr>
         <tr><td>Single supplement</td><td>+50% of base price</td></tr>
         <tr><td>Group of 4–7 travelers</td><td>10% discount applied</td></tr>
         <tr><td>Group of 8+ travelers</td><td>15% discount or bonus inclusions</td></tr>
@@ -815,7 +833,7 @@
 
     <div class="tour-section" id="tourb-overview">
       <div class="tour-overview-intro">
-        <p>If you want a complete Egypt journey in just one week, this 8-day private package gives you the best of Cairo, Aswan, and a 3-night Nile cruise. Explore the Giza Pyramids, GEM, Philae Temple, and the temples of Kom Ombo, Edfu, and Luxor with one Egyptologist guide leading every step.</p>
+        <p>If you want a complete Egypt journey in just one week, this 8-day private package gives you the best of <span class="city-link" data-city="cairo">Cairo</span>, <span class="city-link" data-city="aswan">Aswan</span>, and a 3-night Nile cruise. Explore the Giza Pyramids, GEM, Philae Temple, and the temples of Kom Ombo, Edfu, and Luxor with one Egyptologist guide leading every step.</p>
         <p>We handle airport meet &amp; assist, flights, transfers, hotels, cruise, entrance fees, and a private guide who knows how to make Egypt feel easy for American travelers. Relax, sail the Nile, and let us coordinate the logistics so you can focus on the monuments and the stories behind them.</p>
       </div>
 
@@ -829,7 +847,7 @@
         <tr><td>Destinations</td><td><strong>Cairo (3 nights) → Aswan (1 night) → Nile Cruise (3 nights)</strong></td></tr>
         <tr><td>Transport</td><td><strong>Domestic flights included</strong></td></tr>
         <tr><td>Entry Visa</td><td><strong>Included</strong></td></tr>
-        <tr><td>Meals</td><td><strong>Breakfast + Lunch in Cairo/Aswan, all meals on cruise</strong></td></tr>
+        <tr><td>Meals</td><td><strong>Cairo &amp; Aswan:</strong> Breakfast + Lunch daily<br><strong>Cruise (3 days):</strong> All meals — open buffet</td></tr>
         <tr><td>Price from</td><td><span class="price-highlight">$2,950 / person</span> (double occupancy)</td></tr>
       </table>
 
@@ -842,29 +860,29 @@
     <div class="tour-section" id="tourb-highlights">
       <h3>Highlights</h3>
       <div class="sites-grid">
-        <div class="site-item"><span class="site-icon">🏛️</span> Giza Pyramids &amp; the Sphinx</div>
-        <div class="site-item"><span class="site-icon">🏺</span> Grand Egyptian Museum (GEM)</div>
-        <div class="site-item"><span class="site-icon">🕌</span> Saladin Citadel &amp; Mohammed Ali Mosque</div>
-        <div class="site-item"><span class="site-icon">⛪</span> Coptic Cairo &amp; NMEC</div>
-        <div class="site-item"><span class="site-icon">🚤</span> Philae Temple by boat</div>
-        <div class="site-item"><span class="site-icon">🛡️</span> The High Dam</div>
-        <div class="site-item"><span class="site-icon">🏛️</span> Kom Ombo Temple</div>
-        <div class="site-item"><span class="site-icon">🏺</span> Edfu Temple</div>
-        <div class="site-item"><span class="site-icon">🏟️</span> Karnak Temple Complex</div>
-        <div class="site-item"><span class="site-icon">🌟</span> Luxor Temple by night</div>
-        <div class="site-item"><span class="site-icon">👑</span> Valley of the Kings</div>
-        <div class="site-item"><span class="site-icon">🏺</span> Hatshepsut Temple</div>
-        <div class="site-item"><span class="site-icon">🧑‍🎨</span> Deir el-Medina artisans' village</div>
-        <div class="site-item"><span class="site-icon">🗿</span> Colossi of Memnon</div>
-        <div class="site-item"><span class="site-icon">⛵</span> Felucca ride on the Nile</div>
+        <div class="site-item"><span class="site-icon">🏛️</span> <span class="site-link" data-site="giza-pyramids">Giza Pyramids</span> &amp; the <span class="site-link" data-site="sphinx">Sphinx</span></div>
+        <div class="site-item"><span class="site-icon">🏺</span> Grand Egyptian Museum (<span class="site-link" data-site="gem">GEM</span>)</div>
+        <div class="site-item"><span class="site-icon">🕌</span> <span class="site-link" data-site="citadel">Saladin Citadel</span> &amp; <span class="site-link" data-site="mohammed-ali">Mohammed Ali Mosque</span></div>
+        <div class="site-item"><span class="site-icon">⛪</span> <span class="site-link" data-site="coptic">Coptic Cairo</span> &amp; <span class="site-link" data-site="nmec">NMEC</span></div>
+        <div class="site-item"><span class="site-icon">🚤</span> <span class="site-link" data-site="philae">Philae Temple</span> by boat</div>
+        <div class="site-item"><span class="site-icon">🛡️</span> The <span class="site-link" data-site="high-dam">High Dam</span></div>
+        <div class="site-item"><span class="site-icon">🏛️</span> <span class="site-link" data-site="kom-ombo">Kom Ombo Temple</span></div>
+        <div class="site-item"><span class="site-icon">🏺</span> <span class="site-link" data-site="edfu">Edfu Temple</span></div>
+        <div class="site-item"><span class="site-icon">🏟️</span> <span class="site-link" data-site="karnak">Karnak Temple Complex</span></div>
+        <div class="site-item"><span class="site-icon">🌟</span> <div><span class="site-link" data-site="luxortemple">Luxor Temple</span> &amp; <span class="site-link" data-site="sphinx-avenue">Sphinx Avenue</span><br><span style="font-size:11px;color:#8b7355;font-weight:500;">✦ lit up at night</span></div></div>
+        <div class="site-item"><span class="site-icon">👑</span> <span class="site-link" data-site="valley">Valley of the Kings</span></div>
+        <div class="site-item"><span class="site-icon">🏺</span> <span class="site-link" data-site="hatshepsut">Hatshepsut Temple</span></div>
+        <div class="site-item"><span class="site-icon">🧑‍🎨</span> <span class="site-link" data-site="deirelmedina">Deir el-Medina</span> artisans' village</div>
+        <div class="site-item"><span class="site-icon">🗿</span> <span class="site-link" data-site="memnon">Colossi of Memnon</span></div>
+        <div class="site-item"><span class="site-icon">⛵</span> <span class="site-link" data-site="felucca">Felucca</span> ride on the Nile</div>
       </div>
 
       <h3>Optional Add-Ons</h3>
       <div class="addons-grid">
+        <div class="addon-item"><span class="addon-icon">✨</span> Sound &amp; Light show at the Pyramids</div>
         <div class="addon-item"><span class="addon-icon">🎈</span> Hot air balloon over Luxor at sunrise</div>
         <div class="addon-item"><span class="addon-icon">✨</span> Sound &amp; Light Show at Karnak Temples</div>
-        <div class="addon-item"><span class="addon-icon">🍽️</span> Dinner cruise on the Nile in Cairo</div>
-        <div class="addon-item"><span class="addon-icon">🚗</span> Pickup from Hurghada or nearby resort</div>
+        <div class="addon-item"><span class="addon-icon">🏜️</span> Abu Simbel day trip from Aswan (if time allows)</div>
       </div>
     </div>
 
@@ -897,7 +915,7 @@
             <div class="day-num">Day 4</div>
             <div><div class="day-location">Aswan</div><div class="day-title">Philae, High Dam &amp; Cruise Boarding</div></div>
           </div>
-          <div class="day-body">Visit Philae Temple by boat, then the High Dam and the Unfinished Obelisk. Board your Nile cruise after lunch. Enjoy dinner and your first evening on the river. Overnight on board.</div>
+          <div class="day-body">Visit Philae Temple by boat, then the Unfinished Obelisk — still lying where the ancient granite quarrymen abandoned it — and the High Dam. Board your Nile cruise after lunch. Enjoy dinner and your first evening on the river. Overnight on board.</div>
         </div>
         <div class="day-block">
           <div class="day-header">
@@ -985,8 +1003,8 @@
             <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>3 nights 5-star hotel in Cairo</li>
             <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>1 night 5-star hotel in Aswan</li>
             <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>3 nights cruise accommodation on the Nile</li>
-            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Breakfast &amp; lunch daily in Cairo and Aswan</li>
-            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>All meals on cruise — open buffet</li>
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Cairo &amp; Aswan: Breakfast + Lunch daily</li>
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Cruise (3 days): All meals — open buffet (breakfast, lunch &amp; dinner)</li>
             <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>All entrance fees to listed sites</li>
             <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Private Egyptologist guide (English)</li>
             <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Bottled water and snacks during excursions</li>
@@ -1140,8 +1158,8 @@
 
     <div class="tour-section" id="tourc-overview">
       <div class="tour-overview-intro">
-        <p>This 9-day private Egypt package is perfect for travelers who want the classic monuments plus a relaxed Nile cruise. Spend four nights in Cairo, sail from Luxor to Aswan on a historic cruise, and enjoy the convenience of private transfers and an expert Egyptologist guide from Day 1.</p>
-        <p>You’ll visit the Pyramids, GEM, Luxor, the Valley of the Kings, and Aswan’s river temples with all logistics handled for you. The only thing left to do is choose whether to add a hot air balloon, Abu Simbel, or a Cairo dinner cruise.</p>
+        <p>This 9-day private Egypt package is perfect for travelers who want the classic monuments plus a relaxed Nile cruise. Spend four nights in <span class="city-link" data-city="cairo">Cairo</span>, sail from <span class="city-link" data-city="luxor">Luxor</span> to <span class="city-link" data-city="aswan">Aswan</span> on a historic cruise, and enjoy the convenience of private transfers and an expert Egyptologist guide from Day 1.</p>
+        <p>You’ll visit the Pyramids, GEM, <span class="city-link" data-city="luxor">Luxor</span>, the Valley of the Kings, and <span class="city-link" data-city="aswan">Aswan</span>’s river temples with all logistics handled for you. The only thing left to do is choose whether to add a hot air balloon, Abu Simbel, or a Cairo dinner cruise.</p>
       </div>
 
       <h3>Tour At a Glance</h3>
@@ -1151,10 +1169,10 @@
         <tr><td>Tour Type</td><td><strong>100% Private — your group only</strong></td></tr>
         <tr><td>Guide</td><td><strong>Licensed Egyptologist (English)</strong></td></tr>
         <tr><td>Pickup</td><td><strong>Cairo International Airport or any location</strong></td></tr>
-        <tr><td>Destinations</td><td><strong>Cairo (4 nights) → Luxor (1 night) → Nile Cruise (4 nights)</strong></td></tr>
+        <tr><td>Destinations</td><td><strong>Cairo (3 nights) → Luxor (1 night) → Nile Cruise (4 nights)</strong></td></tr>
         <tr><td>Transport</td><td><strong>Domestic flights included</strong></td></tr>
         <tr><td>Entry Visa</td><td><strong>Included</strong></td></tr>
-        <tr><td>Meals</td><td><strong>Breakfast + Lunch in Cairo/Luxor, all meals on cruise</strong></td></tr>
+        <tr><td>Meals</td><td><strong>Cairo &amp; Luxor:</strong> Breakfast + Lunch daily<br><strong>Cruise (4 nights):</strong> All meals — open buffet</td></tr>
         <tr><td>Price from</td><td><span class="price-highlight">$3,250 / person</span> (double occupancy)</td></tr>
       </table>
 
@@ -1167,29 +1185,32 @@
     <div class="tour-section" id="tourc-highlights">
       <h3>Highlights</h3>
       <div class="sites-grid">
-        <div class="site-item"><span class="site-icon">🏛️</span> Giza Pyramids &amp; the Sphinx</div>
-        <div class="site-item"><span class="site-icon">🏺</span> Grand Egyptian Museum (GEM)</div>
-        <div class="site-item"><span class="site-icon">🕌</span> Saladin Citadel &amp; Mohammed Ali Mosque</div>
-        <div class="site-item"><span class="site-icon">⛪</span> Coptic Cairo &amp; NMEC</div>
-        <div class="site-item"><span class="site-icon">🏟️</span> Karnak Temple Complex</div>
-        <div class="site-item"><span class="site-icon">🌟</span> Luxor Temple by night</div>
-        <div class="site-item"><span class="site-icon">👑</span> Valley of the Kings</div>
-        <div class="site-item"><span class="site-icon">🏺</span> Hatshepsut Temple</div>
-        <div class="site-item"><span class="site-icon">🧑‍🎨</span> Deir el-Medina artisans' village</div>
-        <div class="site-item"><span class="site-icon">🗿</span> Colossi of Memnon</div>
-        <div class="site-item"><span class="site-icon">🏛️</span> Edfu Temple</div>
-        <div class="site-item"><span class="site-icon">🏺</span> Kom Ombo Temple</div>
-        <div class="site-item"><span class="site-icon">🚤</span> Philae Temple</div>
-        <div class="site-item"><span class="site-icon">🗺️</span> Unfinished Obelisk &amp; High Dam</div>
-        <div class="site-item"><span class="site-icon">🎨</span> Nubian Village visit</div>
+        <div class="site-item"><span class="site-icon">🏛️</span> <span class="site-link" data-site="giza-pyramids">Giza Pyramids</span> &amp; the <span class="site-link" data-site="sphinx">Sphinx</span></div>
+        <div class="site-item"><span class="site-icon">🏺</span> Grand Egyptian Museum (<span class="site-link" data-site="gem">GEM</span>)</div>
+        <div class="site-item"><span class="site-icon">🕌</span> <span class="site-link" data-site="citadel">Saladin Citadel</span> &amp; <span class="site-link" data-site="mohammed-ali">Mohammed Ali Mosque</span></div>
+        <div class="site-item"><span class="site-icon">⛪</span> <span class="site-link" data-site="coptic">Coptic Cairo</span> &amp; <span class="site-link" data-site="nmec">NMEC</span></div>
+        <div class="site-item"><span class="site-icon">🏟️</span> <span class="site-link" data-site="karnak">Karnak Temple Complex</span></div>
+        <div class="site-item"><span class="site-icon">🌟</span> <div><span class="site-link" data-site="luxortemple">Luxor Temple</span> &amp; <span class="site-link" data-site="sphinx-avenue">Sphinx Avenue</span><br><span style="font-size:11px;color:#8b7355;font-weight:500;">✦ lit up at night</span></div></div>
+        <div class="site-item"><span class="site-icon">🐎</span> <span class="site-link" data-site="horse-carriage">Horse-drawn carriage</span> city tour of Luxor &amp; local market</div>
+        <div class="site-item"><span class="site-icon">👑</span> <span class="site-link" data-site="valley">Valley of the Kings</span></div>
+        <div class="site-item"><span class="site-icon">🏺</span> <span class="site-link" data-site="hatshepsut">Hatshepsut Temple</span></div>
+        <div class="site-item"><span class="site-icon">🧑‍🎨</span> <span class="site-link" data-site="deirelmedina">Deir el-Medina</span> artisans' village</div>
+        <div class="site-item"><span class="site-icon">🗿</span> <span class="site-link" data-site="memnon">Colossi of Memnon</span></div>
+        <div class="site-item"><span class="site-icon">🏛️</span> <span class="site-link" data-site="edfu">Edfu Temple</span></div>
+        <div class="site-item"><span class="site-icon">🏺</span> <span class="site-link" data-site="kom-ombo">Kom Ombo Temple</span></div>
+        <div class="site-item"><span class="site-icon">🚤</span> <span class="site-link" data-site="philae">Philae Temple</span></div>
+        <div class="site-item"><span class="site-icon">🗺️</span> <span class="site-link" data-site="obelisk">Unfinished Obelisk</span> &amp; <span class="site-link" data-site="high-dam">High Dam</span></div>
+        <div class="site-item"><span class="site-icon">🎨</span> <span class="site-link" data-site="nubian-village">Nubian Village</span> visit</div>
       </div>
 
       <h3>Optional Add-Ons</h3>
       <div class="addons-grid">
-        <div class="addon-item"><span class="addon-icon">🎈</span> Hot air balloon over Luxor at sunrise</div>
-        <div class="addon-item"><span class="addon-icon">✨</span> Sound &amp; Light Show at Karnak or Philae</div>
+        <div class="addon-item"><span class="addon-icon">✨</span> Sound &amp; Light show at the Pyramids</div>
         <div class="addon-item"><span class="addon-icon">🍽️</span> Dinner cruise on the Nile in Cairo</div>
-        <div class="addon-item"><span class="addon-icon">🏜️</span> Abu Simbel day trip (optional)</div>
+        <div class="addon-item"><span class="addon-icon">🎈</span> Hot air balloon over Luxor at sunrise</div>
+        <div class="addon-item"><span class="addon-icon">✨</span> Sound &amp; Light Show at Karnak Temples</div>
+        <div class="addon-item"><span class="addon-icon">✨</span> Sound &amp; Light Show at Philae Temple</div>
+        <div class="addon-item"><span class="addon-icon">🏜️</span> Abu Simbel day trip from Aswan</div>
       </div>
     </div>
 
@@ -1222,7 +1243,7 @@
             <div class="day-num">Day 4</div>
             <div><div class="day-location">Luxor — East Bank</div><div class="day-title">Karnak Temple &amp; Cruise Boarding</div></div>
           </div>
-          <div class="day-body">Visit Karnak Temple in the morning, then board your Nile cruise after lunch. Spend the evening sailing toward Edfu with dinner on board. Overnight on the cruise.</div>
+          <div class="day-body">Visit Karnak Temple — the largest monumental complex in the world and the history book of Ancient Egypt. Then board your Nile cruise for check-in and lunch. We bypass Luxor Temple in the daytime deliberately: as the sun sets, join your guide for Luxor Temple bathed in golden twilight — a completely different experience from the daytime. Dinner on board. Overnight on the cruise.</div>
         </div>
         <div class="day-block">
           <div class="day-header">
@@ -1271,7 +1292,7 @@
           <div class="hotel-card-body">
             <div class="hotel-row">
               <div class="hotel-city">Cairo<br><span class="hotel-stars">★★★★★</span></div>
-              <div class="hotel-name">Pyramids-view 5-star property — Steigenberger Pyramids or similar. 4 nights.</div>
+              <div class="hotel-name">Pyramids-view 5-star property — Steigenberger Pyramids or similar. 3 nights.</div>
             </div>
             <div class="hotel-row">
               <div class="hotel-city">Luxor<br><span class="hotel-stars">★★★★★</span></div>
@@ -1288,7 +1309,7 @@
           <div class="hotel-card-body">
             <div class="hotel-row">
               <div class="hotel-city">Cairo<br><span class="hotel-stars">★★★★★</span></div>
-              <div class="hotel-name">Four Seasons Cairo at Nile Plaza or Marriott Mena House. 4 nights.</div>
+              <div class="hotel-name">Four Seasons Cairo at Nile Plaza or Marriott Mena House. 3 nights.</div>
             </div>
             <div class="hotel-row">
               <div class="hotel-city">Luxor<br><span class="hotel-stars">★★★★★</span></div>
@@ -1314,11 +1335,11 @@
             <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Entry visa to Egypt</li>
             <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Domestic flights included</li>
             <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>All airport &amp; inter-city transfers by private AC vehicles</li>
-            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>4 nights 5-star hotel in Cairo</li>
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>3 nights 5-star hotel in Cairo</li>
             <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>1 night 5-star hotel in Luxor</li>
             <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>4 nights cruise accommodation on the Nile</li>
-            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Breakfast &amp; lunch daily in Cairo and Luxor</li>
-            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>All meals on cruise — open buffet</li>
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Cairo &amp; Luxor: Breakfast + Lunch daily</li>
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Cruise (4 nights): All meals — open buffet (breakfast, lunch &amp; dinner)</li>
             <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>All entrance fees to listed sites</li>
             <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Private Egyptologist guide (English)</li>
             <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Bottled water and snacks during excursions</li>
@@ -1472,7 +1493,7 @@
 
     <div class="tour-section" id="tourd-overview">
       <div class="tour-overview-intro">
-        <p>Your all-access pass to Egypt's greatest open-air museums. This 7-day private package covers the most iconic treasures of Cairo, Luxor, and Aswan — from the Giza Pyramids and the spectacular Grand Egyptian Museum to the Valley of the Kings, Karnak, Edfu, and Philae. One Egyptologist guide, one week, the entire ancient world.</p>
+        <p>Your all-access pass to Egypt's greatest open-air museums. This 7-day private package covers the most iconic treasures of <span class="city-link" data-city="cairo">Cairo</span>, <span class="city-link" data-city="luxor">Luxor</span>, and <span class="city-link" data-city="aswan">Aswan</span> — from the Giza Pyramids and the spectacular Grand Egyptian Museum to the Valley of the Kings, Karnak, Edfu, and Philae. One Egyptologist guide, one week, the entire ancient world.</p>
         <p>Domestic flights are included, so you travel efficiently and spend your time at the monuments — not on the road. Perfect for travelers who want the complete Egypt experience without extending into a Nile cruise.</p>
       </div>
 
@@ -1483,7 +1504,7 @@
         <tr><td>Tour Type</td><td><strong>100% Private — your group only</strong></td></tr>
         <tr><td>Guide</td><td><strong>Licensed Egyptologist (English)</strong></td></tr>
         <tr><td>Pickup</td><td><strong>Cairo International Airport or Hurghada</strong></td></tr>
-        <tr><td>Destinations</td><td><strong>Cairo (2 nights) → Luxor (2 nights) → Aswan (1 night)</strong></td></tr>
+        <tr><td>Destinations</td><td><strong>Cairo (2 nights) → Luxor (3 nights) → Aswan (1 night)</strong></td></tr>
         <tr><td>Transport</td><td><strong>Domestic flights included (Cairo → Luxor, Aswan → Cairo)</strong></td></tr>
         <tr><td>Entry Visa</td><td><strong>Included</strong></td></tr>
         <tr><td>Meals</td><td><strong>Breakfast &amp; lunch daily (Days 2–6) — 10 meals total</strong></td></tr>
@@ -1499,21 +1520,21 @@
     <div class="tour-section" id="tourd-highlights">
       <h3>Highlights</h3>
       <div class="sites-grid">
-        <div class="site-item"><span class="site-icon">🏛️</span> Giza Pyramids &amp; the Sphinx</div>
-        <div class="site-item"><span class="site-icon">🏺</span> Grand Egyptian Museum (GEM)</div>
-        <div class="site-item"><span class="site-icon">🕌</span> Saladin Citadel &amp; Mohammed Ali Mosque</div>
-        <div class="site-item"><span class="site-icon">⛪</span> Coptic Cairo &amp; NMEC Royal Mummies</div>
-        <div class="site-item"><span class="site-icon">🏟️</span> Karnak Temple Complex</div>
-        <div class="site-item"><span class="site-icon">🌟</span> Luxor Temple</div>
-        <div class="site-item"><span class="site-icon">👑</span> Valley of the Kings</div>
-        <div class="site-item"><span class="site-icon">🏺</span> Hatshepsut Temple</div>
-        <div class="site-item"><span class="site-icon">🧑‍🎨</span> Deir el-Medina artisans' village</div>
-        <div class="site-item"><span class="site-icon">🗿</span> Colossi of Memnon</div>
-        <div class="site-item"><span class="site-icon">⛵</span> Felucca sunset ride on the Nile</div>
-        <div class="site-item"><span class="site-icon">🏛️</span> Edfu Temple</div>
-        <div class="site-item"><span class="site-icon">🚤</span> Philae Temple</div>
-        <div class="site-item"><span class="site-icon">🗺️</span> Unfinished Obelisk &amp; High Dam</div>
-        <div class="site-item"><span class="site-icon">🎨</span> Nubian Village</div>
+        <div class="site-item"><span class="site-icon">🏛️</span> <span class="site-link" data-site="giza-pyramids">Giza Pyramids</span> &amp; the <span class="site-link" data-site="sphinx">Sphinx</span></div>
+        <div class="site-item"><span class="site-icon">🏺</span> Grand Egyptian Museum (<span class="site-link" data-site="gem">GEM</span>)</div>
+        <div class="site-item"><span class="site-icon">🕌</span> <span class="site-link" data-site="citadel">Saladin Citadel</span> &amp; <span class="site-link" data-site="mohammed-ali">Mohammed Ali Mosque</span></div>
+        <div class="site-item"><span class="site-icon">⛪</span> <span class="site-link" data-site="coptic">Coptic Cairo</span> &amp; <span class="site-link" data-site="nmec">NMEC</span> Royal Mummies</div>
+        <div class="site-item"><span class="site-icon">🏟️</span> <span class="site-link" data-site="karnak">Karnak Temple Complex</span></div>
+        <div class="site-item"><span class="site-icon">🌟</span> <div><span class="site-link" data-site="luxortemple">Luxor Temple</span> &amp; <span class="site-link" data-site="sphinx-avenue">Sphinx Avenue</span><br><span style="font-size:11px;color:#8b7355;font-weight:500;">✦ lit up at night</span></div></div>
+        <div class="site-item"><span class="site-icon">👑</span> <span class="site-link" data-site="valley">Valley of the Kings</span></div>
+        <div class="site-item"><span class="site-icon">🏺</span> <span class="site-link" data-site="hatshepsut">Hatshepsut Temple</span></div>
+        <div class="site-item"><span class="site-icon">🧑‍🎨</span> <span class="site-link" data-site="deirelmedina">Deir el-Medina</span> artisans' village</div>
+        <div class="site-item"><span class="site-icon">🗿</span> <span class="site-link" data-site="memnon">Colossi of Memnon</span></div>
+        <div class="site-item"><span class="site-icon">⛵</span> <span class="site-link" data-site="felucca">Felucca</span> sunset ride on the Nile</div>
+        <div class="site-item"><span class="site-icon">🏛️</span> <span class="site-link" data-site="edfu">Edfu Temple</span></div>
+        <div class="site-item"><span class="site-icon">🚤</span> <span class="site-link" data-site="philae">Philae Temple</span></div>
+        <div class="site-item"><span class="site-icon">🗺️</span> <span class="site-link" data-site="obelisk">Unfinished Obelisk</span> &amp; <span class="site-link" data-site="high-dam">High Dam</span></div>
+        <div class="site-item"><span class="site-icon">🎨</span> <span class="site-link" data-site="nubian-village">Nubian Village</span></div>
       </div>
 
       <h3>Optional Add-Ons</h3>
@@ -1593,7 +1614,7 @@
             </div>
             <div class="hotel-row">
               <div class="hotel-city">Luxor<br><span class="hotel-stars">★★★★★</span></div>
-              <div class="hotel-name">Nile-view 5-star property — Steigenberger Nile Palace or similar. 2 nights.</div>
+              <div class="hotel-name">Nile-view 5-star property — Steigenberger Nile Palace or similar. 3 nights.</div>
             </div>
             <div class="hotel-row">
               <div class="hotel-city">Aswan<br><span class="hotel-stars">★★★★★</span></div>
@@ -1610,7 +1631,7 @@
             </div>
             <div class="hotel-row">
               <div class="hotel-city">Luxor<br><span class="hotel-stars">★★★★★</span></div>
-              <div class="hotel-name">Sofitel Winter Palace Luxor — historic colonial property on the Nile. 2 nights.</div>
+              <div class="hotel-name">Sofitel Winter Palace Luxor — historic colonial property on the Nile. 3 nights.</div>
             </div>
             <div class="hotel-row">
               <div class="hotel-city">Aswan<br><span class="hotel-stars">★★★★★</span></div>
@@ -1633,7 +1654,7 @@
             <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Domestic flights (Cairo → Luxor and Aswan → Cairo)</li>
             <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>All airport &amp; inter-city transfers by private AC vehicles</li>
             <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>2 nights 5-star hotel in Cairo</li>
-            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>2 nights 5-star hotel in Luxor</li>
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>3 nights 5-star hotel in Luxor</li>
             <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>1 night 5-star hotel in Aswan</li>
             <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Breakfast &amp; lunch daily (Days 2–6) — 10 meals total</li>
             <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>All entrance fees to listed sites</li>
@@ -1789,7 +1810,7 @@
 
     <div class="tour-section" id="toure-overview">
       <div class="tour-overview-intro">
-        <p>Step into a world where ancient legends meet modern marvels. This is Egypt without compromise — the colossal Giza Pyramids, the breathtaking Grand Egyptian Museum, a majestic Nile cruise through Luxor and Aswan, and every iconic monument between. Eleven days. One Egyptologist guide. The greatest story ever told.</p>
+        <p>Step into a world where ancient legends meet modern marvels. This is Egypt without compromise — the colossal Giza Pyramids, the breathtaking Grand Egyptian Museum, a majestic Nile cruise through <span class="city-link" data-city="luxor">Luxor</span> and <span class="city-link" data-city="aswan">Aswan</span>, and every iconic monument between. Eleven days. One Egyptologist guide. The greatest story ever told.</p>
         <p>From the Pyramids to the temples of Edfu and Philae, from the Valley of the Kings to a Nubian village at sunset, this is the complete Egypt experience. Your floating boutique hotel — the Nile cruise ship — handles the miles while you sleep, waking you up each morning at a new wonder of the ancient world.</p>
       </div>
 
@@ -1803,7 +1824,7 @@
         <tr><td>Destinations</td><td><strong>Cairo (3 nights) → Luxor (1 night) → Nile Cruise (4 nights) → Aswan → Cairo</strong></td></tr>
         <tr><td>Transport</td><td><strong>Domestic flights included (Cairo → Luxor, Aswan → Cairo)</strong></td></tr>
         <tr><td>Entry Visa</td><td><strong>Included</strong></td></tr>
-        <tr><td>Meals</td><td><strong>Breakfast &amp; lunch in Cairo/Luxor; all meals on cruise (open buffet)</strong></td></tr>
+        <tr><td>Meals</td><td><strong>Cairo &amp; Luxor:</strong> Breakfast + Lunch daily<br><strong>Cruise (4 nights):</strong> All meals — open buffet</td></tr>
         <tr><td>Price from</td><td><span class="price-highlight">$3,950 / person</span> (double occupancy)</td></tr>
       </table>
 
@@ -1816,25 +1837,25 @@
     <div class="tour-section" id="toure-highlights">
       <h3>Highlights</h3>
       <div class="sites-grid">
-        <div class="site-item"><span class="site-icon">🏛️</span> Giza Pyramids &amp; the Sphinx</div>
-        <div class="site-item"><span class="site-icon">🏺</span> Grand Egyptian Museum (GEM)</div>
-        <div class="site-item"><span class="site-icon">🕌</span> Saladin Citadel &amp; Mohammed Ali Mosque</div>
-        <div class="site-item"><span class="site-icon">⛪</span> Coptic Cairo &amp; NMEC Royal Mummies</div>
-        <div class="site-item"><span class="site-icon">🏟️</span> Karnak Temple Complex</div>
-        <div class="site-item"><span class="site-icon">🌟</span> Luxor Temple at twilight (lit up at night)</div>
-        <div class="site-item"><span class="site-icon">🐎</span> Horse-drawn carriage city tour of Luxor</div>
-        <div class="site-item"><span class="site-icon">👑</span> Valley of the Kings</div>
-        <div class="site-item"><span class="site-icon">🏺</span> Hatshepsut Temple</div>
-        <div class="site-item"><span class="site-icon">🧑‍🎨</span> Deir el-Medina artisans' village</div>
-        <div class="site-item"><span class="site-icon">🏛️</span> Madinet Habu Temple</div>
-        <div class="site-item"><span class="site-icon">👸</span> Valley of the Queens</div>
-        <div class="site-item"><span class="site-icon">📜</span> The Nobles' Tombs</div>
-        <div class="site-item"><span class="site-icon">🗿</span> Colossi of Memnon</div>
-        <div class="site-item"><span class="site-icon">🏛️</span> Edfu Temple</div>
-        <div class="site-item"><span class="site-icon">🏺</span> Kom Ombo Temple</div>
-        <div class="site-item"><span class="site-icon">🚤</span> Philae Temple</div>
-        <div class="site-item"><span class="site-icon">🗺️</span> Unfinished Obelisk &amp; High Dam</div>
-        <div class="site-item"><span class="site-icon">🎨</span> Nubian Village by motor boat</div>
+        <div class="site-item"><span class="site-icon">🏛️</span> <span class="site-link" data-site="giza-pyramids">Giza Pyramids</span> &amp; the <span class="site-link" data-site="sphinx">Sphinx</span></div>
+        <div class="site-item"><span class="site-icon">🏺</span> Grand Egyptian Museum (<span class="site-link" data-site="gem">GEM</span>)</div>
+        <div class="site-item"><span class="site-icon">🕌</span> <span class="site-link" data-site="citadel">Saladin Citadel</span> &amp; <span class="site-link" data-site="mohammed-ali">Mohammed Ali Mosque</span></div>
+        <div class="site-item"><span class="site-icon">⛪</span> <span class="site-link" data-site="coptic">Coptic Cairo</span> &amp; <span class="site-link" data-site="nmec">NMEC</span> Royal Mummies</div>
+        <div class="site-item"><span class="site-icon">🏟️</span> <span class="site-link" data-site="karnak">Karnak Temple Complex</span></div>
+        <div class="site-item"><span class="site-icon">🌟</span> <div><span class="site-link" data-site="luxortemple">Luxor Temple</span> &amp; <span class="site-link" data-site="sphinx-avenue">Sphinx Avenue</span><br><span style="font-size:11px;color:#8b7355;font-weight:500;">✦ lit up at night</span></div></div>
+        <div class="site-item"><span class="site-icon">🐎</span> <span class="site-link" data-site="horse-carriage">Horse-drawn carriage</span> city tour of Luxor</div>
+        <div class="site-item"><span class="site-icon">👑</span> <span class="site-link" data-site="valley">Valley of the Kings</span></div>
+        <div class="site-item"><span class="site-icon">🏺</span> <span class="site-link" data-site="hatshepsut">Hatshepsut Temple</span></div>
+        <div class="site-item"><span class="site-icon">🧑‍🎨</span> <span class="site-link" data-site="deirelmedina">Deir el-Medina</span> artisans' village</div>
+        <div class="site-item"><span class="site-icon">🏛️</span> <span class="site-link" data-site="madinet-habu">Madinet Habu Temple</span></div>
+        <div class="site-item"><span class="site-icon">👸</span> <span class="site-link" data-site="valley-queens">Valley of the Queens</span></div>
+        <div class="site-item"><span class="site-icon">📜</span> <span class="site-link" data-site="nobles-tombs">The Nobles' Tombs</span></div>
+        <div class="site-item"><span class="site-icon">🗿</span> <span class="site-link" data-site="memnon">Colossi of Memnon</span></div>
+        <div class="site-item"><span class="site-icon">🏛️</span> <span class="site-link" data-site="edfu">Edfu Temple</span></div>
+        <div class="site-item"><span class="site-icon">🏺</span> <span class="site-link" data-site="kom-ombo">Kom Ombo Temple</span></div>
+        <div class="site-item"><span class="site-icon">🚤</span> <span class="site-link" data-site="philae">Philae Temple</span></div>
+        <div class="site-item"><span class="site-icon">🗺️</span> <span class="site-link" data-site="obelisk">Unfinished Obelisk</span> &amp; <span class="site-link" data-site="high-dam">High Dam</span></div>
+        <div class="site-item"><span class="site-icon">🎨</span> <span class="site-link" data-site="nubian-village">Nubian Village</span> by motor boat</div>
       </div>
 
       <h3>Optional Add-Ons</h3>
@@ -1842,7 +1863,8 @@
         <div class="addon-item"><span class="addon-icon">✨</span> Sound &amp; Light Show at the Pyramids</div>
         <div class="addon-item"><span class="addon-icon">🍽️</span> Dinner cruise on the Nile in Cairo</div>
         <div class="addon-item"><span class="addon-icon">🎈</span> Hot air balloon over Luxor at sunrise</div>
-        <div class="addon-item"><span class="addon-icon">✨</span> Sound &amp; Light Show at Karnak or Philae</div>
+        <div class="addon-item"><span class="addon-icon">✨</span> Sound &amp; Light Show at Karnak Temples</div>
+        <div class="addon-item"><span class="addon-icon">✨</span> Sound &amp; Light Show at Philae Temple</div>
         <div class="addon-item"><span class="addon-icon">🏜️</span> Abu Simbel day trip from Aswan</div>
         <div class="addon-item"><span class="addon-icon">🛕</span> Dendera Temple excursion</div>
       </div>
@@ -1882,9 +1904,9 @@
         <div class="day-block">
           <div class="day-header">
             <div class="day-num">Day 5</div>
-            <div><div class="day-location">Luxor — West Bank</div><div class="day-title">Valley of the Kings, Hatshepsut &amp; Deir el-Medina</div></div>
+            <div><div class="day-location">Luxor — West Bank</div><div class="day-title">Valley of the Kings, Hatshepsut, Madinet Habu, Valley of the Queens &amp; Nobles' Tombs</div></div>
           </div>
-          <div class="day-body">Early breakfast on board, then into the mountains of western Thebes for the Valley of the Kings — 3 royal tombs plus the extraordinary tomb of Ramesses V &amp; VI with dazzling, untouched colors from 3,000 years ago. Hatshepsut Temple rising majestically out of the desert cliffs. The artisans' village at Deir el-Medina — ancient Egypt at its most human. Colossi of Memnon on the way back. Lunch on board. Afternoon sailing toward Edfu. Dinner on board. Overnight in Edfu.</div>
+          <div class="day-body">Early breakfast on board, then the full West Bank experience — the most comprehensive day of ancient Egypt you'll find anywhere. Valley of the Kings: 4 royal tombs including Ramesses II, Ramesses IV, Ramesses VI, and Seti I. Hatshepsut Temple rising majestically from the desert cliffs. The artisans' village at Deir el-Medina. Madinet Habu Temple — Ramesses III's mortuary temple, one of the best-preserved and most underrated sites in all of Egypt. Valley of the Queens, including the breathtaking tomb of Queen Nefertari with its world-famous painted ceiling. The Nobles' Tombs, with intimate scenes of ancient Egyptian daily life rarely seen by tourists. Colossi of Memnon on the way back. Lunch on board. Afternoon sailing toward Edfu. Dinner on board. Overnight in Edfu.</div>
         </div>
         <div class="day-block">
           <div class="day-header">
@@ -1986,8 +2008,8 @@
             <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>3 nights 5-star hotel in Cairo</li>
             <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>1 night 5-star hotel in Luxor</li>
             <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>4 nights 5-star Nile cruise ship</li>
-            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Breakfast &amp; lunch daily in Cairo and Luxor</li>
-            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>All meals on cruise (open buffet — breakfast, lunch &amp; dinner)</li>
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Cairo &amp; Luxor: Breakfast + Lunch daily</li>
+            <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Cruise (4 nights): All meals — open buffet (breakfast, lunch &amp; dinner)</li>
             <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>All entrance fees to listed sites</li>
             <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Private Egyptologist guide (English — other languages on request)</li>
             <li style="display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#3a2a1a;line-height:1.5;"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;margin-top:1px;"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Bottled water and snacks during all excursions</li>
@@ -2102,7 +2124,7 @@
 <div class="page-label">ABOUT US PAGE <span>Meet the team behind Access Egypt Travel</span></div>
 
 <div class="top-bar"><div><a href="tel:+17727820494">🇺🇸 +1 772 782 0494</a><a href="https://wa.me/20120140578">💬 WhatsApp</a><a href="mailto:info@accessegypttravel.com">✉️ info@accessegypttravel.com</a></div><a href="mailto:info@accessegypttravel.com" class="cta-btn">Request a Quote</a></div>
-<div class="site-header"><img src="Logo_Green_3.png" alt="Access Egypt Travel" class="site-logo-img"><nav><a href="#">Home</a><a href="#">Tours ▾</a><a href="#">Reviews</a><a href="#">FAQs</a><a href="#" class="active">About</a><a href="#">Contact</a></nav></div>
+<div class="site-header"><img src="Logo_Green_3.png" alt="Access Egypt Travel" class="site-logo-img"><nav><a href="#">Home</a><div class="nav-dropdown"><a href="#">Tours ▾</a><div class="nav-dropdown-menu"><a href="#tour">6 Days / 5 Nights — Cairo &amp; Luxor Holiday</a><a href="#tour-d">7 Days / 6 Nights — Cairo, Luxor &amp; Aswan</a><a href="#tour-b">8 Days / 7 Nights — Cairo, Aswan &amp; Nile Cruise</a><a href="#tour-c">9 Days / 8 Nights — Cairo, Pyramids &amp; Nile Cruise</a><a href="#tour-e">11 Days / 10 Nights — The Ultimate Egyptian Odyssey</a></div></div><a href="#">Reviews</a><a href="#">FAQs</a><a href="#" class="active">About</a><a href="#">Contact</a></nav></div>
 
 <div class="about-hero">
   <div style="padding-bottom:50px;">
@@ -2315,7 +2337,7 @@
 <div class="page-label">CONTACT PAGE — Fully fledged multi-channel hub <span>All channels shown</span></div>
 
 <div class="top-bar"><div><a href="tel:+17727820494">🇺🇸 +1 772 782 0494</a><a href="https://wa.me/20120140578">💬 WhatsApp</a><a href="mailto:info@accessegypttravel.com">✉️ info@accessegypttravel.com</a></div><a href="mailto:info@accessegypttravel.com" class="cta-btn">Request a Quote</a></div>
-<div class="site-header"><img src="Logo_Green_3.png" alt="Access Egypt Travel" class="site-logo-img"><nav><a href="#">Home</a><a href="#">Tours ▾</a><a href="#">Reviews</a><a href="#">FAQs</a><a href="#">About</a><a href="#" class="active">Contact</a></nav></div>
+<div class="site-header"><img src="Logo_Green_3.png" alt="Access Egypt Travel" class="site-logo-img"><nav><a href="#">Home</a><div class="nav-dropdown"><a href="#">Tours ▾</a><div class="nav-dropdown-menu"><a href="#tour">6 Days / 5 Nights — Cairo &amp; Luxor Holiday</a><a href="#tour-d">7 Days / 6 Nights — Cairo, Luxor &amp; Aswan</a><a href="#tour-b">8 Days / 7 Nights — Cairo, Aswan &amp; Nile Cruise</a><a href="#tour-c">9 Days / 8 Nights — Cairo, Pyramids &amp; Nile Cruise</a><a href="#tour-e">11 Days / 10 Nights — The Ultimate Egyptian Odyssey</a></div></div><a href="#">Reviews</a><a href="#">FAQs</a><a href="#">About</a><a href="#" class="active">Contact</a></nav></div>
 
 <div class="contact-hero">
   <div style="padding-bottom:50px;">
@@ -2446,7 +2468,7 @@
 <div class="page-label">FAQS PAGE — Question &amp; answer format with category grouping <span>Accordion style in Elementor</span></div>
 
 <div class="top-bar"><div><a href="tel:+17727820494">🇺🇸 +1 772 782 0494</a><a href="https://wa.me/20120140578">💬 WhatsApp</a><a href="mailto:info@accessegypttravel.com">✉️ info@accessegypttravel.com</a></div><a href="mailto:info@accessegypttravel.com" class="cta-btn">Request a Quote</a></div>
-<div class="site-header"><img src="Logo_Green_3.png" alt="Access Egypt Travel" class="site-logo-img"><nav><a href="#">Home</a><a href="#">Tours ▾</a><a href="#">Reviews</a><a href="#" class="active">FAQs</a><a href="#">About</a><a href="#">Contact</a></nav></div>
+<div class="site-header"><img src="Logo_Green_3.png" alt="Access Egypt Travel" class="site-logo-img"><nav><a href="#">Home</a><div class="nav-dropdown"><a href="#">Tours ▾</a><div class="nav-dropdown-menu"><a href="#tour">6 Days / 5 Nights — Cairo &amp; Luxor Holiday</a><a href="#tour-d">7 Days / 6 Nights — Cairo, Luxor &amp; Aswan</a><a href="#tour-b">8 Days / 7 Nights — Cairo, Aswan &amp; Nile Cruise</a><a href="#tour-c">9 Days / 8 Nights — Cairo, Pyramids &amp; Nile Cruise</a><a href="#tour-e">11 Days / 10 Nights — The Ultimate Egyptian Odyssey</a></div></div><a href="#">Reviews</a><a href="#" class="active">FAQs</a><a href="#">About</a><a href="#">Contact</a></nav></div>
 
 <div class="faq-hero">
   <div style="padding-bottom:50px;">
@@ -2568,7 +2590,7 @@
 <div class="page-label">PAYMENT PAGE — PayPal &amp; Square credentials arriving <strong>Monday June 9</strong>. Structure is ready — replace "Coming Soon" divs with live button codes when credentials arrive. <span>Email payment: live now</span></div>
 
 <div class="top-bar"><div><a href="tel:+17727820494">🇺🇸 +1 772 782 0494</a><a href="https://wa.me/20120140578">💬 WhatsApp</a><a href="mailto:info@accessegypttravel.com">✉️ info@accessegypttravel.com</a></div><a href="mailto:info@accessegypttravel.com" class="cta-btn">Request a Quote</a></div>
-<div class="site-header"><img src="Logo_Green_3.png" alt="Access Egypt Travel" class="site-logo-img"><nav><a href="#">Home</a><a href="#">Tours ▾</a><a href="#">Reviews</a><a href="#">FAQs</a><a href="#">About</a><a href="#" class="active">Contact</a></nav></div>
+<div class="site-header"><img src="Logo_Green_3.png" alt="Access Egypt Travel" class="site-logo-img"><nav><a href="#">Home</a><div class="nav-dropdown"><a href="#">Tours ▾</a><div class="nav-dropdown-menu"><a href="#tour">6 Days / 5 Nights — Cairo &amp; Luxor Holiday</a><a href="#tour-d">7 Days / 6 Nights — Cairo, Luxor &amp; Aswan</a><a href="#tour-b">8 Days / 7 Nights — Cairo, Aswan &amp; Nile Cruise</a><a href="#tour-c">9 Days / 8 Nights — Cairo, Pyramids &amp; Nile Cruise</a><a href="#tour-e">11 Days / 10 Nights — The Ultimate Egyptian Odyssey</a></div></div><a href="#">Reviews</a><a href="#">FAQs</a><a href="#">About</a><a href="#" class="active">Contact</a></nav></div>
 
 <div class="payment-hero">
   <div style="padding-bottom:50px;">
@@ -2682,12 +2704,57 @@
 ════════════════════════════════════════════════════ -->
 <div class="site-footer">
   <div class="footer-main">
-    <div class="footer-col"><img src="site_icon.png" alt="Access Egypt Travel" style="height:70px;width:auto;display:block;margin-bottom:10px;"><div style="font-size:11px;color:#666;text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;">Private · Egyptologist-Guided</div><a href="#">Egypt Packages</a><a href="#">Luxor Tours</a><a href="#">Nile Cruise</a><a href="#">Tailor-Made Tours</a></div>
-    <div class="footer-col"><h4>Travel Resources</h4><a href="#">Egypt Visa for Americans</a><a href="#">Best Time to Visit</a><a href="#">Hurghada to Luxor Tour</a><a href="#">Is Egypt Safe?</a><a href="#">What to Pack</a></div>
-    <div class="footer-col"><h4>Why Choose Us</h4><a href="#">Real Egyptologist Guide</a><a href="#">100% Private Tours</a><a href="#">Cairo · Hurghada · Luxor Pickup</a><a href="#">US-Based Support</a><a href="#">TripAdvisor Reviews</a></div>
-    <div class="footer-col"><h4>Contact Us</h4><a href="tel:+17727820494">🇺🇸 +1 772 782 0494</a><a href="https://wa.me/20120140578">💬 +20 12 014-0578</a><a href="mailto:info@accessegypttravel.com">✉️ info@accessegypttravel.com</a><a href="https://cal.com/accessegypttravel/30min" style="color:#d4af6a;font-weight:700;margin-top:8px;">📅 Schedule a Free Call →</a></div>
+
+    <div class="footer-col">
+      <img src="site_icon.png" alt="Access Egypt Travel" style="height:70px;width:auto;display:block;margin-bottom:10px;">
+      <div style="font-size:11px;color:#666;text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;">Private · Egyptologist-Guided</div>
+      <div class="footer-social">
+        <a href="https://www.facebook.com/accessegypttravel/" class="social-icon" title="Facebook">f</a>
+        <a href="https://www.instagram.com/accessegypttravel/" class="social-icon" title="Instagram">📷</a>
+        <a href="https://www.tripadvisor.com/Attraction_Review-g294205-d25314995-Reviews-Access_Egypt_travel-Luxor_Nile_River_Valley.html" class="social-icon" title="TripAdvisor">🦉</a>
+        <a href="https://wa.me/20120140578" class="social-icon" title="WhatsApp">💬</a>
+      </div>
+      <p class="footer-note" style="margin-top:14px;">© 2026 Access Egypt Travel LLC.<br>All Rights Reserved.</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Egypt Tours</h4>
+      <a href="#">6 Days — Cairo &amp; Luxor Holiday</a>
+      <a href="#">7 Days — Cairo, Luxor &amp; Aswan</a>
+      <a href="#">8 Days — Cairo, Aswan &amp; Nile Cruise</a>
+      <a href="#">9 Days — Cairo, Pyramids &amp; Nile Cruise</a>
+      <a href="#">11 Days — The Ultimate Egyptian Odyssey</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Travel Resources</h4>
+      <a href="#">Egypt Visa for Americans</a>
+      <a href="#">Best Time to Visit Egypt</a>
+      <a href="#">Hurghada to Luxor Tour</a>
+      <a href="#">Is Egypt Safe for Americans?</a>
+      <a href="#">What to Pack for Egypt</a>
+      <a href="#">Egypt Travel FAQ</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Contact Us</h4>
+      <div class="contact-line"><span>📍</span><span>Pickup: Cairo · Hurghada · Luxor</span></div>
+      <div class="contact-line"><span>🇺🇸</span><a href="tel:+17727820494">+1 772 782 0494</a></div>
+      <div class="contact-line"><span>💬</span><a href="https://wa.me/20120140578">+20 12 014-0578 (WhatsApp)</a></div>
+      <div class="contact-line"><span>✉️</span><a href="mailto:info@accessegypttravel.com">info@accessegypttravel.com</a></div>
+      <a href="https://cal.com/accessegypttravel/30min" class="footer-schedule">📅 Schedule a Free Call →</a>
+      <p class="footer-note" style="margin-top:10px;">Mon–Sat · 9am–6pm EST · We respond within 2 hours.</p>
+    </div>
+
   </div>
-  <div class="footer-bottom"><p>© 2026 Access Egypt Travel LLC · All Rights Reserved · 📍 Cairo · Hurghada · Luxor · 🇺🇸 +1 772 782 0494</p><div style="display:flex;gap:16px;"><a href="#">Privacy Policy</a><a href="#">Terms</a><a href="#">Cancellation Policy</a></div></div>
+  <div class="footer-bottom">
+    <p>© 2026 Access Egypt Travel LLC · All Rights Reserved · 📍 Cairo · Hurghada · Luxor · 🇺🇸 +1 772 782 0494</p>
+    <div style="display:flex;gap:16px;">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms &amp; Conditions</a>
+      <a href="#">Cancellation Policy</a>
+    </div>
+  </div>
 </div>
 
 <script>
@@ -2829,12 +2896,20 @@ function toggleDateMode(mode) {
 /* ── SITE HOVER TOOLTIP (no weather) ── */
 (function() {
   var siteData = {
+    /* ── CITIES ── */
+    cairo:           { name: 'Cairo', desc: 'Egypt\'s sprawling capital — 20 million people, 5,000 years of layered history, and the only surviving wonder of the ancient world on its doorstep. Home to the Pyramids, the Grand Egyptian Museum, and some of the best food in the Middle East. Avg temp: 28°C / 82°F.', photo: 'linear-gradient(160deg, #c8956a 0%, #8b4513 50%, #2c1a0e 100%)' },
+    luxor:           { name: 'Luxor', desc: 'Once the ancient capital of Thebes, Luxor is the world\'s greatest open-air museum. The East Bank holds Karnak and Luxor Temple; the West Bank holds the Valley of the Kings, Hatshepsut Temple, and hundreds of royal tombs. Avg temp: 32°C / 90°F.', photo: 'linear-gradient(160deg, #e8c878 0%, #9a7020 55%, #3a1a00 100%)' },
+    aswan:           { name: 'Aswan', desc: 'Egypt\'s southernmost city, perched on the Nile\'s first cataract. Slower, warmer, and more laid-back than Cairo or Luxor — famous for its Nubian culture, Philae Temple, and the dramatic High Dam. Avg temp: 36°C / 97°F.', photo: 'linear-gradient(160deg, #5ba4cf 0%, #1a5a7a 55%, #0a2030 100%)' },
+    hurghada:        { name: 'Hurghada', desc: 'A resort city on the Red Sea, about 5 hours from Cairo and 3 hours from Luxor. Many travelers fly into Hurghada from Europe and connect directly to their Egypt tour — we offer pickup directly from Hurghada so you don\'t waste a day backtracking. Avg temp: 30°C / 86°F.', photo: 'linear-gradient(160deg, #3ab8d4 0%, #1a6880 55%, #0a2030 100%)' },
+    /* ── CAIRO SITES ── */
     'giza-pyramids': { name: 'Giza Pyramids', desc: 'The last surviving wonder of the ancient world. Three pyramids — Khufu, Khafre, and Menkaure — built over 4,500 years ago with a precision that still baffles engineers today.', photo: 'linear-gradient(160deg, #c8956a 0%, #6b3010 60%, #2c1a0e 100%)' },
     sphinx:          { name: 'The Great Sphinx', desc: 'Carved from a single limestone outcrop, the Great Sphinx is the oldest monumental sculpture in Egypt — 73 meters long, facing east, believed to be the guardian of the Giza plateau.', photo: 'linear-gradient(160deg, #d4a870 0%, #7a4818 60%, #2c1a0e 100%)' },
     gem:             { name: 'Grand Egyptian Museum (GEM)', desc: 'The world\'s largest archaeological museum, purpose-built to house Egypt\'s treasures — including the complete Tutankhamun collection of over 5,000 artifacts, never before displayed together.', photo: 'linear-gradient(160deg, #b8860b 0%, #8b6914 50%, #2c1a0e 100%)' },
     citadel:         { name: 'Saladin Citadel', desc: 'Built by Saladin in 1183 to defend Cairo from the Crusaders, this medieval fortress sits on a limestone spur of the Muqattam Hills and commands the best panoramic view of the entire city.', photo: 'linear-gradient(160deg, #7a8a6a 0%, #3a4a2e 60%, #1a2010 100%)' },
     'mohammed-ali':  { name: 'Mohammed Ali Mosque', desc: 'An Ottoman masterpiece completed in 1848, modeled on Istanbul\'s Blue Mosque. Its twin minarets dominate Cairo\'s skyline and its interior is a breathtaking display of alabaster and painted domes.', photo: 'linear-gradient(160deg, #9aacba 0%, #3a5a6e 60%, #1a2a3a 100%)' },
     coptic:          { name: 'Coptic Cairo', desc: 'One of the oldest Christian communities in the world, dating to the 1st century AD. The Hanging Church, St. Sergius Basilica, and the Ben Ezra Synagogue are all within walking distance.', photo: 'linear-gradient(160deg, #a08060 0%, #5a3820 60%, #2a1808 100%)' },
+    nmec:            { name: 'National Museum of Egyptian Civilization', desc: 'Home to the Royal Mummies Hall — 22 royal mummies of Egypt\'s greatest pharaohs, including Ramesses II, displayed with extraordinary dignity in a purpose-built museum on the shores of Lake Ain el-Sira.', photo: 'linear-gradient(160deg, #9a8060 0%, #5a4020 60%, #201000 100%)' },
+    /* ── LUXOR SITES ── */
     karnak:          { name: 'Karnak Temple Complex', desc: 'The largest religious complex ever built — a city of temples constructed over 2,000 years by successive pharaohs. The Hypostyle Hall alone contains 134 massive columns carved with hieroglyphs.', photo: 'linear-gradient(160deg, #d4af6a 0%, #8b5e10 60%, #2c1a0e 100%)' },
     luxortemple:     { name: 'Luxor Temple', desc: 'Built by Amenhotep III and completed by Ramesses II, Luxor Temple is spectacular by day — but at night, floodlit against the dark sky with the Nile behind it, it becomes something else entirely.', photo: 'linear-gradient(160deg, #e8c878 0%, #9a7020 60%, #2c1a0e 100%)' },
     'sphinx-avenue': { name: 'Sphinx Avenue', desc: 'A 3km processional road lined with 1,057 ram-headed and human-headed sphinxes, connecting Karnak and Luxor Temples. Fully excavated and restored, and stunning when lit up at night.', photo: 'linear-gradient(160deg, #c8b060 0%, #806820 60%, #2c1a0e 100%)' },
@@ -2842,8 +2917,24 @@ function toggleDateMode(mode) {
     hatshepsut:      { name: 'Temple of Hatshepsut', desc: 'Built for Egypt\'s most powerful female pharaoh, this three-tiered mortuary temple at Deir el-Bahari is one of the best-preserved ancient structures in Egypt — and an architectural masterpiece.', photo: 'linear-gradient(160deg, #d8b880 0%, #8a6828 60%, #2c1200 100%)' },
     deirelmedina:    { name: 'Deir el-Medina', desc: 'The village where the craftsmen who built the royal tombs lived and were buried. Their own tombs are some of the most colorful and intimate in all of Egypt — a rarely-told human story.', photo: 'linear-gradient(160deg, #b89060 0%, #6a4818 60%, #2a1000 100%)' },
     memnon:          { name: 'Colossi of Memnon', desc: 'Two massive stone statues of Pharaoh Amenhotep III, standing 18 meters tall, that have guarded the entrance to his mortuary temple for 3,400 years. The first thing you see crossing the West Bank.', photo: 'linear-gradient(160deg, #c8a868 0%, #786028 60%, #281800 100%)' },
-    felucca:         { name: 'Nile Felucca at Sunset', desc: 'A traditional wooden sailboat gliding silently on the Nile as the sun sets behind the West Bank cliffs. One of the most peaceful moments you\'ll have in Egypt — included on Day 5.', photo: 'linear-gradient(160deg, #5ba4cf 0%, #1a6fa0 50%, #0a2a4a 100%)' },
-    nmec:            { name: 'National Museum of Egyptian Civilization', desc: 'Home to the Royal Mummies Hall — 22 royal mummies of Egypt\'s greatest pharaohs, including Ramesses II, displayed with extraordinary dignity in a purpose-built museum on the shores of Lake Ain el-Sira.', photo: 'linear-gradient(160deg, #9a8060 0%, #5a4020 60%, #201000 100%)' }
+    felucca:         { name: 'Nile Felucca at Sunset', desc: 'A traditional wooden sailboat gliding silently on the Nile as the sun sets behind the West Bank cliffs. One of the most peaceful moments you\'ll have in Egypt — included in your tour.', photo: 'linear-gradient(160deg, #5ba4cf 0%, #1a6fa0 50%, #0a2a4a 100%)' },
+    'madinet-habu':  { name: 'Madinet Habu Temple', desc: 'The mortuary temple of Ramesses III — one of the largest and best-preserved temples in Egypt. Less visited than Karnak, which means you\'ll often have it almost to yourself. The painted reliefs inside are extraordinary.', photo: 'linear-gradient(160deg, #d4a060 0%, #8a5010 60%, #2c1000 100%)' },
+    'valley-queens': { name: 'Valley of the Queens', desc: 'Resting place of the queens and children of the New Kingdom pharaohs. The tomb of Queen Nefertari — wife of Ramesses II — is considered the most beautifully painted tomb in all of Egypt.', photo: 'linear-gradient(160deg, #c89878 0%, #7a4830 60%, #2a1008 100%)' },
+    'nobles-tombs':  { name: 'The Nobles\' Tombs', desc: 'Unlike the royal tombs, these intimate chambers show daily life in ancient Egypt — farming, fishing, feasting, music. A deeply human counterpoint to the grandeur of the royal necropolis nearby.', photo: 'linear-gradient(160deg, #b88860 0%, #6a3818 60%, #280800 100%)' },
+    'horse-carriage': { name: 'Horse-Drawn Carriage Tour of Luxor', desc: 'A traditional way to explore Luxor\'s streets and landmarks at a relaxed pace — past the Corniche, the temple facades, and local markets. Best in the early evening when the city cools down.', photo: 'linear-gradient(160deg, #a89060 0%, #5a4818 60%, #1a0800 100%)' },
+    /* ── NILE CRUISE SITES ── */
+    edfu:            { name: 'Edfu Temple', desc: 'The most completely preserved ancient temple in Egypt, dedicated to Horus the falcon god. Built between 237 and 57 BC, its towering gateways and painted chambers are almost entirely intact.', photo: 'linear-gradient(160deg, #c8a870 0%, #786028 60%, #281800 100%)' },
+    'kom-ombo':      { name: 'Kom Ombo Temple', desc: 'A unique double temple dedicated to both Sobek (the crocodile god) and Haroeris (Horus the Elder) — perfectly symmetrical, with twin sanctuaries, twin halls, and twin entrances. Dramatically positioned on a Nile bend.', photo: 'linear-gradient(160deg, #d4b060 0%, #8a6010 60%, #2a1800 100%)' },
+    'esna-lock':     { name: 'Esna Lock', desc: 'A working river lock on the Nile where cruise ships are lowered about 10 meters to pass through. Locals line the banks selling goods to passing ships — a chaotic, colorful, unforgettable experience.', photo: 'linear-gradient(160deg, #5a9ab0 0%, #1a5a6a 60%, #0a1a20 100%)' },
+    /* ── ASWAN SITES ── */
+    philae:          { name: 'Philae Temple', desc: 'The island sanctuary of Isis, goddess of magic and motherhood. Moved stone by stone to its current island after the Aswan Dam was built, Philae Temple rises from the water like a mirage — magical at any hour.', photo: 'linear-gradient(160deg, #6ab0d0 0%, #1a6888 55%, #0a2030 100%)' },
+    'high-dam':      { name: 'The Aswan High Dam', desc: 'One of the largest engineering projects of the 20th century — built between 1960 and 1970 with Soviet assistance. The dam created Lake Nasser, the world\'s largest man-made reservoir at 5,250 km².', photo: 'linear-gradient(160deg, #7a9aaa 0%, #2a5060 55%, #0a1820 100%)' },
+    obelisk:         { name: 'The Unfinished Obelisk', desc: 'Still lying in the ancient granite quarry where it was abandoned 3,500 years ago after a crack appeared — it would have been the largest obelisk ever carved at 42 meters. A rare window into ancient construction methods.', photo: 'linear-gradient(160deg, #a08878 0%, #5a3828 60%, #1a0808 100%)' },
+    'nubian-village': { name: 'Nubian Village', desc: 'A colorful riverside community of Egypt\'s indigenous Nubian people, with brightly painted houses, traditional crafts, and a culture distinct from Arab Egypt. Reached by motor boat from the Nile bank.', photo: 'linear-gradient(160deg, #e8985a 0%, #9a4810 55%, #2a1000 100%)' },
+    'elephantine':   { name: 'Elephantine Island', desc: 'The oldest inhabited part of Aswan — an island in the middle of the Nile with ruins dating back 3,000 years. A felucca ride around its shoreline offers one of the most peaceful moments in Egypt.', photo: 'linear-gradient(160deg, #6ab4c8 0%, #1a6878 55%, #0a2028 100%)' },
+    /* ── FAR SOUTH ── */
+    'abu-simbel':    { name: 'Abu Simbel Temples', desc: 'Two massive rock temples carved by Ramesses II in 1264 BC — relocated in one of history\'s greatest engineering feats to save them from Lake Nasser. The giant seated statues of Ramesses II at the entrance are 20 meters tall.', photo: 'linear-gradient(160deg, #d4a060 0%, #8a5010 55%, #2c1000 100%)' },
+    dendera:         { name: 'Dendera Temple', desc: 'One of the best-preserved temple complexes in Egypt, dedicated to Hathor, goddess of love and music. Famous for the Dendera Zodiac — an ancient astronomical ceiling that\'s a copy of the original now in the Louvre.', photo: 'linear-gradient(160deg, #c8a870 0%, #786028 55%, #281000 100%)' }
   };
 
   var tt = document.getElementById('city-tooltip');

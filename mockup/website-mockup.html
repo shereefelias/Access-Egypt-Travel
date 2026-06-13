@@ -32,9 +32,9 @@
   nav a:hover { background: #f5f0e8; color: #b5451b; }
   nav a.active { color: #b5451b; }
   .nav-dropdown { position: relative; display: inline-block; }
-  .nav-dropdown > a::after { content: ' ▾'; font-size: 10px; }
+  .nav-dropdown > a::after { content: ''; }
   .dropdown-menu { display: none; position: absolute; top: 100%; left: 0; background: white; border: 1px solid #f0ece4; border-radius: 6px; box-shadow: 0 8px 24px rgba(0,0,0,0.12); min-width: 220px; z-index: 100; padding: 8px 0; }
-  .nav-dropdown:hover .dropdown-menu { display: block; }
+  .nav-dropdown:hover .dropdown-menu, .nav-dropdown.open .dropdown-menu { display: block; }
   .dropdown-menu a { display: block; padding: 10px 18px; color: #3a2a1a; font-size: 13.5px; font-weight: 500; text-decoration: none; }
   .dropdown-menu a:hover { background: #fdf8f2; color: #b5451b; }
   .dropdown-menu .divider { height: 1px; background: #f0ece4; margin: 4px 0; }
@@ -180,16 +180,14 @@
   <nav>
     <a href="#">Home</a>
     <div class="nav-dropdown">
-      <a href="#">Tours</a>
+      <a href="#">Tours ▾</a>
       <div class="dropdown-menu">
-        <a href="#">Egypt Packages</a>
-        <a href="#">Luxor Day Tours</a>
-        <a href="#">Nile Cruise</a>
-        <a href="#">Tailor-Made Tours</a>
-        <div class="divider"></div>
-        <a href="#">Hurghada to Luxor Tours</a>
-        <a href="#">Cairo to Luxor Tours</a>
-        <div class="note">📍 Pickup from Cairo, Hurghada & Luxor</div>
+        <a href="#">6 Days / 5 Nights — Cairo &amp; Luxor Holiday</a>
+        <a href="#">7 Days / 6 Nights — Cairo, Luxor &amp; Aswan</a>
+        <a href="#">8 Days / 7 Nights — Cairo, Aswan &amp; Nile Cruise</a>
+        <a href="#">9 Days / 8 Nights — Cairo, Pyramids &amp; Nile Cruise</a>
+        <a href="#">11 Days / 10 Nights — The Ultimate Egyptian Odyssey</a>
+        <div class="note">📍 Pickup from Cairo, Hurghada &amp; Luxor</div>
       </div>
     </div>
     <a href="#">Reviews</a>
@@ -350,12 +348,9 @@
 <footer>
   <div class="footer-main">
 
-    <!-- COL 1: Brand + Social -->
     <div class="footer-col">
-      <div class="footer-logo">
-        <img src="site_icon.png" alt="Access Egypt Travel" style="height:80px;width:auto;display:block;margin-bottom:8px;">
-      </div>
-      <div class="footer-tagline">"Private Egypt Tours Led by a Real Egyptologist — Pickup from Cairo, Hurghada & Luxor"</div>
+      <img src="site_icon.png" alt="Access Egypt Travel" style="height:70px;width:auto;display:block;margin-bottom:10px;">
+      <div style="font-size:11px;color:#666;text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;">Private · Egyptologist-Guided</div>
       <div class="footer-social">
         <a href="https://www.facebook.com/accessegypttravel/" class="social-icon" title="Facebook">f</a>
         <a href="https://www.instagram.com/accessegypttravel/" class="social-icon" title="Instagram">📷</a>
@@ -365,34 +360,25 @@
       <p class="footer-note" style="margin-top:14px;">© 2026 Access Egypt Travel LLC.<br>All Rights Reserved.</p>
     </div>
 
-    <!-- COL 2: Egypt Tours -->
     <div class="footer-col">
       <h4>Egypt Tours</h4>
-      <a href="#">Egypt Packages</a>
-      <a href="#">Luxor Day Tours</a>
-      <a href="#">Nile Cruise</a>
-      <a href="#">Tailor-Made Tours</a>
-      <a href="#" style="color:#8a8a8a;">Hurghada to Luxor Tours</a>
-      <a href="#" style="color:#8a8a8a;">Cairo to Luxor Tours</a>
-      <div style="height:10px;"></div>
-      <a href="#">About John Gamil</a>
-      <a href="#">Our Mission</a>
-      <a href="#">Trip Photo Albums</a>
+      <a href="#">6 Days — Cairo &amp; Luxor Holiday</a>
+      <a href="#">7 Days — Cairo, Luxor &amp; Aswan</a>
+      <a href="#">8 Days — Cairo, Aswan &amp; Nile Cruise</a>
+      <a href="#">9 Days — Cairo, Pyramids &amp; Nile Cruise</a>
+      <a href="#">11 Days — The Ultimate Egyptian Odyssey</a>
     </div>
 
-    <!-- COL 3: Traveler Resources -->
     <div class="footer-col">
-      <h4>Traveler Resources</h4>
-      <a href="#">Visa Requirements for Americans</a>
+      <h4>Travel Resources</h4>
+      <a href="#">Egypt Visa for Americans</a>
       <a href="#">Best Time to Visit Egypt</a>
-      <a href="#">Hurghada to Luxor: Complete Guide</a>
+      <a href="#">Hurghada to Luxor Tour</a>
       <a href="#">Is Egypt Safe for Americans?</a>
       <a href="#">What to Pack for Egypt</a>
       <a href="#">Egypt Travel FAQ</a>
-      <p class="footer-note" style="margin-top:10px;">In-depth travel guides for American travelers planning their first Egypt trip.</p>
     </div>
 
-    <!-- COL 4: Contact -->
     <div class="footer-col">
       <h4>Contact Us</h4>
       <div class="contact-line"><span class="icon">📍</span><span>Pickup: Cairo · Hurghada · Luxor</span></div>
@@ -400,22 +386,17 @@
       <div class="contact-line"><span class="icon">💬</span><a href="https://wa.me/20120140578">+20 12 014-0578 (WhatsApp)</a></div>
       <div class="contact-line"><span class="icon">✉️</span><a href="mailto:info@accessegypttravel.com">info@accessegypttravel.com</a></div>
       <a href="https://cal.com/accessegypttravel/30min" class="footer-schedule">📅 Schedule a Free Call →</a>
-      <p class="footer-note" style="margin-top:10px;">Mon–Sat · 9am–6pm EST<br>We respond within 2 hours.</p>
-      <div style="height:12px;"></div>
-      <a href="#">Reservation Policy</a>
-      <a href="#">Terms & Conditions</a>
-      <a href="#">Privacy Policy</a>
+      <p class="footer-note" style="margin-top:10px;">Mon–Sat · 9am–6pm EST · We respond within 2 hours.</p>
     </div>
 
   </div>
 
-  <!-- FOOTER BOTTOM BAR -->
   <div class="footer-bottom">
     <p>© 2026 Access Egypt Travel LLC · All Rights Reserved · 📍 Cairo · Hurghada · Luxor · 🇺🇸 +1 772 782 0494</p>
     <div class="footer-bottom-links">
       <a href="#">Privacy Policy</a>
-      <a href="#">Terms & Conditions</a>
-      <a href="#">Reservation Policy</a>
+      <a href="#">Terms &amp; Conditions</a>
+      <a href="#">Cancellation Policy</a>
     </div>
   </div>
 </footer>
