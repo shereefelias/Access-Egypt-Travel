@@ -66,4 +66,14 @@ Until a file exists, that pop-up keeps showing its gradient, so partial coverage
 | Abu Simbel Temples | `abu-simbel.jpg` |
 | Dendera Temple | `dendera.jpg` |
 
+## Image naming — three uses, one folder (`images/sites/`)
+
+| Where it shows | Filename pattern | How many |
+|---|---|---|
+| Hover teaser pop-up (single hero image) | `<key>.jpg` | 1 |
+| Click pop-up / modal (3-image strip) | `<key>-1.jpg`, `<key>-2.jpg`, `<key>-3.jpg` | 3 |
+| Dedicated page gallery (marquee sites) | `<key>-1.jpg` … `<key>-20.jpg` | 10–20 |
+
+So for Kom Ombo (`kom-ombo`): `kom-ombo.jpg` powers the hover, and `kom-ombo-1.jpg` through `kom-ombo-20.jpg` fill the modal strip + the full gallery on `kom-ombo.html`. Anything missing falls back to the gradient automatically — partial sets are fine.
+
 **Note:** Use photos you own or are licensed to use (same as the Flaticon icons) — avoid pulling random images off the web for the live site.

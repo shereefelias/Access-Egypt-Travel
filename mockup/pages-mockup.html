@@ -463,6 +463,7 @@
   <nav>
     <a href="#">Home</a>
     <div class="nav-dropdown"><a href="#" class="active">Tours ▾</a><div class="nav-dropdown-menu"><a href="#tour">6 Days / 5 Nights — Cairo &amp; Luxor Holiday</a><a href="#tour-d">7 Days / 6 Nights — Cairo, Luxor &amp; Aswan</a><a href="#tour-b">8 Days / 7 Nights — Cairo, Aswan &amp; Nile Cruise</a><a href="#tour-c">9 Days / 8 Nights — Cairo, Pyramids &amp; Nile Cruise</a><a href="#tour-e">11 Days / 10 Nights — The Ultimate Egyptian Odyssey</a></div></div>
+    <a href="destinations.html">Destinations</a>
     <a href="#">Reviews</a>
     <a href="#">FAQs</a>
     <a href="#">About</a>
@@ -2903,8 +2904,14 @@ function toggleDateMode(mode) {
   }
 
   document.querySelectorAll('.city-link').forEach(function(el) {
+    var d = cityData[el.dataset.city];
+    if (d && d.page) el.style.cursor = 'pointer';
     el.addEventListener('mouseenter', function() { show(this); });
     el.addEventListener('mouseleave', hide);
+    el.addEventListener('click', function() {
+      var cd = cityData[this.dataset.city];
+      if (cd && cd.page) window.location.href = cd.page;
+    });
   });
 })();
 </script>
@@ -2914,7 +2921,7 @@ function toggleDateMode(mode) {
 (function() {
   var siteData = {
     /* ── CITIES ── */
-    cairo:           { name: 'Cairo', desc: 'Egypt\'s sprawling capital — 20 million people, 5,000 years of layered history, and the only surviving wonder of the ancient world on its doorstep. Home to the Pyramids, the Grand Egyptian Museum, and some of the best food in the Middle East. Avg temp: 28°C / 82°F.', photo: 'linear-gradient(160deg, #c8956a 0%, #8b4513 50%, #2c1a0e 100%)' },
+    cairo:           { name: 'Cairo', desc: 'Egypt\'s sprawling capital — 20 million people, 5,000 years of layered history, and the only surviving wonder of the ancient world on its doorstep. Home to the Pyramids, the Grand Egyptian Museum, and some of the best food in the Middle East. Avg temp: 28°C / 82°F.', photo: 'linear-gradient(160deg, #c8956a 0%, #8b4513 50%, #2c1a0e 100%)', page: 'cairo.html' },
     luxor:           { name: 'Luxor', desc: 'Once the ancient capital of Thebes, Luxor is the world\'s greatest open-air museum. The East Bank holds Karnak and Luxor Temple; the West Bank holds the Valley of the Kings, Hatshepsut Temple, and hundreds of royal tombs. Avg temp: 32°C / 90°F.', photo: 'linear-gradient(160deg, #e8c878 0%, #9a7020 55%, #3a1a00 100%)' },
     aswan:           { name: 'Aswan', desc: 'Egypt\'s southernmost city, perched on the Nile\'s first cataract. Slower, warmer, and more laid-back than Cairo or Luxor — famous for its Nubian culture, Philae Temple, and the dramatic High Dam. Avg temp: 36°C / 97°F.', photo: 'linear-gradient(160deg, #5ba4cf 0%, #1a5a7a 55%, #0a2030 100%)' },
     hurghada:        { name: 'Hurghada', desc: 'A resort city on the Red Sea, about 5 hours from Cairo and 3 hours from Luxor. Many travelers fly into Hurghada from Europe and connect directly to their Egypt tour — we offer pickup directly from Hurghada so you don\'t waste a day backtracking. Avg temp: 30°C / 86°F.', photo: 'linear-gradient(160deg, #3ab8d4 0%, #1a6880 55%, #0a2030 100%)' },
@@ -2941,7 +2948,7 @@ function toggleDateMode(mode) {
     'horse-carriage': { name: 'Horse-Drawn Carriage Tour of Luxor', desc: 'A traditional way to explore Luxor\'s streets and landmarks at a relaxed pace — past the Corniche, the temple facades, and local markets. Best in the early evening when the city cools down.', photo: 'linear-gradient(160deg, #a89060 0%, #5a4818 60%, #1a0800 100%)' },
     /* ── NILE CRUISE SITES ── */
     edfu:            { name: 'Edfu Temple', desc: 'The most completely preserved ancient temple in Egypt, dedicated to Horus the falcon god. Built between 237 and 57 BC, its towering gateways and painted chambers are almost entirely intact.', photo: 'linear-gradient(160deg, #c8a870 0%, #786028 60%, #281800 100%)' },
-    'kom-ombo':      { name: 'Kom Ombo Temple', desc: 'A unique double temple dedicated to both Sobek (the crocodile god) and Haroeris (Horus the Elder) — perfectly symmetrical, with twin sanctuaries, twin halls, and twin entrances. Dramatically positioned on a Nile bend.', photo: 'linear-gradient(160deg, #d4b060 0%, #8a6010 60%, #2a1800 100%)' },
+    'kom-ombo':      { name: 'Kom Ombo Temple', desc: 'A unique double temple dedicated to both Sobek (the crocodile god) and Haroeris (Horus the Elder) — perfectly symmetrical, with twin sanctuaries, twin halls, and twin entrances. Dramatically positioned on a Nile bend.', photo: 'linear-gradient(160deg, #d4b060 0%, #8a6010 60%, #2a1800 100%)', page: 'kom-ombo.html' },
     'esna-lock':     { name: 'Esna Lock', desc: 'A working river lock on the Nile where cruise ships are lowered about 10 meters to pass through. Locals line the banks selling goods to passing ships — a chaotic, colorful, unforgettable experience.', photo: 'linear-gradient(160deg, #5a9ab0 0%, #1a5a6a 60%, #0a1a20 100%)' },
     /* ── ASWAN SITES ── */
     philae:          { name: 'Philae Temple', desc: 'The island sanctuary of Isis, goddess of magic and motherhood. Moved stone by stone to its current island after the Aswan Dam was built, Philae Temple rises from the water like a mirage — magical at any hour.', photo: 'linear-gradient(160deg, #6ab0d0 0%, #1a6888 55%, #0a2030 100%)' },
@@ -2950,7 +2957,7 @@ function toggleDateMode(mode) {
     'nubian-village': { name: 'Nubian Village', desc: 'A colorful riverside community of Egypt\'s indigenous Nubian people, with brightly painted houses, traditional crafts, and a culture distinct from Arab Egypt. Reached by motor boat from the Nile bank.', photo: 'linear-gradient(160deg, #e8985a 0%, #9a4810 55%, #2a1000 100%)' },
     'elephantine':   { name: 'Elephantine Island', desc: 'The oldest inhabited part of Aswan — an island in the middle of the Nile with ruins dating back 3,000 years. A felucca ride around its shoreline offers one of the most peaceful moments in Egypt.', photo: 'linear-gradient(160deg, #6ab4c8 0%, #1a6878 55%, #0a2028 100%)' },
     /* ── FAR SOUTH ── */
-    'abu-simbel':    { name: 'Abu Simbel Temples', desc: 'Two massive rock temples carved by Ramesses II in 1264 BC — relocated in one of history\'s greatest engineering feats to save them from Lake Nasser. The giant seated statues of Ramesses II at the entrance are 20 meters tall.', photo: 'linear-gradient(160deg, #d4a060 0%, #8a5010 55%, #2c1000 100%)' },
+    'abu-simbel':    { name: 'Abu Simbel Temples', desc: 'Two massive rock temples carved by Ramesses II in 1264 BC — relocated in one of history\'s greatest engineering feats to save them from Lake Nasser. The giant seated statues of Ramesses II at the entrance are 20 meters tall.', photo: 'linear-gradient(160deg, #d4a060 0%, #8a5010 55%, #2c1000 100%)', page: 'abu-simbel.html' },
     dendera:         { name: 'Dendera Temple', desc: 'One of the best-preserved temple complexes in Egypt, dedicated to Hathor, goddess of love and music. Famous for the Dendera Zodiac — an ancient astronomical ceiling that\'s a copy of the original now in the Louvre.', photo: 'linear-gradient(160deg, #c8a870 0%, #786028 55%, #281000 100%)' }
   };
 
@@ -2982,9 +2989,69 @@ function toggleDateMode(mode) {
   }
 
   document.querySelectorAll('.site-link').forEach(function(el) {
+    el.style.cursor = 'pointer';
     el.addEventListener('mouseenter', function() { showSite(this); });
     el.addEventListener('mouseleave', hideSite);
+    el.addEventListener('click', function(e) {
+      e.preventDefault();
+      hideSite();
+      if (window.openDetailModal) window.openDetailModal(siteData[this.dataset.site], this.dataset.site);
+    });
   });
+})();
+</script>
+
+<!-- ============================================================
+     SITE DETAIL MODAL  (click a site link → quick preview, then full guide)
+     ============================================================ -->
+<style>
+  #site-modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:99980;display:none;align-items:center;justify-content:center;padding:20px;}
+  #site-modal-overlay.open{display:flex;}
+  #site-modal{position:relative;background:#fff;max-width:660px;width:100%;border-radius:14px;overflow:hidden;box-shadow:0 24px 70px rgba(0,0,0,.45);max-height:90vh;overflow-y:auto;font-family:inherit;}
+  #site-modal .sm-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;}
+  #site-modal .sm-gallery div{height:140px;background-size:cover;background-position:center;}
+  #site-modal .sm-x{position:absolute;top:10px;right:12px;width:34px;height:34px;border:none;border-radius:50%;background:rgba(0,0,0,.45);color:#fff;font-size:22px;line-height:1;cursor:pointer;z-index:2;}
+  #site-modal .sm-body{padding:22px 26px 26px;}
+  #site-modal .sm-title{font-size:23px;font-weight:900;color:#2c1a0e;margin:0 0 10px;}
+  #site-modal .sm-desc{font-size:15px;line-height:1.6;color:#4a3520;margin:0 0 20px;}
+  #site-modal .sm-actions{display:flex;gap:14px;flex-wrap:wrap;align-items:center;}
+  #site-modal .sm-cta{background:#b5451b;color:#fff;border:none;border-radius:8px;padding:12px 22px;font-size:15px;font-weight:700;cursor:pointer;text-decoration:none;}
+  #site-modal .sm-guide{color:#b5451b;font-weight:700;text-decoration:none;font-size:14px;}
+</style>
+<div id="site-modal-overlay">
+  <div id="site-modal">
+    <button class="sm-x" aria-label="Close">&times;</button>
+    <div class="sm-gallery"><div></div><div></div><div></div></div>
+    <div class="sm-body">
+      <h2 class="sm-title"></h2>
+      <p class="sm-desc"></p>
+      <div class="sm-actions">
+        <a class="sm-cta" href="#contact">Request a Quote</a>
+        <a class="sm-guide" href="#">Read the full guide &rarr;</a>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var ov = document.getElementById('site-modal-overlay');
+  var tiles = ov.querySelectorAll('.sm-gallery div');
+  window.openDetailModal = function(d, key){
+    if(!d) return;
+    for(var i=0;i<tiles.length;i++){
+      tiles[i].style.background = "url('images/sites/"+key+"-"+(i+1)+".jpg') center/cover no-repeat, " + d.photo;
+    }
+    ov.querySelector('.sm-title').textContent = d.name;
+    ov.querySelector('.sm-desc').textContent = d.desc;
+    var g = ov.querySelector('.sm-guide');
+    if(d.page){ g.style.display=''; g.setAttribute('href', d.page); }
+    else { g.style.display='none'; }
+    ov.classList.add('open');
+  };
+  function close(){ ov.classList.remove('open'); }
+  ov.querySelector('.sm-x').addEventListener('click', close);
+  ov.addEventListener('click', function(e){ if(e.target === ov) close(); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') close(); });
 })();
 </script>
 
