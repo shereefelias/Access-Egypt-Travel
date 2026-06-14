@@ -213,7 +213,9 @@
   .profile-badges { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; }
   .profile-badge { background: #fdf8f2; border: 1px solid #e8dfc8; color: #5a4030; font-size: 11.5px; font-weight: 600; padding: 4px 10px; border-radius: 4px; }
   .profile-social { display: flex; gap: 8px; justify-content: center; margin-top: 14px; }
-  .profile-social a { width: 32px; height: 32px; border-radius: 50%; background: #f5f0e8; display: flex; align-items: center; justify-content: center; font-size: 14px; text-decoration: none; }
+  .profile-social a { width: 32px; height: 32px; display: inline-block; text-decoration: none; transition: opacity 0.2s, transform 0.15s; }
+  .profile-social a:hover { opacity: 0.82; transform: translateY(-2px); }
+  .profile-social img { width: 32px; height: 32px; display: block; border-radius: 8px; }
   .about-bio h3 { font-size: 26px; font-weight: 800; color: #2c1a0e; margin-bottom: 6px; }
   .about-bio .subtitle { color: #8b7355; font-size: 15px; margin-bottom: 20px; font-style: italic; }
   .about-bio p { font-size: 15.5px; line-height: 1.8; color: #3a2a1a; margin-bottom: 16px; }
@@ -299,6 +301,7 @@
   .soc-btn.fb { background: #1877f2; color: white; }
   .soc-btn.ig { background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); color: white; }
   .soc-btn.ta { background: #34e0a1; color: #000; }
+  .soc-btn img { width: 16px; height: 16px; vertical-align: middle; border-radius: 3px; filter: brightness(0) invert(1); }
 
   /* ════════════════════════════
      FAQ PAGE
@@ -336,8 +339,9 @@
   .footer-col .contact-line { display: flex; align-items: flex-start; gap: 8px; color: #555; font-size: 13px; margin-bottom: 8px; }
   .footer-col .contact-line a { display: inline; margin: 0; }
   .footer-social { display: flex; gap: 10px; margin-top: 16px; }
-  .social-icon { width: 34px; height: 34px; border-radius: 50%; background: #333; color: white; display: flex; align-items: center; justify-content: center; font-size: 14px; text-decoration: none; transition: background 0.2s; }
-  .social-icon:hover { background: #b5451b; }
+  .social-icon { width: 34px; height: 34px; text-decoration: none; display: inline-block; transition: opacity 0.2s, transform 0.15s; }
+  .social-icon:hover { opacity: 0.82; transform: translateY(-2px); }
+  .social-icon img { width: 34px; height: 34px; display: block; border-radius: 8px; }
   .footer-schedule { display: inline-block; margin-top: 14px; background: #b5451b; color: white; padding: 9px 18px; border-radius: 4px; font-size: 13px; font-weight: 700; text-decoration: none; transition: background 0.2s; }
   .footer-schedule:hover { background: #943a17; }
   .footer-note { font-size: 11.5px; color: #8b7355; font-style: italic; margin-top: 6px; line-height: 1.5; }
@@ -2150,9 +2154,9 @@
           <span class="team-badge">Private Tours Only</span>
         </div>
         <div class="profile-social" style="margin-top:14px;">
-          <a href="https://www.facebook.com/accessegypttravel/">f</a>
-          <a href="https://www.instagram.com/accessegypttravel/">📷</a>
-          <a href="https://www.tripadvisor.com/Attraction_Review-g294205-d25314995-Reviews-Access_Egypt_travel-Luxor_Nile_River_Valley.html">🦉</a>
+          <a href="https://www.facebook.com/accessegypttravel/" title="Facebook"><img src="icons/facebook.svg" alt="Facebook"></a>
+          <a href="https://www.instagram.com/accessegypttravel/" title="Instagram"><img src="icons/instagram.svg" alt="Instagram"></a>
+          <a href="https://www.tripadvisor.com/Attraction_Review-g294205-d25314995-Reviews-Access_Egypt_travel-Luxor_Nile_River_Valley.html" title="TripAdvisor"><img src="icons/tripadvisor-2.svg" alt="TripAdvisor"></a>
         </div>
       </div>
     </div>
@@ -2450,9 +2454,9 @@
       <div style="margin-top:4px;">
         <div class="ci-label" style="margin-bottom:10px;">Follow &amp; Review Us</div>
         <div class="social-strip">
-          <a href="https://www.facebook.com/accessegypttravel/" class="soc-btn fb">f Facebook</a>
-          <a href="https://www.instagram.com/accessegypttravel/" class="soc-btn ig">📷 Instagram</a>
-          <a href="https://www.tripadvisor.com/Attraction_Review-g294205-d25314995-Reviews-Access_Egypt_travel-Luxor_Nile_River_Valley.html" class="soc-btn ta">🦉 TripAdvisor</a>
+          <a href="https://www.facebook.com/accessegypttravel/" class="soc-btn fb"><img src="icons/facebook.svg" alt=""> Facebook</a>
+          <a href="https://www.instagram.com/accessegypttravel/" class="soc-btn ig"><img src="icons/instagram.svg" alt=""> Instagram</a>
+          <a href="https://www.tripadvisor.com/Attraction_Review-g294205-d25314995-Reviews-Access_Egypt_travel-Luxor_Nile_River_Valley.html" class="soc-btn ta"><img src="icons/tripadvisor-2.svg" alt=""> TripAdvisor</a>
         </div>
       </div>
     </div>
@@ -2710,10 +2714,10 @@
       <img src="site_icon.png" alt="Access Egypt Travel" style="height:70px;width:auto;display:block;margin-bottom:10px;">
       <div style="font-size:11px;color:#666;text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;">Private · Egyptologist-Guided</div>
       <div class="footer-social">
-        <a href="https://www.facebook.com/accessegypttravel/" class="social-icon" title="Facebook">f</a>
-        <a href="https://www.instagram.com/accessegypttravel/" class="social-icon" title="Instagram">📷</a>
-        <a href="https://www.tripadvisor.com/Attraction_Review-g294205-d25314995-Reviews-Access_Egypt_travel-Luxor_Nile_River_Valley.html" class="social-icon" title="TripAdvisor">🦉</a>
-        <a href="https://wa.me/20120140578" class="social-icon" title="WhatsApp">💬</a>
+        <a href="https://www.facebook.com/accessegypttravel/" class="social-icon" title="Facebook"><img src="icons/facebook.svg" alt="Facebook"></a>
+        <a href="https://www.instagram.com/accessegypttravel/" class="social-icon" title="Instagram"><img src="icons/instagram.svg" alt="Instagram"></a>
+        <a href="https://www.tripadvisor.com/Attraction_Review-g294205-d25314995-Reviews-Access_Egypt_travel-Luxor_Nile_River_Valley.html" class="social-icon" title="TripAdvisor"><img src="icons/tripadvisor-2.svg" alt="TripAdvisor"></a>
+        <a href="https://wa.me/20120140578" class="social-icon" title="WhatsApp"><img src="icons/whatsapp-139.svg" alt="WhatsApp"></a>
       </div>
       <p class="footer-note" style="margin-top:14px;">© 2026 Access Egypt Travel LLC.<br>All Rights Reserved.</p>
     </div>
