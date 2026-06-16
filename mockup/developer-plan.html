@@ -135,6 +135,12 @@
     <a href="#s14" class="toc-sub">→ Elementor Free limits</a>
     <a href="#s14" class="toc-sub">→ Per-file build sheet</a>
     <a href="#s14" class="toc-sub">→ Pop-up custom code</a>
+    <a href="#s17" class="toc-section">17. Tour Pages — Build Spec</a>
+    <a href="#s17" class="toc-sub">→ Page anatomy + widgets</a>
+    <a href="#s17" class="toc-sub">→ Sticky sub-nav CSS</a>
+    <a href="#s18" class="toc-section">18. Destinations — Build Spec</a>
+    <a href="#s18" class="toc-sub">→ Hub + detail pages</a>
+    <a href="#s18" class="toc-sub">→ Gallery + CPT</a>
     <div style="margin-top:16px;border-top:1px solid #f1f5f9;padding-top:12px;">
       <h3>Contact Info</h3>
       <a href="#" class="toc-sub" style="font-size:11px;">US: +1 772 782 0494</a>
@@ -2000,6 +2006,120 @@ document.addEventListener('click', function(e){
     </div>
   </div>
 
+  <!-- SECTION 17: TOUR PAGE BUILD SPEC -->
+  <div class="section" id="s17">
+    <div class="section-header">
+      <span class="badge badge-high">High</span>
+      <h2>17. Tour Package Pages — Full Build Spec</h2>
+    </div>
+    <div class="section-body">
+
+      <div class="ar-note">
+        <strong>صفحات الجولات — مواصفات البناء الكاملة</strong>
+        <ul>
+          <li>عدد الصفحات: 5 (6 / 7 / 8 / 9 / 11 يوم). المصدر الرسمي للتصميم والمحتوى هو <code>pages-mockup.html</code>.</li>
+          <li>ابنِ صفحة واحدة كقالب (Saved Template) وكرّرها للباقي، وغيّر المحتوى فقط.</li>
+          <li>Elementor المجاني لا يحتوي على: Theme Builder، جدول، Custom CSS لكل عنصر، Sticky — البدائل موضّحة بالأسفل.</li>
+          <li>العناصر الحمراء في النموذج (مسار رحلة 11 يوم، طيران 9 أيام، صيغة الوجبات) لازم تتأكد منها قبل النشر.</li>
+        </ul>
+      </div>
+
+      <p>Five tour pages — <strong>6, 7, 8, 9, 11 days</strong>. The mockup <code>pages-mockup.html</code> is the source of truth for layout and copy. Build <strong>one page as a Saved Template</strong> (Elementor → save as Template), then duplicate it for the other four and swap the content. The packages and their key data:</p>
+      <table>
+        <tr><th>Package</th><th>Nights</th><th>Price from</th><th>Meals</th></tr>
+        <tr><td>6 Days / 5 Nights — Cairo &amp; Luxor</td><td>Cairo 3 / Luxor 2</td><td>$1,950</td><td>B&amp;L daily</td></tr>
+        <tr><td>7 Days / 6 Nights — Cairo, Luxor &amp; Aswan</td><td>Cairo 2 / Luxor 2 / Aswan 1 / Cairo 1</td><td>$2,350</td><td>B&amp;L daily (10 meals)*</td></tr>
+        <tr><td>8 Days / 7 Nights — Cairo, Aswan &amp; Cruise</td><td>Cairo 3 / Aswan 1 / Cruise 3</td><td>$2,950</td><td>Land B&amp;L + cruise all meals</td></tr>
+        <tr><td>9 Days / 8 Nights — Pyramids, Luxor &amp; Cruise</td><td>Cairo 4 (3+1) / Luxor 1 / Cruise 3</td><td>$3,250</td><td>Land B&amp;L + cruise all meals</td></tr>
+        <tr><td>11 Days / 10 Nights — Ultimate Odyssey</td><td><strong>confirm (red flag)</strong></td><td>$3,950</td><td>Land B&amp;L + cruise all meals</td></tr>
+      </table>
+      <p style="font-size:12.5px;color:#64748b;">* Meal-line wording isn't standardized across packages yet — see the red flag in Section 16. Pick one format before publishing.</p>
+
+      <h3 style="margin:20px 0 8px;font-size:15px;color:#1a1a2e;">Page anatomy — top to bottom (with the Free widget for each)</h3>
+      <table>
+        <tr><th>#</th><th>Block</th><th>Elementor Free build</th></tr>
+        <tr><td>1</td><td>Header</td><td>Theme header (Astra/Kadence) — not Elementor Free</td></tr>
+        <tr><td>2</td><td><strong>Hero</strong> — bg image + dark overlay, breadcrumb, H1 title, tagline, stat pills (📅 duration · 👥 private · 📍 pickup · 🎓 guide), "From $X" price box</td><td>Section with background Image + overlay; Heading + Text Editor; stat pills = Icon List or small Button group</td></tr>
+        <tr><td>3</td><td><strong>Sticky sub-nav</strong> (Overview · Highlights · Itinerary · Accommodation · Inclusions)</td><td>Anchor links (Menu Anchor widget per section) + sticky via Customizer CSS (snippet below — Free has no sticky)</td></tr>
+        <tr><td>4</td><td><strong>Overview</strong> — opens "Explore the Best of Egypt on a [N] Days Egypt Tour Package…"</td><td>Text Editor widget</td></tr>
+        <tr><td>5</td><td><strong>Tour at a Glance</strong> — Duration, Type, Guide, Pickup, Destinations (nights), Transport, Visa, Meals, Price</td><td>Free has no Table widget → use an <strong>HTML widget</strong> with a small table, or an Icon List of label: value rows</td></tr>
+        <tr><td>6</td><td><strong>Highlights</strong> — approved names, <strong>orange bullet</strong> (no emoji)</td><td>Icon List (set icon to a bullet/dot, color #b5451b) in 2 columns</td></tr>
+        <tr><td>7</td><td><strong>Optional Add-Ons</strong></td><td>Icon List</td></tr>
+        <tr><td>8</td><td><strong>Day-by-Day Itinerary</strong> — each day ends "Overnight in […]"</td><td>Accordion/Toggle widget (one item per day), or stacked Icon Box / Text blocks</td></tr>
+        <tr><td>9</td><td><strong>Accommodation</strong> — Standard + Premium tiers, nights per city</td><td>Two Inner Sections (columns) with Icon Box / Text</td></tr>
+        <tr><td>10</td><td><strong>Inclusions / Not included</strong></td><td>Two Icon Lists — green check icons vs. red ✕ icons</td></tr>
+        <tr><td>11</td><td><strong>Pricing</strong> table (Standard, single +50%, group 4–7 10%, 8+ 15%)</td><td>HTML widget table</td></tr>
+        <tr><td>12</td><td><strong>Children's Policy</strong> + <strong>Payment &amp; Cancellation</strong></td><td>HTML widget tables (small)</td></tr>
+        <tr><td>13</td><td><strong>Reviews</strong> — TripAdvisor block (4.9 · 71 reviews)</td><td>Image/Text + link to the live TripAdvisor profile (verify the numbers)</td></tr>
+        <tr><td>14</td><td><strong>CTA</strong> — "Request a Quote"</td><td>Button → the quote form (WPForms Lite / CF7 — Free has no Form widget)</td></tr>
+      </table>
+
+      <h3 style="margin:20px 0 8px;font-size:15px;color:#1a1a2e;">Sticky sub-nav — Free workaround</h3>
+      <div class="warning"><strong>Elementor Free has no "sticky" Motion Effect and no per-element Custom CSS box</strong> (both are Pro). Give the sub-nav section a CSS ID (e.g., <code>tour-subnav</code>) under its Advanced settings, then add this once in <strong>Appearance → Customize → Additional CSS</strong>:</div>
+      <pre>#tour-subnav { position: sticky; top: 0; z-index: 50; background:#0d0a06; }
+#tour-subnav a { color:#fff; opacity:.7; text-transform:uppercase;
+  font-size:11px; letter-spacing:1px; padding:16px 14px; text-decoration:none; }
+#tour-subnav a:hover { opacity:1; }</pre>
+      <div class="note">The scroll-spy "active section" highlight from the mockup is optional polish; skip it on Free unless a developer adds a small JS snippet, or install a free add-on (Essential/Happy Addons) that includes a sticky/anchor nav.</div>
+
+      <div class="step"><div class="step-num">1</div><div>Build the <strong>6-Day</strong> page fully, block by block above, pulling copy from <code>pages-mockup.html</code>.</div></div>
+      <div class="step"><div class="step-num">2</div><div>Elementor → ☰ → <strong>Save as Template</strong>. On each new tour page, Add Template → insert it → change only the content.</div></div>
+      <div class="step"><div class="step-num">3</div><div>Add each page to the <strong>Tours ▾</strong> menu (Appearance → Menus).</div></div>
+      <div class="step"><div class="step-num">4</div><div>Resolve the three red flags (11-day itinerary, 9-day flight route, meal format) before publishing — see Section 16.</div></div>
+
+    </div>
+  </div>
+
+  <!-- SECTION 18: DESTINATIONS BUILD SPEC -->
+  <div class="section" id="s18">
+    <div class="section-header">
+      <span class="badge badge-high">High</span>
+      <h2>18. Destination Pages &amp; Hub — Full Build Spec</h2>
+    </div>
+    <div class="section-body">
+
+      <div class="ar-note">
+        <strong>صفحات الوجهات — مواصفات البناء</strong>
+        <ul>
+          <li>قائمة "Destinations" منسدلة جديدة في الهيدر → صفحة تجميع <code>/destinations/</code> → صفحة لكل موقع.</li>
+          <li>تم بناء: القاهرة، كوم أمبو، أبو سمبل كقوالب. الأفضل عمل نوع محتوى مخصّص (CPT) "Destination" وتكرار قالب واحد.</li>
+          <li>المعرض: 10–20 صورة باستخدام أداة Image Gallery المجانية (فيها Lightbox).</li>
+        </ul>
+      </div>
+
+      <p>New <strong>Destinations</strong> system: a nav dropdown → a hub page (<code>/destinations/</code>) → one page per site. Built as templates so far: <strong>Cairo, Kom Ombo, Abu Simbel</strong>. Source of truth: <code>destinations.html</code>, <code>cairo.html</code>, <code>kom-ombo.html</code>, <code>abu-simbel.html</code>.</p>
+
+      <div class="note"><strong>Recommended structure:</strong> create a <strong>"Destination" custom post type</strong> with CPT UI (free) and fields for description, gallery, and quick-facts. Build one Elementor layout and reuse it for every site — far better than hand-building ~30 pages. (Note: a CPT <em>single template</em> normally needs Pro Theme Builder; on Free, either build each destination as a normal Page from a Saved Template, or use a free template add-on like "Elementor Custom Skin.")</div>
+
+      <h3 style="margin:18px 0 8px;font-size:15px;color:#1a1a2e;">Hub page (/destinations/)</h3>
+      <table>
+        <tr><th>Block</th><th>Free build</th></tr>
+        <tr><td>Intro heading + blurb</td><td>Heading + Text</td></tr>
+        <tr><td>Card grid, grouped by region (Cairo &amp; Around, Luxor, Nile Cruise, Aswan &amp; South)</td><td>Image Box widgets in a grid; or a free Post Grid add-on if using the CPT. Each card links to its destination page</td></tr>
+      </table>
+
+      <h3 style="margin:18px 0 8px;font-size:15px;color:#1a1a2e;">Destination detail page anatomy</h3>
+      <table>
+        <tr><th>#</th><th>Block</th><th>Elementor Free build</th></tr>
+        <tr><td>1</td><td><strong>Hero</strong> — site name over a big background photo, tagline, fact pills</td><td>Section with bg Image + overlay; Heading + Text + Icon List pills</td></tr>
+        <tr><td>2</td><td><strong>Sticky sub-nav</strong> (Overview · Gallery · Good to Know · Tours)</td><td>Menu Anchors + the sticky CSS from Section 17</td></tr>
+        <tr><td>3</td><td><strong>Overview</strong> — 2–3 paragraphs (from the site brief notes)</td><td>Text Editor</td></tr>
+        <tr><td>4</td><td><strong>Gallery</strong> — 10–20 photos</td><td><strong>Image Gallery</strong> widget (Free, includes lightbox)</td></tr>
+        <tr><td>5</td><td><strong>Good to Know</strong> — facts (built, location, hours, getting there…)</td><td>Icon Box grid or a small HTML table</td></tr>
+        <tr><td>6</td><td><strong>Tours that visit</strong> — cards linking to the relevant tour pages</td><td>Image Box / Button cards</td></tr>
+        <tr><td>7</td><td><strong>CTA</strong> — Request a Quote</td><td>Button → quote form</td></tr>
+      </table>
+
+      <h3 style="margin:18px 0 8px;font-size:15px;color:#1a1a2e;">Nav dropdown &amp; image naming</h3>
+      <div class="step"><div class="step-num">1</div><div>Appearance → Menus → add a <strong>Destinations</strong> item, with each site indented beneath it + a "View all destinations →" linking to <code>/destinations/</code>.</div></div>
+      <div class="step"><div class="step-num">2</div><div>Photos go in one media folder. Naming convention from the mockup: <code>&lt;site&gt;.jpg</code> = hero/teaser, <code>&lt;site&gt;-1.jpg … -20.jpg</code> = gallery. See <code>SITE-PHOTOS-to-add.md</code>.</div></div>
+      <div class="step"><div class="step-num">3</div><div>Location pop-ups (hover card / click) on site names in tour pages: use the custom snippet in Section 16, and link marquee site names to their Destination page.</div></div>
+
+      <div class="warning"><strong>Priority order for destination pages:</strong> build the ~10–12 marquee sites first (Giza Pyramids, GEM, Karnak, Valley of the Kings, Luxor Temple, Hatshepsut, Edfu, Kom Ombo, Philae, Abu Simbel, Cairo, Aswan). Minor sites can stay as hub cards / pop-ups until later.</div>
+
+    </div>
+  </div>
+
   <!-- SUMMARY TABLE -->
   <div class="section">
     <div class="section-header">
@@ -2029,6 +2149,11 @@ document.addEventListener('click', function(e){
         <tr><td>19</td><td>Add date-toggle contact form to Contact page</td><td><span class="badge badge-high">High</span></td><td>Elementor → HTML widget → paste form code (Section 14)</td><td>30 min</td></tr>
         <tr><td>20</td><td>Create Payment page (email live now; PayPal/Square placeholders)</td><td><span class="badge badge-high">High</span></td><td>Pages → Add New → slug: payment → Elementor (Section 15)</td><td>45 min</td></tr>
         <tr><td>21</td><td>Activate PayPal &amp; Square on Payment page when accounts ready</td><td><span class="badge badge-medium">Medium — Phase 2</span></td><td>Replace placeholder divs with real button embed codes</td><td>20 min</td></tr>
+        <tr><td>22</td><td>Build 5 tour package pages (Saved Template + duplicate)</td><td><span class="badge badge-high">High</span></td><td>Elementor — Section 17</td><td>3–5 hrs</td></tr>
+        <tr><td>23</td><td>Build Destinations hub + add Destinations ▾ nav dropdown</td><td><span class="badge badge-high">High</span></td><td>Elementor + Appearance → Menus — Section 18</td><td>1–2 hrs</td></tr>
+        <tr><td>24</td><td>Build marquee destination pages (Cairo/Kom Ombo/Abu Simbel done; + rest)</td><td><span class="badge badge-high">High</span></td><td>Elementor (ideally a Destination CPT) — Section 18</td><td>30–45 min each</td></tr>
+        <tr><td>25</td><td>Add location pop-ups / link site names to destination pages</td><td><span class="badge badge-medium">Medium</span></td><td>HTML widget snippet — Section 16</td><td>1 hr</td></tr>
+        <tr><td>26</td><td>Resolve red flags: 11-day itinerary, 9-day flight route, meal format</td><td><span class="badge badge-critical">Before publish</span></td><td>Confirm with team — Section 16</td><td>—</td></tr>
         <tr><td colspan="5" style="background:#f0f7ff;color:#1e40af;font-size:12px;padding:10px 14px;">SEO tasks (Rank Math setup, focus keywords, sitemap submission) are in a separate document: <strong>seo-plan.html</strong> — do these after Phase 1 is complete.</td></tr>
       </table>
     </div>
