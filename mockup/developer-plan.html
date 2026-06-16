@@ -264,11 +264,15 @@
 │
 ├── TOP NAV (left to right):
 │   ├── Home
-│   ├── Tours ▾ (dropdown)
-│   │   ├── /egypt-packages/
-│   │   ├── /tour/  (6 Days Cairo &amp; Luxor)
-│   │   ├── /nile-cruise/
-│   │   └── /tailor-made/
+│   ├── Tours ▾ (5 duration packages)
+│   │   ├── 6 Days — Cairo &amp; Luxor ($1,950)
+│   │   ├── 7 Days — Cairo, Luxor &amp; Aswan ($2,350)
+│   │   ├── 8 Days — Cairo, Aswan &amp; Cruise ($2,950)
+│   │   ├── 9 Days — Pyramids, Luxor &amp; Cruise ($3,250)
+│   │   └── 11 Days — Ultimate Odyssey ($3,950)
+│   ├── Destinations ▾ (NEW) → /destinations/
+│   │   ├── /cairo/  /kom-ombo/  /abu-simbel/ (built)
+│   │   └── + marquee sites (build as priority)
 │   ├── Reviews → /testimonials/ (CREATE)
 │   ├── FAQs → /faq/ (rebuild content)
 │   ├── About → /about-us/ (update content)
@@ -308,7 +312,7 @@
         </div>
         <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:16px;">
           <p style="font-weight:700;color:#15803d;margin-bottom:8px;font-size:13px;">➕ CREATE THESE NEW PAGES</p>
-          <p style="font-size:12px;color:#14532d;line-height:1.8;">/testimonials/ (Reviews page)<br>/payment/ (💳 Pay Now page)<br><br><span style="color:#6b7280;">Phase 2 (later):</span><br>/visa-requirements/<br>/best-time-to-visit/<br>/packing-guide/<br>/egypt-safety/</p>
+          <p style="font-size:12px;color:#14532d;line-height:1.8;">/testimonials/ (Reviews page)<br>/payment/ (💳 Pay Now page)<br>/destinations/ (hub — NEW)<br>/cairo/ /kom-ombo/ /abu-simbel/ (built)<br>+ marquee destination pages<br>5 tour-package pages (6/7/8/9/11-day)<br><br><span style="color:#6b7280;">Phase 2 (later):</span><br>/visa-requirements/<br>/best-time-to-visit/<br>/packing-guide/<br>/egypt-safety/</p>
         </div>
       </div>
 
@@ -511,8 +515,30 @@ selector img:hover {
 
           <p><strong>Reference: Osiris Tours nav structure</strong> — HOME | DESTINATIONS | REVIEWS | FAQS | BLOG | ABOUT | CONTACT. Key insight: Reviews and FAQs are top-level nav items, not buried. Adopt this pattern.</p>
 
-          <p><strong>Recommended new nav structure:</strong></p>
-          <pre>Home | Tours ▾ | Reviews | FAQs | Blog | About | Contact</pre>
+          <p><strong>Recommended new nav structure (per the latest mockups):</strong></p>
+          <pre>Home | Tours ▾ | Destinations ▾ | Reviews | FAQs | About | Contact</pre>
+          <div class="note"><strong>Updated since original plan:</strong> a <strong>Destinations ▾</strong> dropdown was added (both mockups), and Blog stays out of the nav (owner decision). The Tours dropdown should list the five duration-based packages from the mockup, not the old slugs.</div>
+          <p style="margin-top:12px;"><strong>Tours dropdown (from the mockups):</strong></p>
+          <table>
+            <tr><th>Label</th><th>Package</th></tr>
+            <tr><td>6 Days / 5 Nights — Cairo &amp; Luxor Holiday</td><td>from $1,950</td></tr>
+            <tr><td>7 Days / 6 Nights — Cairo, Luxor &amp; Aswan</td><td>from $2,350</td></tr>
+            <tr><td>8 Days / 7 Nights — Cairo, Aswan &amp; Nile Cruise</td><td>from $2,950</td></tr>
+            <tr><td>9 Days / 8 Nights — Pyramids, Luxor &amp; Nile Cruise</td><td>from $3,250</td></tr>
+            <tr><td>11 Days / 10 Nights — The Ultimate Egyptian Odyssey</td><td>from $3,950</td></tr>
+          </table>
+          <p style="margin-top:12px;"><strong>Destinations dropdown (from the mockups)</strong> — links to the Destinations hub + individual site pages:</p>
+          <table>
+            <tr><th>Label</th><th>Links to</th></tr>
+            <tr><td>Cairo</td><td>/cairo/ (built)</td></tr>
+            <tr><td>Kom Ombo Temple</td><td>/kom-ombo/ (built)</td></tr>
+            <tr><td>Abu Simbel</td><td>/abu-simbel/ (built)</td></tr>
+            <tr><td>Giza Pyramids, GEM, Karnak, Valley of the Kings, Luxor Temple, Edfu, Philae…</td><td>Destination hub for now; build pages as marquee priority</td></tr>
+            <tr><td>View all destinations →</td><td>/destinations/ (hub)</td></tr>
+          </table>
+          <p style="font-size:12.5px;color:#64748b;">In Elementor Free, build these dropdowns via <strong>Appearance → Menus</strong> (indent items to make sub-items); the theme renders the dropdown.</p>
+          <div class="divider"></div>
+          <p><strong>Original reference (existing WP tour pages — keep for slugs/redirects):</strong></p>
 
           <p><strong>Tours dropdown:</strong></p>
           <table>
@@ -1846,6 +1872,31 @@ function aetToggleDate(mode) {
       </div>
 
       <p>Everything built in the mockups since the original plan: the five tour pages, the <strong>Destinations</strong> system (hub + one page per site), the hover/click <strong>pop-ups</strong> on location names, and the Destinations nav dropdown. This section maps each piece to <strong>Elementor Free</strong> and flags what needs a plugin or custom code.</p>
+
+      <h3 style="margin:18px 0 8px;font-size:15px;color:#1a1a2e;">Change log — everything updated in the mockups (this round)</h3>
+      <p style="font-size:13.5px;">The mockups (<code>pages-mockup.html</code>, <code>website-mockup.html</code>) had a large round of revisions after the original plan was written. The developer must reflect all of these. Source of truth = the mockups.</p>
+      <table>
+        <tr><th>Area</th><th>What changed (build to match)</th></tr>
+        <tr><td>Tour packages</td><td>Five duration-based packages: <strong>6, 7, 8, 9, 11 days</strong>. Corrected night allocations — 6D: Cairo 3 / Luxor 2 · 7D: Cairo 2 / Luxor 2 / Aswan 1 / final Cairo 1 · 8D: Cairo 3 / Aswan 1 / Cruise 3 · 9D: Cairo 4 (3+1) / Luxor 1 / Cruise 3 · 11D: see red flag below</td></tr>
+        <tr><td>Prices (from / pp)</td><td>6D <strong>$1,950</strong> · 7D <strong>$2,350</strong> · 8D <strong>$2,950</strong> · 9D <strong>$3,250</strong> · 11D <strong>$3,950</strong>. Must be identical in the hero, "Tour at a Glance," and the pricing table on each page</td></tr>
+        <tr><td>Overview copy</td><td>Each tour overview now opens with the SEO hook: <em>"Explore the Best of Egypt on a [N] Days Egypt Tour Package…"</em></td></tr>
+        <tr><td>Inclusions / Not-included</td><td>Standardized to identical wording across all packages. <strong>Complimentary bottled water</strong> is on the <em>included</em> side; "Drinks (alcoholic and soft drinks)" on the not-included side. Flight routes shown per package</td></tr>
+        <tr><td>Highlights</td><td>Use the <strong>approved location names</strong> only (Appendix A). Emoji icons were <strong>removed</strong> — each item now shows a small orange bullet (•)</td></tr>
+        <tr><td>Location pop-ups</td><td>Site/city names in Highlights, Overview, and Optional Add-ons are interactive: hover = mini card, click = detail. Marquee sites link to their Destination page. See the custom-code below (Free)</td></tr>
+        <tr><td>Destinations system</td><td><strong>New "Destinations ▾" nav dropdown</strong> (both mockups) → <code>destinations.html</code> hub (card grid) → per-site pages. Built so far: <code>cairo.html</code>, <code>kom-ombo.html</code>, <code>abu-simbel.html</code> (templates for ~10–12 marquee sites). Each page = hero + sticky sub-nav + 10–20 image gallery + Good-to-Know facts + "tours that visit" + CTA</td></tr>
+        <tr><td>City tooltips</td><td>Live weather/temperature was <strong>removed</strong> — ignore any earlier weather reference</td></tr>
+        <tr><td>Authoring template</td><td><code>Tour-Package-TEMPLATE.docx</code> defines the standard package structure for the content team (not a web asset)</td></tr>
+      </table>
+
+      <div class="danger">
+        <strong>⚠️ Unresolved items still flagged red in the mockup — confirm before publishing:</strong>
+        <ul style="margin:8px 0 0 18px;line-height:1.9;">
+          <li><strong>11-day itinerary &amp; cruise nights</strong> — source was incomplete/contradictory; day-by-day and cruise length need the team's confirmation.</li>
+          <li><strong>9-day flight route</strong> — filled in as Cairo → Luxor and Aswan → Cairo (derived from the itinerary); confirm.</li>
+          <li><strong>Meal-line format</strong> — presentation isn't consistent across packages; pick one standard (with or without a verified meal count) and apply to all five.</li>
+        </ul>
+      </div>
+
 
       <div class="danger">
         <strong>⚠️ Read first — this site is on Elementor FREE.</strong> Several earlier tasks in this plan say "Theme Builder → Header/Footer." That is an Elementor <em>Pro</em> feature. On Free these are NOT available: <strong>Theme Builder</strong> (custom header/footer/CPT templates), <strong>Popup Builder</strong>, <strong>Loop Grid / Posts</strong>, <strong>sticky Motion Effects</strong>, and the <strong>Form</strong> widget. The build below uses the <em>theme</em> + free plugins instead.
