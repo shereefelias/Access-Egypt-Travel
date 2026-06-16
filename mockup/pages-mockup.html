@@ -152,7 +152,8 @@
 
   .sites-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
   .site-item { display: flex; align-items: center; gap: 10px; background: #fdf8f2; border-radius: 6px; padding: 10px 14px; font-size: 13.5px; font-weight: 600; color: #2c1a0e; }
-  .site-icon { font-size: 20px; }
+  .site-icon { font-size: 0; line-height: 1; }
+  .site-icon::before { content: "•"; font-size: 18px; color: #b5451b; }
 
   .addons-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
   .addon-item { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border: 1px solid #f0e8d8; border-radius: 6px; font-size: 13.5px; color: #5a4030; }
@@ -422,10 +423,6 @@
     <div class="ct-name"></div>
     <div class="ct-desc"></div>
     <div class="ct-footer">
-      <div class="ct-temp-wrap">
-        <div class="ct-temp">…</div>
-        <div class="ct-temp-label">Right now</div>
-      </div>
       <div class="ct-best"></div>
     </div>
   </div>
@@ -2878,23 +2875,9 @@ function toggleDateMode(mode) {
     }
     tt.querySelector('.ct-footer').style.display = '';
     tt.querySelector('.ct-best').textContent = d.best;
-    tt.querySelector('.ct-temp').textContent = tempCache[key] || '…';
 
     position(el);
     tt.classList.add('ct-visible');
-
-    if (!tempCache[key]) {
-      fetch('https://api.open-meteo.com/v1/forecast?latitude=' + d.lat +
-            '&longitude=' + d.lon +
-            '&current=temperature_2m&temperature_unit=fahrenheit&wind_speed_unit=mph')
-        .then(function(r) { return r.json(); })
-        .then(function(data) {
-          var t = Math.round(data.current.temperature_2m);
-          tempCache[key] = t + '°F';
-          if (activeCity === key) tt.querySelector('.ct-temp').textContent = t + '°F';
-        })
-        .catch(function() { tempCache[key] = '—'; });
-    }
   }
 
   function position(el) {

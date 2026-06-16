@@ -131,6 +131,10 @@
     <a href="#s11" class="toc-section">13. Interactive Map</a>
     <a href="#s12" class="toc-section">14. Contact Form</a>
     <a href="#s13" class="toc-section">15. Payment Page</a>
+    <a href="#s14" class="toc-section">16. Tours &amp; Destinations (Free)</a>
+    <a href="#s14" class="toc-sub">→ Elementor Free limits</a>
+    <a href="#s14" class="toc-sub">→ Per-file build sheet</a>
+    <a href="#s14" class="toc-sub">→ Pop-up custom code</a>
     <div style="margin-top:16px;border-top:1px solid #f1f5f9;padding-top:12px;">
       <h3>Contact Info</h3>
       <a href="#" class="toc-sub" style="font-size:11px;">US: +1 772 782 0494</a>
@@ -149,6 +153,9 @@
       <h2>Overview — What We Are Doing and Why</h2>
     </div>
     <div class="section-body">
+      <div class="danger">
+        <strong>⚠️ Elementor version note (applies to the WHOLE plan).</strong> This site runs <strong>Elementor Free</strong>, which does <em>not</em> include <strong>Theme Builder</strong>, Popup Builder, Loop Grid, sticky Motion Effects, or the Form widget. Wherever a step below says <em>"Templates → Theme Builder → Header/Footer,"</em> read it as <strong>your theme's header/footer builder</strong> (Astra, Kadence, or OceanWP — all free) or <strong>Appearance → Menus</strong> for the nav. The header, footer, and quote form are built in the theme + free plugins, not in Elementor Free. See <a href="#s14" style="color:#991b1b;font-weight:700;">Section 16</a> for the full Free build plan and the recommended free stack.
+      </div>
       <p><strong>Access Egypt Travel</strong> is a boutique Egypt tour operator owned and operated by <strong>John Gamil</strong> — a native Egyptian with a Bachelor's degree in Egyptology (2000) and 22 years of experience. The business targets <strong>American travelers</strong> and competes against large global operators (Gate 1, Intrepid, G Adventures, Tauck). The competitive edge is personalization, private tours, and direct access to an actual Egyptologist — something no large operator offers.</p>
 
       <div class="divider"></div>
@@ -1173,7 +1180,7 @@ selector img:hover {
   <div class="section" id="s8c">
     <div class="section-header">
       <span class="badge badge-high">High Priority</span>
-      <h2>8C. Footer — Full Redesign (Elementor Theme Builder)</h2>
+      <h2>8C. Footer — Full Redesign (theme header/footer builder — Elementor Free)</h2>
     </div>
     <div class="section-body">
       <div class="ar-note">
@@ -1826,6 +1833,122 @@ function aetToggleDate(mode) {
     </div>
   </div>
 
+  <!-- TOURS, DESTINATIONS & POP-UPS -->
+  <div class="section" id="s14">
+    <div class="section-header">
+      <span class="badge badge-high">High</span>
+      <h2>16. Tours, Destinations &amp; Pop-ups — Build Plan (Elementor Free)</h2>
+    </div>
+    <div class="section-body">
+
+      <div class="ar-note">
+        <strong>ملخص:</strong> هذا القسم يغطّي كل ما تم بناؤه في النماذج الجديدة: صفحات الجولات الخمس، نظام "الوجهات" (صفحة تجميع + صفحة لكل موقع)، النوافذ المنبثقة عند الضغط على اسم المكان، وقائمة "Destinations" المنسدلة. <strong>مهم:</strong> الموقع يستخدم Elementor المجاني، وبعض المزايا (Theme Builder للهيدر/الفوتر، Popup Builder، Loop Grid، التثبيت Sticky، وأداة النماذج) غير متوفرة في النسخة المجانية — انظر الجدول بالأسفل للبدائل المجانية.
+      </div>
+
+      <p>Everything built in the mockups since the original plan: the five tour pages, the <strong>Destinations</strong> system (hub + one page per site), the hover/click <strong>pop-ups</strong> on location names, and the Destinations nav dropdown. This section maps each piece to <strong>Elementor Free</strong> and flags what needs a plugin or custom code.</p>
+
+      <div class="danger">
+        <strong>⚠️ Read first — this site is on Elementor FREE.</strong> Several earlier tasks in this plan say "Theme Builder → Header/Footer." That is an Elementor <em>Pro</em> feature. On Free these are NOT available: <strong>Theme Builder</strong> (custom header/footer/CPT templates), <strong>Popup Builder</strong>, <strong>Loop Grid / Posts</strong>, <strong>sticky Motion Effects</strong>, and the <strong>Form</strong> widget. The build below uses the <em>theme</em> + free plugins instead.
+      </div>
+
+      <h3 style="margin:18px 0 8px;font-size:15px;color:#1a1a2e;">What's native in Free vs. what needs help</h3>
+      <table>
+        <tr><th>Feature in the mockup</th><th>Elementor Free?</th><th>How to build it</th></tr>
+        <tr><td>Tour hero (title over background image)</td><td><span class="check">✓</span> Native</td><td>Section with background image + overlay; Heading + Icon List widgets</td></tr>
+        <tr><td>"Tour at a Glance" / pricing / children tables</td><td><span class="check">✓</span> Native*</td><td>Free has no Table widget — use a styled <em>Icon List</em>, or a free add-on's table, or an HTML widget</td></tr>
+        <tr><td>Highlights icon grid, Inclusions lists</td><td><span class="check">✓</span> Native</td><td>Icon List / Icon Box in columns. Upload Flaticon SVGs via the Icon widget</td></tr>
+        <tr><td>Destination gallery (10–20 images + lightbox)</td><td><span class="check">✓</span> Native</td><td>Free <em>Image Gallery</em> / <em>Basic Gallery</em> widget includes lightbox</td></tr>
+        <tr><td>Nav dropdown (Tours, Destinations)</td><td><span class="check">✓</span> Native</td><td>WordPress <em>Menus</em> + the theme (not Elementor). Add submenu items under "Destinations"</td></tr>
+        <tr><td>Site-wide header &amp; footer</td><td><span class="cross">✗</span> Pro only</td><td>Use the <strong>theme's</strong> header/footer (Astra / Kadence / OceanWP free all have a header-footer builder)</td></tr>
+        <tr><td>Click → detail pop-up (modal)</td><td><span class="cross">✗</span> Pro only</td><td>Free popup plugin (e.g., Popup Maker) <em>or</em> the custom snippet below</td></tr>
+        <tr><td>Destinations hub auto-listing from a CPT</td><td><span class="cross">✗</span> Pro only</td><td>Hand-build the card grid, <em>or</em> a free add-on (Essential Addons "Post Grid") + a CPT plugin (CPT UI)</td></tr>
+        <tr><td>Sticky sub-nav / sticky header</td><td><span class="cross">✗</span> Pro only</td><td>Custom CSS <code>position:sticky</code>, or a free "sticky" add-on</td></tr>
+        <tr><td>"Request a Quote" form</td><td><span class="cross">✗</span> Pro only</td><td>Free form plugin: WPForms Lite or Contact Form 7</td></tr>
+        <tr><td>Hover tooltip on a single <em>word</em> in a paragraph (rich card)</td><td><span class="cross">✗</span> Not native (any version)</td><td>Custom HTML/JS (snippet below) or a tooltip add-on. <strong>This is the hardest piece.</strong></td></tr>
+        <tr><td>Live weather in city tooltip</td><td>—</td><td><strong>Removed</strong> from the mockup at owner's request — ignore</td></tr>
+      </table>
+      <p style="font-size:12.5px;color:#64748b;">* Elementor Free has no dedicated Table widget; the glance/pricing tables are simple enough to rebuild with Icon Lists or a small HTML widget.</p>
+
+      <h3 style="margin:22px 0 8px;font-size:15px;color:#1a1a2e;">Per-file build sheet</h3>
+      <table>
+        <tr><th>Mockup file</th><th>What it is</th><th>Build in WordPress (Free)</th></tr>
+        <tr><td><code>pages-mockup.html</code></td><td>The 5 tour pages (6/7/8/9/11-day)</td><td>One Elementor page per tour (or a reusable template duplicated). Standard widgets; tables via Icon List/HTML; sub-nav via anchor links + custom sticky CSS</td></tr>
+        <tr><td><code>website-mockup.html</code></td><td>Homepage design</td><td>Elementor homepage; header/footer/menus from the theme</td></tr>
+        <tr><td><code>destinations.html</code></td><td>Destinations hub (card grid)</td><td>Elementor page with an image-box grid. To auto-list, add a "Destination" CPT (CPT UI) + a free Post Grid add-on</td></tr>
+        <tr><td><code>kom-ombo.html</code>, <code>abu-simbel.html</code>, <code>cairo.html</code></td><td>Individual destination pages</td><td>Best as a <strong>Destination CPT</strong>; build one Elementor layout and reuse. Gallery = Image Gallery widget. (CPT single template needs Pro Theme Builder OR a free template plugin like "Elementor Custom Skin" — otherwise build each page individually)</td></tr>
+        <tr><td>Flaticon SVGs in <code>/icons/</code></td><td>Social + (planned) site icons</td><td>Upload via Elementor Icon widget / Media Library. Native</td></tr>
+        <tr><td><code>Tour-Package-TEMPLATE.docx</code></td><td>Internal authoring template</td><td>Not a web asset — keep for the content team</td></tr>
+      </table>
+
+      <div class="warning">
+        <strong>The genuinely serious issue (even with custom code):</strong> the inline word-level tooltips/links. In a page builder, the rich text is edited in a WYSIWYG box — every time a non-technical editor retypes a sentence, the <code>&lt;span data-site="..."&gt;</code> wrappers can get wiped, silently breaking the pop-ups. Custom code <em>works</em>, but it fights the editing model and will need re-checking after content edits. <strong>Recommendation:</strong> on the live site, prefer linking key site names to their Destination page (a normal link survives editing) and reserve the fancy hover card for a few hand-placed spots — rather than wiring all ~30 names inline.
+      </div>
+
+      <h3 style="margin:22px 0 8px;font-size:15px;color:#1a1a2e;">Pop-up / link — drop-in custom code (Free)</h3>
+      <p>Paste once into a site-wide <strong>HTML widget</strong> (or the theme footer via a code-snippets plugin). Then wrap any site name in your content as <code>&lt;span class="ae-site" data-site="kom-ombo"&gt;Kom Ombo&lt;/span&gt;</code>. Sites with a <code>page</code> navigate to their full guide on click; the rest show a small card. Weather is intentionally omitted.</p>
+      <pre>&lt;style&gt;
+.ae-site{ color:#b5451b; border-bottom:1px dotted #b5451b; cursor:pointer; }
+#ae-modal{ position:fixed; inset:0; background:rgba(0,0,0,.6); display:none;
+  align-items:center; justify-content:center; z-index:9999; padding:20px; }
+#ae-modal.open{ display:flex; }
+#ae-card{ background:#fff; max-width:420px; border-radius:12px; overflow:hidden; }
+#ae-card .ae-img{ height:150px; background-size:cover; background-position:center; }
+#ae-card .ae-b{ padding:18px 20px; }
+#ae-card h3{ margin:0 0 8px; color:#2c1a0e; }
+#ae-card p{ margin:0 0 14px; color:#4a3520; font-size:14px; }
+#ae-card a{ color:#b5451b; font-weight:700; text-decoration:none; }
+&lt;/style&gt;
+
+&lt;div id="ae-modal"&gt;&lt;div id="ae-card"&gt;
+  &lt;div class="ae-img"&gt;&lt;/div&gt;
+  &lt;div class="ae-b"&gt;&lt;h3&gt;&lt;/h3&gt;&lt;p&gt;&lt;/p&gt;&lt;a class="ae-guide" href="#"&gt;Read the full guide →&lt;/a&gt;&lt;/div&gt;
+&lt;/div&gt;&lt;/div&gt;
+
+&lt;script&gt;
+// 1) Add every site here. "page" = its Destination URL (leave "" if no page yet).
+var AE = {
+  "cairo":     { name:"Cairo", img:"/wp-content/uploads/sites/cairo.jpg",
+                 desc:"Egypt's capital — Pyramids, GEM, the Citadel and Coptic Cairo.", page:"/cairo/" },
+  "kom-ombo":  { name:"Kom Ombo Temple", img:"/wp-content/uploads/sites/kom-ombo.jpg",
+                 desc:"The double temple of Sobek &amp; Horus on the Nile.", page:"/kom-ombo/" },
+  "abu-simbel":{ name:"Abu Simbel Temples", img:"/wp-content/uploads/sites/abu-simbel.jpg",
+                 desc:"The colossal rock temples of Ramesses II.", page:"/abu-simbel/" },
+  "edfu":      { name:"Edfu Temple", img:"/wp-content/uploads/sites/edfu.jpg",
+                 desc:"The best-preserved temple in Egypt.", page:"" }
+  // ...add the rest...
+};
+var m = document.getElementById('ae-modal');
+document.addEventListener('click', function(e){
+  var el = e.target.closest('.ae-site');
+  if (el) {
+    var d = AE[el.getAttribute('data-site')]; if(!d) return;
+    if (d.page) { window.location.href = d.page; return; }   // marquee → full page
+    m.querySelector('.ae-img').style.background = "url('"+d.img+"') center/cover";
+    m.querySelector('h3').textContent = d.name;
+    m.querySelector('p').textContent = d.desc;
+    m.querySelector('.ae-guide').style.display = 'none';
+    m.classList.add('open'); return;
+  }
+  if (e.target === m) m.classList.remove('open');   // click backdrop to close
+});
+&lt;/script&gt;</pre>
+      <div class="note">This is the lean Free version of the mockup behavior: <strong>click</strong> a site name → go to its page (if built) or show a small card. The fancy hover-preview and the gallery-strip modal from the mockup are optional polish; skip them on Free unless a developer adds them.</div>
+
+      <h3 style="margin:22px 0 8px;font-size:15px;color:#1a1a2e;">Recommended free stack</h3>
+      <table>
+        <tr><th>Need</th><th>Free option</th></tr>
+        <tr><td>Header / footer / menus</td><td>A theme with a header-footer builder — <strong>Astra</strong>, <strong>Kadence</strong>, or <strong>OceanWP</strong> (all free)</td></tr>
+        <tr><td>Quote form</td><td><strong>WPForms Lite</strong> or <strong>Contact Form 7</strong></td></tr>
+        <tr><td>Destination listing + extra widgets (tooltip, post grid, sticky)</td><td><strong>Essential Addons for Elementor</strong> (free tier) or <strong>Happy Addons</strong> (free)</td></tr>
+        <tr><td>"Destination" content type</td><td><strong>CPT UI</strong> (free) — so destinations are real posts, not 30 hand-built pages</td></tr>
+        <tr><td>Click pop-ups (if not using the snippet)</td><td><strong>Popup Maker</strong> (free)</td></tr>
+      </table>
+
+      <div class="note"><strong>Bottom line:</strong> ~80% rebuilds with native Free widgets + the theme. The three things that need a plugin or the snippet above are: site-wide header/footer (theme), the quote form (form plugin), and the location pop-ups (snippet or Popup Maker). The one to <em>not</em> over-invest in is the inline hover tooltip — it's fragile in a page builder; link site names to their pages instead.</div>
+
+    </div>
+  </div>
+
   <!-- SUMMARY TABLE -->
   <div class="section">
     <div class="section-header">
@@ -1834,12 +1957,12 @@ function aetToggleDate(mode) {
     <div class="section-body">
       <table>
         <tr><th>#</th><th>Task</th><th>Priority</th><th>Where</th><th>Est. Time</th></tr>
-        <tr><td>1</td><td>Replace logo in Elementor header</td><td><span class="badge badge-critical">Critical</span></td><td>Theme Builder → Header</td><td>15 min</td></tr>
-        <tr><td>2</td><td>Fix Egyptian phone number in footer</td><td><span class="badge badge-critical">Critical</span></td><td>Theme Builder → Footer</td><td>10 min</td></tr>
+        <tr><td>1</td><td>Replace logo in Elementor header</td><td><span class="badge badge-critical">Critical</span></td><td>Theme → Header builder (Free)</td><td>15 min</td></tr>
+        <tr><td>2</td><td>Fix Egyptian phone number in footer</td><td><span class="badge badge-critical">Critical</span></td><td>Theme → Footer builder (Free)</td><td>10 min</td></tr>
         <tr><td>3</td><td>Fix gallery not rendering on frontend</td><td><span class="badge badge-critical">Critical</span></td><td>Elementor → Tools + homepage</td><td>30–90 min</td></tr>
         <tr><td>4</td><td>Fix broken Testimonials nav link</td><td><span class="badge badge-high">High</span></td><td>Appearance → Menus</td><td>5 min</td></tr>
         <tr><td>5</td><td>Restructure navigation menu</td><td><span class="badge badge-high">High</span></td><td>Appearance → Menus</td><td>20 min</td></tr>
-        <tr><td>6</td><td>Fix footer contact info (email)</td><td><span class="badge badge-high">High</span></td><td>Theme Builder → Footer</td><td>10 min</td></tr>
+        <tr><td>6</td><td>Fix footer contact info (email)</td><td><span class="badge badge-high">High</span></td><td>Theme → Footer builder (Free)</td><td>10 min</td></tr>
         <tr><td>7</td><td>Rename "Home 1" page to "Home"</td><td><span class="badge badge-medium">Medium</span></td><td>Pages → Quick Edit</td><td>2 min</td></tr>
         <tr><td>8</td><td>Update tagline</td><td><span class="badge badge-medium">Medium</span></td><td>Appearance → Customize</td><td>5 min</td></tr>
         <tr><td>9</td><td>Trash 14 draft/junk pages</td><td><span class="badge badge-high">High</span></td><td>Pages → All Pages</td><td>15 min</td></tr>
