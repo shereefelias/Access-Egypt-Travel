@@ -1,5 +1,17 @@
 # Access Egypt Travel — Project Instructions
 
+---
+
+## ⚠️ CRITICAL — READ FIRST, NEVER SKIP
+
+Before any task involving tour packages, website content, pricing, highlights, meals, itineraries, or any customer-facing copy, you MUST read and strictly follow:
+
+📄 **`docs/tour_packages_rules.md`**
+
+These are hard rules set by the owner. No exceptions. No deviations. No assumptions. If anything in a task conflicts with these rules, stop and flag it — do not proceed and do not work around it.
+
+---
+
 ## Business Context
 
 Access Egypt Travel is a boutique Egypt travel agency targeting **American customers**. We are the underdog vs. large global operators (Intrepid, G Adventures, Tauck, Abercrombie & Kent). Our edge is personalization, local expertise, direct access to guides, and a human touch that big operators can't offer.

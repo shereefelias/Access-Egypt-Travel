@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Access Egypt Travel — Schema Markup Reference</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f4f5f7; color: #2c3e50; font-size: 15px; line-height: 1.6; }
+  .header { background: #1a1a2e; color: white; padding: 36px 50px; }
+  .header h1 { font-size: 26px; font-weight: 800; margin-bottom: 6px; }
+  .header p { color: #a5b4fc; font-size: 14px; max-width: 600px; }
+  .banner { background: #ede9fe; border-bottom: 3px solid #7c3aed; padding: 14px 50px; font-size: 14px; color: #4c1d95; font-weight: 600; }
+  .container { padding: 32px 50px; max-width: 1000px; }
+  .section { background: white; border-radius: 10px; margin-bottom: 28px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); overflow: hidden; }
+  .section-header { background: #1a1a2e; color: white; padding: 16px 24px; }
+  .section-header h2 { font-size: 16px; font-weight: 800; }
+  .section-header p { font-size: 13px; color: #a5b4fc; margin-top: 3px; }
+  .section-body { padding: 24px; }
+  .code-block { background: #0f172a; border-radius: 8px; padding: 20px; margin: 14px 0; overflow-x: auto; }
+  .code-block pre { color: #e2e8f0; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 13px; line-height: 1.7; white-space: pre; }
+  .string { color: #86efac; }
+  .key { color: #93c5fd; }
+  .num { color: #fca5a5; }
+  .note { background: #f0fdf4; border-left: 4px solid #10b981; padding: 12px 16px; border-radius: 0 6px 6px 0; margin: 12px 0; font-size: 13.5px; color: #065f46; }
+  .warning { background: #fff7ed; border-left: 4px solid #f97316; padding: 12px 16px; border-radius: 0 6px 6px 0; margin: 12px 0; font-size: 13.5px; color: #9a3412; }
+  .edit-list { background: #f5f3ff; border: 1px solid #ddd6fe; border-radius: 8px; padding: 16px 20px; margin: 14px 0; }
+  .edit-list h4 { font-size: 13px; font-weight: 700; color: #5b21b6; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; }
+  .edit-list li { font-size: 13.5px; color: #374151; margin-bottom: 6px; }
+  .edit-list code { background: #ede9fe; color: #6d28d9; padding: 2px 6px; border-radius: 4px; font-size: 12px; }
+  .where-to-add { background: #fef9c3; border: 1px solid #fde047; border-radius: 8px; padding: 14px 18px; margin: 14px 0; font-size: 13.5px; }
+  .where-to-add strong { color: #92400e; }
+  h3 { font-size: 14px; font-weight: 700; color: #1a1a2e; margin: 16px 0 8px; text-transform: uppercase; letter-spacing: 0.3px; }
+  p { margin-bottom: 10px; font-size: 14px; }
+  ul { margin: 8px 0 10px 20px; }
+  li { margin-bottom: 5px; font-size: 14px; }
+  .footer-doc { background: #1a1a2e; color: #a5b4fc; text-align: center; padding: 20px; font-size: 13px; margin-top: 20px; }
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; background: #ede9fe; color: #5b21b6; margin-right: 8px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Schema Markup — Copy-Paste JSON-LD Reference</h1>
+  <p>Ready-to-use structured data for accessegypttravel.com. Customize the placeholder values marked with [BRACKETS], then add to WordPress via Rank Math or in the site's &lt;head&gt;.</p>
+</div>
+
+<div class="banner">
+  ⚡ Priority order: FAQPage first (fastest rich result), then Organization, then LocalBusiness. Tour pages and content pages can be done last. Test each one at <strong>search.google.com/test/rich-results</strong> after adding.
+</div>
+
+<div class="container">
+
+  <!-- HOW TO ADD -->
+  <div class="section">
+    <div class="section-header">
+      <h2>How to Add Schema Markup in WordPress</h2>
+      <p>Two methods — use Rank Math (preferred) or paste directly into the page header</p>
+    </div>
+    <div class="section-body">
+      <h3>Method 1: Rank Math (Recommended)</h3>
+      <p>Edit any page → Rank Math sidebar panel → <strong>Schema</strong> tab → <strong>+ Add Schema</strong> → choose schema type → fill in the form. Rank Math outputs clean JSON-LD automatically.</p>
+      <p>For schema types not available in Rank Math's dropdown (like the full Organization schema below), use Method 2.</p>
+
+      <h3>Method 2: WordPress Custom Header Code</h3>
+      <p>Rank Math → <strong>General Settings</strong> → <strong>Others</strong> → <strong>Header Code</strong> — paste JSON-LD directly. This adds the code site-wide (appropriate for Organization and LocalBusiness). For page-specific schema, use a plugin like <strong>Insert Headers and Footers</strong> to add code per-page.</p>
+
+      <div class="note">Always validate schema at <a href="https://search.google.com/test/rich-results" style="color:#065f46;font-weight:600;">search.google.com/test/rich-results</a> after adding. Paste your page URL and it will show what Google can read and any errors.</div>
+    </div>
+  </div>
+
+
+  <!-- ══════ FAQPAGE ══════ -->
+  <div class="section" id="faqpage">
+    <div class="section-header">
+      <h2><span class="badge">Priority 1</span> FAQPage Schema — FAQ Page</h2>
+      <p>Produces FAQ accordion in Google results. Fastest visible win — can appear in 24–48 hours.</p>
+    </div>
+    <div class="section-body">
+      <div class="where-to-add"><strong>Where to add:</strong> FAQ page only (accessegypttravel.com/faq/ or similar). Edit the FAQ page → Rank Math → Schema → + Add Schema → FAQ. Or paste the code below via Insert Headers and Footers on the FAQ page only.</div>
+
+      <div class="edit-list">
+        <h4>What to customize</h4>
+        <ul>
+          <li>Replace each <code>[QUESTION]</code> with the exact question text as it appears on your FAQ page</li>
+          <li>Replace each <code>[ANSWER]</code> with a concise 1–3 sentence answer. Google truncates long answers.</li>
+          <li>Add or remove <code>mainEntity</code> entries to match the number of FAQs on your page</li>
+        </ul>
+      </div>
+
+      <div class="code-block"><pre><span class="key">&lt;script type="application/ld+json"&gt;</span>
+{
+  <span class="key">"@context"</span>: <span class="string">"https://schema.org"</span>,
+  <span class="key">"@type"</span>: <span class="string">"FAQPage"</span>,
+  <span class="key">"mainEntity"</span>: [
+    {
+      <span class="key">"@type"</span>: <span class="string">"Question"</span>,
+      <span class="key">"name"</span>: <span class="string">"Is Egypt safe for American tourists?"</span>,
+      <span class="key">"acceptedAnswer"</span>: {
+        <span class="key">"@type"</span>: <span class="string">"Answer"</span>,
+        <span class="key">"text"</span>: <span class="string">"Yes. Major tourist areas — Cairo, Luxor, Aswan, and Hurghada — are safe for American visitors. The U.S. State Department rates Egypt Level 2 (Exercise Increased Caution), the same rating as France and Germany. Our guides have operated tours for American clients in these areas for over 22 years without a safety incident."</span>
+      }
+    },
+    {
+      <span class="key">"@type"</span>: <span class="string">"Question"</span>,
+      <span class="key">"name"</span>: <span class="string">"Do Americans need a visa to visit Egypt?"</span>,
+      <span class="key">"acceptedAnswer"</span>: {
+        <span class="key">"@type"</span>: <span class="string">"Answer"</span>,
+        <span class="key">"text"</span>: <span class="string">"Yes. American tourists require a visa to enter Egypt. The easiest option is the Egypt e-Visa, available online at visa2egypt.gov.eg for approximately $25 USD. Processing takes 3–5 business days. Visa on arrival is also available at Cairo, Hurghada, and Luxor airports for $25 USD cash."</span>
+      }
+    },
+    {
+      <span class="key">"@type"</span>: <span class="string">"Question"</span>,
+      <span class="key">"name"</span>: <span class="string">"What is the best time to visit Egypt?"</span>,
+      <span class="key">"acceptedAnswer"</span>: {
+        <span class="key">"@type"</span>: <span class="string">"Answer"</span>,
+        <span class="key">"text"</span>: <span class="string">"October through April offers the most comfortable temperatures for visiting Egypt's outdoor historical sites. October and November are especially recommended — warm but not extreme, with smaller crowds than the December-January peak season. Summer (June–August) is very hot in Upper Egypt but offers the lowest prices and fewest crowds."</span>
+      }
+    },
+    {
+      <span class="key">"@type"</span>: <span class="string">"Question"</span>,
+      <span class="key">"name"</span>: <span class="string">"Can I be picked up from Hurghada for a Luxor tour?"</span>,
+      <span class="key">"acceptedAnswer"</span>: {
+        <span class="key">"@type"</span>: <span class="string">"Answer"</span>,
+        <span class="key">"text"</span>: <span class="string">"Yes. We offer hotel pickup from Hurghada for Luxor day tours and multi-day packages. The drive through the Eastern Desert takes approximately 3 hours. We also pick up from Cairo and Luxor itself."</span>
+      }
+    },
+    {
+      <span class="key">"@type"</span>: <span class="string">"Question"</span>,
+      <span class="key">"name"</span>: <span class="string">"How much does a private Egypt tour cost?"</span>,
+      <span class="key">"acceptedAnswer"</span>: {
+        <span class="key">"@type"</span>: <span class="string">"Answer"</span>,
+        <span class="key">"text"</span>: <span class="string">"Private Egypt tour prices depend on duration, group size, and inclusions. We offer private day tours from Hurghada to Luxor, as well as multi-day packages covering Cairo, Luxor, Aswan, and the Nile. All prices are quoted in USD with no hidden fees. Contact us for a custom quote."</span>
+      }
+    },
+    {
+      <span class="key">"@type"</span>: <span class="string">"Question"</span>,
+      <span class="key">"name"</span>: <span class="string">"[YOUR NEXT FAQ QUESTION HERE]"</span>,
+      <span class="key">"acceptedAnswer"</span>: {
+        <span class="key">"@type"</span>: <span class="string">"Answer"</span>,
+        <span class="key">"text"</span>: <span class="string">"[YOUR ANSWER — 1 to 3 sentences]"</span>
+      }
+    }
+  ]
+}
+<span class="key">&lt;/script&gt;</span></pre></div>
+
+      <div class="warning">Each question in the schema must match a question that is <strong>visible on the page</strong>. Google cross-references the schema with the actual page content. If questions in the schema don't appear on the page, Google will ignore the schema.</div>
+    </div>
+  </div>
+
+
+  <!-- ══════ ORGANIZATION ══════ -->
+  <div class="section" id="organization">
+    <div class="section-header">
+      <h2><span class="badge">Priority 2</span> Organization Schema — Homepage</h2>
+      <p>Establishes your business identity in Google's Knowledge Graph. Feeds branded search results and knowledge panels.</p>
+    </div>
+    <div class="section-body">
+      <div class="where-to-add"><strong>Where to add:</strong> Homepage only. Rank Math → General Settings → Others → Header Code. Or paste via Insert Headers and Footers on the homepage only.</div>
+
+      <div class="edit-list">
+        <h4>What to customize before using</h4>
+        <ul>
+          <li>Replace <code>[LOGO_URL]</code> with the direct URL of your logo image (upload to Media Library → copy URL)</li>
+          <li>Replace <code>[FOUNDER_PHOTO_URL]</code> with a direct URL of John's photo</li>
+          <li>Confirm the social profile URLs are current</li>
+        </ul>
+      </div>
+
+      <div class="code-block"><pre><span class="key">&lt;script type="application/ld+json"&gt;</span>
+{
+  <span class="key">"@context"</span>: <span class="string">"https://schema.org"</span>,
+  <span class="key">"@type"</span>: <span class="string">"Organization"</span>,
+  <span class="key">"name"</span>: <span class="string">"Access Egypt Travel"</span>,
+  <span class="key">"url"</span>: <span class="string">"https://accessegypttravel.com"</span>,
+  <span class="key">"logo"</span>: <span class="string">"[LOGO_URL]"</span>,
+  <span class="key">"description"</span>: <span class="string">"Private Egypt tours led by certified Egyptologist John Gamil. Hotel pickup from Cairo, Hurghada, and Luxor. Tailor-made itineraries for American travelers. USD pricing, no hidden fees."</span>,
+  <span class="key">"email"</span>: <span class="string">"info@accessegypttravel.com"</span>,
+  <span class="key">"telephone"</span>: <span class="string">"+17727820494"</span>,
+  <span class="key">"contactPoint"</span>: [
+    {
+      <span class="key">"@type"</span>: <span class="string">"ContactPoint"</span>,
+      <span class="key">"telephone"</span>: <span class="string">"+17727820494"</span>,
+      <span class="key">"contactType"</span>: <span class="string">"customer service"</span>,
+      <span class="key">"areaServed"</span>: <span class="string">"US"</span>,
+      <span class="key">"availableLanguage"</span>: <span class="string">"English"</span>
+    },
+    {
+      <span class="key">"@type"</span>: <span class="string">"ContactPoint"</span>,
+      <span class="key">"telephone"</span>: <span class="string">"+201201400578"</span>,
+      <span class="key">"contactType"</span>: <span class="string">"customer service"</span>,
+      <span class="key">"contactOption"</span>: <span class="string">"WhatsApp"</span>,
+      <span class="key">"availableLanguage"</span>: <span class="string">"English"</span>
+    }
+  ],
+  <span class="key">"founder"</span>: {
+    <span class="key">"@type"</span>: <span class="string">"Person"</span>,
+    <span class="key">"name"</span>: <span class="string">"John Gamil"</span>,
+    <span class="key">"jobTitle"</span>: <span class="string">"Certified Egyptologist &amp; Private Tour Guide"</span>,
+    <span class="key">"image"</span>: <span class="string">"[FOUNDER_PHOTO_URL]"</span>
+  },
+  <span class="key">"sameAs"</span>: [
+    <span class="string">"https://www.facebook.com/accessegypttravel/"</span>,
+    <span class="string">"https://www.instagram.com/accessegypttravel/"</span>,
+    <span class="string">"https://www.tripadvisor.com/Profile/AccessEgyptTravel"</span>
+  ]
+}
+<span class="key">&lt;/script&gt;</span></pre></div>
+    </div>
+  </div>
+
+
+  <!-- ══════ LOCALBUSINESS ══════ -->
+  <div class="section" id="localbusiness">
+    <div class="section-header">
+      <h2><span class="badge">Priority 3</span> LocalBusiness (TouristInformationCenter) Schema — Homepage</h2>
+      <p>Signals your pickup locations and service area to Google local search.</p>
+    </div>
+    <div class="section-body">
+      <div class="where-to-add"><strong>Where to add:</strong> Homepage. Can be combined with the Organization schema block above in the same &lt;head&gt; injection — paste both as separate &lt;script&gt; blocks.</div>
+
+      <div class="code-block"><pre><span class="key">&lt;script type="application/ld+json"&gt;</span>
+{
+  <span class="key">"@context"</span>: <span class="string">"https://schema.org"</span>,
+  <span class="key">"@type"</span>: <span class="string">"TouristInformationCenter"</span>,
+  <span class="key">"name"</span>: <span class="string">"Access Egypt Travel"</span>,
+  <span class="key">"url"</span>: <span class="string">"https://accessegypttravel.com"</span>,
+  <span class="key">"telephone"</span>: <span class="string">"+17727820494"</span>,
+  <span class="key">"email"</span>: <span class="string">"info@accessegypttravel.com"</span>,
+  <span class="key">"description"</span>: <span class="string">"Private Egypt tours for American travelers. Certified Egyptologist guides. Pickup from Cairo, Hurghada, and Luxor."</span>,
+  <span class="key">"address"</span>: {
+    <span class="key">"@type"</span>: <span class="string">"PostalAddress"</span>,
+    <span class="key">"addressLocality"</span>: <span class="string">"Hurghada"</span>,
+    <span class="key">"addressRegion"</span>: <span class="string">"Red Sea Governorate"</span>,
+    <span class="key">"addressCountry"</span>: <span class="string">"EG"</span>
+  },
+  <span class="key">"areaServed"</span>: [
+    <span class="string">"Cairo"</span>,
+    <span class="string">"Giza"</span>,
+    <span class="string">"Hurghada"</span>,
+    <span class="string">"Luxor"</span>,
+    <span class="string">"Aswan"</span>,
+    <span class="string">"Abu Simbel"</span>,
+    <span class="string">"Egypt"</span>
+  ],
+  <span class="key">"priceRange"</span>: <span class="string">"$$–$$$"</span>,
+  <span class="key">"paymentAccepted"</span>: <span class="string">"USD, Credit Card, Bank Transfer"</span>,
+  <span class="key">"currenciesAccepted"</span>: <span class="string">"USD"</span>,
+  <span class="key">"sameAs"</span>: [
+    <span class="string">"https://www.facebook.com/accessegypttravel/"</span>,
+    <span class="string">"https://www.instagram.com/accessegypttravel/"</span>,
+    <span class="string">"https://www.tripadvisor.com/Profile/AccessEgyptTravel"</span>
+  ]
+}
+<span class="key">&lt;/script&gt;</span></pre></div>
+    </div>
+  </div>
+
+
+  <!-- ══════ PRODUCT / TOUR ══════ -->
+  <div class="section" id="product">
+    <div class="section-header">
+      <h2><span class="badge">Priority 4</span> Product Schema — Each Tour Page</h2>
+      <p>Adds pricing and availability signals to tour pages. Repeat for each tour page, adjusting the values.</p>
+    </div>
+    <div class="section-body">
+      <div class="where-to-add"><strong>Where to add:</strong> Each tour page individually. Edit the tour page → Rank Math → Schema → + Add Schema → Product. Or use Insert Headers and Footers with page-level targeting.</div>
+
+      <div class="edit-list">
+        <h4>What to customize per tour page</h4>
+        <ul>
+          <li>Change <code>"name"</code> to the exact tour name</li>
+          <li>Change <code>"description"</code> to match the tour's actual content</li>
+          <li>Change <code>"price"</code> to the tour's actual USD price — only if you're comfortable showing it in Google results. Use the starting price and note "from" in the description.</li>
+          <li>Change <code>"image"</code> to the featured image URL for that tour page</li>
+        </ul>
+      </div>
+
+      <div class="code-block"><pre><span class="key">&lt;script type="application/ld+json"&gt;</span>
+{
+  <span class="key">"@context"</span>: <span class="string">"https://schema.org"</span>,
+  <span class="key">"@type"</span>: <span class="string">"Product"</span>,
+  <span class="key">"name"</span>: <span class="string">"[TOUR NAME — e.g. 'Private Luxor Day Tour from Hurghada']"</span>,
+  <span class="key">"image"</span>: <span class="string">"[URL OF TOUR PAGE FEATURED IMAGE]"</span>,
+  <span class="key">"description"</span>: <span class="string">"[TOUR DESCRIPTION — 1-2 sentences: what's included, pickup locations, highlights]"</span>,
+  <span class="key">"brand"</span>: {
+    <span class="key">"@type"</span>: <span class="string">"Brand"</span>,
+    <span class="key">"name"</span>: <span class="string">"Access Egypt Travel"</span>
+  },
+  <span class="key">"offers"</span>: {
+    <span class="key">"@type"</span>: <span class="string">"Offer"</span>,
+    <span class="key">"url"</span>: <span class="string">"[URL OF THIS TOUR PAGE]"</span>,
+    <span class="key">"priceCurrency"</span>: <span class="string">"USD"</span>,
+    <span class="key">"price"</span>: <span class="string">"[STARTING PRICE IN USD — numbers only, e.g. 195]"</span>,
+    <span class="key">"availability"</span>: <span class="string">"https://schema.org/InStock"</span>,
+    <span class="key">"seller"</span>: {
+      <span class="key">"@type"</span>: <span class="string">"Organization"</span>,
+      <span class="key">"name"</span>: <span class="string">"Access Egypt Travel"</span>
+    }
+  },
+  <span class="key">"provider"</span>: {
+    <span class="key">"@type"</span>: <span class="string">"Organization"</span>,
+    <span class="key">"name"</span>: <span class="string">"Access Egypt Travel"</span>,
+    <span class="key">"url"</span>: <span class="string">"https://accessegypttravel.com"</span>
+  }
+}
+<span class="key">&lt;/script&gt;</span></pre></div>
+    </div>
+  </div>
+
+
+  <!-- ══════ PERSON ══════ -->
+  <div class="section" id="person">
+    <div class="section-header">
+      <h2><span class="badge">Priority 5</span> Person Schema — About Us Page (John Gamil)</h2>
+      <p>Establishes John as a real expert with verifiable credentials. Core E-E-A-T signal for the whole site.</p>
+    </div>
+    <div class="section-body">
+      <div class="where-to-add"><strong>Where to add:</strong> About Us page only. Edit About page → Rank Math → Schema → + Add Schema → Person.</div>
+
+      <div class="edit-list">
+        <h4>What to customize</h4>
+        <ul>
+          <li>Replace <code>[JOHN_PHOTO_URL]</code> with the direct URL of John's headshot (upload to Media Library first)</li>
+          <li>Optionally add a LinkedIn URL to the <code>sameAs</code> array if John has one</li>
+        </ul>
+      </div>
+
+      <div class="code-block"><pre><span class="key">&lt;script type="application/ld+json"&gt;</span>
+{
+  <span class="key">"@context"</span>: <span class="string">"https://schema.org"</span>,
+  <span class="key">"@type"</span>: <span class="string">"Person"</span>,
+  <span class="key">"name"</span>: <span class="string">"John Gamil"</span>,
+  <span class="key">"jobTitle"</span>: <span class="string">"Certified Egyptologist &amp; Private Tour Guide"</span>,
+  <span class="key">"description"</span>: <span class="string">"BSc in Egyptology with 22+ years leading private tours across Egypt for American travelers. Founder of Access Egypt Travel. Specialist in Cairo, Luxor, Aswan, and Nile cruises."</span>,
+  <span class="key">"image"</span>: <span class="string">"[JOHN_PHOTO_URL]"</span>,
+  <span class="key">"url"</span>: <span class="string">"https://accessegypttravel.com/about-us/"</span>,
+  <span class="key">"worksFor"</span>: {
+    <span class="key">"@type"</span>: <span class="string">"Organization"</span>,
+    <span class="key">"name"</span>: <span class="string">"Access Egypt Travel"</span>,
+    <span class="key">"url"</span>: <span class="string">"https://accessegypttravel.com"</span>
+  },
+  <span class="key">"alumniOf"</span>: {
+    <span class="key">"@type"</span>: <span class="string">"EducationalOrganization"</span>,
+    <span class="key">"name"</span>: <span class="string">"[University Name — if you want to include it]"</span>
+  },
+  <span class="key">"knowsAbout"</span>: [
+    <span class="string">"Egyptology"</span>,
+    <span class="string">"Ancient Egypt"</span>,
+    <span class="string">"Egypt Tourism"</span>,
+    <span class="string">"Valley of the Kings"</span>,
+    <span class="string">"Nile River Cruises"</span>,
+    <span class="string">"Karnak Temple"</span>,
+    <span class="string">"Egyptian History"</span>
+  ],
+  <span class="key">"sameAs"</span>: [
+    <span class="string">"https://www.facebook.com/accessegypttravel/"</span>,
+    <span class="string">"https://www.tripadvisor.com/Profile/AccessEgyptTravel"</span>
+  ]
+}
+<span class="key">&lt;/script&gt;</span></pre></div>
+    </div>
+  </div>
+
+
+  <!-- ══════ ARTICLE (CONTENT PAGES) ══════ -->
+  <div class="section" id="article">
+    <div class="section-header">
+      <h2><span class="badge">Priority 6</span> Article Schema — Each of the 6 Content Pages</h2>
+      <p>Marks content pages as editorial articles, signals authorship and publish date. Repeat for each content page.</p>
+    </div>
+    <div class="section-body">
+      <div class="where-to-add"><strong>Where to add:</strong> Each of the 6 content pages (visa, safety, best time, Hurghada-Luxor, packing, Cairo-Luxor). Edit each page → Rank Math → Schema → + Add Schema → Article.</div>
+
+      <div class="edit-list">
+        <h4>What to customize per content page</h4>
+        <ul>
+          <li>Change <code>"headline"</code> to the H1 of the specific article</li>
+          <li>Change <code>"url"</code> to the actual URL of the specific page</li>
+          <li>Change <code>"image"</code> to the featured image URL for that page</li>
+          <li>Change <code>"datePublished"</code> and <code>"dateModified"</code> to match when the page was published/updated</li>
+          <li>Replace <code>[JOHN_PHOTO_URL]</code> with John's headshot URL</li>
+        </ul>
+      </div>
+
+      <div class="code-block"><pre><span class="key">&lt;script type="application/ld+json"&gt;</span>
+{
+  <span class="key">"@context"</span>: <span class="string">"https://schema.org"</span>,
+  <span class="key">"@type"</span>: <span class="string">"Article"</span>,
+  <span class="key">"headline"</span>: <span class="string">"[H1 OF THIS PAGE — e.g. 'Is Egypt Safe for American Tourists?']"</span>,
+  <span class="key">"url"</span>: <span class="string">"[FULL URL OF THIS PAGE]"</span>,
+  <span class="key">"image"</span>: <span class="string">"[FEATURED IMAGE URL FOR THIS PAGE]"</span>,
+  <span class="key">"datePublished"</span>: <span class="string">"2026-06-01"</span>,
+  <span class="key">"dateModified"</span>: <span class="string">"2026-06-01"</span>,
+  <span class="key">"author"</span>: {
+    <span class="key">"@type"</span>: <span class="string">"Person"</span>,
+    <span class="key">"name"</span>: <span class="string">"John Gamil"</span>,
+    <span class="key">"url"</span>: <span class="string">"https://accessegypttravel.com/about-us/"</span>,
+    <span class="key">"image"</span>: <span class="string">"[JOHN_PHOTO_URL]"</span>,
+    <span class="key">"jobTitle"</span>: <span class="string">"Certified Egyptologist &amp; Private Tour Guide"</span>
+  },
+  <span class="key">"publisher"</span>: {
+    <span class="key">"@type"</span>: <span class="string">"Organization"</span>,
+    <span class="key">"name"</span>: <span class="string">"Access Egypt Travel"</span>,
+    <span class="key">"url"</span>: <span class="string">"https://accessegypttravel.com"</span>,
+    <span class="key">"logo"</span>: {
+      <span class="key">"@type"</span>: <span class="string">"ImageObject"</span>,
+      <span class="key">"url"</span>: <span class="string">"[LOGO_URL]"</span>
+    }
+  },
+  <span class="key">"description"</span>: <span class="string">"[1–2 sentence summary of the article — same as the meta description]"</span>,
+  <span class="key">"mainEntityOfPage"</span>: {
+    <span class="key">"@type"</span>: <span class="string">"WebPage"</span>,
+    <span class="key">"@id"</span>: <span class="string">"[FULL URL OF THIS PAGE]"</span>
+  }
+}
+<span class="key">&lt;/script&gt;</span></pre></div>
+    </div>
+  </div>
+
+
+  <!-- ══════ VALIDATION ══════ -->
+  <div class="section">
+    <div class="section-header">
+      <h2>Validate All Schema — Required Step</h2>
+      <p>Don't skip this — errors in schema prevent rich results even if the code looks correct.</p>
+    </div>
+    <div class="section-body">
+      <h3>How to Test</h3>
+      <p>After adding each schema block, go to:</p>
+      <p style="font-family:monospace;background:#f1f5f9;padding:10px 16px;border-radius:6px;font-weight:700;color:#4c1d95;">https://search.google.com/test/rich-results</p>
+      <p>Paste the page URL and click <strong>Test URL</strong>. You'll see:</p>
+      <ul>
+        <li><span style="color:#16a34a;font-weight:700;">Green checkmark</span> — schema is valid, page is eligible for this rich result type</li>
+        <li><span style="color:#f97316;font-weight:700;">Warning triangle</span> — schema has errors, won't produce rich results until fixed</li>
+        <li><span style="color:#dc2626;font-weight:700;">Red X</span> — critical error in the JSON structure</li>
+      </ul>
+      <div class="note">Common errors: missing required fields (especially <code>image</code> on Article schema), mismatched question text between FAQPage schema and page content, and malformed URLs. The tool tells you exactly what's wrong.</div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer-doc">
+  Access Egypt Travel — Schema Markup Reference · June 2026 · See also: seo-plan-phase3.html for where to add each schema type
+</div>
+
+</body>
+</html>

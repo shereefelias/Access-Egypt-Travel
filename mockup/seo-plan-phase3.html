@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Access Egypt Travel — SEO Plan Phase 3</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f4f5f7; color: #2c3e50; font-size: 15px; line-height: 1.6; }
+  .page-layout { display: flex; }
+  .toc-sidebar { width: 260px; flex-shrink: 0; position: sticky; top: 0; height: 100vh; overflow-y: auto; background: #1a1a2e; color: white; padding: 24px 0; }
+  .toc-sidebar h2 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #a5b4fc; padding: 0 20px; margin-bottom: 14px; }
+  .toc-sidebar a { display: block; padding: 8px 20px; color: rgba(255,255,255,0.75); text-decoration: none; font-size: 13px; border-left: 3px solid transparent; transition: all 0.15s; line-height: 1.4; }
+  .toc-sidebar a:hover { color: white; background: rgba(255,255,255,0.08); border-left-color: #818cf8; }
+  .toc-sidebar a.active { color: white; background: rgba(255,255,255,0.1); border-left-color: #818cf8; font-weight: 600; }
+  .toc-divider { height: 1px; background: rgba(255,255,255,0.1); margin: 10px 20px; }
+  .toc-step-num { display: inline-block; background: rgba(255,255,255,0.15); border-radius: 3px; font-size: 10px; font-weight: 700; padding: 1px 6px; margin-right: 5px; vertical-align: middle; }
+  .toc-sidebar .back-links { padding: 0 20px; margin-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 16px; }
+  .toc-sidebar .back-links a { padding: 6px 0; color: #a5b4fc; border: none; font-size: 12px; }
+  .main-content { flex: 1; min-width: 0; }
+  .doc-header { background: #1a1a2e; color: white; padding: 40px 50px; }
+  .doc-header h1 { font-size: 28px; font-weight: 800; margin-bottom: 8px; }
+  .doc-header p { color: #a5b4fc; font-size: 15px; max-width: 600px; }
+  .doc-header .meta { display: flex; gap: 20px; margin-top: 16px; flex-wrap: wrap; }
+  .doc-header .meta span { font-size: 13px; color: #818cf8; }
+  .doc-header .meta strong { color: white; }
+  .phase-banner { background: #ede9fe; border-bottom: 3px solid #7c3aed; padding: 14px 50px; font-size: 14px; color: #4c1d95; font-weight: 600; }
+  .phase-banner a { color: #6d28d9; }
+  .container { padding: 36px 50px; }
+  .section { background: white; border-radius: 10px; margin-bottom: 28px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); overflow: hidden; }
+  .section-header { padding: 18px 26px; border-bottom: 1px solid #f0f0f0; display: flex; align-items: center; gap: 14px; }
+  .section-header h2 { font-size: 17px; font-weight: 800; color: #1a1a2e; flex: 1; }
+  .section-body { padding: 26px; }
+  .step { border: 1px solid #e5e7eb; border-radius: 8px; margin-bottom: 20px; overflow: hidden; }
+  .step-header { padding: 14px 18px; display: flex; align-items: flex-start; gap: 14px; background: #f5f3ff; border-bottom: 1px solid #e5e7eb; }
+  .step-num { background: #1a1a2e; color: white; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 800; flex-shrink: 0; margin-top: 1px; }
+  .step-title { font-weight: 800; font-size: 15px; color: #1a1a2e; flex: 1; }
+  .step-body { padding: 20px; }
+  .path { background: #1e293b; color: #e2e8f0; padding: 10px 16px; border-radius: 6px; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 13px; margin: 10px 0; line-height: 1.8; }
+  .path .arrow { color: #64748b; margin: 0 5px; }
+  .path .click { color: #818cf8; font-weight: 600; }
+  .copy-box { background: #f8f5ff; border: 2px solid #c4b5fd; border-radius: 8px; padding: 14px 18px; margin: 12px 0; position: relative; }
+  .copy-box .copy-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #7c3aed; margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+  .copy-box .copy-label::before { content: "📋"; }
+  .copy-box .copy-content { font-family: 'SF Mono', 'Fira Code', monospace; font-size: 12.5px; color: #1e1b4b; line-height: 1.8; white-space: pre-wrap; word-break: break-word; }
+  .note { background: #f0fdf4; border-left: 4px solid #10b981; padding: 12px 16px; border-radius: 0 6px 6px 0; margin: 12px 0; font-size: 13.5px; color: #065f46; }
+  .warning { background: #fff7ed; border-left: 4px solid #f97316; padding: 12px 16px; border-radius: 0 6px 6px 0; margin: 12px 0; font-size: 13.5px; color: #9a3412; }
+  .why-box { background: #faf5ff; border: 1px solid #e9d5ff; border-radius: 6px; padding: 12px 16px; margin: 12px 0; font-size: 13.5px; color: #4c1d95; }
+  .why-box strong { color: #6d28d9; }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 13.5px; }
+  th { background: #f5f3ff; padding: 10px 14px; text-align: left; font-weight: 700; color: #4c1d95; border-bottom: 2px solid #ddd6fe; }
+  td { padding: 10px 14px; border-bottom: 1px solid #f1f5f9; vertical-align: top; }
+  td:first-child { font-weight: 600; }
+  h3 { font-size: 14px; font-weight: 700; color: #1a1a2e; margin: 16px 0 8px; text-transform: uppercase; letter-spacing: 0.3px; }
+  p { margin-bottom: 10px; }
+  ul, ol { margin: 8px 0 10px 20px; }
+  li { margin-bottom: 6px; line-height: 1.5; }
+  code { background: #f1f5f9; color: #e11d48; padding: 2px 6px; border-radius: 4px; font-family: 'SF Mono', monospace; font-size: 13px; }
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+  .badge-schema { background: #ede9fe; color: #5b21b6; }
+  .badge-image { background: #dbeafe; color: #1e40af; }
+  .badge-cwv { background: #fef3c7; color: #92400e; }
+  .badge-eeat { background: #d1fae5; color: #065f46; }
+  .badge-links { background: #fee2e2; color: #991b1b; }
+  .check { color: #16a34a; font-weight: 700; }
+  .cross { color: #dc2626; font-weight: 700; }
+  .url-box { background: #f5f3ff; border: 1px solid #c4b5fd; border-radius: 6px; padding: 10px 14px; font-family: monospace; font-size: 13px; color: #4c1d95; font-weight: 700; margin: 8px 0; word-break: break-all; }
+  .summary-table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  .summary-table th { background: #1a1a2e; color: white; padding: 10px 14px; text-align: left; font-weight: 700; }
+  .summary-table td { padding: 10px 14px; border-bottom: 1px solid #f1f5f9; vertical-align: top; }
+  .summary-table tr:nth-child(even) td { background: #f5f3ff; }
+  .footer-doc { background: #1a1a2e; color: #a5b4fc; text-align: center; padding: 20px; font-size: 13px; }
+  .link-map { background: #f8f5ff; border: 1px solid #ddd6fe; border-radius: 8px; padding: 16px 20px; margin: 12px 0; font-size: 13.5px; }
+  .link-map .lm-row { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px solid #ede9fe; }
+  .link-map .lm-row:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .lm-source { background: #1a1a2e; color: white; padding: 3px 10px; border-radius: 4px; font-size: 12px; font-weight: 700; white-space: nowrap; }
+  .lm-arrow { color: #7c3aed; font-size: 18px; padding: 0 4px; }
+  .lm-targets { font-size: 13px; color: #374151; }
+</style>
+</head>
+<body>
+
+<div class="page-layout">
+
+  <!-- ══ STICKY TOC SIDEBAR ══ -->
+  <nav class="toc-sidebar">
+    <h2>SEO Plan — Phase 3</h2>
+    <a href="#overview">Overview &amp; Sequence</a>
+    <div class="toc-divider"></div>
+    <div style="padding:6px 20px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#a5b4fc;margin-top:4px;">Phase 3 — Technical SEO</div>
+    <a href="#s1"><span class="toc-step-num">1</span> Schema Markup (JSON-LD)</a>
+    <a href="#s2"><span class="toc-step-num">2</span> Image SEO Checklist</a>
+    <a href="#s3"><span class="toc-step-num">3</span> Core Web Vitals</a>
+    <div class="toc-divider"></div>
+    <div style="padding:6px 20px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#a5b4fc;margin-top:4px;">Phase 3 — Content Quality</div>
+    <a href="#s4"><span class="toc-step-num">4</span> E-E-A-T on Content Pages</a>
+    <a href="#s5"><span class="toc-step-num">5</span> Internal Linking Strategy</a>
+    <div class="toc-divider"></div>
+    <a href="#summary">All Tasks Summary</a>
+    <div class="back-links">
+      <a href="seo-plan.html">← SEO Plan Phase 2</a>
+      <a href="developer-plan.html">← Developer Plan</a>
+      <a href="schema-markup.html">→ Schema Code Reference</a>
+    </div>
+  </nav>
+
+  <!-- ══ MAIN CONTENT ══ -->
+  <div class="main-content">
+
+    <div class="doc-header">
+      <h1>Access Egypt Travel — SEO Plan Phase 3</h1>
+      <p>The 5 gaps missing from Phase 2: structured data, image SEO, Core Web Vitals, E-E-A-T signals, and internal linking. These are what separate a site that shows up in Google from one that ranks.</p>
+      <div class="meta">
+        <span><strong>Do after:</strong> Phase 2 complete (Rank Math configured, meta descriptions set)</span>
+        <span><strong>Plugin:</strong> Rank Math SEO (schema built in)</span>
+        <span><strong>Prepared:</strong> June 2026</span>
+      </div>
+    </div>
+
+    <div class="phase-banner">
+      ⚡ Phase 3 does not require a developer for most tasks. Schema markup is added via Rank Math's UI. Image SEO is done during content upload. E-E-A-T and internal linking are content decisions.
+    </div>
+
+    <div class="container">
+
+      <!-- ══════ OVERVIEW ══════ -->
+      <div class="section" id="overview">
+        <div class="section-header">
+          <h2>Why Phase 2 Is Not Enough</h2>
+        </div>
+        <div class="section-body">
+          <p>Phase 2 (Rank Math keywords, meta descriptions, site tagline, 6 content pages) tells Google <em>what your pages are about</em>. Phase 3 tells Google <em>why your pages deserve to rank</em>.</p>
+          <table>
+            <tr><th>What Phase 2 Covered</th><th>What Phase 3 Adds</th></tr>
+            <tr><td>Focus keywords in Rank Math</td><td>FAQPage schema → rich results (FAQ accordion in Google)</td></tr>
+            <tr><td>Meta descriptions written</td><td>Organization schema → knowledge panel data</td></tr>
+            <tr><td>Sitemap submitted</td><td>og:image + max-image-preview → Google Discover eligibility</td></tr>
+            <tr><td>6 content pages planned</td><td>E-E-A-T signals that make Google trust those pages</td></tr>
+            <tr><td>Pickup location text added</td><td>Internal links that pass authority to tour pages</td></tr>
+          </table>
+          <div class="note"><strong>Fastest wins in this document:</strong> FAQPage schema (Step 1) and og:image (Step 2) can each be live within 30 minutes and produce visible results in Google within 24–48 hours.</div>
+        </div>
+      </div>
+
+
+      <!-- ══════ S1: SCHEMA MARKUP ══════ -->
+      <div class="section" id="s1">
+        <div class="section-header">
+          <span class="badge badge-schema">Schema Markup</span>
+          <h2>Step 1 — Add Structured Data (Schema Markup) via Rank Math</h2>
+        </div>
+        <div class="section-body">
+
+          <div class="why-box"><strong>Why this matters:</strong> Schema markup is JSON-LD code that tells Google exactly what type of content a page contains — a FAQ, a business, a tour product, a person. Google uses this to display rich results: FAQ accordions, star ratings, and knowledge panel data. These appear <em>above</em> regular search results and dramatically increase click-through rate without needing to rank higher.</div>
+
+          <div class="note">All schema below is added via <strong>Rank Math → Schema</strong> inside each page's editor. Rank Math generates the JSON-LD automatically — you fill in fields in a form, not code. For copy-paste JSON-LD code, see <a href="schema-markup.html" style="color:#7c3aed;font-weight:600;">schema-markup.html</a>.</div>
+
+          <h3>Priority Order for Schema Implementation</h3>
+          <table>
+            <tr><th>Priority</th><th>Schema Type</th><th>Page</th><th>What It Does in Google</th></tr>
+            <tr>
+              <td><strong style="color:#dc2626;">1 — Do First</strong></td>
+              <td>FAQPage</td>
+              <td>FAQ page</td>
+              <td>FAQ accordion appears directly in Google results — huge CTR boost</td>
+            </tr>
+            <tr>
+              <td><strong style="color:#dc2626;">2 — Do First</strong></td>
+              <td>Organization</td>
+              <td>Homepage</td>
+              <td>Business name, logo, social profiles in Google's knowledge data</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>LocalBusiness (TouristInformationCenter)</td>
+              <td>Homepage / Contact</td>
+              <td>Shows pickup locations, phone, hours in local results</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Product + Offer</td>
+              <td>Each tour page</td>
+              <td>Price, availability, description in rich results</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>BreadcrumbList</td>
+              <td>All interior pages</td>
+              <td>Breadcrumb trail shown in Google results URL line</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>Person</td>
+              <td>About Us page</td>
+              <td>John Gamil's credentials as an identifiable, trustworthy author</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>Article</td>
+              <td>Each of the 6 content pages</td>
+              <td>Marks content as editorial, signals author, publish date</td>
+            </tr>
+          </table>
+
+          <!-- FAQPage -->
+          <div class="step">
+            <div class="step-header">
+              <div class="step-num">1A</div>
+              <div class="step-title">FAQPage Schema — FAQ Page</div>
+            </div>
+            <div class="step-body">
+              <p>This is the fastest visible win. When Google detects FAQPage schema, it shows your FAQ questions as an expandable accordion directly in search results — without you ranking higher. It's free clicks.</p>
+              <div class="path">
+                Edit FAQ page <span class="arrow">→</span> Rank Math panel <span class="arrow">→</span> <span class="click">Schema</span> tab <span class="arrow">→</span> click <span class="click">+ Add Schema</span> <span class="arrow">→</span> choose <span class="click">FAQ</span>
+              </div>
+              <p>Rank Math will show a form where you add each question and answer pair. Add all FAQ items. Each question should match <em>exactly</em> what appears on the page — Google cross-references them.</p>
+              <div class="warning">Each answer must be 1–3 sentences max. Google truncates long FAQ answers in the rich result. Make the first sentence the complete answer.</div>
+              <div class="note">After saving, test it at <strong>search.google.com/test/rich-results</strong> — paste your FAQ page URL and it will show you whether Google can read the schema correctly.</div>
+            </div>
+          </div>
+
+          <!-- Organization -->
+          <div class="step">
+            <div class="step-header">
+              <div class="step-num">1B</div>
+              <div class="step-title">Organization Schema — Homepage</div>
+            </div>
+            <div class="step-body">
+              <p>Tells Google who you are as a business. This data feeds Google's Knowledge Graph and can appear as a knowledge panel in branded search results.</p>
+              <div class="path">
+                Edit Homepage <span class="arrow">→</span> Rank Math <span class="arrow">→</span> <span class="click">Schema</span> <span class="arrow">→</span> <span class="click">+ Add Schema</span> <span class="arrow">→</span> <span class="click">Organization</span>
+              </div>
+              <table>
+                <tr><th>Field</th><th>Value to Enter</th></tr>
+                <tr><td>Name</td><td>Access Egypt Travel</td></tr>
+                <tr><td>URL</td><td>https://accessegypttravel.com</td></tr>
+                <tr><td>Logo</td><td>[URL of your logo image — upload to Media Library first, copy URL]</td></tr>
+                <tr><td>Email</td><td>info@accessegypttravel.com</td></tr>
+                <tr><td>Phone</td><td>+17727820494</td></tr>
+                <tr><td>Description</td><td>Private Egypt tours led by certified Egyptologist John Gamil. Pickup from Cairo, Hurghada & Luxor. Tailor-made itineraries for American travelers.</td></tr>
+                <tr><td>Same As (social profiles)</td><td>https://www.facebook.com/accessegypttravel/ and https://www.instagram.com/accessegypttravel/ and https://www.tripadvisor.com/Profile/AccessEgyptTravel</td></tr>
+              </table>
+            </div>
+          </div>
+
+          <!-- LocalBusiness -->
+          <div class="step">
+            <div class="step-header">
+              <div class="step-num">1C</div>
+              <div class="step-title">LocalBusiness Schema — Homepage + Contact Page</div>
+            </div>
+            <div class="step-body">
+              <p>Reinforces your pickup locations as service areas. Use type <strong>TouristInformationCenter</strong> which is the most accurate schema type for a tour operator.</p>
+              <div class="path">
+                Edit Homepage <span class="arrow">→</span> Rank Math <span class="arrow">→</span> Schema <span class="arrow">→</span> <span class="click">+ Add Schema</span> <span class="arrow">→</span> <span class="click">Local Business</span>
+              </div>
+              <table>
+                <tr><th>Field</th><th>Value</th></tr>
+                <tr><td>Type</td><td>TouristInformationCenter</td></tr>
+                <tr><td>Name</td><td>Access Egypt Travel</td></tr>
+                <tr><td>Address — Street</td><td>Hurghada, Red Sea Governorate</td></tr>
+                <tr><td>Address — City</td><td>Hurghada</td></tr>
+                <tr><td>Address — Country</td><td>EG</td></tr>
+                <tr><td>Telephone</td><td>+17727820494</td></tr>
+                <tr><td>Price Range</td><td>$$–$$$</td></tr>
+                <tr><td>Area Served</td><td>Cairo, Hurghada, Luxor, Aswan, Abu Simbel, Egypt</td></tr>
+              </table>
+            </div>
+          </div>
+
+          <!-- Product -->
+          <div class="step">
+            <div class="step-header">
+              <div class="step-num">1D</div>
+              <div class="step-title">Product Schema — Each Tour Page</div>
+            </div>
+            <div class="step-body">
+              <p>Adds price and description to tour pages, making them eligible for rich results with pricing information. Do this for each tour page individually.</p>
+              <div class="path">
+                Edit tour page <span class="arrow">→</span> Rank Math <span class="arrow">→</span> Schema <span class="arrow">→</span> <span class="click">+ Add Schema</span> <span class="arrow">→</span> <span class="click">Product</span>
+              </div>
+              <table>
+                <tr><th>Field</th><th>Example (adjust per tour)</th></tr>
+                <tr><td>Name</td><td>6-Day Cairo & Luxor Private Tour</td></tr>
+                <tr><td>Description</td><td>Private 6-day Egypt tour with Egyptologist guide. Pickup from Cairo or Hurghada. Includes Pyramids of Giza, Karnak Temple, Valley of the Kings. USD pricing, no hidden fees.</td></tr>
+                <tr><td>Price</td><td>[Your price in USD — confirm current pricing first]</td></tr>
+                <tr><td>Currency</td><td>USD</td></tr>
+                <tr><td>Availability</td><td>InStock</td></tr>
+                <tr><td>Brand / Provider</td><td>Access Egypt Travel</td></tr>
+              </table>
+              <div class="warning">Only add pricing if you're comfortable with it being visible in Google results. If pricing varies by group size, use the starting price and note "from $X" in the description field.</div>
+            </div>
+          </div>
+
+          <!-- BreadcrumbList -->
+          <div class="step">
+            <div class="step-header">
+              <div class="step-num">1E</div>
+              <div class="step-title">BreadcrumbList — All Interior Pages</div>
+            </div>
+            <div class="step-body">
+              <p>Adds a breadcrumb trail (Home › Tours › Nile Cruise) to the URL line in Google results. Makes results look more professional and gives users context before clicking.</p>
+              <div class="path">
+                Rank Math → <span class="click">General Settings</span> → <span class="click">Breadcrumbs</span> → enable <span class="click">Enable Breadcrumbs</span>
+              </div>
+              <p>Rank Math handles BreadcrumbList schema automatically once enabled site-wide — no per-page action needed. Then add the breadcrumb widget to your page template in Elementor so the trail is also visible on the page itself.</p>
+            </div>
+          </div>
+
+          <!-- Person -->
+          <div class="step">
+            <div class="step-header">
+              <div class="step-num">1F</div>
+              <div class="step-title">Person Schema — About Us Page (John Gamil)</div>
+            </div>
+            <div class="step-body">
+              <p>Establishes John Gamil as a real, identifiable person with verifiable credentials. This is a direct E-E-A-T signal — Google rewards content from people with demonstrable expertise.</p>
+              <div class="path">
+                Edit About Us page <span class="arrow">→</span> Rank Math <span class="arrow">→</span> Schema <span class="arrow">→</span> <span class="click">+ Add Schema</span> <span class="arrow">→</span> <span class="click">Person</span>
+              </div>
+              <table>
+                <tr><th>Field</th><th>Value</th></tr>
+                <tr><td>Name</td><td>John Gamil</td></tr>
+                <tr><td>Job Title</td><td>Certified Egyptologist & Private Tour Guide</td></tr>
+                <tr><td>Description</td><td>BSc in Egyptology with 22+ years leading private tours across Egypt. Founder of Access Egypt Travel, specializing in personalized tours for American travelers from Cairo, Hurghada, and Luxor.</td></tr>
+                <tr><td>URL</td><td>https://accessegypttravel.com/about-us/</td></tr>
+                <tr><td>Image</td><td>[URL of John's photo — upload to Media Library, copy URL]</td></tr>
+                <tr><td>Works For</td><td>Access Egypt Travel</td></tr>
+              </table>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+      <!-- ══════ S2: IMAGE SEO ══════ -->
+      <div class="section" id="s2">
+        <div class="section-header">
+          <span class="badge badge-image">Image SEO</span>
+          <h2>Step 2 — Image SEO: Alt Text, og:image, and Discover Eligibility</h2>
+        </div>
+        <div class="section-body">
+
+          <div class="why-box"><strong>Why this matters:</strong> Google cannot see images — it reads alt text and metadata to understand them. Missing alt text means your images contribute zero SEO value. Missing og:image means your pages won't get large preview images in Google Discover (the mobile interest feed). These are easy fixes with measurable impact.</div>
+
+          <!-- Alt text -->
+          <div class="step">
+            <div class="step-header">
+              <div class="step-num">2A</div>
+              <div class="step-title">Alt Text — Run the Python Script Already in Your Folder</div>
+            </div>
+            <div class="step-body">
+              <p>You have <code>generate_alt_text.py</code> in your project folder that can auto-generate alt text for all images in your WordPress Media Library using Claude AI. This needs to be run after your developer completes Phase 1 and all real images are uploaded.</p>
+              <div class="path">Terminal → <span class="click">python3 generate_alt_text.py</span></div>
+              <p>After generating alt text, spot-check these rules manually:</p>
+              <ul>
+                <li><span class="check">✓</span> Descriptive: <strong>"Karnak Temple hypostyle hall columns at sunrise, Luxor Egypt"</strong></li>
+                <li><span class="check">✓</span> Natural language, not keyword-stuffed</li>
+                <li><span class="cross">✗</span> Not: "egypt tour luxor temple egyptologist private tour guide"</li>
+                <li><span class="cross">✗</span> Not: empty / "image" / "photo" / "IMG_4392"</li>
+                <li>Decorative images (icons, dividers): use <code>alt=""</code> — empty on purpose</li>
+              </ul>
+              <div class="warning">Elementor sometimes uses CSS background images for hero sections. <strong>Google cannot index CSS backgrounds</strong> — they contribute zero SEO value for images. Ask your developer to check whether hero images are <code>&lt;img&gt;</code> tags or CSS backgrounds. If they're CSS backgrounds, they need to be converted to Elementor's Image widget or Background Image field (which outputs proper img tags in newer Elementor versions).</div>
+            </div>
+          </div>
+
+          <!-- Filenames -->
+          <div class="step">
+            <div class="step-header">
+              <div class="step-num">2B</div>
+              <div class="step-title">Descriptive Filenames Before Upload</div>
+            </div>
+            <div class="step-body">
+              <p>Rename image files <em>before</em> uploading to WordPress. Google reads filenames as an additional signal.</p>
+              <table>
+                <tr><th>❌ Bad (don't upload these)</th><th>✅ Good (rename first)</th></tr>
+                <tr><td>IMG_4392.jpg</td><td>valley-of-the-kings-luxor-egypt.jpg</td></tr>
+                <tr><td>DSC00234.jpg</td><td>karnak-temple-columns-sunrise.jpg</td></tr>
+                <tr><td>photo.jpg</td><td>john-gamil-egyptologist-guide-giza.jpg</td></tr>
+                <tr><td>tour1.jpg</td><td>nile-cruise-luxor-aswan-private-tour.jpg</td></tr>
+              </table>
+              <div class="note">Use lowercase, hyphens (not underscores or spaces), descriptive terms. You cannot rename files after upload in WordPress without a plugin — do this before uploading.</div>
+            </div>
+          </div>
+
+          <!-- og:image -->
+          <div class="step">
+            <div class="step-header">
+              <div class="step-num">2C</div>
+              <div class="step-title">og:image — Set a Feature Image on Every Page</div>
+            </div>
+            <div class="step-body">
+              <p>The og:image tag tells Google (and social media) which image to use when sharing or featuring your page. Without it, Google picks randomly — often your logo or nothing.</p>
+              <div class="path">
+                Edit any page <span class="arrow">→</span> Rank Math panel <span class="arrow">→</span> <span class="click">Social</span> tab <span class="arrow">→</span> set <span class="click">Facebook Image</span>
+              </div>
+              <p>Rank Math outputs this as <code>&lt;meta property="og:image"&gt;</code> automatically. Set this on every page and blog post.</p>
+              <div class="note">The image you set here is what appears when your page shows up in Google Discover (the mobile interest feed). Choose a compelling, high-quality photo — not the logo.</div>
+            </div>
+          </div>
+
+          <!-- max-image-preview -->
+          <div class="step">
+            <div class="step-header">
+              <div class="step-num">2D</div>
+              <div class="step-title">Enable max-image-preview:large — Required for Google Discover</div>
+            </div>
+            <div class="step-body">
+              <p>Without this meta tag, Google won't show your pages with large preview images in Discover, even if your images are high-quality. It's one line of code, site-wide.</p>
+              <div class="path">
+                Rank Math <span class="arrow">→</span> <span class="click">Titles & Meta</span> <span class="arrow">→</span> <span class="click">Global Meta</span> <span class="arrow">→</span> find <span class="click">Max Image Preview</span> <span class="arrow">→</span> set to <span class="click">Large</span>
+              </div>
+              <p>This outputs <code>&lt;meta name="robots" content="max-image-preview:large"&gt;</code> on every page. Alternatively, add it manually to your theme's <code>&lt;head&gt;</code> via <strong>Appearance → Theme File Editor → header.php</strong>.</p>
+              <div class="why-box"><strong>Discover image requirements:</strong> Images must also be at least <strong>1200px wide</strong> and <strong>300,000+ total pixels</strong> (e.g., 1280×720 = fine). Low-resolution images will not get large Discover previews even with this tag set.</div>
+            </div>
+          </div>
+
+          <!-- Image sitemap -->
+          <div class="step">
+            <div class="step-header">
+              <div class="step-num">2E</div>
+              <div class="step-title">Verify Image Sitemap Is Active</div>
+            </div>
+            <div class="step-body">
+              <p>Rank Math includes image URLs in your XML sitemap by default. Verify it's working:</p>
+              <div class="url-box">https://accessegypttravel.com/sitemap_index.xml</div>
+              <p>Open that URL and look for a sitemap entry that includes image data. If images aren't in the sitemap, go to <strong>Rank Math → Sitemap → Modules</strong> and ensure <strong>Images</strong> is enabled.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+      <!-- ══════ S3: CORE WEB VITALS ══════ -->
+      <div class="section" id="s3">
+        <div class="section-header">
+          <span class="badge badge-cwv">Core Web Vitals</span>
+          <h2>Step 3 — Core Web Vitals: Google's Performance Ranking Signal</h2>
+        </div>
+        <div class="section-body">
+
+          <div class="why-box"><strong>Why this matters:</strong> Core Web Vitals (CWV) are Google's official page experience signals used as a ranking factor. A site that fails CWV is at a disadvantage against competitors that pass, even if the content is equivalent. Elementor sites commonly fail LCP and CLS out of the box.</div>
+
+          <h3>The 3 Signals Google Measures</h3>
+          <table>
+            <tr><th>Signal</th><th>What It Measures</th><th>Target</th><th>Common Elementor Issue</th></tr>
+            <tr>
+              <td><strong>LCP</strong><br>Largest Contentful Paint</td>
+              <td>How long until the biggest visible element loads</td>
+              <td>Under 2.5 seconds</td>
+              <td>Large unoptimized hero images, full CSS bundle loading</td>
+            </tr>
+            <tr>
+              <td><strong>INP</strong><br>Interaction to Next Paint</td>
+              <td>How fast the page responds to clicks/taps</td>
+              <td>Under 200ms</td>
+              <td>Too many Elementor widgets, unoptimized JavaScript</td>
+            </tr>
+            <tr>
+              <td><strong>CLS</strong><br>Cumulative Layout Shift</td>
+              <td>How much elements jump around while loading</td>
+              <td>Under 0.1</td>
+              <td>Images without explicit width/height, fonts loading late</td>
+            </tr>
+          </table>
+
+          <!-- Measure first -->
+          <div class="step">
+            <div class="step-header">
+              <div class="step-num">3A</div>
+              <div class="step-title">Measure Your Current Scores First</div>
+            </div>
+            <div class="step-body">
+              <p>Run your homepage through both tools:</p>
+              <div class="url-box">https://pagespeed.web.dev/</div>
+              <div class="url-box">https://search.google.com/search-console → Core Web Vitals report</div>
+              <p>PageSpeed Insights shows your scores immediately. Search Console shows real-user data over the past 28 days (more accurate, but only available after your site has enough traffic).</p>
+              <div class="note">Run the test on <strong>Mobile</strong> — not just Desktop. Google uses mobile-first indexing, so mobile scores are what actually affects rankings.</div>
+            </div>
+          </div>
+
+          <!-- LCP fix -->
+          <div class="step">
+            <div class="step-header">
+              <div class="step-num">3B</div>
+              <div class="step-title">Fix LCP — Optimize Your Hero Images</div>
+            </div>
+            <div class="step-body">
+              <p>The hero image on each page is almost always the LCP element. These are the highest-impact changes:</p>
+              <table>
+                <tr><th>Action</th><th>How to Do It</th><th>Impact</th></tr>
+                <tr>
+                  <td>Convert hero images to WebP format</td>
+                  <td>Use <strong>Smush</strong> or <strong>ShortPixel</strong> WordPress plugin — bulk convert all images to WebP automatically</td>
+                  <td>30–50% smaller file size</td>
+                </tr>
+                <tr>
+                  <td>Add Fetchpriority="high" to hero image</td>
+                  <td>In Elementor, edit the hero image widget → Advanced → add attribute <code>fetchpriority="high"</code></td>
+                  <td>Tells browser to load this image first</td>
+                </tr>
+                <tr>
+                  <td>Disable lazy load on hero image only</td>
+                  <td>Hero image should NOT be lazy-loaded — it's always visible. In Elementor image widget → Advanced → Loading: Eager</td>
+                  <td>Prevents unnecessary delay on visible image</td>
+                </tr>
+                <tr>
+                  <td>Use correctly sized images</td>
+                  <td>Don't upload a 4000px image if it displays at 1400px. Resize before upload.</td>
+                  <td>Saves bandwidth, speeds load</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+
+          <!-- CLS fix -->
+          <div class="step">
+            <div class="step-header">
+              <div class="step-num">3C</div>
+              <div class="step-title">Fix CLS — Set Explicit Image Dimensions</div>
+            </div>
+            <div class="step-body">
+              <p>Layout shift happens when the browser doesn't know how tall an image is until it loads — so text jumps down when the image appears. Fix by always setting explicit width and height on images.</p>
+              <p>In WordPress, when you upload an image and insert it with the Image widget in Elementor, set both <strong>Width</strong> and <strong>Height</strong> values in the widget settings. This tells the browser to reserve space before the image loads.</p>
+              <div class="note">Also check for font-related CLS: if custom fonts are loading late, they cause text to jump. Use <code>font-display: swap</code> in your theme's CSS to prevent invisible text during font load.</div>
+            </div>
+          </div>
+
+          <!-- Caching -->
+          <div class="step">
+            <div class="step-header">
+              <div class="step-num">3D</div>
+              <div class="step-title">Install a Caching Plugin</div>
+            </div>
+            <div class="step-body">
+              <p>No caching plugin is currently in the developer plan. This is a significant gap — caching is the single highest-ROI performance improvement for WordPress sites.</p>
+              <table>
+                <tr><th>Plugin</th><th>Best For</th><th>Cost</th></tr>
+                <tr><td><strong>LiteSpeed Cache</strong></td><td>If your host uses LiteSpeed server (SiteGround, HostGator)</td><td>Free</td></tr>
+                <tr><td><strong>WP Super Cache</strong></td><td>General purpose, simple setup</td><td>Free</td></tr>
+                <tr><td><strong>W3 Total Cache</strong></td><td>Advanced options, CDN integration</td><td>Free</td></tr>
+                <tr><td><strong>WP Rocket</strong></td><td>Best overall results, minimal config</td><td>~$59/year</td></tr>
+              </table>
+              <div class="note">Ask your developer to install and configure one of these. WP Rocket is the easiest to set up and gets the best results, but any of the free options will help significantly.</div>
+            </div>
+          </div>
+
+          <!-- Elementor version note -->
+          <div class="step">
+            <div class="step-header">
+              <div class="step-num">3E</div>
+              <div class="step-title">Elementor Pro Upgrade Unlocks Built-In Performance Features</div>
+            </div>
+            <div class="step-body">
+              <p>This is a direct connection between the Elementor upgrade (developer-plan.html → Section 19) and your Core Web Vitals scores.</p>
+              <table>
+                <tr><th>Elementor Feature</th><th>Available Since</th><th>CWV Impact</th></tr>
+                <tr><td>Improved Asset Loading</td><td>3.10</td><td>Loads CSS/JS only on pages that need it — major LCP improvement</td></tr>
+                <tr><td>Container (Flexbox)</td><td>3.9</td><td>Reduces DOM size by ~30% vs. old section/column structure</td></tr>
+                <tr><td>Image Optimization</td><td>3.14+</td><td>Built-in WebP conversion, lazy load controls</td></tr>
+              </table>
+              <p>You are on 3.7.7 — none of these features are available to you. Upgrading to 4.x gets all of them automatically.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+      <!-- ══════ S4: E-E-A-T ══════ -->
+      <div class="section" id="s4">
+        <div class="section-header">
+          <span class="badge badge-eeat">E-E-A-T</span>
+          <h2>Step 4 — E-E-A-T Signals on the 6 Content Pages</h2>
+        </div>
+        <div class="section-body">
+
+          <div class="why-box"><strong>Why this matters:</strong> Google's quality raters evaluate content by asking "who wrote this, and why should I trust them?" For travel content — which affects how people spend significant money — Google applies extra scrutiny (YMYL: Your Money Your Life). The 6 content pages planned in Phase 2 will underperform without E-E-A-T signals, no matter how good the writing is.</div>
+
+          <div class="why-box"><strong>The non-commodity test:</strong> Before publishing any content page, ask: "Could an AI write this without having been to Egypt?" If yes, it's commodity content — Google's AI systems filter it out when generating AI Overviews. John Gamil's 22 years of on-the-ground experience is your unfair advantage. Every page must use it.</div>
+
+          <h3>Required Elements on Every Content Page</h3>
+
+          <div class="step">
+            <div class="step-header">
+              <div class="step-num">4A</div>
+              <div class="step-title">Author Byline with John's Credentials — Every Article</div>
+            </div>
+            <div class="step-body">
+              <p>Every one of the 6 content pages must have a visible author byline section — not just a name, but a credential-carrying bio that signals expertise.</p>
+              <div class="copy-box">
+                <div class="copy-label">Byline Block — paste this at the top of every content page</div>
+                <div class="copy-content">Written by John Gamil
+BSc Egyptology | 22+ Years Leading Private Tours Across Egypt
+Founder, Access Egypt Travel
+
+John has guided hundreds of American travelers through Egypt's most iconic sites — from the pyramids at Giza to the temples of Abu Simbel. Everything in this guide comes from first-hand experience.</div>
+              </div>
+              <p>In Elementor, build this as a reusable <strong>Global Widget</strong> or Saved Template so you add it once and paste it on all 6 pages. Include John's photo.</p>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-header">
+              <div class="step-num">4B</div>
+              <div class="step-title">Publication Date + Last Updated Date — Visible on Page</div>
+            </div>
+            <div class="step-body">
+              <p>Google rewards freshness signals for travel content. Show both the original publish date and when you last updated the page.</p>
+              <div class="copy-box">
+                <div class="copy-label">Date line format — add below the byline</div>
+                <div class="copy-content">Published: June 2026 | Last updated: [update this whenever you make substantive changes]</div>
+              </div>
+              <div class="warning">Only change the "last updated" date when you actually update the content. Google can detect when dates are changed without real content changes — it hurts rather than helps.</div>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-header">
+              <div class="step-num">4C</div>
+              <div class="step-title">First-Person Language from John's Experience</div>
+            </div>
+            <div class="step-body">
+              <p>Each content page must include at least one paragraph written in John's voice with a specific first-hand detail that an AI could not generate. These are the sentences Google's AI cites in AI Overviews.</p>
+              <table>
+                <tr><th>Page</th><th>First-Person Hook to Include</th></tr>
+                <tr>
+                  <td>Is Egypt Safe?</td>
+                  <td>"In 22 years guiding American tourists across Egypt, I've never had a client experience a safety incident at a major tourist site. What concerns most of my clients before they arrive almost always disappears within the first hour on the ground."</td>
+                </tr>
+                <tr>
+                  <td>Best Time to Visit</td>
+                  <td>"October is my personal recommendation for first-timers. I've guided tours in every month of the year — October gives you the Valley of the Kings in the morning without the punishing heat that July brings, and the crowds are a fraction of the January peak."</td>
+                </tr>
+                <tr>
+                  <td>Hurghada to Luxor</td>
+                  <td>"The Hurghada-to-Luxor transfer is one I do multiple times a week. The drive through the Eastern Desert takes about 3 hours — I usually time pickups so we arrive at the Valley of the Kings by 8am, before the tour buses."</td>
+                </tr>
+                <tr>
+                  <td>Egypt Visa Guide</td>
+                  <td>"Every American client I've worked with has completed the Egypt e-Visa process in under 20 minutes. I walk clients through it on the phone when needed — it's genuinely simpler than people expect."</td>
+                </tr>
+                <tr>
+                  <td>What to Pack</td>
+                  <td>"The one thing I tell every client: bring a scarf or lightweight shawl, even in summer. You'll need it at mosques, and it doubles as sun protection in the afternoon heat at Karnak."</td>
+                </tr>
+                <tr>
+                  <td>Cairo to Luxor</td>
+                  <td>"For most of my Cairo-based clients, I recommend the EgyptAir domestic flight over the long road transfer. It's typically $60–90 USD and gets you to Luxor in 55 minutes — saving a full day of travel time."</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-header">
+              <div class="step-num">4D</div>
+              <div class="step-title">Source Citations Where Applicable</div>
+            </div>
+            <div class="step-body">
+              <p>For factual claims — safety levels, visa requirements, flight times, prices — cite the authoritative source. This signals trustworthiness to both Google and human readers.</p>
+              <table>
+                <tr><th>Claim Type</th><th>Source to Cite</th></tr>
+                <tr><td>Safety / travel advisories</td><td>US State Department travel.state.gov — Egypt travel advisory page</td></tr>
+                <tr><td>Visa requirements</td><td>Egypt e-Visa portal: visa2egypt.gov.eg</td></tr>
+                <tr><td>Flight prices/times</td><td>EgyptAir (egyptair.com) — link to Cairo-Luxor route</td></tr>
+                <tr><td>Weather/temperature data</td><td>Link to a weather service or acknowledge as approximate ("typically 28–35°C in October")</td></tr>
+              </table>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+      <!-- ══════ S5: INTERNAL LINKING ══════ -->
+      <div class="section" id="s5">
+        <div class="section-header">
+          <span class="badge badge-links">Internal Linking</span>
+          <h2>Step 5 — Internal Linking Strategy</h2>
+        </div>
+        <div class="section-body">
+
+          <div class="why-box"><strong>Why this matters:</strong> Internal links pass authority (PageRank) from informational pages to money pages (tour pages). A visitor who reads "Is Egypt Safe?" and then sees a link to "Egypt Packages" with a personal CTA is much more likely to convert than one who finishes the article and leaves. Internal links also signal to Google which pages are most important on your site.</div>
+
+          <h3>Link Map — What Links to What</h3>
+
+          <div class="link-map">
+            <div class="lm-row">
+              <span class="lm-source">Is Egypt Safe?</span>
+              <span class="lm-arrow">→</span>
+              <span class="lm-targets"><strong>Egypt Packages page</strong> ("Browse our private Egypt tours — led by a local who's been doing this for 22 years") + <strong>Contact page</strong> ("Ask us anything about safety — we're available by phone, WhatsApp, or Calendly")</span>
+            </div>
+            <div class="lm-row">
+              <span class="lm-source">Hurghada to Luxor</span>
+              <span class="lm-arrow">→</span>
+              <span class="lm-targets"><strong>Luxor Tours page</strong> ("See our full Luxor day tour options") + <strong>Contact page</strong> ("Ready to book a Hurghada pickup? Contact us")</span>
+            </div>
+            <div class="lm-row">
+              <span class="lm-source">Cairo to Luxor</span>
+              <span class="lm-arrow">→</span>
+              <span class="lm-targets"><strong>Egypt Packages page</strong> ("View packages that include Cairo-to-Luxor transfer") + <strong>Nile Cruise page</strong> ("Add a Nile cruise to your Cairo-to-Luxor journey")</span>
+            </div>
+            <div class="lm-row">
+              <span class="lm-source">Best Time to Visit</span>
+              <span class="lm-arrow">→</span>
+              <span class="lm-targets"><strong>Tailor-Made Tours page</strong> ("Build a custom itinerary around your preferred travel dates") + <strong>Contact page</strong></span>
+            </div>
+            <div class="lm-row">
+              <span class="lm-source">Egypt Visa Guide</span>
+              <span class="lm-arrow">→</span>
+              <span class="lm-targets"><strong>FAQ page</strong> ("See more Egypt travel questions answered") + <strong>Contact page</strong> ("We help clients with pre-trip logistics too")</span>
+            </div>
+            <div class="lm-row">
+              <span class="lm-source">What to Pack</span>
+              <span class="lm-arrow">→</span>
+              <span class="lm-targets"><strong>FAQ page</strong> + <strong>Best Time to Visit page</strong> ("Packing depends on when you're going — see our seasonal guide")</span>
+            </div>
+            <div class="lm-row">
+              <span class="lm-source">FAQ Page</span>
+              <span class="lm-arrow">→</span>
+              <span class="lm-targets"><strong>Every tour page</strong> (relevant FAQ answers should link to the relevant tour) + <strong>all 6 content pages</strong> (each FAQ can say "full guide here")</span>
+            </div>
+            <div class="lm-row">
+              <span class="lm-source">Tour Pages</span>
+              <span class="lm-arrow">→</span>
+              <span class="lm-targets"><strong>Related tours</strong> ("You might also like: Nile Cruise") + <strong>Destination pages</strong> for each stop on the tour + <strong>Contact/Book page</strong></span>
+            </div>
+          </div>
+
+          <h3>Rules for Every Internal Link</h3>
+          <div class="step">
+            <div class="step-header">
+              <div class="step-num">5A</div>
+              <div class="step-title">Use Descriptive Anchor Text — Never "Click Here"</div>
+            </div>
+            <div class="step-body">
+              <table>
+                <tr><th>❌ Don't Use</th><th>✅ Use Instead</th></tr>
+                <tr><td>"Click here for our tours"</td><td>"Browse our private Egypt tour packages"</td></tr>
+                <tr><td>"Learn more"</td><td>"Read our complete Hurghada to Luxor guide"</td></tr>
+                <tr><td>"Contact us"</td><td>"Ask us about pickup from Hurghada"</td></tr>
+                <tr><td>"See here"</td><td>"View the Nile Cruise itinerary"</td></tr>
+              </table>
+              <p>Google reads anchor text to understand what the linked page is about. Descriptive anchor text is a free ranking signal for the destination page.</p>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-header">
+              <div class="step-num">5B</div>
+              <div class="step-title">Add a CTA Block at the End of Every Content Page</div>
+            </div>
+            <div class="step-body">
+              <p>Every informational page (all 6 content pages) must end with a conversion-oriented section that links to a tour or contact page. Build this as a reusable Elementor Global Widget.</p>
+              <div class="copy-box">
+                <div class="copy-label">CTA Block — end of every content page</div>
+                <div class="copy-content">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Ready to See Egypt for Yourself?
+
+John Gamil has been guiding American travelers for 22 years. Private tours, hotel pickup from Cairo, Hurghada & Luxor. USD pricing. No hidden fees.
+
+[BUTTON] → View Egypt Packages
+[BUTTON] → Ask a Question (WhatsApp / Calendly)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+      <!-- ══════ SUMMARY ══════ -->
+      <div class="section" id="summary">
+        <div class="section-header">
+          <h2>All Phase 3 Tasks — Summary Checklist</h2>
+        </div>
+        <div class="section-body">
+          <table class="summary-table">
+            <tr><th>#</th><th>Task</th><th>Where</th><th>Est. Time</th><th>Done?</th></tr>
+            <tr><td colspan="5" style="background:#1a1a2e;color:#a5b4fc;font-size:12px;padding:8px 14px;font-weight:700;">SCHEMA MARKUP</td></tr>
+            <tr><td>1</td><td>Add FAQPage schema to FAQ page</td><td>Rank Math → Schema tab</td><td>30 min</td><td>☐</td></tr>
+            <tr><td>2</td><td>Add Organization schema to homepage</td><td>Rank Math → Schema tab</td><td>20 min</td><td>☐</td></tr>
+            <tr><td>3</td><td>Add LocalBusiness schema to homepage</td><td>Rank Math → Schema tab</td><td>15 min</td><td>☐</td></tr>
+            <tr><td>4</td><td>Add Product schema to each tour page (5 pages)</td><td>Rank Math → Schema tab</td><td>15 min each</td><td>☐</td></tr>
+            <tr><td>5</td><td>Enable BreadcrumbList site-wide</td><td>Rank Math → General Settings → Breadcrumbs</td><td>5 min</td><td>☐</td></tr>
+            <tr><td>6</td><td>Add Person schema to About Us (John Gamil)</td><td>Rank Math → Schema tab</td><td>15 min</td><td>☐</td></tr>
+            <tr><td>7</td><td>Add Article schema to each content page (6 pages)</td><td>Rank Math → Schema tab</td><td>10 min each</td><td>☐</td></tr>
+            <tr><td>8</td><td>Test all schema at search.google.com/test/rich-results</td><td>External tool</td><td>20 min</td><td>☐</td></tr>
+            <tr><td colspan="5" style="background:#1a1a2e;color:#a5b4fc;font-size:12px;padding:8px 14px;font-weight:700;">IMAGE SEO</td></tr>
+            <tr><td>9</td><td>Run generate_alt_text.py script on all images</td><td>Terminal / developer task</td><td>30 min</td><td>☐</td></tr>
+            <tr><td>10</td><td>Verify hero images are &lt;img&gt; tags, not CSS backgrounds</td><td>Developer check in Elementor</td><td>30 min</td><td>☐</td></tr>
+            <tr><td>11</td><td>Set og:image on every page via Rank Math Social tab</td><td>Rank Math → Social</td><td>45 min</td><td>☐</td></tr>
+            <tr><td>12</td><td>Enable max-image-preview:large site-wide</td><td>Rank Math → Titles & Meta → Global Meta</td><td>5 min</td><td>☐</td></tr>
+            <tr><td>13</td><td>Verify image sitemap is active</td><td>Search Console → Sitemaps</td><td>10 min</td><td>☐</td></tr>
+            <tr><td>14</td><td>Rename image files descriptively before future uploads</td><td>Local file rename before upload</td><td>Ongoing</td><td>☐</td></tr>
+            <tr><td colspan="5" style="background:#1a1a2e;color:#a5b4fc;font-size:12px;padding:8px 14px;font-weight:700;">CORE WEB VITALS</td></tr>
+            <tr><td>15</td><td>Run PageSpeed Insights on homepage (mobile)</td><td>pagespeed.web.dev</td><td>5 min</td><td>☐</td></tr>
+            <tr><td>16</td><td>Install image compression plugin (Smush or ShortPixel)</td><td>WordPress → Plugins → Add New</td><td>30 min</td><td>☐</td></tr>
+            <tr><td>17</td><td>Install caching plugin (WP Rocket or LiteSpeed Cache)</td><td>WordPress → Plugins → Add New</td><td>30 min + config</td><td>☐</td></tr>
+            <tr><td>18</td><td>Set fetchpriority="high" on hero images in Elementor</td><td>Elementor → Image widget → Advanced</td><td>20 min</td><td>☐</td></tr>
+            <tr><td>19</td><td>Upgrade Elementor Pro (unlocks Improved Asset Loading)</td><td>See developer-plan.html → Section 19</td><td>1–2 hrs (developer)</td><td>☐</td></tr>
+            <tr><td colspan="5" style="background:#1a1a2e;color:#a5b4fc;font-size:12px;padding:8px 14px;font-weight:700;">E-E-A-T</td></tr>
+            <tr><td>20</td><td>Build John Gamil author byline as Global Widget in Elementor</td><td>Elementor → Global Widgets</td><td>30 min</td><td>☐</td></tr>
+            <tr><td>21</td><td>Add byline + date to all 6 content pages</td><td>Elementor → each content page</td><td>15 min each</td><td>☐</td></tr>
+            <tr><td>22</td><td>Add first-person experience paragraph to each content page</td><td>Content edit</td><td>20 min each</td><td>☐</td></tr>
+            <tr><td>23</td><td>Add source citations (State Dept, visa portal, EgyptAir) to relevant pages</td><td>Content edit</td><td>30 min</td><td>☐</td></tr>
+            <tr><td colspan="5" style="background:#1a1a2e;color:#a5b4fc;font-size:12px;padding:8px 14px;font-weight:700;">INTERNAL LINKING</td></tr>
+            <tr><td>24</td><td>Build reusable CTA block as Elementor Global Widget</td><td>Elementor → Global Widgets</td><td>30 min</td><td>☐</td></tr>
+            <tr><td>25</td><td>Add CTA block to the bottom of all 6 content pages</td><td>Elementor → each content page</td><td>5 min each</td><td>☐</td></tr>
+            <tr><td>26</td><td>Add contextual internal links per the Link Map above (Step 5)</td><td>Elementor → text widgets on each page</td><td>1–2 hrs total</td><td>☐</td></tr>
+            <tr><td>27</td><td>Update FAQ page: add links to content pages where relevant</td><td>Elementor → FAQ page</td><td>30 min</td><td>☐</td></tr>
+          </table>
+        </div>
+      </div>
+
+    </div><!-- end container -->
+
+    <div class="footer-doc">
+      Access Egypt Travel — SEO Plan Phase 3 · June 2026 · info@accessegypttravel.com · Do after Phase 2 complete
+    </div>
+
+  </div><!-- end main-content -->
+</div><!-- end page-layout -->
+
+<script>
+  const sections = document.querySelectorAll('[id]');
+  const tocLinks = document.querySelectorAll('.toc-sidebar a[href^="#"]');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) current = s.id; });
+    tocLinks.forEach(a => {
+      a.classList.remove('active');
+      if (a.getAttribute('href') === '#' + current) a.classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>

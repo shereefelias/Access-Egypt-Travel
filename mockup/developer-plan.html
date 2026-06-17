@@ -141,12 +141,15 @@
     <a href="#s18" class="toc-section">18. Destinations — Build Spec</a>
     <a href="#s18" class="toc-sub">→ Hub + detail pages</a>
     <a href="#s18" class="toc-sub">→ Gallery + CPT</a>
+    <a href="#s19" class="toc-section" style="color:#dc2626;font-weight:700;">19. ⚠️ Elementor Pro Upgrade</a>
+    <a href="#s19" class="toc-sub">→ Version situation</a>
+    <a href="#s19" class="toc-sub">→ Upgrade process</a>
     <div style="margin-top:16px;border-top:1px solid #f1f5f9;padding-top:12px;">
       <h3>Contact Info</h3>
       <a href="#" class="toc-sub" style="font-size:11px;">US: +1 772 782 0494</a>
       <a href="#" class="toc-sub" style="font-size:11px;">WA: +20 12 014-0578</a>
       <a href="#" class="toc-sub" style="font-size:11px;">info@accessegypttravel.com</a>
-      <a href="#" class="toc-sub" style="font-size:11px;">calendly.com/accessegypttravel</a>
+      <a href="#" class="toc-sub" style="font-size:11px;">cal.com/accessegypttravel/30min</a>
     </div>
   </nav>
 
@@ -194,7 +197,7 @@
 
       <div class="divider"></div>
 
-      <p><strong>Tech stack:</strong> WordPress · Elementor Pro 3.7.7 · BABE Booking Plugin · Rank Math SEO (configured after Phase 1) · Calendly · WhatsApp Business</p>
+      <p><strong>Tech stack:</strong> WordPress · Elementor Pro 3.7.7 · BABE Booking Plugin · Rank Math SEO (configured after Phase 1) · Cal.com · WhatsApp Business</p>
       <p><strong>Key contacts:</strong></p>
       <table>
         <tr><th>Person</th><th>Role</th><th>Email</th></tr>
@@ -676,7 +679,7 @@ selector img:hover {
         <ul>
           <li>افتح الصفحة الرئيسية (Homepage) وضغط Edit with Elementor</li>
           <li><strong>Hero Section:</strong> العنوان الكبير لازم يبقى: "Discover Egypt With a Real Egyptologist" — غير الكلام الموجود لو مختلف</li>
-          <li>زرار CTA الرئيسي لازم يوصل على الإيميل مباشرة: <code>mailto:info@accessegypttravel.com</code> — مش على Calendly</li>
+          <li>زرار CTA الرئيسي لازم يوصل على الإيميل مباشرة: <code>mailto:info@accessegypttravel.com</code> — مش على Cal.com</li>
           <li>قسم "Trust Strip": 4 أعمدة — ✈️ Pickup from Cairo/Hurghada | 🏛️ Egyptologist-Guided | 💬 US Support | 💵 Priced in USD</li>
           <li>بطاقات الجولات: حط اسم الجولة، عدد الأيام، السعر بالدولار، وزرار "View Tour"</li>
           <li><strong>مهم:</strong> مسح "Blog" من أي مكان في الصفحة — لا هيرو ولا روابط</li>
@@ -1062,7 +1065,7 @@ selector img:hover {
               <li>📞 US Phone: +1 772 782 0494</li>
               <li>💬 WhatsApp: +20 12 014-0578 (رابطه: wa.me/20120140578)</li>
               <li>✉️ Email: info@accessegypttravel.com</li>
-              <li>📅 Calendly: calendly.com/accessegypttravel/30min (بس لـ Zoom مش Google Meet)</li>
+              <li>📅 Cal.com: cal.com/accessegypttravel/30min (بس لـ Zoom و Google Meet)</li>
             </ul>
           </li>
           <li>الـ Form لازم يبعت الرسالة على الإيميل — استخدم Formspree أو WPForms (التفاصيل في القسم 14)</li>
@@ -1100,7 +1103,7 @@ selector img:hover {
             <tr><th>Icon</th><th>Label</th><th>Action</th></tr>
             <tr><td>WhatsApp</td><td>WhatsApp Us</td><td><code>https://wa.me/20120140578</code> (opens WhatsApp chat directly)</td></tr>
             <tr><td>Email</td><td>Email Us</td><td><code>mailto:info@accessegypttravel.com</code></td></tr>
-            <tr><td>Calendly</td><td>Schedule a Call</td><td><code>https://calendly.com/accessegypttravel/30min</code> (opens Calendly — user picks Zoom or Meet in the booking flow)</td></tr>
+            <tr><td>Cal.com</td><td>Schedule a Call</td><td><code>https://cal.com/accessegypttravel/30min</code> (opens Cal.com — user picks Zoom or Meet in the booking flow)</td></tr>
             <tr><td>Facebook</td><td>Facebook</td><td><code>https://www.facebook.com/accessegypttravel/</code></td></tr>
             <tr><td>Instagram</td><td>Instagram</td><td><code>https://www.instagram.com/accessegypttravel/</code></td></tr>
             <tr><td>TripAdvisor</td><td>TripAdvisor</td><td><code>https://www.tripadvisor.com/Attraction_Review-g294205-d25314995-Reviews-Access_Egypt_travel-Luxor_Nile_River_Valley.html</code></td></tr>
@@ -1113,35 +1116,39 @@ selector img:hover {
           <table>
             <tr><th>Column</th><th>Content</th></tr>
             <tr>
-              <td>Left — Calendly Embed</td>
+              <td>Left — Cal.com Embed</td>
               <td>
                 Heading: <code>Schedule a Free 30-Minute Call</code><br>
                 Body: <code>Pick a time that works for you. We'll talk through your trip, your interests, and build a plan together — no obligation.</code><br>
-                Embed the Calendly widget inline using Elementor's HTML widget:<br>
-                <pre>&lt;!-- Calendly inline widget --&gt;
-&lt;div class="calendly-inline-widget"
-  data-url="https://calendly.com/accessegypttravel/30min"
-  style="min-width:320px;height:700px;"&gt;
-&lt;/div&gt;
-&lt;script type="text/javascript"
-  src="https://assets.calendly.com/assets/external/widget.js" async&gt;
+                Embed the Cal.com widget inline using Elementor's HTML widget:<br>
+                <pre>&lt;!-- Cal.com inline embed --&gt;
+&lt;div style="width:100%;height:700px;overflow:scroll;" id="my-cal-inline"&gt;&lt;/div&gt;
+&lt;script type="text/javascript"&gt;
+  (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, [L, namespace, ar[2]])} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+  Cal("init", {origin:"https://app.cal.com"});
+  Cal("inline", {
+    elementOrSelector:"#my-cal-inline",
+    calLink: "accessegypttravel/30min",
+    layout: "month_view"
+  });
+  Cal("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
 &lt;/script&gt;</pre>
-                <div class="note">Calendly URL confirmed: <code>https://calendly.com/accessegypttravel/30min</code></div>
+                <div class="note">Cal.com URL confirmed: <code>https://cal.com/accessegypttravel/30min</code></div>
               </td>
             </tr>
             <tr>
               <td>Right — Video Call Options</td>
               <td>
                 Heading: <code>Prefer a Video Call?</code><br><br>
-                <p style="font-size:13px;color:#5a4030;margin-bottom:10px;">Both Zoom and Google Meet are available via Calendly — when the customer books a call, they'll get a confirmation email with the video link automatically generated. No direct "join now" links on the page.</p>
+                <p style="font-size:13px;color:#5a4030;margin-bottom:10px;">Both Zoom and Google Meet are available via Cal.com — when the customer books a call, they'll get a confirmation email with the video link automatically generated. No direct "join now" links on the page.</p>
                 <strong>Zoom button:</strong><br>
                 Label: "Schedule a Zoom Call"<br>
-                URL: <code>https://calendly.com/accessegypttravel/30min</code><br>
-                Note: Calendly sends them a Zoom link in their confirmation email<br><br>
+                URL: <code>https://cal.com/accessegypttravel/30min</code><br>
+                Note: Cal.com sends them a Zoom link in their confirmation email<br><br>
                 <strong>Google Meet button:</strong><br>
                 Label: "Schedule a Google Meet Call"<br>
-                URL: <code>https://calendly.com/accessegypttravel/30min</code><br>
-                Note: In Calendly settings, enable Google Meet as a location option — the meet link is auto-generated per booking<br><br>
+                URL: <code>https://cal.com/accessegypttravel/30min</code><br>
+                Note: In Cal.com settings, enable Google Meet as a location option — the meet link is auto-generated per booking<br><br>
                 <strong>WhatsApp button:</strong><br>
                 Label: "Message Us on WhatsApp"<br>
                 URL: <code>https://wa.me/20120140578</code>
@@ -1196,7 +1203,7 @@ selector img:hover {
 
           <div class="note">
             <strong>Before starting Elementor work on this page, owner must provide:</strong><br>
-            1. Calendly URL (the booking/scheduling link)<br>
+            1. Cal.com URL (the booking/scheduling link): <code>https://cal.com/accessegypttravel/30min</code> (confirmed)<br>
             2. US phone number: +1 772 782 0494 (confirmed — use this)<br>
             3. A hero background image (person-facing, warm — not a monument)<br>
             4. Confirm the address: "Luxor, Egypt" is recommended over "Hurghada"
@@ -1307,7 +1314,7 @@ selector img:hover {
                 🇺🇸 US: +1 772 782 0494<br>
                 💬 WhatsApp: +20 12 014-0578<br>
                 ✉️ info@accessegypttravel.com<br><br>
-                <a href="https://calendly.com/accessegypttravel/30min">Schedule a Free Call →</a><br><br>
+                <a href="https://cal.com/accessegypttravel/30min">Schedule a Free Call →</a><br><br>
                 <strong>Social icons:</strong><br>
                 Facebook · Instagram · TripAdvisor · WhatsApp<br><br>
                 <code>facebook.com/accessegypttravel</code><br>
@@ -2160,6 +2167,124 @@ document.addEventListener('click', function(e){
   </div>
 
 </div>
+
+  <!-- ══════ S19: ELEMENTOR PRO UPGRADE ══════ -->
+  <div class="section" id="s19">
+    <div class="section-header">
+      <span class="badge badge-critical">Action Required — Before Phase 2</span>
+      <h2>19. Elementor Pro Upgrade — Version Mismatch Fix</h2>
+    </div>
+    <div class="section-body">
+
+      <div class="danger"><strong>Current state is unstable.</strong> Free Elementor is at <strong>3.21.1</strong> and Elementor Pro is frozen at <strong>3.7.7</strong> — 14 versions behind. Pro stopped receiving updates because the license expired. The site is working by luck. Each new WordPress or plugin update widens the gap and increases the risk of a sudden break.</div>
+
+      <table>
+        <tr><th>Plugin</th><th>Current Version</th><th>Latest Available</th><th>Status</th></tr>
+        <tr>
+          <td>Elementor (free)</td>
+          <td>3.21.1</td>
+          <td>4.1.3</td>
+          <td><span class="badge badge-high">Update available — do NOT update yet</span></td>
+        </tr>
+        <tr>
+          <td>Elementor Pro</td>
+          <td>3.7.7</td>
+          <td>Requires active license to see</td>
+          <td><span class="badge badge-critical">License expired — no updates received</span></td>
+        </tr>
+      </table>
+
+      <div class="warning"><strong>Do NOT click "Update Now" on free Elementor</strong> until Pro is updated first. Jumping free to 4.1.3 while Pro stays at 3.7.7 is what actually breaks the site — they must be updated together in the correct order.</div>
+
+      <h3 style="margin-top:20px;">Why Pro Is Stuck at 3.7.7</h3>
+      <p>Elementor Pro licenses are annual subscriptions. When the license expires, the plugin stays installed and working, but no further updates are delivered. The free Elementor plugin is separate and kept updating automatically — which is why there is now a 14-version gap between the two.</p>
+      <p>The gap matters because Elementor Pro's widgets and Theme Builder rely on the free plugin's core. As the versions diverge, widget rendering, CSS output, and performance features become increasingly mismatched.</p>
+
+      <h3>What You Need to Do</h3>
+
+      <div class="task">
+        <div class="task-header">
+          <div class="task-num">1</div>
+          <div class="task-title">Renew the Elementor Pro license</div>
+          <span class="badge badge-critical">First</span>
+        </div>
+        <div class="task-body">
+          <p>Go to <strong>my.elementor.com</strong> and log in with the account that originally purchased Pro. Renew the license (currently ~$59–99/year for a single site). Once renewed, WordPress will show an available update for Elementor Pro.</p>
+          <div class="path"><span class="highlight">my.elementor.com</span> → Subscriptions → Renew</div>
+          <div class="note">If you don't have the original account credentials, check the original purchase email. The license is tied to an email address, not the WordPress site.</div>
+        </div>
+      </div>
+
+      <div class="task">
+        <div class="task-header">
+          <div class="task-num">2</div>
+          <div class="task-title">Take a backup before touching anything</div>
+          <span class="badge badge-high">Before updating</span>
+        </div>
+        <div class="task-body">
+          <p>Before running any updates, take a full backup using one of these methods:</p>
+          <ul style="margin:10px 0 10px 20px;">
+            <li><strong>Elementor Export Kit</strong> (fastest — saves all Elementor data): <code>Elementor → Tools → Export Kit → Export</code></li>
+            <li><strong>Host-level backup</strong>: Most managed WP hosts (SiteGround, Kinsta, WP Engine) have one-click backups in their dashboard</li>
+            <li><strong>UpdraftPlus plugin</strong>: Free, backs up files + database to Google Drive</li>
+          </ul>
+          <div class="warning">A backup is not optional. Proceed to step 3 only after you have a confirmed backup you can restore from.</div>
+        </div>
+      </div>
+
+      <div class="task">
+        <div class="task-header">
+          <div class="task-num">3</div>
+          <div class="task-title">Update Elementor Pro first, then free Elementor</div>
+          <span class="badge badge-critical">Order matters</span>
+        </div>
+        <div class="task-body">
+          <div class="path">Plugins → Installed Plugins → find <span class="highlight">Elementor Pro</span> → click <span class="highlight">Update Now</span></div>
+          <p>Wait for Pro to finish updating completely. Then:</p>
+          <div class="path">Plugins → Installed Plugins → find <span class="highlight">Elementor</span> (free) → click <span class="highlight">Update Now</span></div>
+          <div class="note">After both updates, go to <strong>Elementor → Tools → Regenerate CSS & Data</strong> immediately. This rebuilds all the CSS files with the new version and fixes most visual glitches.</div>
+        </div>
+      </div>
+
+      <div class="task">
+        <div class="task-header">
+          <div class="task-num">4</div>
+          <div class="task-title">Check these pages immediately after updating</div>
+          <span class="badge badge-high">Visual QA</span>
+        </div>
+        <div class="task-body">
+          <p>Open each of these pages in a private/incognito browser window and check for layout issues:</p>
+          <table>
+            <tr><th>Page</th><th>What to check</th></tr>
+            <tr><td>Homepage</td><td>Hero section, gallery, tour cards, testimonials section</td></tr>
+            <tr><td>Tour pages (any one)</td><td>Hero image, itinerary sections, pricing, CTA buttons</td></tr>
+            <tr><td>Contact page</td><td>Hero, contact form, map</td></tr>
+            <tr><td>About Us</td><td>Photo, bio layout, credential section</td></tr>
+            <tr><td>Footer</td><td>Column layout, links, social icons</td></tr>
+          </table>
+          <p>If anything looks broken, open it in Elementor editor. Most post-update visual issues are fixable in under 10 minutes — usually a widget setting that got reset or a CSS class that was renamed.</p>
+        </div>
+      </div>
+
+      <div class="task">
+        <div class="task-header">
+          <div class="task-num">5</div>
+          <div class="task-title">Optional but recommended: Use a staging environment</div>
+          <span class="badge badge-low">Reduces risk to zero</span>
+        </div>
+        <div class="task-body">
+          <p>If your host supports staging (SiteGround, Kinsta, WP Engine all do), run the update on a staging clone of the live site first. Fix anything that breaks there, then push to live. This is the zero-risk approach.</p>
+          <div class="path">Host dashboard → Staging → Create Staging Site → clone live → run updates on staging</div>
+          <div class="note">Staging sites are temporary — they're just a copy. Nothing you do there affects the live site.</div>
+        </div>
+      </div>
+
+      <h3>Why This Is Worth Doing Before Phase 2 SEO Work</h3>
+      <p>Elementor 3.10+ shipped "Improved Asset Loading" — a feature that stops loading Elementor's full CSS/JS bundle on pages that don't need it. On 3.7.7, every page loads the full bundle regardless. This is a direct, measurable hit to your Core Web Vitals (LCP and INP scores), which Google uses as a ranking signal. Completing the SEO plan (Phase 2) on top of slow Core Web Vitals is building on a weak foundation. Upgrading Elementor Pro is the single change with the highest SEO ROI.</p>
+
+    </div>
+  </div>
+  <!-- end s19 -->
 
   </div><!-- end main-content -->
 </div><!-- end page-layout -->
