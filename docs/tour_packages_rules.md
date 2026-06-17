@@ -36,6 +36,7 @@ No drinks are included — not even water. This is an internal constraint only. 
 
 Rules tomb names:
 In the highlights: The Valley of the Kings (4 tombs) = Valley of the Kings (3 tombs plus the extraordinary tomb of Rameses 5th&6th)
+Make name Roman Numeral , so Ramses V & VI
 
 Per owner, specific tomb names are kept. Only the tomb of Rameses 5th&6th is guaranteed open. Other tombs (including Tutankhamun, Nefertari, Seti I) may be swapped on the spot if closed — this is handled in the field. Do not reference closures, substitutions, or ticket types in any published copy. Use the package text as-is.
 
@@ -52,6 +53,7 @@ Maintain Order
 Highlights
 Keep order of sites
 also do not use icons , use bullets instead 
+Anytime we mention The something “example The Sphinx” and we highlight it pop up to show additional information, we need to ignore the . So we highlight the entire name including “The"
 
 1)Giza Pyramids & The Sphinx “do not forget The"
 2)Grand Egyptian Museum (GEM)
@@ -90,6 +92,7 @@ NEVER mention "bonus inclusions" or list any bonus items alongside pricing/disco
 
 
 Must clarify and say exactly: All prices are quoted in USD.
+Remove "Contact us for current rates."
 
 Payment & Cancellation Policy
 💳 25% deposit secures your booking. Remaining full balance is due 65 days before arrival.
@@ -99,3 +102,10 @@ When You Cancel
 60—31 days prior to arrival: 50% penalty
 30-16 prior to arrival: 75% penalty
 15 days and less prior to arrival: 100% penalty.
+
+
+What is NOT included in the tour *** only these 3 lines
+International airfare
+Drinks (alcoholic and soft drinks) **** remove 
+Gratuities for guides and drivers
+Personal expenses — phone calls, laundry, souvenirs, etc.
