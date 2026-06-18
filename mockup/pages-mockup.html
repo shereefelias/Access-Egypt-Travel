@@ -164,7 +164,8 @@
 
   .addons-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
   .addon-item { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border: 1px solid #f0e8d8; border-radius: 6px; font-size: 13.5px; color: #5a4030; }
-  .addon-icon { font-size: 18px; }
+  .addon-icon { font-size: 0; line-height: 1; }
+  .addon-icon::before { content: "•"; font-size: 18px; color: #b5451b; }
 
   .pricing-table { width: 100%; border-collapse: collapse; }
   .pricing-table th { background: #2c1a0e; color: #d4af6a; padding: 10px 16px; font-size: 13px; font-weight: 700; text-align: left; }

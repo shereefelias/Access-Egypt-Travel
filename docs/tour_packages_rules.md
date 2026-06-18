@@ -42,6 +42,7 @@ Per owner, specific tomb names are kept. Only the tomb of Rameses 5th&6th is gua
 
 
 under Optional Add-Ons"
+DISPLAY STYLE (updated 2026-06-17): No icons — use plain bullets only (apply to ALL packages), same as Highlights.
 Maintain Order 
 1)Dinner cruise on the Nile in Cairo It should be the first option in Cairo. 
 2)Sound and light show at the pyramids
