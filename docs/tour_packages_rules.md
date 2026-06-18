@@ -51,8 +51,13 @@ Maintain Order
 
 
 Highlights
-Keep order of sites
-also do not use icons , use bullets instead 
+Keep order of sites — the order is the sequence travelers visit the sites, so it must be shown visually as an ordered sequence.
+DISPLAY STYLE (updated 2026-06-17): Show highlights as a NUMBERED VERTICAL TIMELINE, not a bullet grid and not icons.
+  - Each site gets a sequential number (1, 2, 3 …) in a filled terracotta (#b5451b) circle.
+  - A thin vertical connector line runs behind the circles to show "one after another."
+  - Single column, in the exact visiting order listed below.
+  - No emoji / no icons. (This supersedes the earlier "use bullets" instruction.)
+  - Built as the `.hl-timeline` component (see pages-mockup.html) and pasted into Elementor Free via a Custom HTML block — see the developer documentation for the reusable snippet.
 Anytime we mention The something “example The Sphinx” and we highlight it pop up to show additional information, we need to ignore the . So we highlight the entire name including “The"
 
 1)Giza Pyramids & The Sphinx “do not forget The"
