@@ -106,6 +106,11 @@ When You Cancel
 
 What is NOT included in the tour *** only these 3 lines
 International airfare
-Drinks (alcoholic and soft drinks) **** remove 
 Gratuities for guides and drivers
 Personal expenses — phone calls, laundry, souvenirs, etc.
+
+Transportation — apply to ALL packages (Tour at a Glance table)
+Add a Transport row to every tour's "Tour at a Glance" table with the following three lines:
+  Domestic flights: Included
+  Airport/Hotel Transport: Included
+  Tour Transport: Included
