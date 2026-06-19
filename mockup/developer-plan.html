@@ -112,6 +112,9 @@
   <nav class="sidebar-toc">
     <h3>Contents</h3>
     <a href="#overview" class="toc-section">Overview</a>
+    <a href="#audit" class="toc-section" style="color:#dc2626;font-weight:700;">0. ⚠️ Live Site Audit</a>
+    <a href="#audit" class="toc-sub">→ Platform reality</a>
+    <a href="#audit" class="toc-sub">→ Verified live bugs</a>
     <a href="#structure" class="toc-section">Site Structure</a>
     <a href="#s1" class="toc-section">1. Critical Fixes</a>
     <a href="#s1" class="toc-sub">→ Logo (footer)</a>
@@ -141,6 +144,9 @@
     <a href="#s18" class="toc-section">18. Destinations — Build Spec</a>
     <a href="#s18" class="toc-sub">→ Hub + detail pages</a>
     <a href="#s18" class="toc-sub">→ Gallery + CPT</a>
+    <a href="#s18b" class="toc-section">18B. Breadcrumbs (Wayfinding)</a>
+    <a href="#s18b" class="toc-sub">→ Rank Math + Elementor</a>
+    <a href="#s18b" class="toc-sub">→ Per-page trails + CSS</a>
     <a href="#s19" class="toc-section" style="color:#dc2626;font-weight:700;">19. ⚠️ Elementor Pro Upgrade</a>
     <a href="#s19" class="toc-sub">→ Version situation</a>
     <a href="#s19" class="toc-sub">→ Upgrade process</a>
@@ -163,7 +169,7 @@
     </div>
     <div class="section-body">
       <div class="danger">
-        <strong>⚠️ Elementor version note (applies to the WHOLE plan).</strong> This site runs <strong>Elementor Free</strong>, which does <em>not</em> include <strong>Theme Builder</strong>, Popup Builder, Loop Grid, sticky Motion Effects, or the Form widget. Wherever a step below says <em>"Templates → Theme Builder → Header/Footer,"</em> read it as <strong>your theme's header/footer builder</strong> (Astra, Kadence, or OceanWP — all free) or <strong>Appearance → Menus</strong> for the nav. The header, footer, and quote form are built in the theme + free plugins, not in Elementor Free. See <a href="#s14" style="color:#991b1b;font-weight:700;">Section 16</a> for the full Free build plan and the recommended free stack.
+        <strong>⚠️ Correction (live audit, June 18 2026).</strong> An earlier draft of this plan assumed <strong>Elementor Free</strong>. A logged-in check of the live site proved otherwise: <strong>Elementor Pro IS active (v3.7.7)</strong>, on the <strong>Triply Child</strong> theme, with tours run by the <strong>BA Book Everything</strong> plugin. So Theme Builder, the Breadcrumbs widget, Forms and Popups <em>are</em> available — the real blocker is that Elementor <strong>core is v3.21.1 while Pro is stuck at 3.7.7</strong> (a pending DB update is mid-flight). <strong>Read the new <a href="#audit" style="color:#991b1b;font-weight:700;">Live Site Audit</a> section first — it overrides every "Elementor Free / use a free theme builder" note later in this document.</strong>
       </div>
       <p><strong>Access Egypt Travel</strong> is a boutique Egypt tour operator owned and operated by <strong>John Gamil</strong> — a native Egyptian with a Bachelor's degree in Egyptology (2000) and 22 years of experience. The business targets <strong>American travelers</strong> and competes against large global operators (Gate 1, Intrepid, G Adventures, Tauck). The competitive edge is personalization, private tours, and direct access to an actual Egyptologist — something no large operator offers.</p>
 
@@ -204,6 +210,63 @@
         <tr><td>John Gamil</td><td>Owner, Egyptologist, Tour Guide</td><td>info@accessegypttravel.com</td></tr>
         <tr><td>—</td><td>Website-facing contact</td><td>info@accessegypttravel.com</td></tr>
       </table>
+    </div>
+  </div>
+
+  <!-- LIVE SITE AUDIT -->
+  <div class="section" id="audit">
+    <div class="section-header">
+      <span class="badge badge-critical">Read First</span>
+      <h2>0. Live Site Audit — Verified Current State (June 18, 2026)</h2>
+    </div>
+    <div class="section-body">
+
+      <div class="ar-note">
+        <strong>تدقيق مباشر للموقع — الحالة الفعلية (18 يونيو 2026)</strong>
+        <ul>
+          <li>تم فحص الموقع وهو مفتوح + لوحة تحكم ووردبريس. النتيجة بتصحّح افتراضات قديمة في الخطة.</li>
+          <li><strong>Elementor Pro شغّال فعلاً (نسخة 3.7.7)</strong> — مش Free. القالب هو <strong>Triply Child</strong>. الجولات شغّالة بإضافة <strong>BA Book Everything</strong>.</li>
+          <li>المشكلة الأساسية: نواة Elementor نسخة 3.21.1 بينما Pro نسخة 3.7.7 — فرق كبير، وفيه تحديث قاعدة بيانات معلّق. ده على الأرجح سبب الأعطال الظاهرة.</li>
+          <li><strong>الأولوية رقم 1:</strong> صلّح تعارض النسخ وشغّل تحديث قاعدة البيانات على نسخة احتياطية/تجريبية قبل أي إعادة تصميم.</li>
+          <li>هذا القسم يلغي أي كلام لاحق في المستند عن "Elementor Free" أو "استخدم قالب مجاني للهيدر/الفوتر".</li>
+        </ul>
+      </div>
+
+      <div class="danger"><strong>This section is the source of truth.</strong> It was written after a live, logged-in walkthrough of the public site and <code>wp-admin</code>. Where any later section says "Elementor Free has no X" or "use a free theme's header/footer builder (Astra/Kadence/OceanWP)," that was the <em>old assumption</em> — ignore it and follow this audit.</div>
+
+      <h3 style="margin:18px 0 8px;font-size:15px;color:#1a1a2e;">Platform — what's actually installed</h3>
+      <table>
+        <tr><th>Layer</th><th>Reality (verified in wp-admin)</th><th>Implication</th></tr>
+        <tr><td><strong>Theme</strong></td><td><strong>Triply Child</strong> (parent: <strong>Triply</strong>) — a commercial tour-operator theme</td><td>Header/footer/breadcrumb come from <strong>Triply options + Elementor Pro Theme Builder</strong>, not Astra/Kadence/OceanWP. Child theme is active → safe to add <code>functions.php</code> snippets.</td></tr>
+        <tr><td><strong>Elementor</strong></td><td>Core <strong>v3.21.1</strong> + <strong>Pro v3.7.7 (active)</strong>. Pro is "tested up to Elementor 3.7.0." An <strong>Elementor DB update is pending</strong> ("running in the background").<br><br><span style="color:#dc2626;font-weight:700;">⚠️ NEW: Elementor Core v4.1.3 update is now available</span> in wp-admin. Elementor's own warning: <em>"Heads up, Please backup before upgrade! Make sure you first update in a staging environment."</em> Decision needed before work begins: update Pro first to close the gap, or proceed at v3.7.7 on staging?</td><td>You DO have Theme Builder, Breadcrumbs, Form, Popup, Loop Grid. But the ~14-version gap is breaking Pro-rendered elements. <strong>Fix this first.</strong> See Section 19 for the full update procedure. Do NOT update Core to 4.1.3 until Pro is upgraded to match.</td></tr>
+        <tr><td><strong>Tours</strong></td><td><strong>BA Book Everything v1.8.24</strong> — tours are a booking CPT at <code>/to_book/&lt;slug&gt;/</code> with a built-in booking form (dates, pax, nationality).</td><td>Tours are NOT Elementor pages. Restyle/extend the BABE template — don't hand-build 5 Elementor pages (see <a href="#s17">Section 17</a>).</td></tr>
+        <tr><td><strong>SEO</strong></td><td><strong>Rank Math v1.0.272</strong> active; Site Kit by Google connected.</td><td>Breadcrumb shortcode + schema path in <a href="#s18b">18B</a> is valid as-is.</td></tr>
+        <tr><td><strong>Caching</strong></td><td><strong>LiteSpeed Cache v7.8.1 (active)</strong>. <span style="color:#dc2626;font-weight:700;">WP Fastest Cache has been REMOVED</span> — it is no longer installed. Do not reference it. Only LiteSpeed Cache needs attention.</td><td>LiteSpeed Cache is the only cache plugin. Configure it in Phase 3 — do not install an additional cache plugin.</td></tr>
+        <tr><td><strong>Other (3 new since plan was written)</strong></td><td>SeedProd, Vibe AI (MCP connector), Wordfence, Classic Editor, Duplicate Page, SimpleTOC, "Make Column Clickable for Elementor."<br><br><strong style="color:#dc2626;">⚠️ 3 NEW plugins not in original plan:</strong><br>• <strong>Image Optimizer by Elementor v1.7.5</strong> (active) — handles WebP conversion automatically. Relevant to Phase 3 image SEO — check its settings BEFORE doing any manual WebP work.<br>• <strong>Integrate Umami v0.8.3</strong> (active) — <span style="color:#dc2626;font-weight:700;">DUPLICATE ANALYTICS</span>: runs alongside Site Kit by Google. Two analytics scripts on every page = double-counted data + slower load. Must decide: keep Umami or remove it. Resolve BEFORE any Phase 3 Core Web Vitals measurement.<br>• <strong>AI / AI Provider for Anthropic / AI Provider for Google</strong> — WordPress AI client and providers. Low impact, no action needed.</td><td>19 active plugins. Trim where possible after Phase 1. Resolve Umami conflict before Phase 3.</td></tr>
+      </table>
+
+      <div class="danger"><strong>⚠️ Priority 0 — fix Elementor before redesigning anything.</strong> On a <strong>staging copy / fresh backup</strong>: run the pending Elementor DB update (<em>Elementor → Tools → "Update" / the "Click here to run it now" notice</em>), then update <strong>Elementor Pro</strong> so it matches core 3.21.1, then <em>Elementor → Tools → Regenerate CSS &amp; Data</em>. Several "bugs" below may simply disappear once Pro and core are back in sync. Full procedure is in <a href="#s19">Section 19</a>.</div>
+
+      <h3 style="margin:18px 0 8px;font-size:15px;color:#1a1a2e;">Verified live bugs (seen on the public site)</h3>
+      <table>
+        <tr><th>#</th><th>Issue</th><th>Where seen</th><th>Fix</th></tr>
+        <tr><td>1</td><td><strong>Malformed phone everywhere</strong> — shows <code>+2 012 014 05785</code> (wrong format, wrong number)<br><br><strong>TWO separate locations need fixing:</strong><br>📍 <strong>Location A — Top bar</strong> (most visible): Lives in <strong>Elementor → Templates → Theme Builder → Header → "HeaderBuilder 5" (ID 7996)</strong>. Open it in Elementor editor, find the text widget containing the phone number, double-click to edit.<br>📍 <strong>Location B — Pre-footer CTA band</strong> on the homepage: Edit the homepage in Elementor, scroll to the CTA section near the bottom, find and edit the phone text widget there.</td><td>Top bar (HeaderBuilder 5 in Theme Builder), homepage pre-footer CTA band, footer widget, Contact page</td><td>Replace <code>+2 012 014 05785</code> → US number <code>+1 772 782 0494</code> + WhatsApp <code>+20 12 014-0578</code> (link: <code>wa.me/201201400578</code>). Fix all four locations.</td></tr>
+        <tr><td>2</td><td><strong>Contact hero = solid black block</strong> (image fails to load)</td><td><code>/contact/</code></td><td>Replace the hero background image (Section 2B / 8B). Likely tied to the Elementor version gap.</td></tr>
+        <tr><td>3</td><td><strong style="color:#16a34a;">✅ RESOLVED — Empty gray tour cards</strong> — Live audit (June 2026): four tour cards on <code>/egypt-packages/</code> are fully populated with images, titles, and prices ($1,900 / $2,500 / $2,900 / $3,500). This bug was fixed before handoff. <span style="color:#9a3412;">ACTION: Verify cards still load correctly after the Elementor Core/Pro version fix. No additional work needed unless cards break again.</span></td><td><code>/egypt-packages/</code></td><td>Verify and close. Do not attempt to "fix" this — it's already working.</td></tr>
+        <tr><td>4</td><td><strong>Near-invisible section headings</strong> (very low contrast)</td><td>Homepage: "Customize your trip", "Access Egypt Travel Gallery", "Don't wait any longer"</td><td>Heading style/visibility issue — raise contrast (not a brand-color change, a legibility fix).</td></tr>
+        <tr><td>5</td><td><strong>Address conflict</strong> — Contact says "Hurghada", footer says "Luxor, Egypt"</td><td>Contact vs footer</td><td>Standardize to pickup model: "Cairo · Hurghada · Luxor". Add the US Greenville address for trust.</td></tr>
+        <tr><td>6</td><td><strong>Stale footer</strong> — "© 2023 At Access Egypt Travel", no social icons, single sparse row</td><td>Footer, site-wide</td><td>Section 8C rebuild; year → 2026; add FB/IG/TripAdvisor + US contact.</td></tr>
+        <tr><td>7</td><td><strong>Cliché hero, no positioning/CTA</strong> — "Take many memories, leave only footprints" / "Explore Egypt with comfort"</td><td>Homepage hero slider</td><td>Egyptologist-led headline + a real CTA (Section 4).</td></tr>
+        <tr><td>8</td><td><strong>~63 pending comments</strong> (likely spam)</td><td>wp-admin → Comments</td><td>Bulk mark spam / trash; disable comments on pages.</td></tr>
+        <tr><td>9</td><td><strong>Live prices differ from the mockup</strong></td><td>Cards: $1900 / $2500 / $2900 / $3500 / $1400</td><td>Reconcile with the approved mockup prices ($1,950 / $2,350 / $2,950 / $3,250 / $3,950) before publishing — confirm which set is current.</td></tr>
+        <tr><td>10</td><td><strong>Visa shown as "excluded ($25)"</strong> on a tour page</td><td><code>/to_book/…</code> Included/Excluded</td><td>Check against other pages/packages for consistency (some copy implies visa included).</td></tr>
+      </table>
+
+      <h3 style="margin:18px 0 8px;font-size:15px;color:#1a1a2e;">How this changes the plan</h3>
+      <div class="note"><strong>Tours:</strong> they already exist as BABE items with hero, day-by-day itinerary + Egypt map, Highlights (linked sites), and Included/Excluded. They're <em>missing</em> the at-a-glance table, accommodation tiers, pricing/discount table, payment/cancellation policy, reviews, breadcrumb, and sticky sub-nav. The job is to <strong>extend the BABE tour template</strong>, not rebuild in Elementor — see the revised <a href="#s17">Section 17</a>.</div>
+      <div class="note"><strong>Header/Footer/Breadcrumbs:</strong> use <strong>Elementor Pro Theme Builder</strong> + Triply theme options. The "free theme builder" and "Custom HTML footer" workarounds in Sections 3 / 8C are fallbacks only — with Pro working you can build these natively (and Pro has a Breadcrumbs widget, though Rank Math's is still the cross-version-safe choice in <a href="#s18b">18B</a>).</div>
+      <div class="warning"><strong>Sequence:</strong> (1) fix Elementor version mismatch + DB update on staging → (2) re-audit which bugs remain → (3) fix contact info + the live bugs above → (4) header/footer/page upgrades → (5) tours &amp; destinations. Don't redesign on top of a broken Pro/core mismatch.</div>
+
     </div>
   </div>
 
@@ -335,6 +398,7 @@
   <div class="toc">
     <h2>Table of Contents</h2>
     <ol>
+      <li><a href="#audit"><strong>⚠️ Live Site Audit — Verified Current State (read first)</strong></a></li>
       <li><a href="#s1">Critical Fixes — Do These First</a></li>
       <li><a href="#s2">Header &amp; Navigation</a></li>
       <li><a href="#s3">Footer</a></li>
@@ -344,6 +408,7 @@
       <li><a href="#s7">Blog Posts — Cleanup &amp; Titles</a></li>
       <li><a href="#s8">Missing Pages to Create</a></li>
       <li><a href="#s10">Elementor — Technical Fixes</a></li>
+      <li><a href="#s18b">Breadcrumbs (Wayfinding) — All Interior Pages</a></li>
     </ol>
   </div>
 
@@ -403,21 +468,39 @@ selector img:hover {
         <div class="task-header">
           <div class="task-num">2</div>
           <div>
-            <div class="task-title">Phone Number in Footer is Egyptian — Fix for American Audience</div>
+            <div class="task-title">Fix Malformed Phone Number — 4 Locations Across the Site</div>
             <span class="badge badge-critical">Critical</span>
           </div>
         </div>
         <div class="task-body">
-          <p>The footer currently displays <strong>+20 12 014-0578</strong> — this is an Egyptian mobile number. American visitors seeing a foreign number immediately lose trust. It signals they'd be calling overseas, dealing with time zones, and paying international rates.</p>
+          <p>The site currently shows <strong>+2 012 014 05785</strong> everywhere — wrong format AND wrong digit count. The correct Egyptian WhatsApp number is <strong>+20 12 014-0578</strong>. A US number <strong>+1 772 782 0494</strong> should appear alongside it (or instead, depending on owner preference). American visitors seeing an unfamiliar foreign number immediately lose trust.</p>
 
-          <div class="danger">This is the highest-impact trust issue on the site for the American market. Fix before any content changes.</div>
+          <div class="danger">The phone number appears in FOUR separate places. Fix all four — missing even one leaves a broken number visible to visitors.</div>
 
-          <p><strong>Option A — US number (recommended):</strong> Set up a US-based number via Google Voice (free) or a VoIP service like OpenPhone (~$10/month). Forward it to the Egyptian number. Display the US number on the site.</p>
+          <h3 style="margin:16px 0 8px;font-size:14px;">📍 Location 1 — Top Bar (most prominent, seen on every page)</h3>
+          <p>This is controlled by <strong>Elementor Theme Builder → Header → "HeaderBuilder 5"</strong> (Template ID 7996).</p>
+          <div class="path"><span class="highlight">wp-admin sidebar</span> <span class="arrow">→</span> <span class="highlight">Templates</span> <span class="arrow">→</span> <span class="highlight">Theme Builder</span> <span class="arrow">→</span> click the <span class="highlight">Header</span> tab <span class="arrow">→</span> hover over "HeaderBuilder 5" <span class="arrow">→</span> click <span class="highlight">Edit with Elementor</span></div>
+          <p>Inside the Elementor editor you'll see the black top bar. Find the text widget showing the phone number — it will contain <code>+2 012 014 05785</code>. Double-click the text to enter inline edit mode. Replace with:</p>
+          <div class="path"><span class="highlight">US: +1 772 782 0494</span> &nbsp;|&nbsp; <span class="highlight">WhatsApp: +20 12 014-0578</span></div>
+          <p>Then click <strong>Update</strong> (top right of the Elementor editor). This saves the header template and it will update on all pages instantly.</p>
 
-          <p><strong>Option B — Remove phone, emphasize email + contact form:</strong> If no US number is available, remove the phone number entirely and replace with email and a clear "We respond within 2 hours" promise.</p>
+          <div class="note">📸 <strong>What you'll see:</strong> After clicking "Edit with Elementor" on HeaderBuilder 5, you'll see the full header layout in a dark preview — a black top bar strip running across the top, then the logo + navigation row below. The phone number sits in the top bar strip, usually right-aligned or center-aligned.</div>
 
-          <p><strong>To update the footer:</strong></p>
-          <div class="path"><span class="highlight">Templates</span> <span class="arrow">→</span> <span class="highlight">Theme Builder</span> <span class="arrow">→</span> <span class="highlight">Footer</span> <span class="arrow">→</span> <span class="highlight">Edit with Elementor</span> <span class="arrow">→</span> find the phone number text widget <span class="arrow">→</span> edit the number</div>
+          <h3 style="margin:16px 0 8px;font-size:14px;">📍 Location 2 — Pre-Footer CTA Band (homepage)</h3>
+          <p>There's a colored call-to-action section near the bottom of the homepage with a phone number. This is a regular Elementor section on the homepage — not in the Theme Builder.</p>
+          <div class="path"><span class="highlight">wp-admin sidebar</span> <span class="arrow">→</span> <span class="highlight">Pages</span> <span class="arrow">→</span> <span class="highlight">All Pages</span> <span class="arrow">→</span> hover "Home" <span class="arrow">→</span> <span class="highlight">Edit with Elementor</span> <span class="arrow">→</span> scroll to the pre-footer CTA section <span class="arrow">→</span> double-click the phone text widget <span class="arrow">→</span> edit number</div>
+
+          <h3 style="margin:16px 0 8px;font-size:14px;">📍 Location 3 — Footer (every page)</h3>
+          <div class="path"><span class="highlight">Templates</span> <span class="arrow">→</span> <span class="highlight">Theme Builder</span> <span class="arrow">→</span> <span class="highlight">Footer</span> tab <span class="arrow">→</span> hover the footer template <span class="arrow">→</span> <span class="highlight">Edit with Elementor</span> <span class="arrow">→</span> find the phone text widget <span class="arrow">→</span> double-click <span class="arrow">→</span> replace number <span class="arrow">→</span> <span class="highlight">Update</span></div>
+
+          <h3 style="margin:16px 0 8px;font-size:14px;">📍 Location 4 — Contact Page</h3>
+          <div class="path"><span class="highlight">Pages</span> <span class="arrow">→</span> <span class="highlight">Contact</span> <span class="arrow">→</span> <span class="highlight">Edit with Elementor</span> <span class="arrow">→</span> find phone text widget <span class="arrow">→</span> double-click <span class="arrow">→</span> replace <span class="arrow">→</span> <span class="highlight">Update</span></div>
+
+          <div class="note"><strong>Correct phone values to use everywhere:</strong><br>
+          US number: <code>+1 772 782 0494</code><br>
+          WhatsApp (Egypt): <code>+20 12 014-0578</code> — link: <code>href="tel:+17727820494"</code> and <code>href="https://wa.me/201201400578"</code></div>
+
+          <div class="warning"><strong>A note on US number options:</strong> The site should show a US number, not just an Egyptian one. Options: (1) Google Voice — free, get a US number at voice.google.com, forward calls to Egypt. (2) OpenPhone — ~$10/month, better for business. The owner already has +1 772 782 0494 — use that if it's confirmed active.</div>
         </div>
       </div>
 
@@ -652,8 +735,16 @@ selector img:hover {
             <tr><td>Address — contact page</td><td>Hurghada</td><td>Update to: <code>Pickup locations: Cairo · Hurghada · Luxor</code> — customers are collected from Cairo or Hurghada and transferred to Luxor for tours. Mention all three cities.</td></tr>
           </table>
 
-          <div class="path"><span class="highlight">Templates</span> <span class="arrow">→</span> <span class="highlight">Theme Builder</span> <span class="arrow">→</span> <span class="highlight">Footer</span> <span class="arrow">→</span> <span class="highlight">Edit with Elementor</span></div>
-          <p>Find each text widget containing the phone/email → update the values → click <strong>Update</strong>.</p>
+          <div class="path"><span class="highlight">WP Admin</span> <span class="arrow">→</span> <span class="highlight">Appearance</span> <span class="arrow">→</span> <span class="highlight">Editor / Header &amp; Footer Builder</span> <span class="arrow">→</span> <span class="highlight">Footer</span> <span class="arrow">→</span> open the contact widget <span class="arrow">→</span> edit values <span class="arrow">→</span> <span class="highlight">Update</span></div>
+          <div class="note"><strong>Elementor Free has no Theme Builder</strong>, so the footer lives in your <strong>theme's</strong> footer builder (Astra / Kadence / OceanWP) — not <em>Templates → Theme Builder</em>. If your theme can't edit the footer, build a new one per <a href="#s8c">Section 8C</a>. The path above and below assume the theme builder.</div>
+          <p>Find each text widget containing the phone/email → update the values → click <strong>Update</strong>. Paste this contact block into a <strong>Custom HTML</strong> widget so phone and WhatsApp are tap-to-action (critical on mobile):</p>
+          <pre><span class="key">&lt;div</span> class=<span class="val">"ae-footer-contact"</span><span class="key">&gt;</span>
+  <span class="key">&lt;a</span> href=<span class="val">"tel:+17727820494"</span><span class="key">&gt;</span>📞 +1 772 782 0494<span class="key">&lt;/a&gt;</span>            <span class="comment">&lt;!-- US, click-to-call --&gt;</span>
+  <span class="key">&lt;a</span> href=<span class="val">"https://wa.me/201201400578"</span><span class="key">&gt;</span>💬 WhatsApp: +20 12 014-0578<span class="key">&lt;/a&gt;</span>
+  <span class="key">&lt;a</span> href=<span class="val">"mailto:info@accessegypttravel.com"</span><span class="key">&gt;</span>✉️ info@accessegypttravel.com<span class="key">&lt;/a&gt;</span>
+  <span class="key">&lt;p</span> class=<span class="val">"ae-hours"</span><span class="key">&gt;</span>We reply within 2 hours · Mon–Sat, 9am–6pm EST<span class="key">&lt;/p&gt;</span>
+<span class="key">&lt;/div&gt;</span></pre>
+          <div class="warning"><strong>Do not type the WhatsApp number with spaces or "+" inside <code>wa.me/</code>.</strong> The link must be digits only: <code>wa.me/201201400578</code> (country code 20, then the number without its leading 0). Any other format opens a broken chat.</div>
 
           <p><strong>Also add to footer:</strong></p>
           <ul style="margin: 10px 0 0 20px;">
@@ -721,6 +812,38 @@ selector img:hover {
         </div>
       </div>
 
+      <div class="task">
+        <div class="task-header">
+          <div class="task-num">8b</div>
+          <div>
+            <div class="task-title">Hero Headline, CTA &amp; Trust Strip</div>
+            <span class="badge badge-high">High</span>
+          </div>
+        </div>
+        <div class="task-body">
+          <div class="path"><span class="highlight">Pages</span> <span class="arrow">→</span> <span class="highlight">Home</span> <span class="arrow">→</span> <span class="highlight">Edit with Elementor</span> <span class="arrow">→</span> click the hero <span class="highlight">Heading</span> widget <span class="arrow">→</span> retype H1 <span class="arrow">→</span> click the <span class="highlight">Button</span> widget <span class="arrow">→</span> set Link <span class="arrow">→</span> <span class="highlight">Update</span></div>
+          <table>
+            <tr><th>Element</th><th>Set to</th></tr>
+            <tr><td>Hero H1</td><td><code>Discover Egypt With a Real Egyptologist</code></td></tr>
+            <tr><td>Primary CTA button → Link</td><td><code>mailto:info@accessegypttravel.com</code> &nbsp;(<strong>not</strong> Cal.com)</td></tr>
+            <tr><td>Button text</td><td><code>Request a Quote →</code></td></tr>
+          </table>
+          <p>For the 4-column trust strip, drop a <strong>Custom HTML</strong> widget directly under the hero and paste:</p>
+          <pre><span class="key">&lt;div</span> class=<span class="val">"ae-trust-strip"</span><span class="key">&gt;</span>
+  <span class="key">&lt;div&gt;</span>✈️ &lt;strong&gt;Pickup&lt;/strong&gt; from Cairo or Hurghada<span class="key">&lt;/div&gt;</span>
+  <span class="key">&lt;div&gt;</span>🏛️ &lt;strong&gt;Egyptologist&lt;/strong&gt;-guided, 100% private<span class="key">&lt;/div&gt;</span>
+  <span class="key">&lt;div&gt;</span>💬 &lt;strong&gt;US support&lt;/strong&gt; in your time zone<span class="key">&lt;/div&gt;</span>
+  <span class="key">&lt;div&gt;</span>💵 &lt;strong&gt;Priced in USD&lt;/strong&gt; — no hidden fees<span class="key">&lt;/div&gt;</span>
+<span class="key">&lt;/div&gt;</span>
+<span class="key">&lt;style&gt;</span>
+.ae-trust-strip{ display:grid; grid-template-columns:repeat(4,1fr); gap:16px; text-align:center;
+  padding:22px 16px; background:#faf7f2; font-size:14px; color:#2c3e50; }
+@media(max-width:700px){ .ae-trust-strip{ grid-template-columns:1fr 1fr; } }
+<span class="key">&lt;/style&gt;</span></pre>
+          <div class="warning"><strong>Remove every "Blog" reference on this page</strong> — hero links, menus, card rows. Owner is not running a blog yet.</div>
+        </div>
+      </div>
+
     </div>
   </div>
 
@@ -756,7 +879,14 @@ selector img:hover {
           </div>
         </div>
         <div class="task-body">
-          <div class="path"><span class="highlight">Pages</span> <span class="arrow">→</span> <span class="highlight">All Pages</span> <span class="arrow">→</span> filter by <strong>Draft</strong> <span class="arrow">→</span> select each page below <span class="arrow">→</span> Bulk Actions <span class="arrow">→</span> <span class="highlight">Move to Trash</span></div>
+          <div class="path"><span class="highlight">Pages</span> <span class="arrow">→</span> <span class="highlight">All Pages</span> <span class="arrow">→</span> filter by <strong>Draft</strong> <span class="arrow">→</span> select each page below <span class="arrow">→</span> Bulk Actions <span class="arrow">→</span> <span class="highlight">Move to Trash</span> <span class="arrow">→</span> <span class="highlight">Apply</span></div>
+          <p style="margin:10px 0 4px;"><strong>Faster — WP-CLI</strong> (Tools → WP-CLI, or your host's terminal). This moves all 14 to Trash (recoverable for a week); it does <strong>not</strong> permanently delete:</p>
+          <pre><span class="comment"># Trash the 14 demo/junk draft pages by ID (no --force = goes to Trash)</span>
+wp post delete 2 361 31 374 12176 3119 3139 6632 6630 6627 11153 11152 789 10882
+
+<span class="comment"># After ~1 week, confirm nothing broke, then empty the page Trash:</span>
+wp post list --post_type=page --post_status=trash --field=ID | xargs wp post delete --force</pre>
+          <div class="danger">Run the IDs <strong>exactly</strong> as listed. Do not add 6, 8, 12848, 11, 7, 10, 12, 5 — those are live BABE booking pages (see note below).</div>
 
           <table>
             <tr>
@@ -825,7 +955,7 @@ selector img:hover {
           <div class="danger">The live FAQ page (/faq/) currently shows demo plugin placeholder content including "Do you speak Spanish?" and "Question 2?" — these are visible to every visitor right now.</div>
 
           <p><strong>Delete these entries:</strong></p>
-          <div class="path"><span class="highlight">WordPress Admin</span> <span class="arrow">→</span> look for <strong>FAQ</strong> in the left sidebar (added by BABE plugin) <span class="arrow">→</span> find and permanently delete: "Do you speak Spanish?" and "Question 2?"</span></div>
+          <div class="path"><span class="highlight">WordPress Admin</span> <span class="arrow">→</span> look for <strong>FAQ</strong> in the left sidebar (added by BABE plugin) <span class="arrow">→</span> find and permanently delete: "Do you speak Spanish?" and "Question 2?"</div>
 
           <p>If FAQ items are managed through Elementor on the FAQ page instead:</p>
           <div class="path"><span class="highlight">Pages</span> <span class="arrow">→</span> <span class="highlight">Faq</span> (ID: 1005) <span class="arrow">→</span> <span class="highlight">Edit with Elementor</span> <span class="arrow">→</span> find the FAQ accordion widget <span class="arrow">→</span> delete demo items <span class="arrow">→</span> add new items below</div>
@@ -844,6 +974,27 @@ selector img:hover {
             <tr><td>9</td><td>Do I need travel insurance?</td><td>Strongly recommended. Note what your tours cover vs. what insurance should cover.</td></tr>
             <tr><td>10</td><td>What should I pack for Egypt?</td><td>Light, modest clothing. Comfortable shoes. Sun protection. Scarf for mosque visits.</td></tr>
           </table>
+
+          <p style="margin-top:14px;"><strong>If there's no FAQ plugin / accordion handy</strong>, paste this into a <strong>Custom HTML</strong> widget — it's a native accordion (no JavaScript, accessible, works in Elementor Free). Duplicate one <code>&lt;details&gt;</code> block per question:</p>
+          <div class="path"><span class="highlight">Pages</span> <span class="arrow">→</span> <span class="highlight">Faq</span> <span class="arrow">→</span> <span class="highlight">Edit with Elementor</span> <span class="arrow">→</span> drag <span class="highlight">HTML</span> widget <span class="arrow">→</span> paste <span class="arrow">→</span> <span class="highlight">Update</span></div>
+          <pre><span class="key">&lt;div</span> class=<span class="val">"ae-faq"</span><span class="key">&gt;</span>
+  <span class="key">&lt;details&gt;</span>
+    <span class="key">&lt;summary&gt;</span>Is Egypt safe for American tourists?<span class="key">&lt;/summary&gt;</span>
+    <span class="key">&lt;p&gt;</span>Owner-approved answer goes here.<span class="key">&lt;/p&gt;</span>
+  <span class="key">&lt;/details&gt;</span>
+  <span class="key">&lt;details&gt;</span>
+    <span class="key">&lt;summary&gt;</span>Do Americans need a visa?<span class="key">&lt;/summary&gt;</span>
+    <span class="key">&lt;p&gt;</span>Owner-approved answer goes here.<span class="key">&lt;/p&gt;</span>
+  <span class="key">&lt;/details&gt;</span>
+<span class="key">&lt;/div&gt;</span>
+<span class="key">&lt;style&gt;</span>
+.ae-faq details{ border:1px solid #e5e7eb; border-radius:8px; margin:8px 0; padding:0 14px; }
+.ae-faq summary{ cursor:pointer; font-weight:600; padding:14px 0; list-style:none; }
+.ae-faq summary::after{ content:"+"; float:right; color:#b5451b; font-weight:700; }
+.ae-faq details[open] summary::after{ content:"–"; }
+.ae-faq p{ padding:0 0 14px; color:#444; }
+<span class="key">&lt;/style&gt;</span></pre>
+          <div class="note"><strong>FAQ rich-result schema</strong> (the dropdown Q&amp;A that can show under your Google listing) is handled in <strong>seo-plan-phase3.html</strong> via Rank Math's FAQ block — don't hand-code FAQPage JSON-LD here, or you'll ship it twice.</div>
         </div>
       </div>
 
@@ -880,6 +1031,13 @@ selector img:hover {
         <div class="task-body">
           <div class="danger">These posts are live, indexed by Google, and actively damaging SEO and credibility. Delete all 18 immediately.</div>
           <div class="path"><span class="highlight">Posts</span> <span class="arrow">→</span> <span class="highlight">All Posts</span> <span class="arrow">→</span> filter by Category: <strong>Uncategorized</strong> <span class="arrow">→</span> select all <span class="arrow">→</span> Bulk Actions <span class="arrow">→</span> <span class="highlight">Move to Trash</span> <span class="arrow">→</span> then empty Trash</div>
+          <p style="margin:10px 0 4px;"><strong>Faster — WP-CLI.</strong> List first (verify it's only demo posts), then trash:</p>
+          <pre><span class="comment"># 1) DRY RUN — list every post whose body contains "Lorem"</span>
+wp post list --post_type=post --s=<span class="val">'Lorem'</span> --field=ID --format=ids
+
+<span class="comment"># 2) Trash exactly those (re-runs the search and pipes the IDs)</span>
+wp post list --post_type=post --s=<span class="val">'Lorem'</span> --field=ID --format=ids | xargs wp post delete</pre>
+          <div class="warning">Always run step 1 and eyeball the count (should be ~18) before step 2. If a real post ever contains the word "Lorem", it would be caught too.</div>
 
           <p>The following posts are Lorem Ipsum / demo content and must be deleted:</p>
           <table>
@@ -910,8 +1068,10 @@ selector img:hover {
           <p>All 23 location guide posts have colons at the end of their titles (e.g., "Aswan :", "Abu Simbel Temples:"). These appear in the blog listing, Google search results, and browser tabs. They look like unfinished titles, not professional content.</p>
 
           <div class="path"><span class="highlight">Posts</span> <span class="arrow">→</span> click each post <span class="arrow">→</span> <span class="highlight">Quick Edit</span> <span class="arrow">→</span> remove the trailing colon from the Title field <span class="arrow">→</span> <span class="highlight">Update</span></div>
-
-          <div class="note">Do NOT change the slugs — they are already set correctly (e.g., /aswan/, /abu-simbel-temples/). Only change the display title.</div>
+          <p style="margin:10px 0 4px;">To get the exact working list, surface every post whose title ends in a colon:</p>
+          <pre><span class="comment"># Lists ID + title for posts ending in ":" — your edit checklist</span>
+wp post list --post_type=post --fields=ID,post_title --format=csv | grep <span class="val">':"\?$'</span></pre>
+          <div class="note">Do NOT change the slugs — they are already set correctly (e.g., /aswan/, /abu-simbel-temples/). Only change the display title. Use the corrected names in the table below (several also fix spelling, e.g. "Com Ombo" → "Kom Ombo").</div>
 
           <table>
             <tr><th>Current Title</th><th>Corrected Title</th></tr>
@@ -960,6 +1120,17 @@ selector img:hover {
         </ul>
         <strong>تذكر:</strong> السلوج (URL) لكل صفحة لازم يبقى بالإنجليزي وبسيط: <code>/about/</code>، <code>/testimonials/</code>، <code>/tours/</code>
       </div>
+
+      <div class="note"><strong>Scaffold all the new pages at once (WP-CLI).</strong> This creates them as <em>drafts</em> with the correct slugs so you can build each in Elementor and the menus/breadcrumbs resolve. The <code>/tours/</code> page also becomes the breadcrumb parent for the 5 tour pages (see <a href="#s18b">18B</a>).</p>
+      <div class="path"><span class="highlight">Tools</span> <span class="arrow">→</span> <span class="highlight">WP-CLI</span> (or host terminal)</div>
+      <pre><span class="comment"># Create Phase-1 pages as drafts with clean slugs</span>
+wp post create --post_type=page --post_status=draft --post_title=<span class="val">"Testimonials"</span> --post_name=<span class="val">"testimonials"</span>
+wp post create --post_type=page --post_status=draft --post_title=<span class="val">"Tours"</span>        --post_name=<span class="val">"tours"</span>
+wp post create --post_type=page --post_status=draft --post_title=<span class="val">"Pay Now"</span>      --post_name=<span class="val">"payment"</span>
+
+<span class="comment"># Confirm slugs &amp; IDs</span>
+wp post list --post_type=page --fields=ID,post_title,post_name,post_status</pre>
+      <div class="warning"><strong>Slug, not title, is the URL.</strong> "Pay Now" must have <code>post_name=payment</code> so the URL is <code>/payment/</code> (matches the nav + Section 13). Build the layout in Elementor after creating, then set each page's status to Published.</div>
 
       <div class="task">
         <div class="task-header">
@@ -1012,7 +1183,8 @@ selector img:hover {
           <div class="warning">Owner must provide a professional photo of John Gamil. Without a photo, this page cannot be properly redesigned. Upload to Media Library before starting the Elementor edit.</div>
 
           <p><strong>Also fix: copyright year in footer</strong> — currently shows "Copyright © 2023 At Access Egypt Travel" — update to 2026.</p>
-          <div class="path"><span class="highlight">Templates</span> <span class="arrow">→</span> <span class="highlight">Theme Builder</span> <span class="arrow">→</span> <span class="highlight">Footer</span> <span class="arrow">→</span> <span class="highlight">Edit with Elementor</span> <span class="arrow">→</span> find copyright text widget <span class="arrow">→</span> update year</div>
+          <div class="path"><span class="highlight">Appearance</span> <span class="arrow">→</span> <span class="highlight">Header &amp; Footer Builder</span> (theme — Free) <span class="arrow">→</span> <span class="highlight">Footer</span> <span class="arrow">→</span> find copyright text widget <span class="arrow">→</span> update year <span class="arrow">→</span> <span class="highlight">Update</span></div>
+          <div class="note">Elementor Free has no <em>Templates → Theme Builder</em>. If the footer is plain text in the theme, set the year dynamically so it never goes stale: put <code>&amp;copy; &lt;?php echo date('Y'); ?&gt; Access Egypt Travel LLC</code> in the theme footer, or just hardcode <code>2026</code> in the Custom HTML footer block from <a href="#s8c">Section 8C</a>.</div>
         </div>
       </div>
 
@@ -1219,7 +1391,7 @@ selector img:hover {
   <div class="section" id="s8c">
     <div class="section-header">
       <span class="badge badge-high">High Priority</span>
-      <h2>8C. Footer — Full Redesign (theme header/footer builder — Elementor Free)</h2>
+      <h2>8C. Footer — Full Redesign (Elementor Pro Theme Builder / Triply theme)</h2>
     </div>
     <div class="section-body">
       <div class="ar-note">
@@ -1252,7 +1424,8 @@ selector img:hover {
         <div class="task-body">
           <div class="note"><strong>Reference:</strong> This footer structure is modeled after Osiris Tours (osiristours.com) — a direct Egypt competitor with excellent footer organization. Copy the structure, not the content.</div>
 
-          <div class="path"><span class="highlight">Templates</span> <span class="arrow">→</span> <span class="highlight">Theme Builder</span> <span class="arrow">→</span> <span class="highlight">Footer</span> <span class="arrow">→</span> <span class="highlight">Edit with Elementor</span></div>
+          <div class="path"><span class="highlight">Appearance</span> <span class="arrow">→</span> <span class="highlight">Header &amp; Footer Builder</span> (Astra/Kadence/OceanWP — Free) <span class="arrow">→</span> <span class="highlight">Footer</span> <span class="arrow">→</span> <span class="highlight">Add New / Edit</span> <span class="arrow">→</span> set Display Condition: <span class="highlight">Entire Site</span></div>
+          <div class="note"><strong>Elementor Free has no Theme Builder.</strong> Build the footer in your theme's free footer builder. The fastest reliable way to get the 4 columns exactly right is one <strong>Custom HTML</strong> block — paste the snippet at the end of this section and edit the links.</div>
 
           <p>Build the footer in 3 stacked sections:</p>
 
@@ -1341,6 +1514,45 @@ selector img:hover {
 
           <div class="warning">Current footer shows copyright 2023 — update to 2026. Also update "At Access Egypt Travel" to "Access Egypt Travel LLC" once the LLC formation (currently Planning) is complete.</div>
 
+          <div class="divider"></div>
+          <p><strong>Drop-in footer (Custom HTML).</strong> Paste into one HTML block in the footer builder, then edit the links. Responsive 4-column grid that collapses to 1 column on phones:</p>
+          <pre><span class="key">&lt;footer</span> class=<span class="val">"ae-footer"</span><span class="key">&gt;</span>
+  <span class="key">&lt;div</span> class=<span class="val">"ae-cols"</span><span class="key">&gt;</span>
+    <span class="key">&lt;div&gt;</span>
+      <span class="key">&lt;h4&gt;</span>Egypt Tours<span class="key">&lt;/h4&gt;</span>
+      <span class="key">&lt;a</span> href=<span class="val">"/egypt-packages/"</span><span class="key">&gt;</span>Egypt Packages<span class="key">&lt;/a&gt;</span>
+      <span class="key">&lt;a</span> href=<span class="val">"/nile-cruise/"</span><span class="key">&gt;</span>Nile Cruise<span class="key">&lt;/a&gt;</span>
+      <span class="key">&lt;a</span> href=<span class="val">"/tailor-made/"</span><span class="key">&gt;</span>Tailor-Made Tours<span class="key">&lt;/a&gt;</span>
+    <span class="key">&lt;/div&gt;</span>
+    <span class="key">&lt;div&gt;</span>
+      <span class="key">&lt;h4&gt;</span>Traveler Resources<span class="key">&lt;/h4&gt;</span>
+      <span class="key">&lt;a</span> href=<span class="val">"/faq/"</span><span class="key">&gt;</span>Egypt Travel FAQ<span class="key">&lt;/a&gt;</span>
+      <span class="key">&lt;a</span> href=<span class="val">"/destinations/"</span><span class="key">&gt;</span>Destinations<span class="key">&lt;/a&gt;</span>
+    <span class="key">&lt;/div&gt;</span>
+    <span class="key">&lt;div&gt;</span>
+      <span class="key">&lt;h4&gt;</span>Why Access Egypt Travel?<span class="key">&lt;/h4&gt;</span>
+      <span class="key">&lt;a</span> href=<span class="val">"/about-us/"</span><span class="key">&gt;</span>Meet John — Our Egyptologist<span class="key">&lt;/a&gt;</span>
+      <span class="key">&lt;a</span> href=<span class="val">"/testimonials/"</span><span class="key">&gt;</span>Reviews<span class="key">&lt;/a&gt;</span>
+    <span class="key">&lt;/div&gt;</span>
+    <span class="key">&lt;div&gt;</span>
+      <span class="key">&lt;h4&gt;</span>Contact Us<span class="key">&lt;/h4&gt;</span>
+      <span class="key">&lt;a</span> href=<span class="val">"tel:+17727820494"</span><span class="key">&gt;</span>🇺🇸 +1 772 782 0494<span class="key">&lt;/a&gt;</span>
+      <span class="key">&lt;a</span> href=<span class="val">"https://wa.me/201201400578"</span><span class="key">&gt;</span>💬 WhatsApp<span class="key">&lt;/a&gt;</span>
+      <span class="key">&lt;a</span> href=<span class="val">"mailto:info@accessegypttravel.com"</span><span class="key">&gt;</span>✉️ info@accessegypttravel.com<span class="key">&lt;/a&gt;</span>
+    <span class="key">&lt;/div&gt;</span>
+  <span class="key">&lt;/div&gt;</span>
+  <span class="key">&lt;div</span> class=<span class="val">"ae-copy"</span><span class="key">&gt;</span>&amp;copy; 2026 Access Egypt Travel LLC · Pickup: Cairo · Hurghada · Luxor<span class="key">&lt;/div&gt;</span>
+<span class="key">&lt;/footer&gt;</span>
+<span class="key">&lt;style&gt;</span>
+.ae-footer{ background:#212121; color:#f5f0e8; padding:40px 24px 20px; }
+.ae-cols{ display:grid; grid-template-columns:repeat(4,1fr); gap:28px; max-width:1100px; margin:0 auto; }
+.ae-footer h4{ color:#d4af6a; font-size:14px; margin:0 0 12px; }
+.ae-footer a{ display:block; color:#f5f0e8; text-decoration:none; font-size:13px; padding:4px 0; }
+.ae-footer a:hover{ color:#d4af6a; }
+.ae-copy{ text-align:center; border-top:1px solid #3a3a3a; margin-top:28px; padding-top:16px; font-size:12px; color:#b8b0a4; }
+@media(max-width:780px){ .ae-cols{ grid-template-columns:1fr; gap:20px; } }
+<span class="key">&lt;/style&gt;</span></pre>
+
         </div>
       </div>
 
@@ -1391,7 +1603,20 @@ selector img:hover {
         <div class="task-body">
           <p>The XML export shows <strong>Elementor 3.8.0</strong> and <strong>Elementor Pro 3.7.7</strong> — both are significantly behind current versions. Outdated Elementor versions cause gallery rendering bugs, JS conflicts, and security vulnerabilities.</p>
           <div class="path"><span class="highlight">Plugins</span> <span class="arrow">→</span> <span class="highlight">Installed Plugins</span> <span class="arrow">→</span> update Elementor and Elementor Pro first <span class="arrow">→</span> then update all remaining plugins</div>
-          <div class="warning">Take a full site backup before updating Elementor. Elementor major version updates can occasionally break custom layouts. Test on staging environment first if available.</div>
+          <p style="margin:10px 0 4px;"><strong>WP-CLI alternative</strong> (backup first — this is the order that's safest):</p>
+          <pre><span class="comment"># 0) Back up DB before touching plugins</span>
+wp db export backup-before-updates.sql
+
+<span class="comment"># 1) See what's outdated</span>
+wp plugin list --update=available
+
+<span class="comment"># 2) Update Elementor first, verify the site, then the rest</span>
+wp plugin update elementor
+wp plugin update --all
+
+<span class="comment"># 3) Clear Elementor's CSS cache (same as Tools → Regenerate)</span>
+wp elementor flush-css</pre>
+          <div class="warning">Take a full site backup before updating Elementor. Major version jumps can break custom layouts. Test on staging first if available, and re-check the homepage, a tour page, and the contact form after updating.</div>
         </div>
       </div>
 
@@ -1914,7 +2139,7 @@ function aetToggleDate(mode) {
 
 
       <div class="danger">
-        <strong>⚠️ Read first — this site is on Elementor FREE.</strong> Several earlier tasks in this plan say "Theme Builder → Header/Footer." That is an Elementor <em>Pro</em> feature. On Free these are NOT available: <strong>Theme Builder</strong> (custom header/footer/CPT templates), <strong>Popup Builder</strong>, <strong>Loop Grid / Posts</strong>, <strong>sticky Motion Effects</strong>, and the <strong>Form</strong> widget. The build below uses the <em>theme</em> + free plugins instead.
+        <strong>⚠️ Superseded by the <a href="#audit" style="color:#991b1b;font-weight:700;">Live Site Audit</a>.</strong> This section was written when we thought the site was on Elementor <em>Free</em>. The live check proved <strong>Elementor Pro is active (3.7.7)</strong> on the <strong>Triply Child</strong> theme — so Theme Builder, Popup, Loop Grid, sticky effects, Breadcrumbs and the Form widget <em>are</em> available. The "free" workarounds below still work as fallbacks, but once the Pro/core version mismatch is fixed (Priority 0) build these natively in <strong>Elementor Pro Theme Builder</strong> instead.
       </div>
 
       <h3 style="margin:18px 0 8px;font-size:15px;color:#1a1a2e;">What's native in Free vs. what needs help</h3>
@@ -2056,7 +2281,13 @@ document.addEventListener('click', function(e){
         </ul>
       </div>
 
-      <p>Five tour pages — <strong>6, 7, 8, 9, 11 days</strong>. The mockup <code>pages-mockup.html</code> is the source of truth for layout and copy. Build <strong>one page as a Saved Template</strong> (Elementor → save as Template), then duplicate it for the other four and swap the content. The packages and their key data:</p>
+      <div class="danger"><strong>⚠️ Strategy correction (from the <a href="#audit">Live Audit</a>).</strong> The live tours are <strong>not Elementor pages</strong> — they're <strong>BA Book Everything</strong> items at <code>/to_book/&lt;slug&gt;/</code>, each with a built-in booking form (dates, pax, nationality). Each page <em>already</em> has: hero, day-by-day itinerary + Egypt map, Highlights (with linked sites), and Included/Excluded with check/X icons. <strong>Do NOT hand-build 5 parallel Elementor pages</strong> — that would orphan the booking engine and create duplicate URLs. Instead, pick one of the two paths below, then add the missing blocks.</div>
+      <table>
+        <tr><th>Path</th><th>Do this when</th><th>How</th></tr>
+        <tr><td><strong>A. Extend the BABE template</strong> <span class="badge badge-low" style="vertical-align:middle;">Recommended</span></td><td>You want to keep the existing booking form &amp; URLs and just enrich the page.</td><td>Edit the BA Book Everything single-item layout / the item's content + custom fields. Add the missing blocks (below) via the item editor or a Custom HTML block. Keep the form.</td></tr>
+        <tr><td><strong>B. Elementor Pro single template</strong></td><td>You want full design control and will wire the BABE booking form back in as a shortcode/widget.</td><td>With Pro active: <em>Templates → Theme Builder → Single</em> → condition = the BABE post type. Rebuild from the mockup, then drop the BABE booking form back in. More work; only if Path A can't get the look.</td></tr>
+      </table>
+      <p><strong>Blocks the live tour pages are still missing</strong> (add these whichever path you choose): the <strong>Tour at a Glance</strong> table, <strong>Accommodation</strong> tiers, the <strong>pricing / discount</strong> table, <strong>Payment &amp; Cancellation</strong> policy, a <strong>Reviews</strong> block, the <strong>breadcrumb</strong> (<a href="#s18b">18B</a>), and the <strong>sticky sub-nav</strong>. Source of truth for copy/layout is <code>pages-mockup.html</code>. <strong>Reconcile prices/titles with the live catalog first</strong> — the live cards show different prices than the mockup (see audit bug #9). Key data:</p>
       <table>
         <tr><th>Package</th><th>Nights</th><th>Price from</th><th>Meals</th></tr>
         <tr><td>6 Days / 5 Nights — Cairo &amp; Luxor</td><td>Cairo 3 / Luxor 2</td><td>$1,950</td><td>B&amp;L daily</td></tr>
@@ -2067,11 +2298,12 @@ document.addEventListener('click', function(e){
       </table>
       <p style="font-size:12.5px;color:#64748b;">* Meal-line wording isn't standardized across packages yet — see the red flag in Section 16. Pick one format before publishing.</p>
 
-      <h3 style="margin:20px 0 8px;font-size:15px;color:#1a1a2e;">Page anatomy — top to bottom (with the Free widget for each)</h3>
+      <h3 style="margin:20px 0 8px;font-size:15px;color:#1a1a2e;">Page anatomy — top to bottom (with the widget for each)</h3>
+      <div class="note">The "Elementor Free build" column below is the <em>fallback</em> path. With <strong>Pro active</strong> (per the <a href="#audit">audit</a>) you have the Table, Form, and sticky/Motion-effect widgets natively — no need for the HTML-table or Customizer-CSS workarounds once the version mismatch is fixed. If you take Path A (extend BABE), most of these blocks are added inside the BABE item rather than as standalone Elementor widgets.</div>
       <table>
         <tr><th>#</th><th>Block</th><th>Elementor Free build</th></tr>
         <tr><td>1</td><td>Header</td><td>Theme header (Astra/Kadence) — not Elementor Free</td></tr>
-        <tr><td>2</td><td><strong>Hero</strong> — bg image + dark overlay, breadcrumb, H1 title, tagline, stat pills (📅 duration · 👥 private · 📍 pickup · 🎓 guide), "From $X" price box</td><td>Section with background Image + overlay; Heading + Text Editor; stat pills = Icon List or small Button group</td></tr>
+        <tr><td>2</td><td><strong>Hero</strong> — bg image + dark overlay, breadcrumb (<a href="#s18b">build spec → 18B</a>), H1 title, tagline, stat pills (📅 duration · 👥 private · 📍 pickup · 🎓 guide), "From $X" price box</td><td>Section with background Image + overlay; Heading + Text Editor; stat pills = Icon List or small Button group</td></tr>
         <tr><td>3</td><td><strong>Sticky sub-nav</strong> (Overview · Highlights · Itinerary · Accommodation · Inclusions)</td><td>Anchor links (Menu Anchor widget per section) + sticky via Customizer CSS (snippet below — Free has no sticky)</td></tr>
         <tr><td>4</td><td><strong>Overview</strong> — opens "Explore the Best of Egypt on a [N] Days Egypt Tour Package…"</td><td>Text Editor widget</td></tr>
         <tr><td>5</td><td><strong>Tour at a Glance</strong> — Duration, Type, Guide, Pickup, Destinations (nights), Transport, Visa, Meals, Price</td><td>Free has no Table widget → use an <strong>HTML widget</strong> with a small table, or an Icon List of label: value rows</td></tr>
@@ -2094,9 +2326,13 @@ document.addEventListener('click', function(e){
 #tour-subnav a:hover { opacity:1; }</pre>
       <div class="note">The scroll-spy "active section" highlight from the mockup is optional polish; skip it on Free unless a developer adds a small JS snippet, or install a free add-on (Essential/Happy Addons) that includes a sticky/anchor nav.</div>
 
-      <div class="step"><div class="step-num">1</div><div>Build the <strong>6-Day</strong> page fully, block by block above, pulling copy from <code>pages-mockup.html</code>.</div></div>
-      <div class="step"><div class="step-num">2</div><div>Elementor → ☰ → <strong>Save as Template</strong>. On each new tour page, Add Template → insert it → change only the content.</div></div>
-      <div class="step"><div class="step-num">3</div><div>Add each page to the <strong>Tours ▾</strong> menu (Appearance → Menus).</div></div>
+      <h3 style="margin:22px 0 8px;font-size:15px;color:#1a1a2e;">Build once, duplicate four times — exact clicks</h3>
+      <div class="path"><span class="highlight">Pages</span> <span class="arrow">→</span> <span class="highlight">Add New</span> <span class="arrow">→</span> Title "6 Days — Cairo &amp; Luxor", slug <code>6-day-cairo-luxor</code> <span class="arrow">→</span> Page Attributes <span class="highlight">Parent = Tours</span> <span class="arrow">→</span> <span class="highlight">Edit with Elementor</span></div>
+      <div class="step"><div class="step-num">1</div><div>Build the <strong>6-Day</strong> page fully, block by block above, pulling copy from <code>pages-mockup.html</code>. <strong>Do not paraphrase the package copy</strong> — paste it exactly (owner rule).</div></div>
+      <div class="path">Elementor editor <span class="arrow">→</span> <span class="highlight">☰ (top-left)</span> <span class="arrow">→</span> <span class="highlight">Save as Template</span> <span class="arrow">→</span> name it <code>Tour Page Base</code></div>
+      <div class="step"><div class="step-num">2</div><div>For each of the other four pages: <strong>Add New</strong> page → set <strong>Parent = Tours</strong> → Edit with Elementor → grey <strong>folder icon (Add Template)</strong> → <strong>My Templates</strong> → insert <code>Tour Page Base</code> → change only the content.</div></div>
+      <div class="path"><span class="highlight">Appearance</span> <span class="arrow">→</span> <span class="highlight">Menus</span> <span class="arrow">→</span> add all 5 pages under the <strong>Tours ▾</strong> dropdown</div>
+      <div class="step"><div class="step-num">3</div><div>Setting Parent = Tours also makes the breadcrumb read <code>Home › Tours › …</code> automatically (see <a href="#s18b">18B</a>) and nests the URL as <code>/tours/6-day-cairo-luxor/</code>.</div></div>
       <div class="step"><div class="step-num">4</div><div>Resolve the three red flags (11-day itinerary, 9-day flight route, meal format) before publishing — see Section 16.</div></div>
 
     </div>
@@ -2123,6 +2359,22 @@ document.addEventListener('click', function(e){
 
       <div class="note"><strong>Recommended structure:</strong> create a <strong>"Destination" custom post type</strong> with CPT UI (free) and fields for description, gallery, and quick-facts. Build one Elementor layout and reuse it for every site — far better than hand-building ~30 pages. (Note: a CPT <em>single template</em> normally needs Pro Theme Builder; on Free, either build each destination as a normal Page from a Saved Template, or use a free template add-on like "Elementor Custom Skin.")</div>
 
+      <p><strong>Register the CPT — two ways.</strong> No-code via the plugin:</p>
+      <div class="path"><span class="highlight">Plugins</span> <span class="arrow">→</span> <span class="highlight">Add New</span> <span class="arrow">→</span> install &amp; activate <strong>CPT UI</strong> <span class="arrow">→</span> <span class="highlight">CPT UI → Add/Edit Post Types</span> <span class="arrow">→</span> slug <code>destination</code>, plural "Destinations" <span class="arrow">→</span> set <strong>Custom Rewrite Slug = <code>destinations</code></strong> <span class="arrow">→</span> Add Post Type</div>
+      <p style="margin:10px 0 4px;">Or in code (child theme <code>functions.php</code>) — gives the <code>/destinations/cairo/</code> URLs and a "Destinations" archive Rank Math uses as the breadcrumb parent:</p>
+      <pre><span class="comment">// Register the Destination custom post type</span>
+<span class="key">add_action</span>(<span class="val">'init'</span>, <span class="key">function</span>() {
+  <span class="key">register_post_type</span>(<span class="val">'destination'</span>, [
+    <span class="val">'labels'</span>      =&gt; [ <span class="val">'name'</span> =&gt; <span class="val">'Destinations'</span>, <span class="val">'singular_name'</span> =&gt; <span class="val">'Destination'</span> ],
+    <span class="val">'public'</span>      =&gt; <span class="key">true</span>,
+    <span class="val">'has_archive'</span> =&gt; <span class="key">true</span>,
+    <span class="val">'menu_icon'</span>   =&gt; <span class="val">'dashicons-location'</span>,
+    <span class="val">'rewrite'</span>     =&gt; [ <span class="val">'slug'</span> =&gt; <span class="val">'destinations'</span> ],   <span class="comment">// /destinations/cairo/</span>
+    <span class="val">'supports'</span>    =&gt; [ <span class="val">'title'</span>, <span class="val">'editor'</span>, <span class="val">'thumbnail'</span>, <span class="val">'excerpt'</span> ],
+  ]);
+});</pre>
+      <div class="warning">After registering a CPT or changing any slug, go to <span class="highlight">Settings → Permalinks → Save Changes</span> once (flushes rewrite rules) or destination URLs will 404.</div>
+
       <h3 style="margin:18px 0 8px;font-size:15px;color:#1a1a2e;">Hub page (/destinations/)</h3>
       <table>
         <tr><th>Block</th><th>Free build</th></tr>
@@ -2133,7 +2385,7 @@ document.addEventListener('click', function(e){
       <h3 style="margin:18px 0 8px;font-size:15px;color:#1a1a2e;">Destination detail page anatomy</h3>
       <table>
         <tr><th>#</th><th>Block</th><th>Elementor Free build</th></tr>
-        <tr><td>1</td><td><strong>Hero</strong> — site name over a big background photo, tagline, fact pills</td><td>Section with bg Image + overlay; Heading + Text + Icon List pills</td></tr>
+        <tr><td>1</td><td><strong>Hero</strong> — breadcrumb (<a href="#s18b">18B</a>) + site name over a big background photo, tagline, fact pills</td><td>Section with bg Image + overlay; Shortcode/HTML crumb; Heading + Text + Icon List pills</td></tr>
         <tr><td>2</td><td><strong>Sticky sub-nav</strong> (Overview · Gallery · Good to Know · Tours)</td><td>Menu Anchors + the sticky CSS from Section 17</td></tr>
         <tr><td>3</td><td><strong>Overview</strong> — 2–3 paragraphs (from the site brief notes)</td><td>Text Editor</td></tr>
         <tr><td>4</td><td><strong>Gallery</strong> — 10–20 photos</td><td><strong>Image Gallery</strong> widget (Free, includes lightbox)</td></tr>
@@ -2143,11 +2395,202 @@ document.addEventListener('click', function(e){
       </table>
 
       <h3 style="margin:18px 0 8px;font-size:15px;color:#1a1a2e;">Nav dropdown &amp; image naming</h3>
+      <div class="path"><span class="highlight">Appearance</span> <span class="arrow">→</span> <span class="highlight">Menus</span> <span class="arrow">→</span> add <strong>Destinations</strong> (links to <code>/destinations/</code>) <span class="arrow">→</span> drag each site <strong>indented</strong> beneath it to form the dropdown</div>
       <div class="step"><div class="step-num">1</div><div>Appearance → Menus → add a <strong>Destinations</strong> item, with each site indented beneath it + a "View all destinations →" linking to <code>/destinations/</code>.</div></div>
       <div class="step"><div class="step-num">2</div><div>Photos go in one media folder. Naming convention from the mockup: <code>&lt;site&gt;.jpg</code> = hero/teaser, <code>&lt;site&gt;-1.jpg … -20.jpg</code> = gallery. See <code>SITE-PHOTOS-to-add.md</code>.</div></div>
       <div class="step"><div class="step-num">3</div><div>Location pop-ups (hover card / click) on site names in tour pages: use the custom snippet in Section 16, and link marquee site names to their Destination page.</div></div>
 
       <div class="warning"><strong>Priority order for destination pages:</strong> build the ~10–12 marquee sites first (Giza Pyramids, GEM, Karnak, Valley of the Kings, Luxor Temple, Hatshepsut, Edfu, Kom Ombo, Philae, Abu Simbel, Cairo, Aswan). Minor sites can stay as hub cards / pop-ups until later.</div>
+
+    </div>
+  </div>
+
+  <!-- SECTION 18B: BREADCRUMBS -->
+  <div class="section" id="s18b">
+    <div class="section-header">
+      <span class="badge badge-high">High</span>
+      <h2>18B. Breadcrumbs (Wayfinding) — All Interior Pages</h2>
+    </div>
+    <div class="section-body">
+
+      <div class="ar-note">
+        <strong>مسار التنقّل (Breadcrumbs) — في كل الصفحات الداخلية</strong>
+        <ul>
+          <li>الـ Breadcrumb هو السطر الصغير فوق العنوان: <code>Home › Tours › 6 Days Cairo &amp; Luxor</code> — بيقول للزائر هو فين في الموقع وبيديله رجوع بضغطة واحدة.</li>
+          <li>الموكاب بالفعل بيوريه في صفحات الجولات (<code>.tour-crumb</code>) وصفحات الوجهات (<code>.dest-crumb</code>). المطلوب هنا: إزاي تعمله فعليًا في ووردبريس / Elementor المجاني.</li>
+          <li><strong>الطريقة المعتمدة:</strong> فعِّل Breadcrumbs من Rank Math، وحطّ الشورت كود <code>[rank_math_breadcrumb]</code> فوق كل صفحة. ده بيعمل المسار + سكيما جوجل أوتوماتيك من نفس المصدر.</li>
+          <li><strong>مهم جدًا:</strong> مصدر واحد بس للـ Breadcrumb الظاهر (مش الاتنين Rank Math + الثيم مع بعض) عشان ما يحصلش سكيما مكرّرة.</li>
+          <li>لازم الصفحة يكون ليها "Parent" صح: كل صفحة جولة ابنها لصفحة <code>Tours</code>، وكل صفحة وجهة ابنها لصفحة <code>Destinations</code> — كده Rank Math يطلع المسار الكامل لوحده.</li>
+        </ul>
+      </div>
+
+      <p>A <strong>breadcrumb</strong> is the small trail above the page title — <code>Home › Tours › 6 Days Cairo &amp; Luxor</code> — that tells a visitor <em>where they are</em> and gives them a one-click way back up the tree. The mockups already show this on tour pages (<code>.tour-crumb</code>) and destination pages (<code>.dest-crumb</code>). This section is the part the plan was missing: <strong>how to actually build the visible trail in WordPress.</strong> (Elementor Pro has a Breadcrumbs widget, but the Rank Math method below is the recommended one — it keeps the visible trail and the Google schema in sync from a single source and won't be affected by the Pro/core version gap.)</p>
+
+      <div class="note"><strong>Two jobs, one component.</strong> Breadcrumbs do two things at once: (1) <strong>on-page navigation</strong> — the visible trail; and (2) <strong>SEO</strong> — Google shows the trail in the result's URL line via <code>BreadcrumbList</code> structured data. The SEO/schema side is already covered in <strong>seo-plan-phase3.html → step 1E</strong>. Do <em>not</em> build the schema twice — if you use the Rank Math method below, the schema is generated automatically from the same trail.</p></div>
+
+      <h3 style="margin:20px 0 8px;font-size:15px;color:#1a1a2e;">Which method to use</h3>
+      <table>
+        <tr><th>Method</th><th>When</th><th>Schema</th></tr>
+        <tr><td><strong>A. Rank Math shortcode</strong> <span class="badge badge-low" style="vertical-align:middle;">Recommended</span></td><td>Default for every interior page. One config, auto-builds the trail from the page's parent hierarchy.</td><td>✅ Automatic <code>BreadcrumbList</code></td></tr>
+        <tr><td><strong>B. Manual Custom HTML</strong></td><td>Only if you need a pixel-exact match to the mockup inside a dark hero and Rank Math styling fights you.</td><td>⚠️ You add JSON-LD yourself (and turn Rank Math's off)</td></tr>
+        <tr><td><strong>C. Theme-native</strong></td><td>Fastest, but renders in a fixed spot below the header — not inside the hero.</td><td>Depends on theme (often none — add Rank Math schema)</td></tr>
+      </table>
+
+      <div class="danger"><strong>Pick ONE visible breadcrumb source.</strong> Do not run Rank Math + theme + manual breadcrumbs together. Two of them on the same page = <strong>duplicate <code>BreadcrumbList</code> schema</strong>, which Google flags as invalid and may ignore. One source, everywhere.</div>
+
+      <div class="divider"></div>
+
+      <!-- METHOD A -->
+      <h3 style="margin:8px 0 10px;font-size:16px;color:#1a1a2e;">Method A — Rank Math shortcode (recommended)</h3>
+
+      <p><strong>Step 1 — Enable + style the trail once, site-wide.</strong></p>
+      <div class="path">Rank Math <span class="arrow">→</span> <span class="highlight">General Settings</span> <span class="arrow">→</span> <span class="highlight">Breadcrumbs</span> <span class="arrow">→</span> toggle <span class="highlight">Enable Breadcrumbs</span> = ON</div>
+      <table>
+        <tr><th>Rank Math field</th><th>Set it to</th><th>Why</th></tr>
+        <tr><td>Separator Character</td><td><code>›</code></td><td>Matches the mockup (Rank Math defaults to <code>»</code>)</td></tr>
+        <tr><td>Show Homepage Link</td><td>ON</td><td>The trail must start at <strong>Home</strong></td></tr>
+        <tr><td>Homepage Label</td><td><code>Home</code></td><td>—</td></tr>
+        <tr><td>Prefix Breadcrumb</td><td><em>(leave blank)</em></td><td>No "You are here:" text</td></tr>
+        <tr><td>Hide Post Title</td><td>OFF</td><td>Keep the current page as the last crumb</td></tr>
+        <tr><td>Show Category(ies)</td><td>OFF for pages</td><td>Pages have no category; avoids clutter</td></tr>
+      </table>
+
+      <p style="margin-top:14px;"><strong>Step 2 — Make the middle crumb real (parent pages).</strong> For the trail to read <code>Home › Tours › …</code> instead of just <code>Home › …</code>, Rank Math needs a parent in the page tree:</p>
+      <div class="step"><div class="step-num">1</div><div>Create a <strong>Tours</strong> page (slug <code>/tours/</code>) — a simple listing of the 5 packages. This also gives the <em>"Tours ▾"</em> dropdown a real landing page.</div></div>
+      <div class="step"><div class="step-num">2</div><div>On each of the 5 tour pages: <strong>Page → Settings (gear) → Page Attributes → Parent → Tours</strong>. Result: URL becomes <code>/tours/6-day-cairo-luxor/</code> and the breadcrumb auto-builds as <code>Home › Tours › 6 Days — Cairo &amp; Luxor</code>.</div></div>
+      <div class="step"><div class="step-num">3</div><div>Do the same for destinations: set each detail page's <strong>Parent = Destinations</strong> (the <code>/destinations/</code> hub from Section 18). If you use a <em>Destination CPT</em>, set its rewrite base to <code>destinations</code> and Rank Math will show the archive as the middle crumb instead.</div></div>
+
+      <p style="margin-top:14px;"><strong>Step 3 — Put the visible trail on the page.</strong> Elementor Pro <em>does</em> have a Breadcrumbs widget, but use the Rank Math shortcode (one source of truth, schema-synced, unaffected by the version gap). Drop it into a Shortcode widget:</p>
+      <div class="step"><div class="step-num">1</div><div>Edit the page in Elementor → drag a <strong>Shortcode</strong> widget (built into Free) to the very top of the content, just under the hero title.</div></div>
+      <div class="step"><div class="step-num">2</div><div>Paste:</div></div>
+      <pre>[rank_math_breadcrumb]</pre>
+      <div class="step"><div class="step-num">3</div><div>Build it <strong>once inside the Saved Template</strong> you duplicate for tour/destination pages (Section 17/18) — every new page then inherits the breadcrumb automatically.</div></div>
+      <div class="note"><strong>Auto-insert alternative:</strong> some themes (Astra, GeneratePress) can place <code>rank_math_the_breadcrumbs()</code> automatically below the header — but that lands it <em>outside</em> the hero. The mockup puts the crumb <em>inside</em> the hero over the photo, so the Shortcode-widget placement above is the one that matches the design.</div>
+
+      <p style="margin-top:14px;"><strong>Step 4 — Brand the output to match the mockup.</strong> Rank Math wraps the trail in <code>.rank-math-breadcrumb</code>. Paste this into <strong>Elementor → Site Settings → Custom CSS</strong> (or Appearance → Customize → Additional CSS). Two variants — use the dark one when the crumb sits over a hero photo, the light one for a thin bar on white:</p>
+      <pre><span class="comment">/* ---- Breadcrumb over a dark hero photo (tour &amp; destination pages) ---- */</span>
+.tour-hero .rank-math-breadcrumb p,
+.dest-hero .rank-math-breadcrumb p {
+  font-size: 12px;
+  letter-spacing: .3px;
+  margin: 0 0 14px;
+  color: rgba(255,255,255,.55);   <span class="comment">/* separators &amp; current page */</span>
+}
+.tour-hero .rank-math-breadcrumb a,
+.dest-hero .rank-math-breadcrumb a {
+  color: #d4af6a;                  <span class="comment">/* gold links, matches mockup */</span>
+  text-decoration: none;
+}
+.rank-math-breadcrumb a:hover { text-decoration: underline; }
+.rank-math-breadcrumb .separator { margin: 0 6px; }
+.rank-math-breadcrumb .last,
+.rank-math-breadcrumb p &gt; span:last-child { font-weight: 600; }  <span class="comment">/* current page, not a link */</span>
+
+<span class="comment">/* ---- Breadcrumb as a light bar on white (static pages: About, FAQ, etc.) ---- */</span>
+.page-crumb-bar .rank-math-breadcrumb p { color:#7a7a7a; font-size:12px; }
+.page-crumb-bar .rank-math-breadcrumb a { color:#b5451b; text-decoration:none; }  <span class="comment">/* terracotta */</span></pre>
+
+      <div class="divider"></div>
+
+      <!-- PER-PAGE TRAILS -->
+      <h3 style="margin:8px 0 10px;font-size:16px;color:#1a1a2e;">Per-page breadcrumb trails</h3>
+      <p>This is the exact trail each page type should show, and how Rank Math produces it:</p>
+      <table>
+        <tr><th>Page</th><th>Example URL</th><th>Breadcrumb trail</th><th>How it's built</th></tr>
+        <tr><td><strong>Homepage</strong></td><td><code>/</code></td><td><em>none — hide it</em></td><td>You're already home. Don't add the Shortcode widget here.</td></tr>
+        <tr><td><strong>Tour package</strong></td><td><code>/tours/6-day-cairo-luxor/</code></td><td>Home › Tours › 6 Days — Cairo &amp; Luxor</td><td>Page Parent = <strong>Tours</strong></td></tr>
+        <tr><td><strong>Destinations hub</strong></td><td><code>/destinations/</code></td><td>Home › Destinations</td><td>Top-level page</td></tr>
+        <tr><td><strong>Destination detail</strong></td><td><code>/destinations/cairo/</code></td><td>Home › Destinations › Cairo</td><td>Page Parent = <strong>Destinations</strong> (or CPT base)</td></tr>
+        <tr><td><strong>About / Contact / FAQ / Reviews</strong></td><td><code>/about-us/</code></td><td>Home › About</td><td>Top-level page (auto)</td></tr>
+        <tr><td><strong>Pay Now</strong></td><td><code>/payment/</code></td><td>Home › Pay Now</td><td>Top-level page (auto)</td></tr>
+        <tr><td><strong>Blog post</strong> <span style="color:#94a3b8;">(Phase 2)</span></td><td><code>/blog/post-name/</code></td><td>Home › Blog › Post Title</td><td>Auto from post type</td></tr>
+      </table>
+      <div class="warning"><strong>Keep trails to 3 levels max</strong> (the mockup never goes deeper). If a tour name is long, the current-page crumb can shorten — e.g. <code>Home › Tours › 11-Day Odyssey</code> — even though the H1 stays full. Edit the last crumb via the page's Rank Math <em>"Breadcrumb Title"</em> field (Advanced tab).</div>
+
+      <div class="divider"></div>
+
+      <!-- METHOD B -->
+      <h3 style="margin:8px 0 10px;font-size:16px;color:#1a1a2e;">Method B — Manual Custom HTML (pixel-match fallback)</h3>
+      <p>Use only if you want the crumb to match the mockup exactly inside a dark hero. Drop a <strong>Custom HTML</strong> widget (Free) at the top of the hero and paste — editing the labels/links per page:</p>
+      <pre><span class="key">&lt;nav</span> class=<span class="val">"ae-breadcrumb"</span> aria-label=<span class="val">"Breadcrumb"</span><span class="key">&gt;</span>
+  <span class="key">&lt;a</span> href=<span class="val">"/"</span><span class="key">&gt;</span>Home<span class="key">&lt;/a&gt;</span>
+  <span class="key">&lt;span</span> aria-hidden=<span class="val">"true"</span><span class="key">&gt;</span>›<span class="key">&lt;/span&gt;</span>
+  <span class="key">&lt;a</span> href=<span class="val">"/tours/"</span><span class="key">&gt;</span>Tours<span class="key">&lt;/a&gt;</span>
+  <span class="key">&lt;span</span> aria-hidden=<span class="val">"true"</span><span class="key">&gt;</span>›<span class="key">&lt;/span&gt;</span>
+  <span class="key">&lt;span</span> aria-current=<span class="val">"page"</span><span class="key">&gt;</span>6 Days — Cairo &amp;amp; Luxor<span class="key">&lt;/span&gt;</span>
+<span class="key">&lt;/nav&gt;</span>
+
+<span class="key">&lt;style&gt;</span>
+.ae-breadcrumb { font-size:12px; letter-spacing:.3px; margin:0 0 14px; color:rgba(255,255,255,.55); }
+.ae-breadcrumb a { color:#d4af6a; text-decoration:none; }
+.ae-breadcrumb a:hover { text-decoration:underline; }
+.ae-breadcrumb span[aria-hidden] { margin:0 6px; }
+.ae-breadcrumb [aria-current] { font-weight:600; color:rgba(255,255,255,.8); }
+<span class="key">&lt;/style&gt;</span></pre>
+      <p style="margin-top:12px;"><strong>Manual route only:</strong> Rank Math won't generate schema for hand-coded HTML, so add the matching <code>BreadcrumbList</code> JSON-LD in the same widget — <em>and</em> turn Rank Math's breadcrumb schema OFF (Rank Math → Titles &amp; Meta) so you don't ship two copies:</p>
+      <pre><span class="key">&lt;script</span> type=<span class="val">"application/ld+json"</span><span class="key">&gt;</span>
+{
+  <span class="key">"@context"</span>: <span class="val">"https://schema.org"</span>,
+  <span class="key">"@type"</span>: <span class="val">"BreadcrumbList"</span>,
+  <span class="key">"itemListElement"</span>: [
+    { <span class="key">"@type"</span>:<span class="val">"ListItem"</span>, <span class="key">"position"</span>:1, <span class="key">"name"</span>:<span class="val">"Home"</span>,  <span class="key">"item"</span>:<span class="val">"https://accessegypttravel.com/"</span> },
+    { <span class="key">"@type"</span>:<span class="val">"ListItem"</span>, <span class="key">"position"</span>:2, <span class="key">"name"</span>:<span class="val">"Tours"</span>, <span class="key">"item"</span>:<span class="val">"https://accessegypttravel.com/tours/"</span> },
+    { <span class="key">"@type"</span>:<span class="val">"ListItem"</span>, <span class="key">"position"</span>:3, <span class="key">"name"</span>:<span class="val">"6 Days — Cairo &amp; Luxor"</span> }
+  ]
+}
+<span class="key">&lt;/script&gt;</span></pre>
+      <div class="note"><strong>Last item has no <code>item</code> URL</strong> on purpose — the current page shouldn't link to itself. Match each JSON-LD entry to the visible trail exactly, or the Rich Results Test will warn.</div>
+
+      <div class="divider"></div>
+
+      <!-- METHOD C -->
+      <h3 style="margin:8px 0 10px;font-size:16px;color:#1a1a2e;">Method C — Theme-native toggle (fastest)</h3>
+      <p>Every free theme on the shortlist ships a breadcrumb you can switch on without code — but it renders in a fixed strip below the header, not inside the hero:</p>
+      <table>
+        <tr><th>Theme</th><th>Where to enable</th></tr>
+        <tr><td>Astra</td><td>Appearance → Customize → Breadcrumb → Position: <em>Above/Below Header</em></td></tr>
+        <tr><td>Kadence</td><td>Customize → General → Layout → Breadcrumbs → Enable</td></tr>
+        <tr><td>OceanWP</td><td>Customize → General Options → Breadcrumbs → Enable</td></tr>
+        <tr><td>GeneratePress</td><td>Needs the free GP "Breadcrumb" via Rank Math shortcode in a Hook/Element</td></tr>
+      </table>
+      <div class="warning"><strong>Trade-off:</strong> theme breadcrumbs sit in one global location and are harder to drop over a photo hero. If you want the mockup look (crumb over the hero image), use Method A's Shortcode widget instead of the theme toggle.</div>
+
+      <div class="divider"></div>
+
+      <!-- A11Y + MOBILE -->
+      <h3 style="margin:8px 0 10px;font-size:15px;color:#1a1a2e;">Accessibility &amp; mobile</h3>
+      <table>
+        <tr><th>Rule</th><th>Detail</th></tr>
+        <tr><td>Wrap in <code>&lt;nav aria-label="Breadcrumb"&gt;</code></td><td>Screen readers announce it as the breadcrumb landmark. Rank Math does this for you; the manual snippet above already includes it.</td></tr>
+        <tr><td>Mark the current page</td><td><code>aria-current="page"</code> on the last crumb; it must <strong>not</strong> be a link.</td></tr>
+        <tr><td>Hide separators from AT</td><td>Put <code>aria-hidden="true"</code> on the <code>›</code> so readers don't say "greater-than sign".</td></tr>
+        <tr><td>Mobile wrapping</td><td>Keep font at 12px and let it wrap; or truncate the last crumb. To collapse to a single "back" link on phones, add the CSS below.</td></tr>
+      </table>
+      <pre><span class="comment">/* Optional: on phones show only "‹ parent" to save space */</span>
+@media (max-width:600px){
+  .rank-math-breadcrumb p &gt; *:not(:nth-last-child(2)):not(:last-child){ display:none; }
+  .rank-math-breadcrumb p &gt; *:nth-last-child(2)::before{ content:"‹ "; }
+}</pre>
+
+      <div class="divider"></div>
+
+      <!-- WHERE IT SITS -->
+      <h3 style="margin:8px 0 10px;font-size:15px;color:#1a1a2e;">Where it sits (vertical order)</h3>
+      <div class="path">[ Hero photo + dark overlay ]<br>&nbsp;&nbsp;<span class="highlight">└─ Breadcrumb</span> &nbsp;<span class="arrow">←</span> small, light, top of hero<br>&nbsp;&nbsp;└─ H1 page title<br>&nbsp;&nbsp;└─ Stat pills<br>[ Sticky sub-nav ]<br>[ Page body ]</div>
+      <p>This mirrors <code>.tour-crumb</code> (pages-mockup.html, line ~489) and <code>.dest-crumb</code> (cairo.html / kom-ombo.html / abu-simbel.html). The breadcrumb is the <em>first</em> thing inside the hero, above the title.</p>
+
+      <div class="divider"></div>
+
+      <!-- QA -->
+      <h3 style="margin:8px 0 10px;font-size:15px;color:#1a1a2e;">QA checklist before sign-off</h3>
+      <div class="step"><div class="step-num">1</div><div>Open a tour page → trail reads <code>Home › Tours › [tour]</code>; every crumb except the last is clickable and lands on the right page.</div></div>
+      <div class="step"><div class="step-num">2</div><div>Open a destination page → <code>Home › Destinations › [site]</code>. Hub page → <code>Home › Destinations</code>.</div></div>
+      <div class="step"><div class="step-num">3</div><div>Homepage → <strong>no</strong> breadcrumb.</div></div>
+      <div class="step"><div class="step-num">4</div><div>Run each page type through <strong>search.google.com/test/rich-results</strong> → <code>BreadcrumbList</code> detected, <strong>0 errors</strong>, and only <strong>one</strong> BreadcrumbList per page (no duplicates).</div></div>
+      <div class="step"><div class="step-num">5</div><div>Tab through with the keyboard → links are reachable and focus-visible; the current page is not focusable as a link.</div></div>
+      <div class="step"><div class="step-num">6</div><div>Check on a phone → trail wraps cleanly or collapses, doesn't overflow the hero.</div></div>
+
+      <div class="note"><strong>When Pro is active (Section 19):</strong> Elementor Pro adds a native <em>Breadcrumbs</em> widget you could swap in. It's not worth switching — the Rank Math shortcode works on Free <em>and</em> Pro and keeps the visible trail and the Google schema in sync from one source. Leave Method A in place.</div>
 
     </div>
   </div>
@@ -2160,6 +2603,12 @@ document.addEventListener('click', function(e){
     <div class="section-body">
       <table>
         <tr><th>#</th><th>Task</th><th>Priority</th><th>Where</th><th>Est. Time</th></tr>
+        <tr><td>0a</td><td>Run pending Elementor DB update + update Elementor Pro to match core 3.21.1 (on staging/backup), then Regenerate CSS</td><td><span class="badge badge-critical">Priority 0</span></td><td>Elementor → Tools — Section 0 / 19</td><td>30–60 min + test</td></tr>
+        <tr><td>0b</td><td>Fix malformed phone <code>+2 012 014 05785</code> → add US <code>+1 772 782 0494</code> + WhatsApp everywhere</td><td><span class="badge badge-critical">Critical</span></td><td>Top bar, footer, Contact — Section 0</td><td>20 min</td></tr>
+        <tr><td>0c</td><td>Fix Contact page black hero image</td><td><span class="badge badge-critical">Critical</span></td><td>Contact → hero bg — Section 2B/8B</td><td>15 min</td></tr>
+        <tr><td>0d</td><td>Set featured images on tour items showing as empty gray cards</td><td><span class="badge badge-high">High</span></td><td>BA Book Everything items — Section 0</td><td>30 min</td></tr>
+        <tr><td>0e</td><td>Deactivate/delete the second cache plugin (keep LiteSpeed)</td><td><span class="badge badge-high">High</span></td><td>Plugins — WP Fastest Cache</td><td>5 min</td></tr>
+        <tr><td>0f</td><td>Clear ~63 pending (spam) comments; disable comments on pages</td><td><span class="badge badge-medium">Medium</span></td><td>Comments + Settings → Discussion</td><td>10 min</td></tr>
         <tr><td>1</td><td>Replace logo in Elementor header</td><td><span class="badge badge-critical">Critical</span></td><td>Theme → Header builder (Free)</td><td>15 min</td></tr>
         <tr><td>2</td><td>Fix Egyptian phone number in footer</td><td><span class="badge badge-critical">Critical</span></td><td>Theme → Footer builder (Free)</td><td>10 min</td></tr>
         <tr><td>3</td><td>Fix gallery not rendering on frontend</td><td><span class="badge badge-critical">Critical</span></td><td>Elementor → Tools + homepage</td><td>30–90 min</td></tr>
@@ -2186,6 +2635,7 @@ document.addEventListener('click', function(e){
         <tr><td>24</td><td>Build marquee destination pages (Cairo/Kom Ombo/Abu Simbel done; + rest)</td><td><span class="badge badge-high">High</span></td><td>Elementor (ideally a Destination CPT) — Section 18</td><td>30–45 min each</td></tr>
         <tr><td>25</td><td>Add location pop-ups / link site names to destination pages</td><td><span class="badge badge-medium">Medium</span></td><td>HTML widget snippet — Section 16</td><td>1 hr</td></tr>
         <tr><td>26</td><td>Resolve red flags: 11-day itinerary, 9-day flight route, meal format</td><td><span class="badge badge-critical">Before publish</span></td><td>Confirm with team — Section 16</td><td>—</td></tr>
+        <tr><td>27</td><td>Enable breadcrumbs site-wide + add visible trail to tour/destination/page templates</td><td><span class="badge badge-high">High</span></td><td>Rank Math → Breadcrumbs + Elementor Shortcode widget — Section 18B</td><td>30–45 min</td></tr>
         <tr><td colspan="5" style="background:#f0f7ff;color:#1e40af;font-size:12px;padding:10px 14px;">SEO tasks (Rank Math setup, focus keywords, sitemap submission) are in a separate document: <strong>seo-plan.html</strong> — do these after Phase 1 is complete.</td></tr>
       </table>
     </div>
@@ -2201,73 +2651,92 @@ document.addEventListener('click', function(e){
     </div>
     <div class="section-body">
 
-      <div class="danger"><strong>Current state is unstable.</strong> Free Elementor is at <strong>3.21.1</strong> and Elementor Pro is frozen at <strong>3.7.7</strong> — 14 versions behind. Pro stopped receiving updates because the license expired. The site is working by luck. Each new WordPress or plugin update widens the gap and increases the risk of a sudden break.</div>
+      <div class="danger"><strong>Current state is unstable — but the cause is NOT an expired license.</strong> Verified in wp-admin on <strong>June 18, 2026</strong>: <em>Elementor → License</em> shows <strong>Status: Active</strong>. The free <strong>Elementor</strong> core kept auto-updating to <strong>3.21.1</strong>, while <strong>Elementor Pro</strong> sat at <strong>3.7.7</strong> because its update was simply never run (Pro auto-updates are OFF). So this is a <strong>"click Update"</strong> problem, not a "buy a renewal" problem. The two just need to be brought back to matching versions.</div>
 
       <table>
         <tr><th>Plugin</th><th>Current Version</th><th>Latest Available</th><th>Status</th></tr>
         <tr>
-          <td>Elementor (free)</td>
+          <td>Elementor (free core)</td>
           <td>3.21.1</td>
-          <td>4.1.3</td>
-          <td><span class="badge badge-high">Update available — do NOT update yet</span></td>
+          <td>4.1.3 (a major jump)</td>
+          <td><span class="badge badge-high">Update available — pair with Pro</span></td>
         </tr>
         <tr>
           <td>Elementor Pro</td>
           <td>3.7.7</td>
-          <td>Requires active license to see</td>
-          <td><span class="badge badge-critical">License expired — no updates received</span></td>
+          <td>Update authorized — license is Active</td>
+          <td><span class="badge badge-critical">14 versions behind — update it</span></td>
         </tr>
       </table>
 
-      <div class="warning"><strong>Do NOT click "Update Now" on free Elementor</strong> until Pro is updated first. Jumping free to 4.1.3 while Pro stays at 3.7.7 is what actually breaks the site — they must be updated together in the correct order.</div>
+      <div class="note"><strong>License confirmed Active</strong> — no renewal, no licence key re-entry needed. The Pro update will download as soon as you click it. (If it ever shows "expired," that's a separate path: <em>my.elementor.com → Subscriptions → Renew</em>. Not needed today.)</div>
+
+      <div class="warning"><strong>They must end on matching versions.</strong> A transient gap (core updated, Pro not yet) is what breaks layouts — so update <strong>both in the same session</strong>. Easiest: <em>Dashboard → Updates</em>, tick <strong>both</strong> Elementor and Elementor Pro, update together (see Step 3). Do this on <strong>staging</strong> because core also offers a major <strong>4.x</strong> jump.</div>
 
       <h3 style="margin-top:20px;">Why Pro Is Stuck at 3.7.7</h3>
-      <p>Elementor Pro licenses are annual subscriptions. When the license expires, the plugin stays installed and working, but no further updates are delivered. The free Elementor plugin is separate and kept updating automatically — which is why there is now a 14-version gap between the two.</p>
-      <p>The gap matters because Elementor Pro's widgets and Theme Builder rely on the free plugin's core. As the versions diverge, widget rendering, CSS output, and performance features become increasingly mismatched.</p>
+      <p>Elementor ships as two plugins: <strong>Elementor</strong> (free core) and <strong>Elementor Pro</strong> (the paid add-on that sits on top of core). The free core had auto-updates on and climbed to 3.21.1. Pro had auto-updates <em>off</em> and nobody ran its update manually, so it stayed at 3.7.7. The license never lapsed — the update was just never clicked.</p>
+      <p>The gap matters because Pro's widgets and Theme Builder call into the free core. As the versions diverge, widget rendering, CSS output, and performance features mismatch — which is the likely cause of the broken Contact hero and other glitches in the <a href="#audit">Live Audit</a>.</p>
 
       <h3>What You Need to Do</h3>
 
       <div class="task">
         <div class="task-header">
           <div class="task-num">1</div>
-          <div class="task-title">Renew the Elementor Pro license</div>
-          <span class="badge badge-critical">First</span>
+          <div class="task-title">Confirm the license is Active (it is) — no renewal needed</div>
+          <span class="badge badge-low">30 sec</span>
         </div>
         <div class="task-body">
-          <p>Go to <strong>my.elementor.com</strong> and log in with the account that originally purchased Pro. Renew the license (currently ~$59–99/year for a single site). Once renewed, WordPress will show an available update for Elementor Pro.</p>
-          <div class="path"><span class="highlight">my.elementor.com</span> → Subscriptions → Renew</div>
-          <div class="note">If you don't have the original account credentials, check the original purchase email. The license is tied to an email address, not the WordPress site.</div>
+          <div class="path"><span class="highlight">Elementor</span> <span class="arrow">→</span> <span class="highlight">License</span> <span class="arrow">→</span> read <span class="highlight">Status</span> <span class="arrow">→</span> click <span class="highlight">Check license status</span></div>
+          <p>As of June 18, 2026 this reads <strong>Status: Active</strong>. If it still says Active, skip straight to the backup — the Pro update is already authorized. Only if it shows <em>Expired/Disconnected</em> do you renew at <code>my.elementor.com → Subscriptions</code> (the license is tied to the purchasing email, not the site).</p>
         </div>
       </div>
 
       <div class="task">
         <div class="task-header">
           <div class="task-num">2</div>
-          <div class="task-title">Take a backup before touching anything</div>
-          <span class="badge badge-high">Before updating</span>
+          <div class="task-title">Take a FULL backup (database + files) — exact steps</div>
+          <span class="badge badge-critical">Do not skip</span>
         </div>
         <div class="task-body">
-          <p>Before running any updates, take a full backup using one of these methods:</p>
-          <ul style="margin:10px 0 10px 20px;">
-            <li><strong>Elementor Export Kit</strong> (fastest — saves all Elementor data): <code>Elementor → Tools → Export Kit → Export</code></li>
-            <li><strong>Host-level backup</strong>: Most managed WP hosts (SiteGround, Kinsta, WP Engine) have one-click backups in their dashboard</li>
-            <li><strong>UpdraftPlus plugin</strong>: Free, backs up files + database to Google Drive</li>
-          </ul>
-          <div class="warning">A backup is not optional. Proceed to step 3 only after you have a confirmed backup you can restore from.</div>
+          <p>A real backup = <strong>database</strong> (your content/settings) <strong>+ files</strong> (themes, plugins, uploads). Elementor's "Export Kit" is <em>not</em> a backup — it only saves Elementor templates, not your database. Use one of the three methods below; <strong>Method A is best.</strong></p>
+
+          <p style="margin:14px 0 4px;"><strong>Method A — Host backup / staging (best, no plugin).</strong> Most managed hosts have one-click backups and a staging clone.</p>
+          <div class="path"><span class="highlight">Your hosting dashboard / cPanel</span> <span class="arrow">→</span> <span class="highlight">Backups</span> (or <span class="highlight">Staging</span>) <span class="arrow">→</span> <span class="highlight">Create Backup</span> / <span class="highlight">Create Staging Site</span> <span class="arrow">→</span> wait for "complete"</div>
+          <div class="note">If you don't know the host, log in at the domain registrar / hosting email, or check <em>Tools → Site Health → Info → Server</em>. SiteGround, Kinsta, WP Engine, Cloudways, Hostinger all have one-click backup + staging.</div>
+
+          <p style="margin:14px 0 4px;"><strong>Method B — UpdraftPlus plugin (free, reliable).</strong></p>
+          <div class="step"><div class="step-num">1</div><div><span class="path" style="display:inline-block;margin:0;">Plugins <span class="arrow">→</span> Add New <span class="arrow">→</span> search <strong>UpdraftPlus</strong> <span class="arrow">→</span> Install <span class="arrow">→</span> Activate</span></div></div>
+          <div class="step"><div class="step-num">2</div><div><span class="path" style="display:inline-block;margin:0;">Settings <span class="arrow">→</span> UpdraftPlus Backups <span class="arrow">→</span> <strong>Backup Now</strong></span> → tick <strong>both</strong> "Include your database" and "Include your files" → Backup Now.</div></div>
+          <div class="step"><div class="step-num">3</div><div>(Recommended) In the <strong>Settings</strong> tab, connect <strong>Google Drive</strong> as remote storage so the backup lives off-server, then run Backup Now again.</div></div>
+          <div class="step"><div class="step-num">4</div><div>Wait until the log says <strong>"The backup apparently succeeded and is now complete."</strong> You now have a one-click <strong>Restore</strong> button if anything breaks.</div></div>
+
+          <p style="margin:14px 0 4px;"><strong>Method C — Manual / WP-CLI (for a technical dev).</strong></p>
+          <pre><span class="comment"># Database dump</span>
+wp db export backup-2026-06-18.sql
+
+<span class="comment"># Files — themes, plugins, uploads (the whole wp-content)</span>
+tar -czf wp-content-backup-2026-06-18.tgz wp-content
+
+<span class="comment"># Download both off the server (SFTP/SCP), or via Tools → Export + phpMyAdmin export</span></pre>
+
+          <div class="warning"><strong>Backup = your rollback plan.</strong> Do not start Step 3 until you have a <em>confirmed, downloaded</em> backup. Rollback: UpdraftPlus → <strong>Restore</strong>, or the host's one-click restore, or re-import the <code>.sql</code> + re-upload <code>wp-content</code>.</div>
         </div>
       </div>
 
       <div class="task">
         <div class="task-header">
           <div class="task-num">3</div>
-          <div class="task-title">Update Elementor Pro first, then free Elementor</div>
-          <span class="badge badge-critical">Order matters</span>
+          <div class="task-title">Update both Elementor + Elementor Pro together (on staging first)</div>
+          <span class="badge badge-critical">Keep them matched</span>
         </div>
         <div class="task-body">
-          <div class="path">Plugins → Installed Plugins → find <span class="highlight">Elementor Pro</span> → click <span class="highlight">Update Now</span></div>
-          <p>Wait for Pro to finish updating completely. Then:</p>
-          <div class="path">Plugins → Installed Plugins → find <span class="highlight">Elementor</span> (free) → click <span class="highlight">Update Now</span></div>
-          <div class="note">After both updates, go to <strong>Elementor → Tools → Regenerate CSS & Data</strong> immediately. This rebuilds all the CSS files with the new version and fixes most visual glitches.</div>
+          <p><strong>Recommended — update both in one action</strong> so they're never mismatched:</p>
+          <div class="path"><span class="highlight">Dashboard</span> <span class="arrow">→</span> <span class="highlight">Updates</span> <span class="arrow">→</span> tick <strong>Elementor</strong> AND <strong>Elementor Pro</strong> <span class="arrow">→</span> <span class="highlight">Update Plugins</span></div>
+          <p>If you update them individually instead, do <strong>Elementor (core) first, then Elementor Pro immediately after</strong> — Pro depends on core, so core must not be older than Pro. Either way they must finish on matching major versions.</p>
+          <div class="path">Plugins <span class="arrow">→</span> Installed Plugins <span class="arrow">→</span> <span class="highlight">Elementor</span> → Update Now <span class="arrow">→</span> then <span class="highlight">Elementor Pro</span> → Update Now</div>
+          <div class="warning"><strong>Watch the major jump.</strong> Core offers a <strong>4.x</strong> release. Going 3.7.7 → 4.x on the Triply theme can break layouts — that's exactly why Step 2's backup + staging matters. If staging looks bad on 4.x, update to the latest <strong>3.x</strong> first, confirm stability, then move to 4.x in a second pass.</div>
+          <div class="note">After updating: <strong>Elementor → Tools → Regenerate CSS &amp; Data</strong>, and run the pending <strong>DB Update</strong> if Elementor prompts ("Click here to run it now"). This rebuilds CSS for the new version and clears most glitches.</div>
+          <p style="margin-top:10px;"><strong>Finally, prevent drift:</strong> Plugins → Installed Plugins → <strong>Enable auto-updates</strong> for both Elementor and Elementor Pro so this 14-version gap can't happen again.</p>
         </div>
       </div>
 

@@ -123,6 +123,38 @@
 
     <div class="container">
 
+      <!-- ══════ LIVE AUDIT CORRECTIONS (June 2026) ══════ -->
+      <div class="section" style="border: 2px solid #dc2626;">
+        <div class="section-header" style="background:#fef2f2;">
+          <span class="badge" style="background:#fee2e2;color:#dc2626;">⚠️ Live Audit Corrections — Read Before Starting Phase 3</span>
+          <h2 style="color:#dc2626;">3 Things That Were Wrong in This Plan</h2>
+        </div>
+        <div class="section-body">
+          <table>
+            <tr><th>Item</th><th>What This Plan Said</th><th>Reality (Live Site Audit, June 2026)</th><th>What to Do Instead</th></tr>
+            <tr>
+              <td><strong>Caching plugin</strong></td>
+              <td style="color:#dc2626;">❌ "No caching plugin installed — install WP Rocket or LiteSpeed Cache"</td>
+              <td><strong>LiteSpeed Cache v7.8.1 is already active.</strong> WP Fastest Cache was removed entirely.</td>
+              <td>See Step 3D below — skip installation, go straight to configuration.</td>
+            </tr>
+            <tr>
+              <td><strong>Image compression</strong></td>
+              <td style="color:#dc2626;">❌ "Install Smush or ShortPixel"</td>
+              <td><strong>Image Optimizer by Elementor v1.7.5</strong> is already installed and active. Handles WebP automatically.</td>
+              <td>Check Image Optimizer settings first (<strong>Media → Image Optimizer</strong>) before installing anything new.</td>
+            </tr>
+            <tr>
+              <td><strong>Dual analytics conflict</strong> ⚠️</td>
+              <td>Not mentioned</td>
+              <td><strong>Site Kit by Google AND Integrate Umami v0.8.3</strong> are both active. Two analytics scripts on every page = unreliable baseline data.</td>
+              <td><strong>Resolve before measuring Core Web Vitals (Step 3).</strong> Decide: deactivate Umami, or load it async. Without fixing this, your PageSpeed Insights score includes the drag from two analytics scripts and your "before" baseline is inaccurate.</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+
       <!-- ══════ OVERVIEW ══════ -->
       <div class="section" id="overview">
         <div class="section-header">
@@ -532,18 +564,36 @@
           <div class="step">
             <div class="step-header">
               <div class="step-num">3D</div>
-              <div class="step-title">Install a Caching Plugin</div>
+              <div class="step-title">Configure LiteSpeed Cache — Already Installed ✅</div>
             </div>
             <div class="step-body">
-              <p>No caching plugin is currently in the developer plan. This is a significant gap — caching is the single highest-ROI performance improvement for WordPress sites.</p>
+              <div class="warning" style="background:#fef2f2;border-left-color:#dc2626;color:#991b1b;"><strong>⚠️ CORRECTION (Live Audit, June 2026):</strong> This plan previously said "No caching plugin is currently installed." That was wrong. <strong>LiteSpeed Cache v7.8.1 is already installed and active.</strong> WP Fastest Cache has been fully removed. Do NOT install any additional cache plugin — you already have the best one.</div>
+
+              <p><strong>LiteSpeed Cache is already giving you basic caching.</strong> To get the full performance benefit, it needs a few settings configured:</p>
+
+              <h3>Configure LiteSpeed Cache — Exact Steps</h3>
+              <div class="path">
+                <span class="click">wp-admin sidebar</span> <span class="arrow">→</span> <span class="click">LiteSpeed Cache</span> (look for the rocket icon) <span class="arrow">→</span> <span class="click">Cache</span> tab
+              </div>
+              <p>On the Cache tab, confirm these are ON:</p>
               <table>
-                <tr><th>Plugin</th><th>Best For</th><th>Cost</th></tr>
-                <tr><td><strong>LiteSpeed Cache</strong></td><td>If your host uses LiteSpeed server (SiteGround, HostGator)</td><td>Free</td></tr>
-                <tr><td><strong>WP Super Cache</strong></td><td>General purpose, simple setup</td><td>Free</td></tr>
-                <tr><td><strong>W3 Total Cache</strong></td><td>Advanced options, CDN integration</td><td>Free</td></tr>
-                <tr><td><strong>WP Rocket</strong></td><td>Best overall results, minimal config</td><td>~$59/year</td></tr>
+                <tr><th>Setting</th><th>Value</th><th>Why</th></tr>
+                <tr><td>Enable Cache</td><td><strong>ON</strong></td><td>Core caching — should already be ON</td></tr>
+                <tr><td>Cache Logged-in Users</td><td><strong>OFF</strong></td><td>Admin/logged-in views should not be cached</td></tr>
+                <tr><td>Browser Cache</td><td><strong>ON</strong></td><td>Tells browsers to store static files locally</td></tr>
               </table>
-              <div class="note">Ask your developer to install and configure one of these. WP Rocket is the easiest to set up and gets the best results, but any of the free options will help significantly.</div>
+              <div class="path">
+                <span class="click">LiteSpeed Cache</span> <span class="arrow">→</span> <span class="click">Page Optimization</span> tab
+              </div>
+              <table>
+                <tr><th>Setting</th><th>Value</th><th>Why</th></tr>
+                <tr><td>Minify HTML</td><td><strong>ON</strong></td><td>Reduces HTML file size</td></tr>
+                <tr><td>Combine CSS</td><td><strong>ON</strong> (test carefully)</td><td>Reduces HTTP requests — may break layout; test in incognito after enabling</td></tr>
+                <tr><td>Defer JS</td><td><strong>ON</strong></td><td>Stops JavaScript from blocking page render — big LCP improvement</td></tr>
+                <tr><td>LazyLoad Images</td><td><strong>ON</strong></td><td>Only loads images when they scroll into view</td></tr>
+              </table>
+              <div class="note"><strong>After changing any LiteSpeed Cache settings:</strong> always click the <strong>Purge All</strong> button (top of the LiteSpeed Cache menu) and then check the site in an incognito window. Some combinations of minify/combine settings can break Elementor styling — test before assuming it's working.</div>
+              <div class="warning"><strong>Purge cache after every plugin update or page save.</strong> LiteSpeed will sometimes serve a stale cached version if you forget. Path: <span class="path" style="display:inline;padding:2px 8px;">LiteSpeed Cache → Purge → Purge All</span></div>
             </div>
           </div>
 
@@ -799,8 +849,8 @@ John Gamil has been guiding American travelers for 22 years. Private tours, hote
             <tr><td>14</td><td>Rename image files descriptively before future uploads</td><td>Local file rename before upload</td><td>Ongoing</td><td>☐</td></tr>
             <tr><td colspan="5" style="background:#1a1a2e;color:#a5b4fc;font-size:12px;padding:8px 14px;font-weight:700;">CORE WEB VITALS</td></tr>
             <tr><td>15</td><td>Run PageSpeed Insights on homepage (mobile)</td><td>pagespeed.web.dev</td><td>5 min</td><td>☐</td></tr>
-            <tr><td>16</td><td>Install image compression plugin (Smush or ShortPixel)</td><td>WordPress → Plugins → Add New</td><td>30 min</td><td>☐</td></tr>
-            <tr><td>17</td><td>Install caching plugin (WP Rocket or LiteSpeed Cache)</td><td>WordPress → Plugins → Add New</td><td>30 min + config</td><td>☐</td></tr>
+            <tr><td>16</td><td>Check Image Optimizer by Elementor (already installed v1.7.5) — verify WebP and compression settings before doing any manual optimization</td><td>wp-admin → Media → Image Optimizer → check settings</td><td>10 min</td><td>☐</td></tr>
+            <tr><td>17</td><td>Configure LiteSpeed Cache (already installed — enable HTML minify, JS defer, lazy load, browser cache)</td><td>LiteSpeed Cache → Cache tab + Page Optimization tab → Purge All</td><td>20 min</td><td>☐</td></tr>
             <tr><td>18</td><td>Set fetchpriority="high" on hero images in Elementor</td><td>Elementor → Image widget → Advanced</td><td>20 min</td><td>☐</td></tr>
             <tr><td>19</td><td>Upgrade Elementor Pro (unlocks Improved Asset Loading)</td><td>See developer-plan.html → Section 19</td><td>1–2 hrs (developer)</td><td>☐</td></tr>
             <tr><td colspan="5" style="background:#1a1a2e;color:#a5b4fc;font-size:12px;padding:8px 14px;font-weight:700;">E-E-A-T</td></tr>

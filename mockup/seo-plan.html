@@ -140,6 +140,42 @@
 
     <div class="container">
 
+      <!-- ══════ LIVE AUDIT CORRECTIONS (June 2026) ══════ -->
+      <div class="section" id="corrections" style="border: 2px solid #dc2626;">
+        <div class="section-header" style="background:#fef2f2;">
+          <span class="badge" style="background:#fee2e2;color:#dc2626;">⚠️ Live Audit — Read Before Starting</span>
+          <h2 style="color:#dc2626;">Site Reality vs. What This Plan Assumed — June 2026</h2>
+        </div>
+        <div class="section-body">
+          <p>This plan was written before a live logged-in audit of the site. Three things are different from what was assumed:</p>
+
+          <table>
+            <tr><th>Item</th><th>What the Plan Assumed</th><th>Live Site Reality</th><th>Action</th></tr>
+            <tr>
+              <td><strong>Caching plugin</strong></td>
+              <td>No caching plugin installed (mentioned in Phase 3)</td>
+              <td>✅ <strong>LiteSpeed Cache v7.8.1 is already active</strong>. WP Fastest Cache has been REMOVED.</td>
+              <td>Do NOT install any additional cache plugin. In Phase 3, go straight to configuring LiteSpeed Cache.</td>
+            </tr>
+            <tr>
+              <td><strong>Dual analytics (⚠️ conflict)</strong></td>
+              <td>Site Kit by Google only</td>
+              <td><span style="color:#dc2626;font-weight:700;">Two analytics plugins running simultaneously:</span> Site Kit by Google AND Integrate Umami v0.8.3</td>
+              <td><strong>Resolve before Phase 3 Core Web Vitals</strong>: two analytics scripts inflate load time and make baseline measurement unreliable. Decision: keep Umami (load it async) or deactivate it. Do not measure Core Web Vitals until this is resolved.</td>
+            </tr>
+            <tr>
+              <td><strong>Image optimization</strong></td>
+              <td>Manual WebP conversion needed (Phase 3)</td>
+              <td>✅ <strong>Image Optimizer by Elementor v1.7.5</strong> is already installed and active. It handles WebP conversion automatically.</td>
+              <td>Before doing any manual WebP work in Phase 3: go to <strong>wp-admin → Media → Image Optimizer</strong> and check what compression/WebP settings are already applied. You may not need to do anything manually.</td>
+            </tr>
+          </table>
+
+          <div class="warning"><strong>Phase order reminder:</strong> Phase 2 SEO tasks (this document) can be done by the owner without waiting for the developer — EXCEPT sitemap resubmission, which should happen after Phase 1 cleanup. The tagline, meta descriptions, and focus keywords in Steps 2–4 below can be done right now.</div>
+        </div>
+      </div>
+
+
       <!-- ══════ OVERVIEW ══════ -->
       <div class="section" id="overview">
         <div class="section-header">
@@ -485,27 +521,32 @@ Any /blog/ post URLs with "lorem" or placeholder titles</div>
             </tr>
           </table>
 
-          <h3>How to Change It — Part 1 (WordPress Site Identity)</h3>
+          <div class="note"><strong>Two ways to change the tagline.</strong> Method A (direct, recommended — takes 30 seconds) works straight in wp-admin. Method B (via Customizer) shows a live preview. Both save the same value.</div>
+
+          <h3>Method A — Direct (Fastest) — Settings → General</h3>
           <div class="step">
             <div class="step-header">
               <div class="step-num">1</div>
-              <div class="step-title">Go to WordPress Appearance → Customize</div>
+              <div class="step-title">Go to Settings → General</div>
             </div>
             <div class="step-body">
               <div class="path">
-                WordPress admin menu <span class="arrow">→</span> <span class="click">Appearance</span> <span class="arrow">→</span> <span class="click">Customize</span>
+                <span class="click">wp-admin sidebar</span> <span class="arrow">→</span> <span class="click">Settings</span> <span class="arrow">→</span> <span class="click">General</span>
               </div>
+              <div class="note">📸 <strong>What you'll see:</strong> A plain form with fields: Site Title, Tagline, WordPress Address (URL), Site Address (URL), Administration Email Address, and more below. The <strong>Tagline</strong> field is the second field on the page, directly under Site Title. It will currently say <em>"Expert-Led Egypt Tours &amp; Travel Packages | Guided by an Egyptologist"</em> or similar.</div>
             </div>
           </div>
 
           <div class="step">
             <div class="step-header">
               <div class="step-num">2</div>
-              <div class="step-title">Open Site Identity</div>
+              <div class="step-title">Clear the Tagline field and paste the new text</div>
             </div>
             <div class="step-body">
-              <div class="path">
-                Left panel in Customizer <span class="arrow">→</span> <span class="click">Site Identity</span>
+              <p>Click inside the <strong>Tagline</strong> field. Press <strong>Ctrl+A</strong> (or Cmd+A on Mac) to select all the existing text, then delete it. Paste:</p>
+              <div class="copy-box">
+                <div class="copy-label">New Tagline — Paste This Exactly</div>
+                <div class="copy-content">Private Egypt Tours Led by a Real Egyptologist — Pickup from Cairo, Hurghada & Luxor</div>
               </div>
             </div>
           </div>
@@ -513,17 +554,27 @@ Any /blog/ post URLs with "lorem" or placeholder titles</div>
           <div class="step">
             <div class="step-header">
               <div class="step-num">3</div>
-              <div class="step-title">Replace the Tagline field</div>
+              <div class="step-title">Save Changes</div>
             </div>
             <div class="step-body">
-              <p>Find the <strong>Tagline</strong> field. Clear it completely and paste:</p>
-              <div class="copy-box">
-                <div class="copy-label">New Tagline — Paste This</div>
-                <div class="copy-content">Private Egypt Tours Led by a Real Egyptologist — Pickup from Cairo, Hurghada & Luxor</div>
-              </div>
               <div class="path">
-                Click <span class="click">Publish</span> (blue button at the top of the Customizer panel)
+                Scroll to the bottom of the Settings → General page <span class="arrow">→</span> click <span class="click">Save Changes</span> (blue button)
               </div>
+              <p>You'll see a yellow confirmation bar: <em>"Settings saved."</em> Done.</p>
+            </div>
+          </div>
+
+          <h3>Method B — Customizer (Shows Live Preview)</h3>
+          <div class="step">
+            <div class="step-header">
+              <div class="step-num">Alt 1</div>
+              <div class="step-title">Go to Appearance → Customize → Site Identity</div>
+            </div>
+            <div class="step-body">
+              <div class="path">
+                <span class="click">Appearance</span> <span class="arrow">→</span> <span class="click">Customize</span> <span class="arrow">→</span> left panel: <span class="click">Site Identity</span> <span class="arrow">→</span> find <strong>Tagline</strong> field <span class="arrow">→</span> clear and paste the new text above <span class="arrow">→</span> click <span class="click">Publish</span> (blue button top of panel)
+              </div>
+              <div class="note">📸 <strong>What you'll see in the Customizer:</strong> The left side is a panel with settings; the right side shows your live website updating in real time as you type. After typing the new tagline, you'll see it update in the browser tab title and/or the site's HTML head. Click Publish to save — this is a different button from the Settings page's "Save Changes."</div>
             </div>
           </div>
 
