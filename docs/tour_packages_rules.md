@@ -184,7 +184,10 @@ All Meals — Open Buffet
 
 ## 🏺 Tomb Names
 
-**The Valley of the Kings (4 tombs)** = 3 tombs plus the extraordinary tomb of **Ramesses V & VI**
+**The Valley of the Kings** — total 4 tombs = 3 regular tombs + the extraordinary tomb of **Ramesses V & VI**
+
+**Correct phrasing (highlights & body text):** "3 tombs plus the extraordinary tomb of Ramesses V & VI"
+❌ Do NOT write "4 tombs plus the extraordinary" (that implies 5 total)
 - Always use Roman numerals: **Ramesses V & VI** (not "5th & 6th")
 - Only the tomb of Ramesses V & VI is guaranteed open
 - Other tombs may be swapped in the field if closed — handle operationally, never mention in copy
@@ -196,13 +199,24 @@ All Meals — Open Buffet
 
 **Display style:** plain bullets, no icons (applies to all packages)
 
-**Required order:**
+**6-day and 7-day (non-cruise):**
 1. Dinner cruise on the Nile in Cairo *(always first)*
-2. Sound and light show at the pyramids
+2. Sound & Light show at the Pyramids
 3. Hot air balloon over Luxor at sunrise
 4. Sound & Light Show at Karnak Temples
 
-**Cruise packages add (8-day, 9-day, 11-day):**
+**8-day (cruise — 4 add-ons only, confirmed by owner 2026-06-20):**
+1. Sound & Light show at the Pyramids
+2. Hot air balloon over Luxor at sunrise
+3. Sound & Light Show at Karnak Temples
+4. Abu Simbel day trip from Aswan *(* if time allows)*
+❌ Do NOT include "Dinner cruise on the Nile in Cairo" or "Sound & Light Show at Philae Temple" for the 8-day.
+
+**9-day and 12-day (cruise — 6 add-ons):**
+1. Dinner cruise on the Nile in Cairo *(always first)*
+2. Sound & Light show at the Pyramids
+3. Hot air balloon over Luxor at sunrise
+4. Sound & Light Show at Karnak Temples
 5. Sound & Light Show at Philae Temple
 6. Abu Simbel Temples
 
