@@ -419,19 +419,15 @@
   .ps-num { width: 40px; height: 40px; border-radius: 50%; background: #2c1a0e; color: #d4af6a; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 900; margin: 0 auto 10px; }
   .ps-label { font-size: 13px; font-weight: 700; color: #2c1a0e; margin-bottom: 4px; }
   .ps-sub { font-size: 12px; color: #8b7355; }
-  .payment-methods { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 36px; }
-  .pm-card { background: white; border-radius: 10px; border: 2px solid #f0e8d8; padding: 28px 20px; text-align: center; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
-  .pm-card.coming-soon { opacity: 0.75; }
-  .pm-logo { font-size: 36px; margin-bottom: 12px; }
-  .pm-name { font-size: 17px; font-weight: 800; color: #2c1a0e; margin-bottom: 6px; }
-  .pm-desc { font-size: 13px; color: #6b7280; margin-bottom: 16px; line-height: 1.5; }
+  .payment-methods { display: flex; justify-content: center; margin-bottom: 36px; }
+  .pm-card { background: white; border-radius: 12px; border: 2px solid #f0e8d8; padding: 32px 36px; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.08); max-width: 480px; width: 100%; }
+  .pm-logo { margin-bottom: 14px; display: flex; justify-content: center; align-items: center; }
+  .pm-name { font-size: 18px; font-weight: 800; color: #2c1a0e; margin-bottom: 8px; }
+  .pm-desc { font-size: 13.5px; color: #6b7280; margin-bottom: 20px; line-height: 1.6; }
   .pm-badge { display: inline-block; background: #fef3c7; color: #92400e; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px; margin-bottom: 14px; }
   .pm-badge.live { background: #d1fae5; color: #065f46; }
-  .pm-btn { display: block; padding: 11px 20px; border-radius: 6px; font-weight: 700; font-size: 14px; text-decoration: none; text-align: center; }
-  .pm-btn.paypal { background: #003087; color: white; }
-  .pm-btn.square { background: #006aff; color: white; }
-  .pm-btn.email { background: #2c1a0e; color: white; }
-  .pm-btn.disabled { background: #e5e7eb; color: #9ca3af; cursor: not-allowed; }
+  .pm-icons { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; padding-top: 16px; border-top: 1px solid #f0e8d8; }
+  .pm-icons svg { border-radius: 5px; box-shadow: 0 1px 4px rgba(0,0,0,0.12); }
   .deposit-box { background: #2c1a0e; color: white; border-radius: 12px; padding: 32px 36px; margin-bottom: 28px; display: flex; gap: 40px; align-items: center; flex-wrap: wrap; }
   .deposit-main h3 { font-size: 22px; font-weight: 800; color: #d4af6a; margin-bottom: 8px; }
   .deposit-main p { color: rgba(255,255,255,0.85); font-size: 15px; line-height: 1.6; max-width: 460px; }
@@ -2749,7 +2745,7 @@
     </div>
     <div class="faq-item">
       <div class="faq-q">What payment methods do you accept?</div>
-      <div class="faq-a">We accept <strong>PayPal, Square (credit/debit cards), and email-arranged payment</strong>. All pricing is in USD. We never ask for cash-only payments or wire transfers to personal accounts — if you ever receive a request like that, contact us immediately to verify.</div>
+      <div class="faq-a">We accept all major online payment methods through <strong>Square</strong>, including credit cards, debit cards, Apple Pay, and Google Pay. All pricing is in USD. We never ask for cash-only payments or wire transfers to personal accounts — if you ever receive a request like that, contact us immediately to verify.</div>
     </div>
     <div class="faq-item">
       <div class="faq-q">What is your cancellation policy?</div>
@@ -2796,7 +2792,7 @@
      PAYMENT PAGE
 ════════════════════════════════════════════════════ -->
 <div id="payment" class="page-section">
-<div class="page-label">PAYMENT PAGE — PayPal &amp; Square credentials arriving <strong>Monday June 9</strong>. Structure is ready — replace "Coming Soon" divs with live button codes when credentials arrive. <span>Email payment: live now</span></div>
+<div class="page-label">PAYMENT PAGE — Square payment is live. <span>Secured by Square</span></div>
 
 <div class="top-bar"><div><a href="tel:+17727820494">🇺🇸 +1 772 782 0494</a><a href="https://wa.me/20120140578">💬 WhatsApp</a><a href="mailto:info@accessegypttravel.com">✉️ info@accessegypttravel.com</a></div><a href="https://accessegypttravel.com/tailor-made/" class="cta-btn">Tailor Made</a></div>
 <div class="site-header"><img src="icons/Logo_Green_3.png" alt="Access Egypt Travel" class="site-logo-img"><nav><a href="#">Home</a><div class="nav-dropdown"><a href="#">Tours ▾</a><div class="nav-dropdown-menu"><a href="#tour">6 Days / 5 Nights — Cairo &amp; Luxor Holiday</a><a href="#tour-d">7 Days / 6 Nights — Cairo, Luxor &amp; Aswan</a><a href="#tour-b">8 Days / 7 Nights — Cairo, Aswan &amp; Nile Cruise</a><a href="#tour-c">9 Days / 8 Nights — Egypt Highlights + Nile Cruise</a><a href="#tour-e">12 Days / 11 Nights — The Ultimate Egyptian Odyssey</a></div></div><a href="#">Reviews</a><a href="#">FAQs</a><a href="#">About</a><a href="#" class="active">Contact</a></nav></div>
@@ -2804,7 +2800,7 @@
 <div class="payment-hero">
   <div style="padding-bottom:50px;">
     <h1 style="font-size:48px;font-weight:900;margin-bottom:12px;line-height:1.1;">Secure Your <span style="color:#d4af6a;">Egypt Tour</span></h1>
-    <p style="font-size:18px;color:rgba(255,255,255,0.85);max-width:620px;line-height:1.6;">A 25% deposit holds your dates. The balance is due before your departure. All payments in USD — no hidden fees.</p>
+    <p style="font-size:18px;color:rgba(255,255,255,0.85);max-width:620px;line-height:1.6;">A 25% deposit holds your dates. The remaining balance is due 65 days before arrival. All payments in USD — no hidden fees.</p>
   </div>
 </div>
 
@@ -2838,7 +2834,7 @@
   <div class="deposit-box">
     <div class="deposit-main">
       <h3>Deposit &amp; Balance Policy</h3>
-      <p>A 25% deposit confirms your booking and locks your travel dates. No one else can take those dates once you've paid. The remaining balance is due before your departure — we'll send you a reminder 30 days out.</p>
+      <p>A 25% deposit confirms your booking and locks your travel dates. No one else can take those dates once you've paid. The remaining balance is due 65 days before arrival — we'll send you a reminder well in advance.</p>
     </div>
     <div class="deposit-amounts">
       <div class="dep-amt">
@@ -2856,30 +2852,36 @@
   <h3 style="font-size:18px;font-weight:800;color:#2c1a0e;margin-bottom:20px;">Payment Methods</h3>
   <div class="payment-methods">
 
-    <div class="pm-card coming-soon">
-      <div class="pm-logo">🅿️</div>
-      <div class="pm-name">PayPal</div>
-      <div class="pm-badge" style="background:#fef9c3;color:#854d0e;">⚡ Ready Monday June 9</div>
-      <div class="pm-desc">Pay securely with your PayPal account or any credit/debit card. Buyer protection included. USD only.</div>
-      <!-- DEVELOPER: Replace this div with PayPal button embed code when credentials arrive -->
-      <a href="#" class="pm-btn disabled" onclick="return false;" style="opacity:0.5;">PayPal — Adding Monday</a>
-    </div>
-
-    <div class="pm-card coming-soon">
-      <div class="pm-logo">⬛</div>
-      <div class="pm-name">Square</div>
-      <div class="pm-badge" style="background:#fef9c3;color:#854d0e;">⚡ Ready Monday June 9</div>
-      <div class="pm-desc">Pay by credit or debit card via Square. Visa, Mastercard, Amex, and Discover accepted.</div>
-      <!-- DEVELOPER: Replace this div with Square payment link button when credentials arrive -->
-      <a href="#" class="pm-btn disabled" onclick="return false;" style="opacity:0.5;">Square — Adding Monday</a>
-    </div>
-
     <div class="pm-card">
-      <div class="pm-logo">✉️</div>
-      <div class="pm-name">Email Us to Pay</div>
-      <div class="pm-badge live">Available Now</div>
-      <div class="pm-desc">Contact us directly and we'll send you a secure payment link or walk you through the process step by step. No hassle.</div>
-      <a href="mailto:info@accessegypttravel.com?subject=Payment%20for%20Egypt%20Tour" class="pm-btn email">Email to Arrange Payment</a>
+      <div class="pm-logo">
+        <img src="icons/square.svg" alt="Square" height="36" style="display:block;">
+      </div>
+      <div class="pm-name">Powered by Square</div>
+      <div class="pm-badge live">🔒 Secured by Square</div>
+      <div class="pm-desc">We'll email you a secure Square invoice. Pay online using any of the methods below — your payment is encrypted and processed by Square.</div>
+      <div class="pm-icons">
+        <!-- Visa -->
+        <svg width="56" height="36" viewBox="0 0 56 36" xmlns="http://www.w3.org/2000/svg">
+          <rect width="56" height="36" rx="5" fill="#1A1F71"/>
+          <text x="28" y="25" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-weight="900" font-size="17" font-style="italic" letter-spacing="1">VISA</text>
+        </svg>
+        <!-- Mastercard -->
+        <svg width="56" height="36" viewBox="0 0 56 36" xmlns="http://www.w3.org/2000/svg">
+          <rect width="56" height="36" rx="5" fill="#1D1D1D"/>
+          <circle cx="21" cy="18" r="10" fill="#EB001B"/>
+          <circle cx="35" cy="18" r="10" fill="#F79E1B"/>
+          <path d="M28 10.1a10 10 0 0 1 0 15.8A10 10 0 0 1 28 10.1z" fill="#FF5F00"/>
+        </svg>
+        <!-- Amex -->
+        <svg width="56" height="36" viewBox="0 0 56 36" xmlns="http://www.w3.org/2000/svg">
+          <rect width="56" height="36" rx="5" fill="#007BC1"/>
+          <text x="28" y="23" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-weight="800" font-size="12" letter-spacing="1">AMEX</text>
+        </svg>
+        <!-- Apple Pay -->
+        <img src="icons/apple-pay.svg" alt="Apple Pay" height="36" style="border-radius:5px;box-shadow:0 1px 4px rgba(0,0,0,0.12);">
+        <!-- Google Pay -->
+        <img src="icons/google-pay.svg" alt="Google Pay" height="36" style="border-radius:5px;box-shadow:0 1px 4px rgba(0,0,0,0.12);">
+      </div>
     </div>
 
   </div>
@@ -2895,12 +2897,10 @@
 
   <!-- DEV NOTE -->
   <div class="dev-note-box">
-    <h4>🛠️ Developer Note — Payment Integration (Phase 2)</h4>
+    <h4>🛠️ Developer Note — Payment Integration</h4>
     <ul>
-      <li><strong>PayPal:</strong> Add a PayPal "Pay Now" button using the PayPal Buttons SDK — replace the "Coming Soon" card. Owner needs to connect their PayPal Business account and generate a client ID.</li>
-      <li><strong>Square:</strong> Add a Square payment link or embed the Square Web Payments SDK — replace the "Coming Soon" card. Owner needs to activate their Square account and generate an API key.</li>
-      <li><strong>Elementor:</strong> Both can be added as HTML widgets on this page. Alternatively use a WordPress payment plugin (WPForms + PayPal add-on, or GiveWP for deposits).</li>
-      <li><strong>Until then:</strong> The "Email Us to Pay" card is live and functional — it handles all payments via email coordination.</li>
+      <li><strong>Square:</strong> Replace the Square button with a live Square payment link or embed the Square Web Payments SDK. Owner needs to activate their Square account and generate an API key/payment link.</li>
+      <li><strong>Elementor:</strong> Can be added as an HTML widget on this page.</li>
     </ul>
   </div>
 
