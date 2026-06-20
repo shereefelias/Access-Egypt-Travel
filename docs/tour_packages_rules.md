@@ -65,12 +65,10 @@ The stats bar (above the overview) must include an accommodation line:
 
 ### 2 — Day 1: Name Sign in Representative Greeting
 
-Every Day 1 that references the airport meeting must include **"name sign"**:
+Every Day 1 that references the airport meeting must include **"name sign"** — applies to ALL packages, regardless of whether the `.md` mentions it. This is a standard operational rule confirmed by owner on 2026-06-20.
 
-✅ `"Your dedicated representative will meet you at Cairo International Airport (CAI) with a name sign."`
+✅ `"...a dedicated representative will be waiting with a name sign to greet you..."`
 ❌ Any version that omits "name sign"
-
-Apply only when the source `.md` file already includes this language. If the `.md` doesn't mention it, do not add it — flag for owner review.
 
 ---
 
@@ -124,7 +122,7 @@ Site and city names in the day-by-day paragraphs must use the same interactive p
 - When "The" is part of the official name, include it inside the span:
   `<span class="site-link" data-site="The Valley of the Kings">The Valley of the Kings</span>`
 
-> **Status: PENDING IMPLEMENTATION** — not yet applied to day body text on any package.
+> **Status: ✅ DONE** — applied to all 5 packages (6-day, 7-day, 8-day, 9-day, 12-day) as of 2026-06-20.
 
 ---
 
@@ -136,40 +134,33 @@ The `.hl-num` circles were terracotta (`#b5451b`). **Change to gold:**
 
 One CSS rule change in the `<style>` block of `pages-mockup.html` covers all packages.
 
-> **Status: PENDING IMPLEMENTATION** in pages-mockup.html
+> **Status: ✅ DONE** — CSS changed to `#c49a3c` in pages-mockup.html as of 2026-06-20.
 
 ---
 
-### 9 — "Overnight in [City]" ⚠️ PENDING OWNER DECISION
+### 9 — "Overnight in [City]"
 
-The June 18 Notes say to add `"Overnight in [City]"` at the end of each day for clarity.
-However, the standard rule is to use day text as-is from the `.md` file.
+The June 18 Notes confirmed: add `"Overnight in [City]"` at the end of each day for clarity.
 
-**Three options — owner must choose:**
+**Decision: Option A — applied to ALL days across ALL packages.**
 
-| Option | Action |
-|---|---|
-| A | Add "Overnight in [City]" to ALL days across ALL packages (even if not in .md) |
-| B | Only include it when the `.md` explicitly writes it |
-| C | Remove it from all packages (current state of 7-day section) |
-
-**Do not apply until owner confirms.**
+> **Status: ✅ DONE** — "Overnight in [City]" added to every day in all 5 packages as of 2026-06-20.
 
 ---
 
-### 10 — Beverages in NOT Included (Cruise Packages) ⚠️ PENDING OWNER DECISION
+### 10 — Beverages in NOT Included (Cruise Packages)
 
-The 9-day `.md` lists a 4th line under "NOT included":
-> *"Drinks (bottled water provided only during tours)"*
+Cruise packages include a 4th NOT-included line for beverages. Each package uses its own `.md` wording:
 
-Standard rule says exactly 3 lines. Cruise packages have a real reason to flag beverages (cruise is not all-inclusive for drinks).
-
-| Option | Action |
+| Package | Wording |
 |---|---|
-| A | Keep 3 lines for all packages — drop the beverages line from cruise packages |
-| B | Allow 4 lines for cruise packages only (8-day, 9-day, 11-day) |
+| 8-day | Drinks (water is provided during tours) |
+| 9-day | Drinks (bottled water provided only during tours) |
+| 12-day | Beverages (bottled water provided only during excursions) |
 
-**Do not change until owner confirms.**
+Non-cruise packages (6-day, 7-day) keep exactly 3 NOT-included lines — no beverages line.
+
+> **Status: ✅ DONE** — beverages added to 8-day, 9-day, and 12-day as of 2026-06-20.
 
 ---
 
@@ -267,7 +258,7 @@ All Meals — Open Buffet
 
 - Use text exactly as provided in the `.md` file — do not abbreviate or rewrite
 - If something looks wrong, flag it — do not silently fix it
-- Do not add "Overnight in [city]" until owner decision is confirmed (see Section 9)
+- Add "Overnight in [city]" at the end of every day in every package (see Section 9 — confirmed)
 
 ---
 
@@ -326,4 +317,4 @@ Exactly 3 lines for all non-cruise packages:
 2. Gratuities for guides and drivers
 3. Personal expenses — phone calls, laundry, souvenirs, etc.
 
-*Cruise packages (8-day, 9-day, 11-day): see Section 10 above — PENDING OWNER DECISION.*
+*Cruise packages (8-day, 9-day, 12-day): add a 4th beverages line per Section 10 above — DONE.*

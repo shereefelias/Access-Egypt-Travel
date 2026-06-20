@@ -300,6 +300,28 @@
   .form-row input, .form-row textarea, .form-row select { width: 100%; border: 1px solid #e8dfc8; border-radius: 6px; padding: 10px 14px; font-size: 14px; color: #2c1a0e; background: #fdfaf6; }
   .form-row textarea { height: 100px; resize: vertical; }
   .form-submit { width: 100%; background: #b5451b; color: white; border: none; padding: 14px; border-radius: 6px; font-size: 15px; font-weight: 800; cursor: pointer; }
+  /* Month+Year picker */
+  .month-year-row { display: flex; gap: 10px; }
+  .month-year-row select { flex: 1; border: 1px solid #e8dfc8; border-radius: 6px; padding: 10px 14px; font-size: 14px; color: #2c1a0e; background: #fdfaf6; }
+  .month-year-row select:last-child { flex: 0 0 110px; }
+  /* Traveler counter */
+  .traveler-row { display: flex; align-items: center; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #f0ece4; }
+  .traveler-row:last-of-type { border-bottom: none; }
+  .traveler-label { display: flex; flex-direction: column; gap: 2px; }
+  .traveler-label span:first-child { font-size: 14px; font-weight: 600; color: #2c1a0e; }
+  .traveler-sublabel { font-size: 12px; color: #8b7355; }
+  .traveler-counter { display: flex; align-items: center; gap: 12px; }
+  .counter-btn { width: 32px; height: 32px; border-radius: 50%; border: 2px solid #c49a3c; background: white; color: #c49a3c; font-size: 20px; line-height: 1; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.15s; }
+  .counter-btn:hover { background: #c49a3c; color: white; }
+  .counter-btn:disabled { border-color: #e0d5c0; color: #c0b090; cursor: default; }
+  .counter-btn:disabled:hover { background: white; color: #c0b090; }
+  .counter-num { font-size: 18px; font-weight: 800; color: #2c1a0e; min-width: 24px; text-align: center; }
+  .child-ages-wrap { margin-top: 14px; padding: 12px 14px; background: #fdfaf6; border: 1px solid #e8dfc8; border-radius: 8px; }
+  .child-ages-title { font-size: 12px; font-weight: 700; color: #5a4030; margin-bottom: 10px; }
+  .child-age-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+  .child-age-row:last-child { margin-bottom: 0; }
+  .child-age-label { font-size: 13px; color: #8b7355; white-space: nowrap; min-width: 52px; }
+  .child-age-row select { flex: 1; border: 1px solid #e8dfc8; border-radius: 6px; padding: 7px 10px; font-size: 13px; color: #2c1a0e; background: white; }
   .contact-info-area { background: white; border-radius: 10px; padding: 28px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); }
   .contact-info-area h3 { font-size: 18px; font-weight: 800; color: #2c1a0e; margin-bottom: 20px; }
   .contact-info-row { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 18px; padding-bottom: 18px; border-bottom: 1px solid #f5f0e8; }
@@ -448,7 +470,7 @@
       <a href="#tour">6 Days / 5 Nights — Cairo &amp; Luxor Holiday</a>
       <a href="#tour-d">7 Days / 6 Nights — Cairo, Luxor &amp; Aswan</a>
       <a href="#tour-b">8 Days / 7 Nights — Cairo, Aswan &amp; Nile Cruise</a>
-      <a href="#tour-c">9 Days / 8 Nights — Cairo, Pyramids &amp; Nile Cruise</a>
+      <a href="#tour-c">9 Days / 8 Nights — Egypt Highlights + Nile Cruise</a>
       <a href="#tour-e">12 Days / 11 Nights — The Ultimate Egyptian Odyssey</a>
     </div>
   </div>
@@ -470,7 +492,7 @@
   <img src="icons/Logo_Green_3.png" alt="Access Egypt Travel" class="site-logo-img">
   <nav>
     <a href="#">Home</a>
-    <div class="nav-dropdown"><a href="#" class="active">Tours ▾</a><div class="nav-dropdown-menu"><a href="#tour">6 Days / 5 Nights — Cairo &amp; Luxor Holiday</a><a href="#tour-d">7 Days / 6 Nights — Cairo, Luxor &amp; Aswan</a><a href="#tour-b">8 Days / 7 Nights — Cairo, Aswan &amp; Nile Cruise</a><a href="#tour-c">9 Days / 8 Nights — Cairo, Pyramids &amp; Nile Cruise</a><a href="#tour-e">12 Days / 11 Nights — The Ultimate Egyptian Odyssey</a></div></div>
+    <div class="nav-dropdown"><a href="#" class="active">Tours ▾</a><div class="nav-dropdown-menu"><a href="#tour">6 Days / 5 Nights — Cairo &amp; Luxor Holiday</a><a href="#tour-d">7 Days / 6 Nights — Cairo, Luxor &amp; Aswan</a><a href="#tour-b">8 Days / 7 Nights — Cairo, Aswan &amp; Nile Cruise</a><a href="#tour-c">9 Days / 8 Nights — Egypt Highlights + Nile Cruise</a><a href="#tour-e">12 Days / 11 Nights — The Ultimate Egyptian Odyssey</a></div></div>
     <div class="nav-dropdown"><a href="destinations.html">Destinations ▾</a><div class="nav-dropdown-menu"><a href="cairo.html">Cairo</a><a href="destinations.html">Giza Pyramids &amp; Sphinx</a><a href="destinations.html">Grand Egyptian Museum (GEM)</a><a href="destinations.html">Karnak Temple</a><a href="destinations.html">Valley of the Kings</a><a href="destinations.html">Luxor Temple</a><a href="destinations.html">Edfu Temple</a><a href="kom-ombo.html">Kom Ombo Temple</a><a href="destinations.html">Philae Temple</a><a href="abu-simbel.html">Abu Simbel</a><a href="destinations.html" style="color:#b5451b;">View all destinations →</a></div></div>
     <a href="#">Reviews</a>
     <a href="#">FAQs</a>
@@ -551,7 +573,7 @@
 
       <h3>Your Route</h3>
       <div class="tour-map-section">
-        <img src="images/Access-Egypt-Travel-guide-map_v2.png" alt="Egypt Tour Route Map — Cairo to Luxor" class="tour-map-img">
+        <img src="images/Access-Egypt-Travel-guide-map_v3.png" alt="Egypt Tour Route Map — Cairo to Luxor" class="tour-map-img">
       </div>
     </div>
 
@@ -568,7 +590,7 @@
         <div class="hl-step"><span class="hl-num">5</span><span class="hl-text"><span class="site-link" data-site="nmec">National Museum of Egyptian Civilization (NMEC)</span></span></div>
         <div class="hl-step"><span class="hl-num">6</span><span class="hl-text"><span class="site-link" data-site="karnak">Karnak Temple Complex</span></span></div>
         <div class="hl-step"><span class="hl-num">7</span><span class="hl-text"><span class="site-link" data-site="luxortemple">Luxor Temple</span> &amp; <span class="site-link" data-site="sphinx-avenue">Sphinx Avenue</span><span class="hl-subnote">✦ lit up at night</span></span></div>
-        <div class="hl-step"><span class="hl-num">8</span><span class="hl-text"><span class="site-link" data-site="valley">Valley of the Kings (3 tombs plus the extraordinary tomb of Ramesses V &amp; VI)</span></span></div>
+        <div class="hl-step"><span class="hl-num">8</span><span class="hl-text"><span class="site-link" data-site="valley">Valley of the Kings (4 tombs plus the extraordinary tomb of Ramesses V &amp; VI)</span></span></div>
         <div class="hl-step"><span class="hl-num">9</span><span class="hl-text"><span class="site-link" data-site="hatshepsut">Hatshepsut Temple</span></span></div>
         <div class="hl-step"><span class="hl-num">10</span><span class="hl-text"><span class="site-link" data-site="deirelmedina">Deir el-Medina (Artisans' Village)</span></span></div>
         <div class="hl-step"><span class="hl-num">11</span><span class="hl-text"><span class="site-link" data-site="memnon">Colossi of Memnon</span></span></div>
@@ -595,7 +617,7 @@
             <div class="day-num">Day 1</div>
             <div><div class="day-location">Cairo</div><div class="day-title">Arrival &amp; Welcome</div></div>
           </div>
-          <div class="day-body">Upon your arrival at <span class="city-link" data-city="cairo">Cairo</span> International Airport (CAI), a dedicated representative will be waiting to greet you and facilitate a seamless, private transfer to your five-star hotel. Following check-in, you will meet your private Egyptologist for a personalized orientation. This session provides an overview of your upcoming itinerary, helpful local insights, and an opportunity to address any questions. The remainder of the day is yours to relax and enjoy dinner at your leisure within the hotel. Overnight in Cairo.</div>
+          <div class="day-body">Upon your arrival at <span class="city-link" data-city="cairo">Cairo</span> International Airport (CAI), a dedicated representative will be waiting with a name sign to greet you and facilitate a seamless, private transfer to your five-star hotel. Following check-in, you will meet your private Egyptologist for a personalized orientation. This session provides an overview of your upcoming itinerary, helpful local insights, and an opportunity to address any questions. The remainder of the day is yours to relax and enjoy dinner at your leisure within the hotel. Overnight in Cairo.</div>
         </div>
         <div class="day-block">
           <div class="day-header">
@@ -867,7 +889,7 @@
 
       <h3>Your Route</h3>
       <div class="tour-map-section">
-        <img src="images/Access-Egypt-Travel-guide-map_v2.png" alt="Egypt Tour Route Map — Cairo to Luxor" class="tour-map-img">
+        <img src="images/Access-Egypt-Travel-guide-map_v3.png" alt="Egypt Tour Route Map — Cairo to Luxor" class="tour-map-img">
       </div>
     </div>
 
@@ -886,7 +908,7 @@
         <div class="hl-step"><span class="hl-num">10</span><span class="hl-text"><span class="site-link" data-site="edfu">Edfu Temple</span></span></div>
         <div class="hl-step"><span class="hl-num">11</span><span class="hl-text"><span class="site-link" data-site="karnak">Karnak Temple Complex</span></span></div>
         <div class="hl-step"><span class="hl-num">12</span><span class="hl-text"><span class="site-link" data-site="luxortemple">Luxor Temple</span> &amp; <span class="site-link" data-site="sphinx-avenue">Sphinx Avenue</span><span class="hl-subnote">✦ lit up at night</span></span></div>
-        <div class="hl-step"><span class="hl-num">13</span><span class="hl-text"><span class="site-link" data-site="valley">Valley of the Kings (3 tombs plus the extraordinary tomb of Ramesses V &amp; VI)</span></span></div>
+        <div class="hl-step"><span class="hl-num">13</span><span class="hl-text"><span class="site-link" data-site="valley">Valley of the Kings (4 tombs plus the extraordinary tomb of Ramesses V &amp; VI)</span></span></div>
         <div class="hl-step"><span class="hl-num">14</span><span class="hl-text"><span class="site-link" data-site="hatshepsut">Hatshepsut Temple</span></span></div>
         <div class="hl-step"><span class="hl-num">15</span><span class="hl-text"><span class="site-link" data-site="deirelmedina">Deir el-Medina (Artisans' Village)</span></span></div>
         <div class="hl-step"><span class="hl-num">16</span><span class="hl-text"><span class="site-link" data-site="memnon">Colossi of Memnon</span></span></div>
@@ -912,7 +934,7 @@
             <div class="day-num">Day 1</div>
             <div><div class="day-location">Cairo</div><div class="day-title">Arrival &amp; Welcome</div></div>
           </div>
-          <div class="day-body">Upon your arrival at <span class="city-link" data-city="cairo">Cairo</span> International Airport (CAI), a dedicated representative will be waiting to greet you and facilitate a seamless, private transfer to your five-star hotel. Following check-in, you will meet your private Egyptologist for a personalized orientation. This session provides an overview of your upcoming itinerary, helpful local insights, and an opportunity to address any questions. The remainder of the day is yours to relax and enjoy dinner at your leisure within the hotel. Overnight in Cairo.</div>
+          <div class="day-body">Upon your arrival at <span class="city-link" data-city="cairo">Cairo</span> International Airport (CAI), a dedicated representative will be waiting with a name sign to greet you and facilitate a seamless, private transfer to your five-star hotel. Following check-in, you will meet your private Egyptologist for a personalized orientation. This session provides an overview of your upcoming itinerary, helpful local insights, and an opportunity to address any questions. The remainder of the day is yours to relax and enjoy dinner at your leisure within the hotel. Overnight in Cairo.</div>
         </div>
         <div class="day-block">
           <div class="day-header">
@@ -1197,7 +1219,7 @@
 
       <h3>Your Route</h3>
       <div class="tour-map-section">
-        <img src="images/Access-Egypt-Travel-guide-map_v2.png" alt="Egypt Tour Route Map — Cairo to Luxor" class="tour-map-img">
+        <img src="images/Access-Egypt-Travel-guide-map_v3.png" alt="Egypt Tour Route Map — Cairo to Luxor" class="tour-map-img">
       </div>
     </div>
 
@@ -1212,13 +1234,13 @@
         <div class="hl-step"><span class="hl-num">6</span><span class="hl-text"><span class="site-link" data-site="karnak">Karnak Temple Complex</span></span></div>
         <div class="hl-step"><span class="hl-num">7</span><span class="hl-text"><span class="site-link" data-site="luxortemple">Luxor Temple</span> &amp; <span class="site-link" data-site="sphinx-avenue">Sphinx Avenue</span><span class="hl-subnote">✦ lit up at night</span></span></div>
         <div class="hl-step"><span class="hl-num">8</span><span class="hl-text">City Tour on a <span class="site-link" data-site="horse-carriage">Horse-drawn carriage</span> around <span class="city-link" data-city="luxor">Luxor</span> and the local market.</span></div>
-        <div class="hl-step"><span class="hl-num">9</span><span class="hl-text"><span class="site-link" data-site="valley">Valley of the Kings (3 tombs plus the extraordinary tomb of Ramesses V &amp; VI)</span></span></div>
+        <div class="hl-step"><span class="hl-num">9</span><span class="hl-text"><span class="site-link" data-site="valley">Valley of the Kings (4 tombs plus the extraordinary tomb of Ramesses V &amp; VI)</span></span></div>
         <div class="hl-step"><span class="hl-num">10</span><span class="hl-text"><span class="site-link" data-site="hatshepsut">Hatshepsut Temple</span></span></div>
         <div class="hl-step"><span class="hl-num">11</span><span class="hl-text"><span class="site-link" data-site="deirelmedina">Deir el-Medina (Artisans' Village)</span></span></div>
         <div class="hl-step"><span class="hl-num">12</span><span class="hl-text"><span class="site-link" data-site="memnon">Colossi of Memnon</span></span></div>
         <div class="hl-step"><span class="hl-num">13</span><span class="hl-text"><span class="site-link" data-site="edfu">Edfu Temple</span></span></div>
         <div class="hl-step"><span class="hl-num">14</span><span class="hl-text"><span class="site-link" data-site="kom-ombo">Kom Ombo Temple</span></span></div>
-        <div class="hl-step"><span class="hl-num">15</span><span class="hl-text"><span class="site-link" data-site="philae">Philae Temple</span> by boat</span></div>
+        <div class="hl-step"><span class="hl-num">15</span><span class="hl-text"><span class="site-link" data-site="philae">Philae Temple</span></span></div>
         <div class="hl-step"><span class="hl-num">16</span><span class="hl-text"><span class="site-link" data-site="unfinished-obelisk">The Unfinished Obelisk</span></span></div>
         <div class="hl-step"><span class="hl-num">17</span><span class="hl-text"><span class="site-link" data-site="high-dam">The High Dam</span></span></div>
         <div class="hl-step"><span class="hl-num">18</span><span class="hl-text"><span class="site-link" data-site="nubian-village">The Nubian Village</span></span></div>
@@ -1250,49 +1272,49 @@
             <div class="day-num">Day 2</div>
             <div><div class="day-location">Cairo — Pharaonic</div><div class="day-title">Giza Pyramids, the Sphinx &amp; The Grand Egyptian Museum (GEM)</div></div>
           </div>
-          <div class="day-body">We begin the day with an early departure to the Giza Plateau, allowing you to experience these iconic landmarks before the peak crowds arrive. Your expert Egyptologist will provide deep historical context, moving beyond the surface to explore the purpose and cultural significance of these architectural marvels through stories rarely captured by standard audio guides. Following a curated lunch, we will proceed to the newly opened Grand Egyptian Museum (GEM) for an immersive tour of the complete Tutankhamun collection. Overnight in Cairo.</div>
+          <div class="day-body">We begin the day with an early departure to the <span class="site-link" data-site="giza-pyramids">Giza Plateau</span>, allowing you to experience these iconic landmarks before the peak crowds arrive. Your expert Egyptologist will provide deep historical context, moving beyond the surface to explore the purpose and cultural significance of these architectural marvels through stories rarely captured by standard audio guides. Following a curated lunch, we will proceed to the newly opened <span class="site-link" data-site="gem">Grand Egyptian Museum (GEM)</span> for an immersive tour of the complete Tutankhamun collection. Overnight in Cairo.</div>
         </div>
         <div class="day-block">
           <div class="day-header">
             <div class="day-num">Day 3</div>
             <div><div class="day-location">Cairo — Islamic &amp; Coptic — Museum</div><div class="day-title">Citadel, Mohammed Ali Mosque, Coptic Cairo &amp; NMEC — Fly to Luxor</div></div>
           </div>
-          <div class="day-body">Your day begins with a visit to the Saladin Citadel and the exquisite Mosque of Muhammad Ali, where you will enjoy the most panoramic view of Cairo available within the city. We then proceed to explore the ancient, storied streets of Coptic Cairo, home to one of the oldest Christian communities in the world. Following a curated lunch, we will visit the National Museum of Egyptian Civilization (NMEC); final home of the most famous royal mummies. In the afternoon, you will be transferred to Cairo airport for your flight to Luxor (an hour flight) where you will be assisted by our representative until you check into your hotel to rest and prepare for the adventures awaiting you the following day. Overnight in Luxor.</div>
+          <div class="day-body">Your day begins with a visit to the <span class="site-link" data-site="citadel">Saladin Citadel</span> and the exquisite <span class="site-link" data-site="mohammed-ali">Mosque of Muhammad Ali</span>, where you will enjoy the most panoramic view of <span class="city-link" data-city="cairo">Cairo</span> available within the city. We then proceed to explore the ancient, storied streets of <span class="site-link" data-site="coptic">Coptic Cairo</span>, home to one of the oldest Christian communities in the world. Following a curated lunch, we will visit the <span class="site-link" data-site="nmec">National Museum of Egyptian Civilization (NMEC)</span>; final home of the most famous royal mummies. In the afternoon, you will be transferred to <span class="city-link" data-city="cairo">Cairo</span> airport for your flight to <span class="city-link" data-city="luxor">Luxor</span> (an hour flight) where you will be assisted by our representative until you check into your hotel to rest and prepare for the adventures awaiting you the following day. Overnight in Luxor.</div>
         </div>
         <div class="day-block">
           <div class="day-header">
             <div class="day-num">Day 4</div>
-            <div><div class="day-location">Luxor</div><div class="day-title">East Bank Tour — Nile Cruise Boarding</div></div>
+            <div><div class="day-location">Luxor — East Bank Tour</div><div class="day-title">Karnak Temples, Luxor Temple &amp; The Sphinx Avenue — Nile Cruise Boarding</div></div>
           </div>
-          <div class="day-body">Have breakfast then check out of your hotel and join your tour guide to visit Karnak Temples; the largest monumental complex in the world which is known as the history book of Ancient Egypt then head to your cruise ship for check in and lunch. Bypassing Luxor Temple daytime deliberately because it won't be just the history but we invite you to experience Luxor Temple and The Sphinx Avenue bathed in the golden glow of twilight; a totally extraordinary experience. Dinner on the ship. Overnight in Luxor.</div>
+          <div class="day-body">Have breakfast then check out of your hotel and join your tour guide to visit <span class="site-link" data-site="karnak">Karnak Temples</span>; the largest monumental complex in the world which is known as the history book of Ancient Egypt then head to your cruise ship for check in and lunch. Bypassing <span class="site-link" data-site="luxortemple">Luxor Temple</span> daytime deliberately because it won't be just the history but we invite you to experience <span class="site-link" data-site="luxortemple">Luxor Temple</span> and <span class="site-link" data-site="sphinx-avenue">The Sphinx Avenue</span> bathed in the golden glow of twilight; a totally extraordinary experience. Dinner on the ship. Overnight in Luxor.</div>
         </div>
         <div class="day-block">
           <div class="day-header">
             <div class="day-num">Day 5</div>
             <div><div class="day-location">Luxor — West Bank Tour</div><div class="day-title">The Valley of the Kings, Hatshepsut Temple &amp; The Village of the Artisans</div></div>
           </div>
-          <div class="day-body">Early breakfast on the ship then join your tour guide to the heart of the mountains of western Thebes where Egypt's best secret depicting the afterlife of the Pharaohs with dazzling, untouched colors and myths that refuse to fade. You will visit 3 royal tombs plus the extraordinary tomb of Ramesses V &amp; VI. Followed by Hatshepsut's Temple rising majestically out of the desert cliffs; a breathtaking triumph of ancient architecture where the most powerful lady of Ancient Egypt's history built her mortuary temple. Our third site takes you off the Pharaohs' track into the ancient world's ultimate artisan village; this is ancient Egypt at its most human where you can see the ruins of their village and intact tombs. Finally, we will stop at the Colossi of Memnon on our way back to the cruise ship. Back on board, lunch, the cruise sails smoothly down the Nile, offering front-row seats to a timeless landscape of riverside villages, roaming farm animals, and swaying palms. The journey pauses for a fascinating crossing through the Esna Lock until the ship docks at Edfu. Overnight in Edfu.</div>
+          <div class="day-body">Early breakfast on the ship then join your tour guide to <span class="site-link" data-site="valley">the heart of the mountains of western Thebes</span> where Egypt's best secret depicting the afterlife of the Pharaohs with dazzling, untouched colors and myths that refuse to fade. You will visit 3 royal tombs plus the extraordinary tomb of Ramesses V &amp; VI. Followed by <span class="site-link" data-site="hatshepsut">Hatshepsut's Temple</span> rising majestically out of the desert cliffs; a breathtaking triumph of ancient architecture where the most powerful lady of Ancient Egypt's history built her mortuary temple. Our third site takes you off the Pharaohs' track into <span class="site-link" data-site="deirelmedina">the ancient world's ultimate artisan village</span>; this is ancient Egypt at its most human where you can see the ruins of their village and intact tombs. Finally, we will stop at the <span class="site-link" data-site="memnon">Colossi of Memnon</span> on our way back to the cruise ship. Back on board, lunch, the cruise sails smoothly down the Nile, offering front-row seats to a timeless landscape of riverside villages, roaming farm animals, and swaying palms. The journey pauses for a fascinating crossing through the Esna Lock until the ship docks at <span class="city-link" data-city="edfu">Edfu</span>. Overnight in Edfu.</div>
         </div>
         <div class="day-block">
           <div class="day-header">
             <div class="day-num">Day 6</div>
             <div><div class="day-location">Nile Cruise</div><div class="day-title">Edfu &amp; Kom Ombo Temples</div></div>
           </div>
-          <div class="day-body">Breakfast on board, then join your tour guide to visit Egypt's most preserved ancient sanctuary where time has stood completely still for over two millennia; walk through the massive gateways, towering roofs of the falcon headed deity Horus of Edfu. Back to the boat, lunch while sailing with the marvelous Nile scenery around. Docking at Kom Ombo in the afternoon, then your tour guide will accompany you to visit Egypt's only twin temple shadowed by the sunlight that was dedicated to two deities. Continue sailing until you dock in Aswan. Dinner on board. Overnight in Aswan.</div>
+          <div class="day-body">Breakfast on board, then join your tour guide to visit <span class="site-link" data-site="edfu">Egypt's most preserved ancient sanctuary</span> where time has stood completely still for over two millennia; walk through the massive gateways, towering roofs of the falcon headed deity Horus of Edfu. Back to the boat, lunch while sailing with the marvelous Nile scenery around. Docking at <span class="site-link" data-site="kom-ombo">Kom Ombo</span> in the afternoon, then your tour guide will accompany you to visit Egypt's only twin temple shadowed by the sunlight that was dedicated to two deities. Continue sailing until you dock in <span class="city-link" data-city="aswan">Aswan</span>. Dinner on board. Overnight in Aswan.</div>
         </div>
         <div class="day-block">
           <div class="day-header">
             <div class="day-num">Day 7</div>
             <div><div class="day-location">Aswan</div><div class="day-title">Philae Temple, The Unfinished Obelisk, High Dam &amp; Nubian Village</div></div>
           </div>
-          <div class="day-body">Breakfast on board, then join your tour guide for a visit to the pearl of Egypt where you get on a boat and cross over to the floating sanctuary of Isis, surrounded by water on all sides feels like stepping into a living postcard. Followed by The High Dam; a rock-filled dam overlooking Lake Nasser; the largest manmade lake in the world. Finally, we will visit the ancient quarry of granite where the Unfinished Obelisk is still laying; the largest and heaviest in the world. Lunch on board, then a special visit by a motorboat to the Nubian Village; a photographer's dream, with its tiny streets, Nubian people and rainbow-painted house and geometrical designs; it's a visual feast for the eyes. Dinner on board. Overnight in Aswan.</div>
+          <div class="day-body">Breakfast on board, then join your tour guide for a visit to the pearl of Egypt where you get on a boat and cross over to <span class="site-link" data-site="philae">the floating sanctuary of Isis</span>, surrounded by water on all sides feels like stepping into a living postcard. Followed by <span class="site-link" data-site="high-dam">The High Dam</span>; a rock-filled dam overlooking Lake Nasser; the largest manmade lake in the world. Finally, we will visit the ancient quarry of granite where <span class="site-link" data-site="unfinished-obelisk">the Unfinished Obelisk</span> is still laying; the largest and heaviest in the world. Lunch on board, then a special visit by a motorboat to <span class="site-link" data-site="nubian-village">the Nubian Village</span>; a photographer's dream, with its tiny streets, Nubian people and rainbow-painted house and geometrical designs; it's a visual feast for the eyes. Dinner on board. Overnight in Aswan.</div>
         </div>
         <div class="day-block">
           <div class="day-header">
             <div class="day-num">Day 8</div>
             <div><div class="day-location">Aswan → Cairo</div><div class="day-title">Fly to Cairo (optional Abu Simbel excursion)</div></div>
           </div>
-          <div class="day-body">Check out of the cruise ship and enjoy a hassle-free transfer to Aswan Airport (ASW) with our representative handling your luggage. Lunch is included. Arrive in Cairo for a seamless pickup and private transfer directly to your airport hotel. Overnight in Cairo.</div>
+          <div class="day-body">Check out of the cruise ship and enjoy a hassle-free transfer to <span class="city-link" data-city="aswan">Aswan</span> Airport (ASW) with our representative handling your luggage. Lunch is included. Arrive in <span class="city-link" data-city="cairo">Cairo</span> for a seamless pickup and private transfer directly to your airport hotel. Overnight in Cairo.</div>
         </div>
         <div class="day-block">
           <div class="day-header">
@@ -1534,7 +1556,7 @@
 
       <h3>Your Route</h3>
       <div class="tour-map-section">
-        <img src="images/Access-Egypt-Travel-guide-map_v2.png" alt="Egypt Tour Route Map — Cairo to Luxor to Aswan" class="tour-map-img">
+        <img src="images/Access-Egypt-Travel-guide-map_v3.png" alt="Egypt Tour Route Map — Cairo to Luxor to Aswan" class="tour-map-img">
       </div>
     </div>
 
@@ -1548,12 +1570,12 @@
         <div class="hl-step"><span class="hl-num">5</span><span class="hl-text"><span class="site-link" data-site="nmec">National Museum of Egyptian Civilization (NMEC)</span> — where the royal mummies are</span></div>
         <div class="hl-step"><span class="hl-num">6</span><span class="hl-text"><span class="site-link" data-site="karnak">Karnak Temple Complex</span></span></div>
         <div class="hl-step"><span class="hl-num">7</span><span class="hl-text"><span class="site-link" data-site="luxortemple">Luxor Temple</span> &amp; <span class="site-link" data-site="sphinx-avenue">Sphinx Avenue</span><span class="hl-subnote">✦ lit up at night</span></span></div>
-        <div class="hl-step"><span class="hl-num">8</span><span class="hl-text"><span class="site-link" data-site="valley">Valley of the Kings (3 tombs plus the extraordinary tomb of Ramses V &amp; VI)</span></span></div>
+        <div class="hl-step"><span class="hl-num">8</span><span class="hl-text"><span class="site-link" data-site="valley">Valley of the Kings (4 tombs plus the extraordinary tomb of Ramesses V &amp; VI)</span></span></div>
         <div class="hl-step"><span class="hl-num">9</span><span class="hl-text"><span class="site-link" data-site="hatshepsut">Hatshepsut Temple</span></span></div>
         <div class="hl-step"><span class="hl-num">10</span><span class="hl-text"><span class="site-link" data-site="deirelmedina">Deir el-Medina (Artisans' Village)</span></span></div>
         <div class="hl-step"><span class="hl-num">11</span><span class="hl-text"><span class="site-link" data-site="memnon">Colossi of Memnon</span></span></div>
         <div class="hl-step"><span class="hl-num">12</span><span class="hl-text"><span class="site-link" data-site="edfu">Edfu Temple</span></span></div>
-        <div class="hl-step"><span class="hl-num">13</span><span class="hl-text"><span class="site-link" data-site="philae">Philae Temple</span> by boat</span></div>
+        <div class="hl-step"><span class="hl-num">13</span><span class="hl-text"><span class="site-link" data-site="philae">Philae Temple</span></span></div>
         <div class="hl-step"><span class="hl-num">14</span><span class="hl-text"><span class="site-link" data-site="unfinished-obelisk">The Unfinished Obelisk</span></span></div>
         <div class="hl-step"><span class="hl-num">15</span><span class="hl-text"><span class="site-link" data-site="high-dam">The High Dam</span></span></div>
         <div class="hl-step"><span class="hl-num">16</span><span class="hl-text"><span class="site-link" data-site="nubian-village">The Nubian Village</span></span></div>
@@ -1576,49 +1598,49 @@
             <div class="day-num">Day 1</div>
             <div><div class="day-location">Cairo</div><div class="day-title">Arrival &amp; Welcome</div></div>
           </div>
-          <div class="day-body">Upon your arrival at Cairo International Airport, a dedicated representative will be waiting to greet you and facilitate a seamless, private transfer to your five-star hotel. Following check-in, you will meet your private Egyptologist for a personalized orientation. This session provides an overview of your upcoming itinerary, helpful local insights, and an opportunity to address any questions. The remainder of the day is yours to relax and enjoy dinner at your leisure within the hotel.</div>
+          <div class="day-body">Upon your arrival at <span class="city-link" data-city="cairo">Cairo</span> International Airport, a dedicated representative will be waiting to greet you and facilitate a seamless, private transfer to your five-star hotel. Following check-in, you will meet your private Egyptologist for a personalized orientation. This session provides an overview of your upcoming itinerary, helpful local insights, and an opportunity to address any questions. The remainder of the day is yours to relax and enjoy dinner at your leisure within the hotel. Overnight in Cairo.</div>
         </div>
         <div class="day-block">
           <div class="day-header">
             <div class="day-num">Day 2</div>
             <div><div class="day-location">Cairo — Pharaonic</div><div class="day-title">Giza Pyramids, Sphinx &amp; Grand Egyptian Museum</div></div>
           </div>
-          <div class="day-body">We begin the day with an early departure to the Giza Plateau, allowing you to experience these iconic landmarks before the peak crowds arrive. Your expert Egyptologist will provide deep historical context, moving beyond the surface to explore the purpose and cultural significance of these architectural marvels through stories rarely captured by standard audio guides. Following a curated lunch, we will proceed to the newly opened Grand Egyptian Museum (GEM) for an immersive tour of the complete Tutankhamun collection.</div>
+          <div class="day-body">We begin the day with an early departure to the <span class="site-link" data-site="giza-pyramids">Giza Plateau</span>, allowing you to experience these iconic landmarks before the peak crowds arrive. Your expert Egyptologist will provide deep historical context, moving beyond the surface to explore the purpose and cultural significance of these architectural marvels through stories rarely captured by standard audio guides. Following a curated lunch, we will proceed to the newly opened <span class="site-link" data-site="gem">Grand Egyptian Museum (GEM)</span> for an immersive tour of the complete Tutankhamun collection. Overnight in Cairo.</div>
         </div>
         <div class="day-block">
           <div class="day-header">
             <div class="day-num">Day 3</div>
             <div><div class="day-location">Cairo — Islamic &amp; Coptic</div><div class="day-title">Citadel, Mohammed Ali Mosque, Coptic Cairo, NMEC — Fly to Luxor</div></div>
           </div>
-          <div class="day-body">Your day begins with a visit to the Saladin Citadel and the exquisite Mosque of Muhammad Ali, where you will enjoy the most panoramic view of Cairo available within the city. We then proceed to explore the ancient, storied streets of Coptic Cairo, home to one of the oldest Christian communities in the world. Following a curated lunch, we will visit the National Museum of Egyptian Civilization (NMEC); final home of the most famous royal mummies. In the afternoon, you will be transferred to the airport for your flight to Luxor, where you will check into your hotel to rest and prepare for the adventures awaiting you the following day.</div>
+          <div class="day-body">Your day begins with a visit to the <span class="site-link" data-site="citadel">Saladin Citadel</span> and the exquisite <span class="site-link" data-site="mohammed-ali">Mosque of Muhammad Ali</span>, where you will enjoy the most panoramic view of <span class="city-link" data-city="cairo">Cairo</span> available within the city. We then proceed to explore the ancient, storied streets of <span class="site-link" data-site="coptic">Coptic Cairo</span>, home to one of the oldest Christian communities in the world. Following a curated lunch, we will visit the <span class="site-link" data-site="nmec">National Museum of Egyptian Civilization (NMEC)</span>; final home of the most famous royal mummies. In the afternoon, you will be transferred to the airport for your flight to <span class="city-link" data-city="luxor">Luxor</span>, where you will check into your hotel to rest and prepare for the adventures awaiting you the following day. Overnight in Luxor.</div>
         </div>
         <div class="day-block">
           <div class="day-header">
             <div class="day-num">Day 4</div>
             <div><div class="day-location">Luxor — East Bank Tour</div><div class="day-title">Karnak Temple Complex &amp; Luxor Temple</div></div>
           </div>
-          <div class="day-body">Your journey continues with your private guide who will escort you to a highly acclaimed local restaurant for an authentic lunch. The afternoon features a tour of the monumental Karnak Temple Complex, followed by an evening visit to the Luxor Temple. Experiencing the temple illuminated at night offers a breathtaking and distinct perspective, providing a completely different atmosphere compared to a daytime visit.</div>
+          <div class="day-body">Your journey continues with your private guide who will escort you to a highly acclaimed local restaurant for an authentic lunch. The afternoon features a tour of the monumental <span class="site-link" data-site="karnak">Karnak Temple Complex</span>, followed by an evening visit to the <span class="site-link" data-site="luxortemple">Luxor Temple</span>. Experiencing the temple illuminated at night offers a breathtaking and distinct perspective, providing a completely different atmosphere compared to a daytime visit. Overnight in Luxor.</div>
         </div>
         <div class="day-block">
           <div class="day-header">
             <div class="day-num">Day 5</div>
             <div><div class="day-location">Luxor — West Bank Tour — Edfu Temple — Arrive Aswan</div><div class="day-title">Valley of the Kings, Hatshepsut Temple, The Artisans' Village &amp; Edfu Temple</div></div>
           </div>
-          <div class="day-body">Enjoy a comprehensive exploration of the West Bank, beginning with the Valley of the Kings, where you will visit three significant tombs, plus the extraordinary final resting place of Ramesses V and VI. Your tour continues with visits to the Temple of Hatshepsut, the remarkable Artisans' Village (Deir el-Medina), and the towering Colossi of Memnon. A curated lunch is included during your day of discovery. Then your private driver will drive you to Edfu where you will visit Edfu Temple; one of Egypt's most spectacularly preserved monuments with its massive breathtaking pylon and soaring columns. Continue driving to Aswan and check in at your hotel.</div>
+          <div class="day-body">Enjoy a comprehensive exploration of the West Bank, beginning with the <span class="site-link" data-site="valley">Valley of the Kings</span>, where you will visit three significant tombs, plus the extraordinary final resting place of Ramesses V and VI. Your tour continues with visits to the <span class="site-link" data-site="hatshepsut">Temple of Hatshepsut</span>, the remarkable <span class="site-link" data-site="deirelmedina">Artisans' Village (Deir el-Medina)</span>, and the towering <span class="site-link" data-site="memnon">Colossi of Memnon</span>. A curated lunch is included during your day of discovery. Then your private driver will drive you to <span class="city-link" data-city="edfu">Edfu</span> where you will visit <span class="site-link" data-site="edfu">Edfu Temple</span>; one of Egypt's most spectacularly preserved monuments with its massive breathtaking pylon and soaring columns. Continue driving to <span class="city-link" data-city="aswan">Aswan</span> and check in at your hotel. Overnight in Aswan.</div>
         </div>
         <div class="day-block">
           <div class="day-header">
             <div class="day-num">Day 6</div>
             <div><div class="day-location">Aswan Tour &amp; The Nubian Village — Fly to Cairo</div><div class="day-title">Philae Temple, High Dam, Unfinished Obelisk &amp; Nubian Village</div></div>
           </div>
-          <div class="day-body">Today, you will embark on a memorable excursion with your tour guide to the breathtaking Philae Temple, a stunning island sanctuary dedicated to the goddess Isis that you will reach via a scenic private boat ride. After immersing yourself in the magic of this ancient wonder, you will visit the impressive Aswan High Dam and the fascinating Unfinished Obelisk. Next, enjoy a delicious lunch at a restaurant right along the banks of the Nile before exploring the vibrant and colorful Nubian Village. Finally, you will be comfortably transferred to Aswan Airport to catch your flight back to Cairo where our representatives will pick you up and transfer you to your airport hotel; check in and enjoy peaceful night sleep.</div>
+          <div class="day-body">Today, you will embark on a memorable excursion with your tour guide to the breathtaking <span class="site-link" data-site="philae">Philae Temple</span>, a stunning island sanctuary dedicated to the goddess Isis that you will reach via a scenic private boat ride. After immersing yourself in the magic of this ancient wonder, you will visit the impressive <span class="site-link" data-site="high-dam">Aswan High Dam</span> and the fascinating <span class="site-link" data-site="unfinished-obelisk">Unfinished Obelisk</span>. Next, enjoy a delicious lunch at a restaurant right along the banks of the Nile before exploring the vibrant and colorful <span class="site-link" data-site="nubian-village">Nubian Village</span>. Finally, you will be comfortably transferred to <span class="city-link" data-city="aswan">Aswan</span> Airport to catch your flight back to <span class="city-link" data-city="cairo">Cairo</span> where our representatives will pick you up and transfer you to your airport hotel; check in and enjoy peaceful night sleep. Overnight in Cairo.</div>
         </div>
         <div class="day-block">
           <div class="day-header">
             <div class="day-num">Day 7</div>
             <div><div class="day-location">Cairo — Final Departure</div><div class="day-title">Final Departure</div></div>
           </div>
-          <div class="day-body">Breakfast and lunch included. Our company representative will meet you at your hotel to transfer you to the departure terminal, providing full luggage assistance until you are safely checked in at the airline desk.</div>
+          <div class="day-body">Our company representative will meet you at your hotel to transfer you to the departure terminal, providing full luggage assistance until you are safely checked in at the airline desk.</div>
         </div>
       </div>
     </div>
@@ -1852,7 +1874,7 @@
 
       <h3>Your Route</h3>
       <div class="tour-map-section">
-        <img src="images/Access-Egypt-Travel-guide-map_v2.png" alt="Egypt Tour Route Map — Cairo, Luxor, Nile Cruise, Aswan" class="tour-map-img">
+        <img src="images/Access-Egypt-Travel-guide-map_v3.png" alt="Egypt Tour Route Map — Cairo, Luxor, Nile Cruise, Aswan" class="tour-map-img">
       </div>
     </div>
 
@@ -1867,7 +1889,7 @@
         <div class="hl-step"><span class="hl-num">6</span><span class="hl-text"><span class="site-link" data-site="karnak">Karnak Temple Complex</span></span></div>
         <div class="hl-step"><span class="hl-num">7</span><span class="hl-text"><span class="site-link" data-site="luxortemple">Luxor Temple</span> &amp; <span class="site-link" data-site="sphinx-avenue">Sphinx Avenue</span><span class="hl-subnote">✦ lit up at night</span></span></div>
         <div class="hl-step"><span class="hl-num">8</span><span class="hl-text">City Tour on a <span class="site-link" data-site="horse-carriage">Horse-drawn carriage</span> around <span class="city-link" data-city="luxor">Luxor</span> and the local market.</span></div>
-        <div class="hl-step"><span class="hl-num">9</span><span class="hl-text"><span class="site-link" data-site="valley">Valley of the Kings (3 tombs plus the extraordinary tomb of Ramesses V &amp; VI)</span></span></div>
+        <div class="hl-step"><span class="hl-num">9</span><span class="hl-text"><span class="site-link" data-site="valley">Valley of the Kings (4 tombs plus the extraordinary tomb of Ramesses V &amp; VI)</span></span></div>
         <div class="hl-step"><span class="hl-num">10</span><span class="hl-text"><span class="site-link" data-site="hatshepsut">Hatshepsut Temple</span></span></div>
         <div class="hl-step"><span class="hl-num">11</span><span class="hl-text"><span class="site-link" data-site="deirelmedina">Deir el-Medina (Artisans' Village)</span></span></div>
         <div class="hl-step"><span class="hl-num">12</span><span class="hl-text"><span class="site-link" data-site="madinet-habu">Madinet Habu Temple</span></span></div>
@@ -1903,77 +1925,77 @@
             <div class="day-num">Day 1</div>
             <div><div class="day-location">Cairo</div><div class="day-title">Arrival &amp; Welcome</div></div>
           </div>
-          <div class="day-body">Your dedicated representative will meet you at Cairo International Airport with a name sign. Private transfer to your 5-star hotel. Check-in and meet your Egyptologist guide for a brief orientation — what to expect, tips for the days ahead, and any questions answered. Rest of the day free. Dinner on your own at the hotel. Overnight in Cairo.</div>
+          <div class="day-body">Your dedicated representative will meet you at <span class="city-link" data-city="cairo">Cairo</span> International Airport with a name sign. Private transfer to your 5-star hotel. Check-in and meet your Egyptologist guide for a brief orientation — what to expect, tips for the days ahead, and any questions answered. Rest of the day free. Dinner on your own at the hotel. Overnight in Cairo.</div>
         </div>
         <div class="day-block">
           <div class="day-header">
             <div class="day-num">Day 2</div>
             <div><div class="day-location">Cairo — Pharaonic</div><div class="day-title">Giza Pyramids, the Sphinx &amp; The Grand Egyptian Museum (GEM)</div></div>
           </div>
-          <div class="day-body">We begin the day with an early departure to the Giza Plateau, allowing you to experience these iconic landmarks before the peak crowds arrive. Your expert Egyptologist will provide deep historical context, moving beyond the surface to explore the purpose and cultural significance of these architectural marvels through stories rarely captured by standard audio guides. Following a curated lunch, we will proceed to the newly opened Grand Egyptian Museum (GEM) for an immersive tour of the complete Tutankhamun collection. Overnight in Cairo.</div>
+          <div class="day-body">We begin the day with an early departure to the <span class="site-link" data-site="giza-pyramids">Giza Plateau</span>, allowing you to experience these iconic landmarks before the peak crowds arrive. Your expert Egyptologist will provide deep historical context, moving beyond the surface to explore the purpose and cultural significance of these architectural marvels through stories rarely captured by standard audio guides. Following a curated lunch, we will proceed to the newly opened <span class="site-link" data-site="gem">Grand Egyptian Museum (GEM)</span> for an immersive tour of the complete Tutankhamun collection. Overnight in Cairo.</div>
         </div>
         <div class="day-block">
           <div class="day-header">
             <div class="day-num">Day 3</div>
             <div><div class="day-location">Cairo — Islamic &amp; Coptic history — Museum — Fly to Luxor</div><div class="day-title">Citadel, Mohammed Ali Mosque &amp; Coptic Cairo, NMEC</div></div>
           </div>
-          <div class="day-body">Your day begins with a visit to the Saladin Citadel and the exquisite Mosque of Muhammad Ali, where you will enjoy the most panoramic view of Cairo available within the city. We then proceed to explore the ancient, storied streets of Coptic Cairo, home to one of the oldest Christian communities in the world. Following a curated lunch, we will visit the National Museum of Egyptian Civilization (NMEC); final home of the most famous royal mummies. In the afternoon, you will be transferred to Cairo airport for your flight to Luxor (an hour flight) where you will be assisted by our representative until you check into your hotel to rest and prepare for the adventures awaiting you the following day. Overnight in Luxor.</div>
+          <div class="day-body">Your day begins with a visit to the <span class="site-link" data-site="citadel">Saladin Citadel</span> and the exquisite <span class="site-link" data-site="mohammed-ali">Mosque of Muhammad Ali</span>, where you will enjoy the most panoramic view of <span class="city-link" data-city="cairo">Cairo</span> available within the city. We then proceed to explore the ancient, storied streets of <span class="site-link" data-site="coptic">Coptic Cairo</span>, home to one of the oldest Christian communities in the world. Following a curated lunch, we will visit the <span class="site-link" data-site="nmec">National Museum of Egyptian Civilization (NMEC)</span>; final home of the most famous royal mummies. In the afternoon, you will be transferred to <span class="city-link" data-city="cairo">Cairo</span> airport for your flight to <span class="city-link" data-city="luxor">Luxor</span> (an hour flight) where you will be assisted by our representative until you check into your hotel to rest and prepare for the adventures awaiting you the following day. Overnight in Luxor.</div>
         </div>
         <div class="day-block">
           <div class="day-header">
             <div class="day-num">Day 4</div>
             <div><div class="day-location">Luxor — East Bank Tour — Nile Cruise Boarding</div><div class="day-title">Karnak Temples, Luxor Temple &amp; The Sphinx Avenue</div></div>
           </div>
-          <div class="day-body">Have breakfast then check out of your hotel and join your tour guide to visit Karnak Temples; The largest monumental complex in the world which is known as the history book of Ancient Egypt then head to your cruise ship for check in and lunch. Bypassing Luxor Temple daytime deliberately because it won't be just the history but we invite you to experience Luxor Temple and The Sphinx Avenue bathed in the golden glow of twilight; a totally extraordinary experience. Dinner on the ship. Overnight in Luxor.</div>
+          <div class="day-body">Have breakfast then check out of your hotel and join your tour guide to visit <span class="site-link" data-site="karnak">Karnak Temples</span>; The largest monumental complex in the world which is known as the history book of Ancient Egypt then head to your cruise ship for check in and lunch. Bypassing <span class="site-link" data-site="luxortemple">Luxor Temple</span> daytime deliberately because it won't be just the history but we invite you to experience <span class="site-link" data-site="luxortemple">Luxor Temple</span> and <span class="site-link" data-site="sphinx-avenue">The Sphinx Avenue</span> bathed in the golden glow of twilight; a totally extraordinary experience. Dinner on the ship. Overnight in Luxor.</div>
         </div>
         <div class="day-block">
           <div class="day-header">
             <div class="day-num">Day 5</div>
             <div><div class="day-location">Luxor — West Bank Tour</div><div class="day-title">The Valley of the Kings, Hatshepsut Temple, The Village of the artisans</div></div>
           </div>
-          <div class="day-body">Early breakfast on the ship then join your tour guide to the heart of the mountains of western Thebes where Egypt's best secret depicting the afterlife of the Pharaohs with dazzling, untouched colors and myths that refuse to fade. You will visit 3 royal tombs plus the extraordinary tomb of Ramesses V &amp; VI. Followed by Hatshepsut's Temple rising majestically out of the desert cliffs; a breathtaking triumph of ancient architecture where the most powerful lady of Ancient Egypt's history built her mortuary temple. Our third site takes you off the Pharaohs' track into the ancient world's ultimate artisan village; this is ancient Egypt at its most human where you can see the ruins of their village and intact tombs. Finally, we will stop at the colossi of Memnon on our way back to the cruise ship. Back on board, lunch, the cruise sails smoothly down the Nile, offering front-row seats to a timeless landscape of riverside villages, roaming farm animals, and swaying palms. The journey pauses for a fascinating crossing through the Esna Lock until the ship docks at Edfu. Overnight in Edfu.</div>
+          <div class="day-body">Early breakfast on the ship then join your tour guide to <span class="site-link" data-site="valley">the heart of the mountains of western Thebes</span> where Egypt's best secret depicting the afterlife of the Pharaohs with dazzling, untouched colors and myths that refuse to fade. You will visit 3 royal tombs plus the extraordinary tomb of Ramesses V &amp; VI. Followed by <span class="site-link" data-site="hatshepsut">Hatshepsut's Temple</span> rising majestically out of the desert cliffs; a breathtaking triumph of ancient architecture where the most powerful lady of Ancient Egypt's history built her mortuary temple. Our third site takes you off the Pharaohs' track into <span class="site-link" data-site="deirelmedina">the ancient world's ultimate artisan village</span>; this is ancient Egypt at its most human where you can see the ruins of their village and intact tombs. Finally, we will stop at the <span class="site-link" data-site="memnon">colossi of Memnon</span> on our way back to the cruise ship. Back on board, lunch, the cruise sails smoothly down the Nile, offering front-row seats to a timeless landscape of riverside villages, roaming farm animals, and swaying palms. The journey pauses for a fascinating crossing through the Esna Lock until the ship docks at <span class="city-link" data-city="edfu">Edfu</span>. Overnight in Edfu.</div>
         </div>
         <div class="day-block">
           <div class="day-header">
             <div class="day-num">Day 6</div>
             <div><div class="day-location">Edfu — Kom Ombo Temples</div><div class="day-title">Edfu and Kom Ombo</div></div>
           </div>
-          <div class="day-body">Breakfast on board, then join your tour guide to visit Egypt's most preserved ancient sanctuary where time has stood completely still for over two millennia; walk through the massive gateways, towering roofs of the falcon headed deity Horus of Edfu. Back to the boat, lunch while sailing with the marvelous Nile scenery around. Docking at Kom Ombo in the afternoon, then your tour guide will accompany you to visit Egypt's only twin temple shadowed by the sunlight that was dedicated to two deities. Continue sailing until you dock in Aswan. Dinner on board. Overnight in Aswan.</div>
+          <div class="day-body">Breakfast on board, then join your tour guide to visit <span class="site-link" data-site="edfu">Egypt's most preserved ancient sanctuary</span> where time has stood completely still for over two millennia; walk through the massive gateways, towering roofs of the falcon headed deity Horus of Edfu. Back to the boat, lunch while sailing with the marvelous Nile scenery around. Docking at <span class="site-link" data-site="kom-ombo">Kom Ombo</span> in the afternoon, then your tour guide will accompany you to visit Egypt's only twin temple shadowed by the sunlight that was dedicated to two deities. Continue sailing until you dock in <span class="city-link" data-city="aswan">Aswan</span>. Dinner on board. Overnight in Aswan.</div>
         </div>
         <div class="day-block">
           <div class="day-header">
             <div class="day-num">Day 7</div>
             <div><div class="day-location">Aswan</div><div class="day-title">Aswan — Philae Temple — The Unfinished Obelisk — The High Dam</div></div>
           </div>
-          <div class="day-body">Breakfast on board, then join your tour guide for a visit to the pearl of Egypt where you get on a boat and cross over to the floating sanctuary of Isis, surrounded by water on all sides feels like stepping into a living postcard. Followed by The High Dam; a rock-filled dam overlooking Lake Nasser; the largest manmade lake in the world. Finally, we will visit the ancient quarry of granite where the Unfinished Obelisk is still laying; the largest and heaviest in the world. Overnight in Aswan.</div>
+          <div class="day-body">Breakfast on board, then join your tour guide for a visit to the pearl of Egypt where you get on a boat and cross over to <span class="site-link" data-site="philae">the floating sanctuary of Isis</span>, surrounded by water on all sides feels like stepping into a living postcard. Followed by <span class="site-link" data-site="high-dam">The High Dam</span>; a rock-filled dam overlooking Lake Nasser; the largest manmade lake in the world. Finally, we will visit the ancient quarry of granite where <span class="site-link" data-site="unfinished-obelisk">the Unfinished Obelisk</span> is still laying; the largest and heaviest in the world. Overnight in Aswan.</div>
         </div>
         <div class="day-block">
           <div class="day-header">
             <div class="day-num">Day 8</div>
             <div><div class="day-location">Aswan</div><div class="day-title">Free Day — Optional: Abu Simbel Temples</div></div>
           </div>
-          <div class="day-body">Free relaxing day with all meals on the cruise ship. Optional excursion to visit Abu Simbel Temples; the colossal temples of Ramesses II carved into a cliff face — one of Egypt's most extraordinary sights. Overnight in Aswan.</div>
+          <div class="day-body">Free relaxing day with all meals on the cruise ship. Optional excursion to visit <span class="site-link" data-site="abu-simbel">Abu Simbel Temples</span>; the colossal temples of Ramesses II carved into a cliff face — one of Egypt's most extraordinary sights. Overnight in Aswan.</div>
         </div>
         <div class="day-block">
           <div class="day-header">
             <div class="day-num">Day 9</div>
             <div><div class="day-location">Aswan — Sailing Day</div><div class="day-title">The Nubian Village</div></div>
           </div>
-          <div class="day-body">After breakfast on board, embark on a scenic motorboat ride to the vibrant Nubian Village. A photographer's paradise, this village is a visual feast of narrow streets, welcoming locals, and homes painted in brilliant rainbow colors and geometric patterns. Return to the ship for lunch as we set sail from Aswan. Spend the afternoon taking in the timeless riverside scenery: local farmers tending to their livestock against a striking backdrop where golden desert sands meet lush green fields and the deep blue Nile. Dinner on board. Overnight in Edfu.</div>
+          <div class="day-body">After breakfast on board, embark on a scenic motorboat ride to the vibrant <span class="site-link" data-site="nubian-village">Nubian Village</span>. A photographer's paradise, this village is a visual feast of narrow streets, welcoming locals, and homes painted in brilliant rainbow colors and geometric patterns. Return to the ship for lunch as we set sail from <span class="city-link" data-city="aswan">Aswan</span>. Spend the afternoon taking in the timeless riverside scenery: local farmers tending to their livestock against a striking backdrop where golden desert sands meet lush green fields and the deep blue Nile. Dinner on board. Overnight in Edfu.</div>
         </div>
         <div class="day-block">
           <div class="day-header">
             <div class="day-num">Day 10</div>
             <div><div class="day-location">Sailing The Nile — Esna Lock — Luxor</div><div class="day-title">Luxor City Tour</div></div>
           </div>
-          <div class="day-body">Wake up to breakfast on board as we set sail from Edfu, taking in the spectacular scenery along the Nile. Experience a fascinating engineering marvel as our ship passes through the Esna Lock, safely lowering our water level to continue the journey north. After lunch on deck, we arrive in historic Luxor. Step ashore for an enchanting city tour by horse-drawn carriage — winding through bustling local markets, passing the legendary Avenue of Sphinxes, and soaking up the vibrant, timeless energy of the city streets as locals go about their day. Dinner on board, overnight in Luxor.</div>
+          <div class="day-body">Wake up to breakfast on board as we set sail from <span class="city-link" data-city="edfu">Edfu</span>, taking in the spectacular scenery along the Nile. Experience a fascinating engineering marvel as our ship passes through the Esna Lock, safely lowering our water level to continue the journey north. After lunch on deck, we arrive in historic <span class="city-link" data-city="luxor">Luxor</span>. Step ashore for an enchanting city tour by <span class="site-link" data-site="horse-carriage">horse-drawn carriage</span> — winding through bustling local markets, passing the legendary <span class="site-link" data-site="sphinx-avenue">Avenue of Sphinxes</span>, and soaking up the vibrant, timeless energy of the city streets as locals go about their day. Dinner on board, overnight in Luxor.</div>
         </div>
         <div class="day-block">
           <div class="day-header">
             <div class="day-num">Day 11</div>
             <div><div class="day-location">Luxor — West Bank Tour (2) — Fly to Cairo</div><div class="day-title">The Valley of The Queens — Madinet Habu Temple — The Valley of the Nobles</div></div>
           </div>
-          <div class="day-body">Begin the day with breakfast on board before joining your private guide to explore Luxor's best-kept secrets. Step off the beaten path into extraordinary, lesser-visited historical sites where ancient pharaonic secrets come to life through remarkably vivid, untouched colors and astonishing relief walls, we will visit 3 hidden gems as part of the ancient royal cemetery of Luxor. After a curated lunch at a highly rated local restaurant, our representative will transfer you to Luxor Airport and assist with your luggage for your flight back to Cairo. Upon arrival, we will greet you at the terminal and handle your private transfer to your airport hotel for a peaceful night's rest. Overnight in Cairo.</div>
+          <div class="day-body">Begin the day with breakfast on board before joining your private guide to explore <span class="city-link" data-city="luxor">Luxor</span>'s best-kept secrets. Step off the beaten path into extraordinary, lesser-visited historical sites where ancient pharaonic secrets come to life through remarkably vivid, untouched colors and astonishing relief walls, we will visit 3 hidden gems as part of the ancient royal cemetery of Luxor. After a curated lunch at a highly rated local restaurant, our representative will transfer you to <span class="city-link" data-city="luxor">Luxor</span> Airport and assist with your luggage for your flight back to <span class="city-link" data-city="cairo">Cairo</span>. Upon arrival, we will greet you at the terminal and handle your private transfer to your airport hotel for a peaceful night's rest. Overnight in Cairo.</div>
         </div>
         <div class="day-block">
           <div class="day-header">
@@ -2155,7 +2177,7 @@
 <div class="page-label">ABOUT US PAGE <span>Meet the team behind Access Egypt Travel</span></div>
 
 <div class="top-bar"><div><a href="tel:+17727820494">🇺🇸 +1 772 782 0494</a><a href="https://wa.me/20120140578">💬 WhatsApp</a><a href="mailto:info@accessegypttravel.com">✉️ info@accessegypttravel.com</a></div><a href="mailto:info@accessegypttravel.com" class="cta-btn">Request a Quote</a></div>
-<div class="site-header"><img src="icons/Logo_Green_3.png" alt="Access Egypt Travel" class="site-logo-img"><nav><a href="#">Home</a><div class="nav-dropdown"><a href="#">Tours ▾</a><div class="nav-dropdown-menu"><a href="#tour">6 Days / 5 Nights — Cairo &amp; Luxor Holiday</a><a href="#tour-d">7 Days / 6 Nights — Cairo, Luxor &amp; Aswan</a><a href="#tour-b">8 Days / 7 Nights — Cairo, Aswan &amp; Nile Cruise</a><a href="#tour-c">9 Days / 8 Nights — Cairo, Pyramids &amp; Nile Cruise</a><a href="#tour-e">12 Days / 11 Nights — The Ultimate Egyptian Odyssey</a></div></div><a href="#">Reviews</a><a href="#">FAQs</a><a href="#" class="active">About</a><a href="#">Contact</a></nav></div>
+<div class="site-header"><img src="icons/Logo_Green_3.png" alt="Access Egypt Travel" class="site-logo-img"><nav><a href="#">Home</a><div class="nav-dropdown"><a href="#">Tours ▾</a><div class="nav-dropdown-menu"><a href="#tour">6 Days / 5 Nights — Cairo &amp; Luxor Holiday</a><a href="#tour-d">7 Days / 6 Nights — Cairo, Luxor &amp; Aswan</a><a href="#tour-b">8 Days / 7 Nights — Cairo, Aswan &amp; Nile Cruise</a><a href="#tour-c">9 Days / 8 Nights — Egypt Highlights + Nile Cruise</a><a href="#tour-e">12 Days / 11 Nights — The Ultimate Egyptian Odyssey</a></div></div><a href="#">Reviews</a><a href="#">FAQs</a><a href="#" class="active">About</a><a href="#">Contact</a></nav></div>
 
 <div class="about-hero">
   <div style="padding-bottom:50px;">
@@ -2369,7 +2391,7 @@
 <div class="page-label">CONTACT PAGE — Fully fledged multi-channel hub <span>All channels shown</span></div>
 
 <div class="top-bar"><div><a href="tel:+17727820494">🇺🇸 +1 772 782 0494</a><a href="https://wa.me/20120140578">💬 WhatsApp</a><a href="mailto:info@accessegypttravel.com">✉️ info@accessegypttravel.com</a></div><a href="mailto:info@accessegypttravel.com" class="cta-btn">Request a Quote</a></div>
-<div class="site-header"><img src="icons/Logo_Green_3.png" alt="Access Egypt Travel" class="site-logo-img"><nav><a href="#">Home</a><div class="nav-dropdown"><a href="#">Tours ▾</a><div class="nav-dropdown-menu"><a href="#tour">6 Days / 5 Nights — Cairo &amp; Luxor Holiday</a><a href="#tour-d">7 Days / 6 Nights — Cairo, Luxor &amp; Aswan</a><a href="#tour-b">8 Days / 7 Nights — Cairo, Aswan &amp; Nile Cruise</a><a href="#tour-c">9 Days / 8 Nights — Cairo, Pyramids &amp; Nile Cruise</a><a href="#tour-e">12 Days / 11 Nights — The Ultimate Egyptian Odyssey</a></div></div><a href="#">Reviews</a><a href="#">FAQs</a><a href="#">About</a><a href="#" class="active">Contact</a></nav></div>
+<div class="site-header"><img src="icons/Logo_Green_3.png" alt="Access Egypt Travel" class="site-logo-img"><nav><a href="#">Home</a><div class="nav-dropdown"><a href="#">Tours ▾</a><div class="nav-dropdown-menu"><a href="#tour">6 Days / 5 Nights — Cairo &amp; Luxor Holiday</a><a href="#tour-d">7 Days / 6 Nights — Cairo, Luxor &amp; Aswan</a><a href="#tour-b">8 Days / 7 Nights — Cairo, Aswan &amp; Nile Cruise</a><a href="#tour-c">9 Days / 8 Nights — Egypt Highlights + Nile Cruise</a><a href="#tour-e">12 Days / 11 Nights — The Ultimate Egyptian Odyssey</a></div></div><a href="#">Reviews</a><a href="#">FAQs</a><a href="#">About</a><a href="#" class="active">Contact</a></nav></div>
 
 <div class="contact-hero">
   <div style="padding-bottom:50px;">
@@ -2433,7 +2455,19 @@
           <label class="toggle-opt"><input type="radio" name="date_type" value="flexible" onchange="toggleDateMode('flexible')"> 🤔 Not Sure Yet</label>
         </div>
         <div id="month-picker">
-          <input type="month" min="2026-07" max="2029-12" style="width:100%;border:1px solid #e8dfc8;border-radius:6px;padding:10px 14px;font-size:14px;color:#2c1a0e;background:#fdfaf6;">
+          <div class="month-year-row">
+            <select id="travel-month" aria-label="Travel month">
+              <option value="">Month</option>
+              <option>January</option><option>February</option><option>March</option>
+              <option>April</option><option>May</option><option>June</option>
+              <option>July</option><option>August</option><option>September</option>
+              <option>October</option><option>November</option><option>December</option>
+            </select>
+            <select id="travel-year" aria-label="Travel year">
+              <option value="">Year</option>
+              <option>2026</option><option>2027</option><option>2028</option>
+            </select>
+          </div>
         </div>
         <div id="date-range-picker" style="display:none;">
           <div class="date-range-inner">
@@ -2445,7 +2479,34 @@
           <p style="font-size:13px;color:#8b7355;font-style:italic;padding:10px 0;">No problem — just tell us your rough timeframe in the message below.</p>
         </div>
       </div>
-      <div class="form-row"><label>Number of Travelers</label><input type="text" placeholder="e.g. 2 adults, 1 child (age 8)"></div>
+      <div class="form-row">
+        <label>Travelers</label>
+        <div style="border:1px solid #e8dfc8;border-radius:8px;padding:4px 14px 8px;">
+          <div class="traveler-row">
+            <div class="traveler-label">
+              <span>👤 Adults</span>
+              <span class="traveler-sublabel">Age 12 &amp; over</span>
+            </div>
+            <div class="traveler-counter">
+              <button type="button" class="counter-btn" id="adults-minus" onclick="adjustTravelers('adults',-1)" disabled>−</button>
+              <span class="counter-num" id="adults-count">2</span>
+              <button type="button" class="counter-btn" onclick="adjustTravelers('adults',1)">+</button>
+            </div>
+          </div>
+          <div class="traveler-row">
+            <div class="traveler-label">
+              <span>👶 Children</span>
+              <span class="traveler-sublabel">Under 12 — select age below</span>
+            </div>
+            <div class="traveler-counter">
+              <button type="button" class="counter-btn" id="children-minus" onclick="adjustTravelers('children',-1)" disabled>−</button>
+              <span class="counter-num" id="children-count">0</span>
+              <button type="button" class="counter-btn" onclick="adjustTravelers('children',1)">+</button>
+            </div>
+          </div>
+        </div>
+        <div id="child-ages-container" style="display:none;"></div>
+      </div>
       <div class="form-row"><label>Your Message / Questions</label><textarea placeholder="Tell us what you're dreaming of — or ask us anything. No question is too basic."></textarea></div>
       <button class="form-submit">Send Message →</button>
     </div>
@@ -2500,7 +2561,7 @@
 <div class="page-label">FAQS PAGE — Question &amp; answer format with category grouping <span>Accordion style in Elementor</span></div>
 
 <div class="top-bar"><div><a href="tel:+17727820494">🇺🇸 +1 772 782 0494</a><a href="https://wa.me/20120140578">💬 WhatsApp</a><a href="mailto:info@accessegypttravel.com">✉️ info@accessegypttravel.com</a></div><a href="mailto:info@accessegypttravel.com" class="cta-btn">Request a Quote</a></div>
-<div class="site-header"><img src="icons/Logo_Green_3.png" alt="Access Egypt Travel" class="site-logo-img"><nav><a href="#">Home</a><div class="nav-dropdown"><a href="#">Tours ▾</a><div class="nav-dropdown-menu"><a href="#tour">6 Days / 5 Nights — Cairo &amp; Luxor Holiday</a><a href="#tour-d">7 Days / 6 Nights — Cairo, Luxor &amp; Aswan</a><a href="#tour-b">8 Days / 7 Nights — Cairo, Aswan &amp; Nile Cruise</a><a href="#tour-c">9 Days / 8 Nights — Cairo, Pyramids &amp; Nile Cruise</a><a href="#tour-e">12 Days / 11 Nights — The Ultimate Egyptian Odyssey</a></div></div><a href="#">Reviews</a><a href="#" class="active">FAQs</a><a href="#">About</a><a href="#">Contact</a></nav></div>
+<div class="site-header"><img src="icons/Logo_Green_3.png" alt="Access Egypt Travel" class="site-logo-img"><nav><a href="#">Home</a><div class="nav-dropdown"><a href="#">Tours ▾</a><div class="nav-dropdown-menu"><a href="#tour">6 Days / 5 Nights — Cairo &amp; Luxor Holiday</a><a href="#tour-d">7 Days / 6 Nights — Cairo, Luxor &amp; Aswan</a><a href="#tour-b">8 Days / 7 Nights — Cairo, Aswan &amp; Nile Cruise</a><a href="#tour-c">9 Days / 8 Nights — Egypt Highlights + Nile Cruise</a><a href="#tour-e">12 Days / 11 Nights — The Ultimate Egyptian Odyssey</a></div></div><a href="#">Reviews</a><a href="#" class="active">FAQs</a><a href="#">About</a><a href="#">Contact</a></nav></div>
 
 <div class="faq-hero">
   <div style="padding-bottom:50px;">
@@ -2622,7 +2683,7 @@
 <div class="page-label">PAYMENT PAGE — PayPal &amp; Square credentials arriving <strong>Monday June 9</strong>. Structure is ready — replace "Coming Soon" divs with live button codes when credentials arrive. <span>Email payment: live now</span></div>
 
 <div class="top-bar"><div><a href="tel:+17727820494">🇺🇸 +1 772 782 0494</a><a href="https://wa.me/20120140578">💬 WhatsApp</a><a href="mailto:info@accessegypttravel.com">✉️ info@accessegypttravel.com</a></div><a href="mailto:info@accessegypttravel.com" class="cta-btn">Request a Quote</a></div>
-<div class="site-header"><img src="icons/Logo_Green_3.png" alt="Access Egypt Travel" class="site-logo-img"><nav><a href="#">Home</a><div class="nav-dropdown"><a href="#">Tours ▾</a><div class="nav-dropdown-menu"><a href="#tour">6 Days / 5 Nights — Cairo &amp; Luxor Holiday</a><a href="#tour-d">7 Days / 6 Nights — Cairo, Luxor &amp; Aswan</a><a href="#tour-b">8 Days / 7 Nights — Cairo, Aswan &amp; Nile Cruise</a><a href="#tour-c">9 Days / 8 Nights — Cairo, Pyramids &amp; Nile Cruise</a><a href="#tour-e">12 Days / 11 Nights — The Ultimate Egyptian Odyssey</a></div></div><a href="#">Reviews</a><a href="#">FAQs</a><a href="#">About</a><a href="#" class="active">Contact</a></nav></div>
+<div class="site-header"><img src="icons/Logo_Green_3.png" alt="Access Egypt Travel" class="site-logo-img"><nav><a href="#">Home</a><div class="nav-dropdown"><a href="#">Tours ▾</a><div class="nav-dropdown-menu"><a href="#tour">6 Days / 5 Nights — Cairo &amp; Luxor Holiday</a><a href="#tour-d">7 Days / 6 Nights — Cairo, Luxor &amp; Aswan</a><a href="#tour-b">8 Days / 7 Nights — Cairo, Aswan &amp; Nile Cruise</a><a href="#tour-c">9 Days / 8 Nights — Egypt Highlights + Nile Cruise</a><a href="#tour-e">12 Days / 11 Nights — The Ultimate Egyptian Odyssey</a></div></div><a href="#">Reviews</a><a href="#">FAQs</a><a href="#">About</a><a href="#" class="active">Contact</a></nav></div>
 
 <div class="payment-hero">
   <div style="padding-bottom:50px;">
@@ -2754,8 +2815,8 @@
       <a href="#">6 Days — Cairo &amp; Luxor Holiday</a>
       <a href="#">7 Days — Cairo, Luxor &amp; Aswan</a>
       <a href="#">8 Days — Cairo, Aswan &amp; Nile Cruise</a>
-      <a href="#">9 Days — Cairo, Pyramids &amp; Nile Cruise</a>
-      <a href="#">11 Days — The Ultimate Egyptian Odyssey</a>
+      <a href="#">9 Days — Egypt Highlights + Nile Cruise</a>
+      <a href="#">12 Days — The Ultimate Egyptian Odyssey</a>
     </div>
 
     <div class="footer-col">
@@ -3008,6 +3069,48 @@ function toggleDateMode(mode) {
     });
   });
 })();
+</script>
+
+<!-- ============================================================
+     CONTACT FORM — date mode toggle + traveler counter
+     ============================================================ -->
+<script>
+// Date mode toggle
+function toggleDateMode(mode) {
+  document.getElementById('month-picker').style.display      = (mode === 'month')    ? 'block' : 'none';
+  document.getElementById('date-range-picker').style.display = (mode === 'specific') ? 'block' : 'none';
+  document.getElementById('flexible-picker').style.display   = (mode === 'flexible') ? 'block' : 'none';
+}
+
+// Traveler counter
+var travelerCounts = { adults: 2, children: 0 };
+
+function adjustTravelers(type, delta) {
+  var min = (type === 'adults') ? 1 : 0;
+  var max = (type === 'adults') ? 20 : 8;
+  travelerCounts[type] = Math.min(max, Math.max(min, travelerCounts[type] + delta));
+  document.getElementById(type + '-count').textContent = travelerCounts[type];
+
+  // Enable/disable minus buttons
+  var minusBtn = document.getElementById(type + '-minus');
+  if (minusBtn) minusBtn.disabled = (travelerCounts[type] <= min);
+
+  // Rebuild child age selectors if needed
+  if (type === 'children') renderChildAges(travelerCounts.children);
+}
+
+function renderChildAges(count) {
+  var container = document.getElementById('child-ages-container');
+  if (count === 0) { container.style.display = 'none'; container.innerHTML = ''; return; }
+  var ageOptions = '<option>Under 2</option>';
+  for (var a = 2; a <= 11; a++) ageOptions += '<option>' + a + ' yrs</option>';
+  var rows = '';
+  for (var i = 1; i <= count; i++) {
+    rows += '<div class="child-age-row"><span class="child-age-label">Child ' + i + '</span><select>' + ageOptions + '</select></div>';
+  }
+  container.innerHTML = '<div class="child-ages-wrap"><div class="child-ages-title">Child Ages (used for pricing)</div>' + rows + '</div>';
+  container.style.display = 'block';
+}
 </script>
 
 <!-- ============================================================
