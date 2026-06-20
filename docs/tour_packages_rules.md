@@ -150,17 +150,15 @@ The June 18 Notes confirmed: add `"Overnight in [City]"` at the end of each day 
 
 ### 10 — Beverages in NOT Included (Cruise Packages)
 
-Cruise packages include a 4th NOT-included line for beverages. Each package uses its own `.md` wording:
+Cruise packages include a 4th NOT-included line for beverages. All three use the same standardized wording (confirmed by owner 2026-06-20):
 
-| Package | Wording |
-|---|---|
-| 8-day | Drinks (water is provided during tours) |
-| 9-day | Drinks (bottled water provided only during tours) |
-| 12-day | Beverages (bottled water provided only during excursions) |
+> **Beverages (bottled water provided only during excursions)**
+
+Order in NOT included list: International airfare → Gratuities → Personal expenses → Beverages (always last).
 
 Non-cruise packages (6-day, 7-day) keep exactly 3 NOT-included lines — no beverages line.
 
-> **Status: ✅ DONE** — beverages added to 8-day, 9-day, and 12-day as of 2026-06-20.
+> **Status: ✅ DONE** — standardized wording applied to 8-day, 9-day, and 12-day as of 2026-06-20.
 
 ---
 
