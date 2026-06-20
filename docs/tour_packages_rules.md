@@ -1,122 +1,329 @@
-Domain: accessegypttravel.com
-Facebook page: https://www.facebook.com/accessegypttravel/
-Instagram page: https://www.instagram.com/accessegypttravel/
-Trip Advisor: https://www.tripadvisor.com/Attraction_Review-g294205-d25314995-Reviews-Access_Egypt_travel-Luxor_Nile_River_Valley.html
-US Phone number: +1 772 782 0494
-Egypt Phone Number: +20 12 014-0578 (WhatsApp Business Enabled)
-US Address: 741 Woodruff Rd, Suite 1125, Greenville, SC 29607
-CEO Founder: John Gadalla
-CFO: Hani Kamel
-CTO: Shereef E — do not mention full last name
-Cal.com for Zoom or Google Meets scheduling: https://cal.com/accessegypttravel/30min
-Pick tourists from: Cairo, Hurghada or any nearby major city in Egypt
-Website is hosted on Wordpress
-Website is designed via Elemntor (not the pro will try to get it) 3.7.7
-Ensure Google SEO rules and guidelines
-Always check for the skills included in the project (.claude/skills/) and follow them before acting. Do not skip or override project skills. If a relevant skill exists, use it. If no skill exists for the task, notify before proceeding.
+# Access Egypt Travel — Tour Package Rules
 
-Strict Rule:
-Do not abbreviate or change Tour Package text when I provide detailed documentation	
-Do not combine or assume. This is refined already. If you want to change something or see issue, highlight the text in red in the mockup and make a note for team to review. This rule in all parts of the tour package; Overview, daily itinerary, meals, …etc
+> **READ THIS BEFORE ANY TOUR PACKAGE TASK.**
+> These rules override any assumption, default behavior, or template. No exceptions.
 
-Meals — standardize presentation (ALL packages) — In Tour guide in a glance or any where we mention the meals 
-The Meals line is shown three different ways: 6-day “Breakfast & lunch daily (Days 1–5)” (no total); 7-day “(Days 2–6) — 10 meals total” (has a total); 8/9/11-day “Cairo & [city]: Breakfast & lunch daily” (no day range, no total). Decide ONE format — with or without a verified meal count — and apply to all five.
+---
 
-For any meals, if there is no calculations include it based on the nighs
-example: 6 days / 5 nights = 5 * 2 = 10
-Breakfast + Lunch (10 Meals in Total)
-each day 2 meals
+## Business Info
 
-Breakfast + Lunch (10 Meals in Total)
+| Field | Value |
+|---|---|
+| Domain | accessegypttravel.com |
+| Facebook | https://www.facebook.com/accessegypttravel/ |
+| Instagram | https://www.instagram.com/accessegypttravel/ |
+| TripAdvisor | https://www.tripadvisor.com/Attraction_Review-g294205-d25314995-Reviews-Access_Egypt_travel-Luxor_Nile_River_Valley.html |
+| US Phone | +1 772 782 0494 |
+| Egypt Phone | +20 12 014-0578 (WhatsApp Business) |
+| US Address | 741 Woodruff Rd, Suite 1125, Greenville, SC 29607 |
+| CEO / Founder | John Gadalla |
+| CFO | Hani Kamel |
+| CTO | Shereef E (do not use full last name) |
+| Booking calls | https://cal.com/accessegypttravel/30min |
+| Website | WordPress + Elementor 3.7.7 |
 
-Any Nile Cruise always includes open buffet (food only).
-Nile Cruise is NOT all-inclusive.
-No drinks are included — not even water. This is an internal constraint only. Do not add drink/meal language to package copy unless it already appears in the provided documentation.
+---
 
+## ⚠️ Core Rule — No Exceptions
 
-Rules tomb names:
-In the highlights: The Valley of the Kings (4 tombs) = Valley of the Kings (3 tombs plus the extraordinary tomb of Rameses 5th&6th)
-Make name Roman Numeral , so Ramses V & VI
+**Do not abbreviate, combine, or change tour package text when documentation has been provided.**
+The copy is already refined. If something looks off, flag it in red in the mockup with a team note — do not silently fix it or rewrite it.
+This applies to: Overview, Daily Itinerary, Meals, Inclusions, and all other sections.
 
-Per owner, specific tomb names are kept. Only the tomb of Rameses 5th&6th is guaranteed open. Other tombs (including Tutankhamun, Nefertari, Seti I) may be swapped on the spot if closed — this is handled in the field. Do not reference closures, substitutions, or ticket types in any published copy. Use the package text as-is.
+---
 
+## 🏆 Package Positioning
 
-under Optional Add-Ons"
-DISPLAY STYLE (updated 2026-06-17): No icons — use plain bullets only (apply to ALL packages), same as Highlights.
-Maintain Order 
-1)Dinner cruise on the Nile in Cairo It should be the first option in Cairo. 
-2)Sound and light show at the pyramids
-3)Hot air balloon over Luxor at sunrise
-4) Sound & Light Show at Karnak Temples
+### ⭐ Most Popular — 9 Days / 8 Nights (Cairo · Luxor · Aswan · Nile Cruise)
+- Display a **"Most Popular"** badge on the 9-day tour card, page header, and any comparison grid.
+- Visually distinguish the 9-day row in any side-by-side package table.
 
+### 💰 Best Value — 11 Days / 10 Nights (Full Egypt Experience)
+- Display a **"Best Value"** badge on the 11-day tour card, page header, and any comparison grid.
 
+**Badge style in pages-mockup.html:**
+Use a gold-background pill label (e.g., `background: #c49a3c; color: #fff; border-radius: 20px; padding: 3px 12px; font-size: 12px; font-weight: 600`).
+Do **not** apply either label to any other package.
 
-Highlights
-Keep order of sites — the order is the sequence travelers visit the sites, so it must be shown visually as an ordered sequence.
-DISPLAY STYLE (updated 2026-06-17): Show highlights as a NUMBERED VERTICAL TIMELINE, not a bullet grid and not icons.
-  - Each site gets a sequential number (1, 2, 3 …) in a filled terracotta (#b5451b) circle.
-  - A thin vertical connector line runs behind the circles to show "one after another."
-  - Single column, in the exact visiting order listed below.
-  - No emoji / no icons. (This supersedes the earlier "use bullets" instruction.)
-  - Built as the `.hl-timeline` component (see pages-mockup.html) and pasted into Elementor Free via a Custom HTML block — see the developer documentation for the reusable snippet.
-Anytime we mention The something “example The Sphinx” and we highlight it pop up to show additional information, we need to ignore the . So we highlight the entire name including “The"
+---
 
-1)Giza Pyramids & The Sphinx “do not forget The"
-2)Grand Egyptian Museum (GEM)
-3)Saladin Citadel
-Mohammed Ali Mosque
-4)Ancient Churches of Coptic Cairo
-5) National Museum of Egyptian Civilization (NMEC)
-6)Karnak Temple Complex
-7)Luxor Temple & Sphinx Avenue
-  * Lit up at night (add as a sub-note on its own line beneath, not inline)
-8) The Valley of the Kings (4 tombs).
-9)Hatshepsut Temple
-10)Deir el-Medina (Artisans' Village)
-11) Colossi of Memnon
-12) Felucca Ride on the Nile
+## 📋 Standardize for ALL Packages
+*(Apply to 6-day, 7-day, 8-day, 9-day, and 11-day — no exceptions)*
 
-Daily itinerary:
-in the daily itinerary, each day is refined, do not abbreviate or change. if you see something off, you notify me. other than that, you use text as is.
+---
 
-Official names
-Cairo International Airport (CAI) not Cairo International Airport
-same for all airports
-Luxor Airport (LXR)
-Hurghada International Airport (HRG)
-West Bank Tour not West Bank — Do not want people to mix it with Palestine and Israel and bad political 
-East Bank Tour not East Bank — Do not want people to mix it with Palestine and Israel and bad political 
+### 1 — Stats Bar: Accommodation Label
 
-Pricing Discounts:
-Category	Price Per Person
-Standard (double occupancy)	From $1,950
-Single supplement	+50% of base price
-Group of 4–7 travelers	10% discount
-Group of 8+ travelers	15% discount
+The stats bar (above the overview) must include an accommodation line:
 
-NEVER mention "bonus inclusions" or list any bonus items alongside pricing/discounts. We do not offer bonus inclusions. Remove any instance of this language from all copy. *** critical
+| Package Type | Label |
+|---|---|
+| Non-cruise (6-day, 7-day) | 🏨 Accommodation: 5-Star Hotels |
+| Cruise packages (8-day, 9-day, 11-day) | 🏨 Accommodation: 5-Star Hotels & Cruise Ship |
 
+---
 
-Must clarify and say exactly: All prices are quoted in USD.
-Remove "Contact us for current rates."
+### 2 — Day 1: Name Sign in Representative Greeting
 
-Payment & Cancellation Policy
-💳 25% deposit secures your booking. Remaining full balance is due 65 days before arrival.
+Every Day 1 that references the airport meeting must include **"name sign"**:
 
-When You Cancel
-25% non-refundable deposit.
-60—31 days prior to arrival: 50% penalty
-30-16 prior to arrival: 75% penalty
-15 days and less prior to arrival: 100% penalty.
+✅ `"Your dedicated representative will meet you at Cairo International Airport (CAI) with a name sign."`
+❌ Any version that omits "name sign"
 
+Apply only when the source `.md` file already includes this language. If the `.md` doesn't mention it, do not add it — flag for owner review.
 
-What is NOT included in the tour *** only these 3 lines
-International airfare
-Gratuities for guides and drivers
-Personal expenses — phone calls, laundry, souvenirs, etc.
+---
 
-Transportation — apply to ALL packages (Tour at a Glance table)
-Add a Transport row to every tour's "Tour at a Glance" table with the following three lines:
-  Domestic flights: Included
-  Airport/Hotel Transport: Included
-  Tour Transport: Included
+### 3 — Tour at a Glance: Guide Wording
+
+The Guide row must always read exactly:
+
+> **English — other languages on request**
+
+No variations: not "English speaking guide," not "licensed guide," not just "English."
+
+---
+
+### 4 — Tour at a Glance: Transportation Label & Format
+
+Label: **Transportation** (not "Transport")
+
+The row always has exactly three lines:
+```
+Domestic flights:          Included
+Airport/Hotel Transport:   Included
+Tour Transport:            Included
+```
+
+---
+
+### 5 — Tour at a Glance: Entry Visa Label
+
+Label: **Entry Visa** (not "Visa")
+Value: Included
+
+---
+
+### 6 — Cancellation Table: No Footnotes
+
+**Never add this line** (or anything like it) below the cancellation table:
+> ❌ *"Note: domestic transport cancellation fees may apply in addition to the above."*
+
+This line is unauthorized. The cancellation table ends at the 15-day penalty row. Nothing follows it.
+
+---
+
+### 7 — Blue Site Marking in Day Body Text
+
+Site and city names in the day-by-day paragraphs must use the same interactive popup spans as the Overview and Highlights sections:
+
+- **Site names** (temples, museums, monuments):
+  `<span class="site-link" data-site="Karnak Temple Complex">Karnak Temple Complex</span>`
+- **City names** (Cairo, Luxor, Aswan, etc.):
+  `<span class="city-link" data-city="Luxor">Luxor</span>`
+- When "The" is part of the official name, include it inside the span:
+  `<span class="site-link" data-site="The Valley of the Kings">The Valley of the Kings</span>`
+
+> **Status: PENDING IMPLEMENTATION** — not yet applied to day body text on any package.
+
+---
+
+### 8 — Highlights: Circle Color
+
+The `.hl-num` circles were terracotta (`#b5451b`). **Change to gold:**
+
+> `.hl-num { background: #c49a3c; }`
+
+One CSS rule change in the `<style>` block of `pages-mockup.html` covers all packages.
+
+> **Status: PENDING IMPLEMENTATION** in pages-mockup.html
+
+---
+
+### 9 — "Overnight in [City]" ⚠️ PENDING OWNER DECISION
+
+The June 18 Notes say to add `"Overnight in [City]"` at the end of each day for clarity.
+However, the standard rule is to use day text as-is from the `.md` file.
+
+**Three options — owner must choose:**
+
+| Option | Action |
+|---|---|
+| A | Add "Overnight in [City]" to ALL days across ALL packages (even if not in .md) |
+| B | Only include it when the `.md` explicitly writes it |
+| C | Remove it from all packages (current state of 7-day section) |
+
+**Do not apply until owner confirms.**
+
+---
+
+### 10 — Beverages in NOT Included (Cruise Packages) ⚠️ PENDING OWNER DECISION
+
+The 9-day `.md` lists a 4th line under "NOT included":
+> *"Drinks (bottled water provided only during tours)"*
+
+Standard rule says exactly 3 lines. Cruise packages have a real reason to flag beverages (cruise is not all-inclusive for drinks).
+
+| Option | Action |
+|---|---|
+| A | Keep 3 lines for all packages — drop the beverages line from cruise packages |
+| B | Allow 4 lines for cruise packages only (8-day, 9-day, 11-day) |
+
+**Do not change until owner confirms.**
+
+---
+
+## 🍽️ Meals Standardization
+
+**Standard format for all packages:**
+```
+Breakfast + Lunch ([X] Meals in Total)
+```
+
+**Formula:** number of meal days × 2 = total  
+Example: 6-day / 5 nights = 5 × 2 = **Breakfast + Lunch (10 Meals in Total)**
+
+**Nile Cruise meals:** always open buffet (food only)
+```
+All Meals — Open Buffet
+```
+
+> Nile Cruise is **NOT** all-inclusive. No drinks included — not even water.
+> This is an internal constraint. Do not mention it in package copy unless it already appears in the provided `.md`.
+
+---
+
+## 🏺 Tomb Names
+
+**The Valley of the Kings (4 tombs)** = 3 tombs plus the extraordinary tomb of **Ramesses V & VI**
+- Always use Roman numerals: **Ramesses V & VI** (not "5th & 6th")
+- Only the tomb of Ramesses V & VI is guaranteed open
+- Other tombs may be swapped in the field if closed — handle operationally, never mention in copy
+- Do not reference closures, substitutions, or ticket types in any published text
+
+---
+
+## 🎭 Optional Add-Ons
+
+**Display style:** plain bullets, no icons (applies to all packages)
+
+**Required order:**
+1. Dinner cruise on the Nile in Cairo *(always first)*
+2. Sound and light show at the pyramids
+3. Hot air balloon over Luxor at sunrise
+4. Sound & Light Show at Karnak Temples
+
+**Cruise packages add (8-day, 9-day, 11-day):**
+5. Sound & Light Show at Philae Temple
+6. Abu Simbel Temples
+
+**7-day correction (per June 18 Notes):**
+- ❌ Remove: "Pickup from Hurghada"
+- ✅ Add: "Sound & Light show at the Pyramids"
+
+**8-day Day 5 correction (per June 18 Notes):**
+- Add to Day 5 body text: *"(add-on: Abu Simbel if time allows)"*
+- This is important — travelers may not book if they don't know the option exists
+
+---
+
+## ✨ Highlights
+
+**Keep order of sites** — the sequence reflects the visiting order. It must be displayed as an ordered sequence.
+
+**Display style (updated 2026-06-17):** Numbered vertical timeline (`.hl-timeline` component)
+- Sequential number in a filled **gold (#c49a3c)** circle
+- Thin vertical connector line behind the circles
+- Single column, exact visiting order
+- No emoji, no icons
+- Built as `.hl-timeline` — paste into Elementor via Custom HTML block
+
+**"The" rule:** include "The" inside the span when it's part of the official name
+✅ `<span class="site-link" data-site="The Sphinx">The Sphinx</span>`
+❌ `The <span class="site-link">Sphinx</span>`
+
+**Standard site list (varies by package length):**
+
+| # | Site |
+|---|---|
+| 1 | Giza Pyramids & The Sphinx *(include "The")* |
+| 2 | Grand Egyptian Museum (GEM) |
+| 3 | Saladin Citadel / Mohammed Ali Mosque |
+| 4 | Ancient Churches of Coptic Cairo |
+| 5 | National Museum of Egyptian Civilization (NMEC) — *where the royal mummies are* |
+| 6 | Karnak Temple Complex |
+| 7 | Luxor Temple & Sphinx Avenue *(sub-note: "Lit up at night" — own line, not inline)* |
+| 8 | The Valley of the Kings (4 tombs) |
+| 9 | Hatshepsut Temple |
+| 10 | Deir el-Medina (Artisans' Village) |
+| 11 | Colossi of Memnon |
+| 12 | Felucca Ride on the Nile |
+
+*Cruise packages also include: Edfu Temple, Kom Ombo Temple, Philae Temple, The High Dam, The Unfinished Obelisk, The Nubian Village*
+
+---
+
+## 📅 Daily Itinerary
+
+- Use text exactly as provided in the `.md` file — do not abbreviate or rewrite
+- If something looks wrong, flag it — do not silently fix it
+- Do not add "Overnight in [city]" until owner decision is confirmed (see Section 9)
+
+---
+
+## 🗺️ Official Names
+
+Always use these exact names:
+
+| Name | Notes |
+|---|---|
+| Cairo International Airport (CAI) | Not just "Cairo Airport" |
+| Luxor Airport (LXR) | |
+| Hurghada International Airport (HRG) | |
+| West Bank Tour | NOT "West Bank" — avoids political confusion |
+| East Bank Tour | NOT "East Bank" — same reason |
+| Marriott Mena House | NOT "Mena House" or "Marriott Mina House" |
+
+---
+
+## 💵 Pricing
+
+| Category | Price Per Person |
+|---|---|
+| Standard (double occupancy) | From [package price] |
+| Single supplement | +50% of base price |
+| Group of 4–7 travelers | 10% discount — Exclusive Offer |
+| Group of 8+ travelers | 15% discount |
+
+- Always state: **"All prices are quoted in USD."**
+- Remove: *"Contact us for current rates."*
+- **NEVER** mention "bonus inclusions" — we do not offer them. Remove any instance from all copy. *(Critical)*
+
+---
+
+## 💳 Payment & Cancellation Policy
+
+> 💳 25% deposit secures your booking. Remaining full balance is due 65 days before arrival.
+
+**When You Cancel:**
+
+| Timing | Penalty |
+|---|---|
+| Any time | 25% non-refundable deposit |
+| 60–31 days prior to arrival | 50% penalty |
+| 30–16 days prior to arrival | 75% penalty |
+| 15 days or fewer prior to arrival | 100% penalty |
+
+**Nothing is added below this table.** No footnotes. No extra lines. (See Section 6.)
+
+---
+
+## 🚫 What Is NOT Included
+
+Exactly 3 lines for all non-cruise packages:
+
+1. International airfare
+2. Gratuities for guides and drivers
+3. Personal expenses — phone calls, laundry, souvenirs, etc.
+
+*Cruise packages (8-day, 9-day, 11-day): see Section 10 above — PENDING OWNER DECISION.*
