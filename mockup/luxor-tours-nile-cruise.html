@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luxor Day Tours & Nile Cruises — Access Egypt Travel</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: #2c1a0e; background: #fff; line-height: 1.6; }
+
+  /* ── MOCKUP BANNER ── */
+  .mockup-banner { background: #7c3aed; color: white; text-align: center; padding: 10px 20px; font-size: 13px; font-weight: 600; position: sticky; top: 0; z-index: 1000; display: flex; justify-content: center; align-items: center; gap: 20px; flex-wrap: wrap; }
+  .mockup-banner a { color: #ddd6fe; text-decoration: none; padding: 4px 12px; border: 1px solid rgba(255,255,255,0.3); border-radius: 4px; font-size: 12px; }
+  .mockup-banner a:hover { background: rgba(255,255,255,0.15); }
+
+  /* ── TOP BAR ── */
+  .top-bar { background: #1a0f00; color: #d4af6a; padding: 8px 40px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; }
+  .top-bar a { color: #d4af6a; text-decoration: none; margin-right: 20px; }
+  .top-bar a:hover { color: #fff; }
+  .top-bar .cta-btn { background: #b5451b; color: white; padding: 7px 20px; border-radius: 4px; font-size: 13px; font-weight: 700; text-decoration: none; }
+
+  /* ── HEADER ── */
+  .site-header { background: white; border-bottom: 1px solid #f0ece4; padding: 0 40px; display: flex; align-items: center; justify-content: space-between; height: 74px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  .site-logo-img { height: 56px; width: auto; display: block; }
+  .logo-placeholder { font-size: 18px; font-weight: 900; color: #2c1a0e; letter-spacing: 1px; display: flex; align-items: center; gap: 10px; }
+  .logo-placeholder .logo-icon { font-size: 28px; }
+  nav { display: flex; gap: 4px; align-items: center; }
+  nav a { padding: 10px 14px; color: #3a2a1a; font-size: 13.5px; font-weight: 600; text-decoration: none; border-radius: 4px; }
+  nav a:hover, nav a.active { color: #b5451b; background: #fdf5ef; }
+  .nav-dropdown { position: relative; display: inline-block; }
+  .nav-dropdown > a { display: flex; align-items: center; gap: 4px; }
+  .nav-dropdown-menu { display: none; position: absolute; top: calc(100% + 4px); left: 50%; transform: translateX(-50%); background: white; border: 1px solid #f0e8d8; border-radius: 8px; min-width: 300px; box-shadow: 0 8px 24px rgba(0,0,0,0.12); z-index: 500; overflow: hidden; }
+  .nav-dropdown-menu a { display: block; padding: 10px 16px; font-size: 13px; font-weight: 600; color: #3a2a1a; text-decoration: none; border-bottom: 1px solid #f5f0ea; }
+  .nav-dropdown-menu a:last-child { border-bottom: none; }
+  .nav-dropdown-menu a:hover { background: #fdf5ef; color: #b5451b; }
+  .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+  .nav-section-label { padding: 8px 16px 4px; font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: #b5451b; background: #fdf8f2; border-bottom: 1px solid #f5f0ea; display: block; }
+
+  /* ── PAGE HERO ── */
+  .page-hero { background: linear-gradient(to bottom, rgba(10,6,2,0.30) 0%, rgba(10,6,2,0.85) 100%), linear-gradient(135deg, #2c1a0e 0%, #4a2c0e 40%, #1a3020 100%); min-height: 340px; padding: 60px 60px 52px; color: white; display: flex; flex-direction: column; justify-content: flex-end; position: relative; }
+  .page-hero-inner { max-width: 760px; }
+  .hero-eyebrow { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: #d4af6a; margin-bottom: 12px; }
+  .hero-title { font-size: 46px; font-weight: 900; line-height: 1.15; margin-bottom: 16px; }
+  .hero-title span { color: #d4af6a; }
+  .hero-subtitle { font-size: 17px; color: rgba(255,255,255,0.80); max-width: 620px; line-height: 1.65; margin-bottom: 24px; }
+  .hero-pills { display: flex; gap: 10px; flex-wrap: wrap; }
+  .hero-pill { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25); border-radius: 999px; padding: 6px 16px; font-size: 13px; color: rgba(255,255,255,0.88); font-weight: 600; }
+
+  /* ── BREADCRUMB ── */
+  .breadcrumb { background: #fdf8f2; border-bottom: 1px solid #f0e8d8; padding: 10px 60px; font-size: 12.5px; color: #8b7355; }
+  .breadcrumb a { color: #b5451b; text-decoration: none; }
+  .breadcrumb a:hover { text-decoration: underline; }
+
+  /* ── PAGE BODY ── */
+  .page-body { max-width: 1140px; margin: 0 auto; padding: 0 40px; }
+
+  /* ── SECTION HEADER ── */
+  .section-header { display: flex; align-items: flex-end; justify-content: space-between; padding: 48px 0 24px; border-bottom: 1px solid #f0e8d8; margin-bottom: 32px; }
+  .section-header-left { }
+  .section-label { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; color: #b5451b; margin-bottom: 8px; }
+  .section-title { font-size: 30px; font-weight: 900; color: #2c1a0e; line-height: 1.2; }
+  .section-desc { font-size: 14.5px; color: #6b5030; margin-top: 8px; max-width: 560px; line-height: 1.6; }
+  .section-header-right { text-align: right; }
+  .see-all-link { font-size: 13.5px; font-weight: 700; color: #b5451b; text-decoration: none; white-space: nowrap; }
+  .see-all-link:hover { text-decoration: underline; }
+
+  /* ── NILE CRUISE SECTION ── */
+  .cruise-featured-strip { background: linear-gradient(135deg, #0d1f16 0%, #1a3a26 100%); color: white; padding: 10px 40px; display: flex; align-items: center; gap: 12px; font-size: 13px; margin-bottom: 0; }
+  .cruise-featured-strip .strip-icon { font-size: 20px; }
+  .cruise-featured-strip strong { color: #d4af6a; }
+  .cruise-section-bg { background: #f7faf8; padding-bottom: 8px; margin-bottom: 8px; }
+
+  .cruise-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; padding: 0 40px 48px; }
+
+  .cruise-card { background: white; border-radius: 14px; border: 1px solid #e6ddd3; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.06); transition: transform 0.18s, box-shadow 0.18s; display: flex; flex-direction: column; position: relative; }
+  .cruise-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.12); }
+  .cruise-card.featured-card { border-color: #c49a3c; box-shadow: 0 2px 10px rgba(196,154,60,0.18); }
+
+  .cruise-card-img { height: 190px; background: linear-gradient(135deg, #1a4a2e 0%, #2d7a52 50%, #0d2a1c 100%); position: relative; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.3); font-size: 14px; font-style: italic; overflow: hidden; }
+  .cruise-card-img .img-label { position: absolute; bottom: 12px; left: 12px; background: rgba(0,0,0,0.55); color: white; font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 4px; }
+  .cruise-badge { position: absolute; top: 14px; left: 14px; background: #c49a3c; color: white; font-size: 10.5px; font-weight: 700; padding: 3px 10px; border-radius: 3px; letter-spacing: 0.5px; text-transform: uppercase; }
+  .cruise-badge.popular { background: #b5451b; }
+
+  .cruise-card-body { padding: 20px 22px 16px; flex: 1; display: flex; flex-direction: column; }
+  .cruise-duration { display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 700; color: #4a7c59; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+  .cruise-duration::before { content: '⏱'; font-size: 13px; }
+  .cruise-name { font-size: 18px; font-weight: 800; color: #2c1a0e; line-height: 1.3; margin-bottom: 10px; }
+  .cruise-desc { font-size: 13.5px; color: #6b5030; line-height: 1.6; margin-bottom: 16px; flex: 1; }
+
+  .cruise-highlights { display: flex; flex-direction: column; gap: 5px; margin-bottom: 18px; }
+  .cruise-highlight-item { display: flex; align-items: flex-start; gap: 7px; font-size: 12.5px; color: #3a2a1a; }
+  .cruise-highlight-item::before { content: '✓'; color: #4a7c59; font-weight: 800; margin-top: 1px; flex-shrink: 0; }
+
+  .cruise-card-footer { padding: 16px 22px; border-top: 1px solid #f0e8d8; display: flex; align-items: center; justify-content: space-between; }
+  .cruise-price { }
+  .cruise-from { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #8b7355; }
+  .cruise-amount { font-size: 26px; font-weight: 900; color: #2c1a0e; line-height: 1; }
+  .cruise-per { font-size: 11px; color: #8b7355; }
+  .cruise-cta { background: #b5451b; color: white; padding: 10px 20px; border-radius: 6px; font-size: 13px; font-weight: 700; text-decoration: none; white-space: nowrap; transition: background 0.15s; }
+  .cruise-cta:hover { background: #9a3a16; }
+  .cruise-cta.cta-outline { background: white; color: #b5451b; border: 2px solid #b5451b; }
+  .cruise-cta.cta-outline:hover { background: #fdf5ef; }
+
+  .cruise-pricing-note { margin: 0 40px 32px; background: #fffbeb; border: 1px solid #fde68a; border-radius: 8px; padding: 14px 20px; font-size: 13px; color: #92400e; display: flex; gap: 10px; align-items: flex-start; }
+  .cruise-pricing-note .pn-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+
+  /* ── LUXOR DAY TOURS ── */
+  .tours-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 48px; }
+
+  .tour-card { background: white; border-radius: 12px; border: 1px solid #e6ddd3; overflow: hidden; transition: transform 0.18s, box-shadow 0.18s; display: flex; flex-direction: column; }
+  .tour-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.10); }
+
+  .tour-card-img { height: 150px; background: linear-gradient(135deg, #4a2c0e 0%, #8b5e10 50%, #3a1a00 100%); position: relative; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.3); font-size: 12px; font-style: italic; overflow: hidden; }
+  .tour-duration-pill { position: absolute; top: 10px; right: 10px; background: rgba(0,0,0,0.6); color: white; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 12px; }
+  .tour-card-img .img-placeholder { font-size: 32px; opacity: 0.4; }
+
+  .tour-card-body { padding: 16px 18px 14px; flex: 1; display: flex; flex-direction: column; }
+  .tour-name { font-size: 15px; font-weight: 800; color: #2c1a0e; line-height: 1.35; margin-bottom: 8px; flex: 1; }
+  .tour-meta { display: flex; align-items: center; justify-content: space-between; }
+  .tour-price-label { font-size: 10px; color: #8b7355; text-transform: uppercase; font-weight: 700; }
+  .tour-price-val { font-size: 22px; font-weight: 900; color: #b5451b; line-height: 1; }
+  .tour-price-note { font-size: 10.5px; color: #8b7355; }
+  .tour-explore-btn { background: #2c1a0e; color: white; padding: 7px 14px; border-radius: 5px; font-size: 12px; font-weight: 700; text-decoration: none; white-space: nowrap; transition: background 0.15s; }
+  .tour-explore-btn:hover { background: #4a7c59; }
+
+  .tour-card-divider { margin: 10px 0; border: none; border-top: 1px solid #f0e8d8; }
+
+  .tour-type-tag { display: inline-block; font-size: 10.5px; font-weight: 700; color: #4a7c59; background: #f0f8f4; border-radius: 3px; padding: 2px 8px; margin-bottom: 8px; }
+
+  /* ── PRIVATE TOUR BANNER ── */
+  .private-tour-banner { background: linear-gradient(135deg, #2c1a0e 0%, #4a2c10 100%); color: white; border-radius: 12px; padding: 28px 36px; display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-bottom: 40px; }
+  .ptb-left { }
+  .ptb-title { font-size: 22px; font-weight: 900; margin-bottom: 6px; }
+  .ptb-title span { color: #d4af6a; }
+  .ptb-desc { font-size: 14px; color: rgba(255,255,255,0.75); line-height: 1.6; max-width: 520px; }
+  .ptb-btn { background: #b5451b; color: white; padding: 12px 26px; border-radius: 6px; font-weight: 800; font-size: 14px; text-decoration: none; white-space: nowrap; }
+  .ptb-btn:hover { background: #9a3a16; }
+
+  /* ── TAILOR MADE FOOTER ── */
+  .tailor-section { background: #fdf8f2; border-radius: 12px; padding: 36px 40px; display: flex; align-items: flex-start; gap: 32px; margin-bottom: 60px; border: 1px solid #f0e8d8; }
+  .tailor-icon { font-size: 48px; flex-shrink: 0; }
+  .tailor-title { font-size: 22px; font-weight: 900; color: #2c1a0e; margin-bottom: 8px; }
+  .tailor-desc { font-size: 14.5px; color: #5a4030; line-height: 1.7; margin-bottom: 16px; }
+  .tailor-btn { display: inline-block; background: #b5451b; color: white; padding: 11px 24px; border-radius: 6px; font-weight: 700; font-size: 14px; text-decoration: none; }
+  .tailor-btn:hover { background: #9a3a16; }
+
+  /* ── FOOTER ── */
+  .site-footer { background: #ffffff; color: #555; border-top: 1px solid #e5e7eb; }
+  .footer-main { display: grid; grid-template-columns: repeat(4, 1fr); gap: 36px; padding: 46px 60px; max-width: 1300px; margin: 0 auto; }
+  .footer-col h4 { color: #2c1a0e; font-size: 13px; font-weight: 700; margin-bottom: 14px; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 2px solid #b5451b; padding-bottom: 8px; display: inline-block; }
+  .footer-col a { display: block; color: #555; font-size: 13px; text-decoration: none; margin-bottom: 7px; }
+  .footer-col a:hover { color: #b5451b; }
+  .footer-bottom { background: #f5f0e8; padding: 14px 60px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+  .footer-bottom p, .footer-bottom a { font-size: 12px; color: #8b7355; text-decoration: none; }
+
+  /* ── NAV REDESIGN ANNOTATION ── */
+  .annotation { background: #fef3c7; border: 2px dashed #f59e0b; border-radius: 8px; padding: 14px 18px; font-size: 13px; color: #92400e; margin: 0 40px 8px; }
+  .annotation strong { display: block; margin-bottom: 4px; }
+
+</style>
+</head>
+<body>
+
+<!-- Mockup banner -->
+<div class="mockup-banner">
+  🎨 DESIGN MOCKUP — Luxor Tours + Nile Cruise Redesign &nbsp;|&nbsp;
+  <a href="pages-mockup.html">Multi-Day Tours</a>
+  <a href="destinations.html">Destinations</a>
+  <a href="website-mockup.html">Homepage</a>
+  <a href="luxor-tours-nile-cruise.html" style="background:rgba(255,255,255,0.2);">▶ This Page</a>
+</div>
+
+<!-- Top bar -->
+<div class="top-bar">
+  <div>
+    <a href="tel:+17727820494">📞 US: +1 772 782 0494</a>
+    <a href="https://wa.me/20120140578">💬 WhatsApp: +20 12 014-0578</a>
+    <a href="mailto:info@accessegypttravel.com">✉️ info@accessegypttravel.com</a>
+  </div>
+  <a class="cta-btn" href="#">Book a Free Call</a>
+</div>
+
+<!-- Header -->
+<header class="site-header">
+  <div class="logo-placeholder">
+    <span class="logo-icon">𓂀</span>
+    <div>
+      <div style="font-size:15px;font-weight:900;color:#2c1a0e;letter-spacing:1px;text-transform:uppercase;">Access Egypt Travel</div>
+      <div style="font-size:10px;color:#8b7355;letter-spacing:1.5px;text-transform:uppercase;">Private · Egyptologist-Guided</div>
+    </div>
+  </div>
+  <nav>
+    <a href="website-mockup.html">Home</a>
+    <a href="#">Tailor Made</a>
+    <div class="nav-dropdown">
+      <a href="#">Multi-Day Tours ▾</a>
+      <div class="nav-dropdown-menu">
+        <span class="nav-section-label">Egypt Packages</span>
+        <a href="pages-mockup.html#tour">6 Days — Cairo &amp; Luxor Holiday</a>
+        <a href="pages-mockup.html#tour-d">7 Days — Cairo, Luxor &amp; Aswan</a>
+        <a href="pages-mockup.html#tour-b">8 Days — Cairo, Aswan &amp; Nile Cruise</a>
+        <a href="pages-mockup.html#tour-c">9 Days — Egypt Highlights + Nile Cruise ⭐</a>
+        <a href="pages-mockup.html#tour-e">12 Days — The Ultimate Egyptian Odyssey</a>
+      </div>
+    </div>
+    <!-- ✅ NEW NAV ITEM: Day Tours & Cruises -->
+    <div class="nav-dropdown">
+      <a href="luxor-tours-nile-cruise.html" class="active">Day Tours &amp; Cruises ▾</a>
+      <div class="nav-dropdown-menu">
+        <span class="nav-section-label">Nile Cruises</span>
+        <a href="#nile-cruise">4 Days/3 Nights — Luxor to Aswan Cruise</a>
+        <a href="#nile-cruise">5 Days/4 Nights — Nile River Cruise</a>
+        <a href="#nile-cruise">8 Days/7 Nights — Grand Nile Cruise</a>
+        <span class="nav-section-label">Luxor Day Tours</span>
+        <a href="#luxor-tours">Full Day — Luxor's Best Attractions</a>
+        <a href="#luxor-tours">East Bank Tour (Karnak &amp; Luxor Temple)</a>
+        <a href="#luxor-tours">West Bank Tour (Valley of the Kings)</a>
+        <a href="#luxor-tours">Hot Air Balloon over Luxor</a>
+        <a href="#luxor-tours">+ 5 more tours</a>
+      </div>
+    </div>
+    <a href="#">Destinations</a>
+    <a href="#">Reviews</a>
+    <a href="#">About Us</a>
+    <a href="#">Contact</a>
+  </nav>
+</header>
+
+<!-- Navigation change annotation -->
+<div class="annotation" style="margin-top:16px;">
+  <strong>🔧 Nav Change Proposal</strong>
+  Current nav: "Tours" → only multi-day packages. Neither the Luxor day tours nor the Nile Cruise page is linked in the nav — they're essentially invisible.<br>
+  <strong>Proposed:</strong> Rename current "Tours" to "Multi-Day Tours" + add new nav item "Day Tours &amp; Cruises" pointing here. The dropdown groups Nile Cruises on top (featured), then Luxor Day Tours below.
+</div>
+
+<!-- Breadcrumb -->
+<div class="breadcrumb">
+  <a href="#">Home</a> › Day Tours &amp; Cruises
+</div>
+
+<!-- Hero -->
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="hero-eyebrow">Luxor · The Nile · Aswan</div>
+    <h1 class="hero-title">Day Tours &amp; <span>Nile Cruises</span></h1>
+    <p class="hero-subtitle">Every experience is private and Egyptologist-guided. Whether you want to fill a free day in Luxor or spend a week drifting down the Nile, this is where you book it.</p>
+    <div class="hero-pills">
+      <div class="hero-pill">🔒 Private tours only — no strangers</div>
+      <div class="hero-pill">🎓 Licensed Egyptologist guides</div>
+      <div class="hero-pill">💵 All prices in USD</div>
+      <div class="hero-pill">📞 US support line available</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     NILE CRUISE SECTION
+══════════════════════════════════════════ -->
+
+<div id="nile-cruise" class="cruise-section-bg">
+
+  <div class="page-body">
+    <div class="section-header">
+      <div class="section-header-left">
+        <div class="section-label">⭐ Our Most Requested Experience</div>
+        <h2 class="section-title">Nile Cruises</h2>
+        <p class="section-desc">Drift between Luxor and Aswan on a private 5-star ship, stopping at temples that most travelers never reach. Three cruise lengths — pick the one that fits your trip.</p>
+      </div>
+      <div class="section-header-right">
+        <a class="see-all-link" href="#">Compare all cruises →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="cruise-featured-strip">
+    <span class="strip-icon">🛳</span>
+    <div>All cabins have a <strong>large window overlooking The Nile</strong>. Open buffet for all meals. 24/7 front desk. Swimming pool on the sun deck. <strong>Pricing adjusts by season</strong> — contact us for current rates.</div>
+  </div>
+
+  <div class="cruise-grid">
+
+    <!-- CRUISE 1: 4 Days/3 Nights -->
+    <div class="cruise-card">
+      <div class="cruise-card-img">
+        <div class="img-placeholder">🛳</div>
+        <div class="img-label">📸 Nile cruise at sunset</div>
+      </div>
+      <div class="cruise-card-body">
+        <div class="cruise-duration">4 Days / 3 Nights</div>
+        <div class="cruise-name">Nile Cruise — Luxor to Aswan</div>
+        <div class="cruise-desc">Short on time but want the full Nile experience? This cruise covers the highlights of Luxor, Aswan, and the legendary sites in between.</div>
+        <div class="cruise-highlights">
+          <div class="cruise-highlight-item">Philae Temple &amp; The High Dam</div>
+          <div class="cruise-highlight-item">Abu Simbel Temples</div>
+          <div class="cruise-highlight-item">Kom Ombo &amp; Edfu Temples</div>
+          <div class="cruise-highlight-item">Valley of the Kings &amp; Karnak</div>
+        </div>
+      </div>
+      <div class="cruise-card-footer">
+        <div class="cruise-price">
+          <div class="cruise-from">From (shared cabin)</div>
+          <div class="cruise-amount">$550</div>
+          <div class="cruise-per">per person · seasonal pricing</div>
+        </div>
+        <a class="cruise-cta" href="https://accessegypttravel.com/to_book/4-days-3-nights-cruise/">Explore</a>
+      </div>
+    </div>
+
+    <!-- CRUISE 2: 5 Days/4 Nights -->
+    <div class="cruise-card featured-card">
+      <div class="cruise-card-img" style="background: linear-gradient(135deg, #0d3020 0%, #1a5038 50%, #0a1e14 100%);">
+        <div class="cruise-badge">Featured</div>
+        <div class="img-placeholder">🛳</div>
+        <div class="img-label">📸 Temple stop along the Nile</div>
+      </div>
+      <div class="cruise-card-body">
+        <div class="cruise-duration">5 Days / 4 Nights</div>
+        <div class="cruise-name">Nile River Cruise — Extended</div>
+        <div class="cruise-desc">One extra night makes all the difference. More time at temples, more evenings watching the Nile slip by. The most popular cruise length for first-time visitors.</div>
+        <div class="cruise-highlights">
+          <div class="cruise-highlight-item">Everything in the 4-day cruise</div>
+          <div class="cruise-highlight-item">More flexible temple timing</div>
+          <div class="cruise-highlight-item">Evening felucca ride on the Nile</div>
+          <div class="cruise-highlight-item">Nubian Village visit (optional)</div>
+        </div>
+      </div>
+      <div class="cruise-card-footer">
+        <div class="cruise-price">
+          <div class="cruise-from">From (shared cabin)</div>
+          <div class="cruise-amount">$700</div>
+          <div class="cruise-per">per person · seasonal pricing</div>
+        </div>
+        <a class="cruise-cta" href="https://accessegypttravel.com/to_book/5-days-4-nights-cruise/">Explore</a>
+      </div>
+    </div>
+
+    <!-- CRUISE 3: 8 Days/7 Nights -->
+    <div class="cruise-card featured-card">
+      <div class="cruise-card-img" style="background: linear-gradient(135deg, #1a0d00 0%, #3a1e00 50%, #2c1a0e 100%);">
+        <div class="cruise-badge">Featured</div>
+        <div class="img-placeholder">🛳</div>
+        <div class="img-label">📸 Abu Simbel, included</div>
+      </div>
+      <div class="cruise-card-body">
+        <div class="cruise-duration">8 Days / 7 Nights</div>
+        <div class="cruise-name">Grand Nile Cruise</div>
+        <div class="cruise-desc">The full journey — a week on the Nile with time to breathe at every stop. You'll arrive at Abu Simbel, Karnak, and the Valley of the Kings without feeling rushed.</div>
+        <div class="cruise-highlights">
+          <div class="cruise-highlight-item">Abu Simbel Temples (full morning)</div>
+          <div class="cruise-highlight-item">All major Nile temple stops</div>
+          <div class="cruise-highlight-item">Valley of the Kings — 4 tombs</div>
+          <div class="cruise-highlight-item">Sunset at Philae Temple</div>
+        </div>
+      </div>
+      <div class="cruise-card-footer">
+        <div class="cruise-price">
+          <div class="cruise-from">From (shared cabin)</div>
+          <div class="cruise-amount">$1,400</div>
+          <div class="cruise-per">per person · seasonal pricing</div>
+        </div>
+        <a class="cruise-cta" href="https://accessegypttravel.com/to_book/8-days-7-nights-cruise/">Explore</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="cruise-pricing-note">
+    <div class="pn-icon">ℹ️</div>
+    <div>
+      <strong>Seasonal pricing:</strong> Cabin rates vary Sep–May. The prices shown are lowest-season shared cabin rates. Single cabin and peak season (Dec 20–Jan 7) rates are higher.
+      All prices quoted in USD. <a href="#" style="color:#b5451b;font-weight:700;">Contact us for current rates →</a>
+    </div>
+  </div>
+
+  <div class="annotation" style="margin: 0 40px 24px;">
+    <strong>📝 Content note for team</strong>
+    The current /nile-cruise/ page shows "From $1,400" for the 4-day cruise but the detail page shows shared cabin from $550. The card prices shown here use the <em>shared cabin</em> rate from the detail page. Please confirm which number should be shown on the card and we'll standardize across all three.
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════════════
+     LUXOR DAY TOURS SECTION
+══════════════════════════════════════════ -->
+
+<div id="luxor-tours" class="page-body">
+
+  <div class="section-header">
+    <div class="section-header-left">
+      <div class="section-label">Luxor Day Tours</div>
+      <h2 class="section-title">Explore Luxor — One Day at a Time</h2>
+      <p class="section-desc">Already staying in Luxor? These private, Egyptologist-guided day tours let you fill any free day with the experience you actually want — East Bank, West Bank, or both.</p>
+    </div>
+  </div>
+
+  <!-- Private tour banner -->
+  <div class="private-tour-banner">
+    <div class="ptb-left">
+      <div class="ptb-title">Every tour is <span>100% private</span> — just your group</div>
+      <p class="ptb-desc">Unlike big operators who put strangers together, every Luxor day tour is private. Your guide, your pace, your schedule. Pickup from your hotel, airport, or train station.</p>
+    </div>
+    <a class="ptb-btn" href="#">Build a custom day →</a>
+  </div>
+
+  <!-- Tours grid: 9 tours -->
+  <div class="tours-grid">
+
+    <!-- Tour 1: Full Day Best of Luxor -->
+    <div class="tour-card">
+      <div class="tour-card-img">
+        <div class="img-placeholder">🏛</div>
+        <div class="tour-duration-pill">8 hours</div>
+      </div>
+      <div class="tour-card-body">
+        <div class="tour-type-tag">Most Popular</div>
+        <div class="tour-name">Full Day — Luxor's Best Attractions (East &amp; West Banks)</div>
+        <hr class="tour-card-divider">
+        <div class="tour-meta">
+          <div>
+            <div class="tour-price-label">From per person</div>
+            <div class="tour-price-val">$45</div>
+            <div class="tour-price-note">Single: $135 · 5+: $45</div>
+          </div>
+          <a class="tour-explore-btn" href="https://accessegypttravel.com/to_book/full-day-luxor-best-attractions/">Explore</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tour 2: East Bank -->
+    <div class="tour-card">
+      <div class="tour-card-img" style="background: linear-gradient(135deg, #3a1e08 0%, #7a4010 60%, #2c1a0e 100%);">
+        <div class="img-placeholder">🏛</div>
+        <div class="tour-duration-pill">5 hours</div>
+      </div>
+      <div class="tour-card-body">
+        <div class="tour-type-tag">East Bank Tour</div>
+        <div class="tour-name">Karnak &amp; Luxor Temple Tour</div>
+        <hr class="tour-card-divider">
+        <div class="tour-meta">
+          <div>
+            <div class="tour-price-label">From per person</div>
+            <div class="tour-price-val">$20</div>
+            <div class="tour-price-note">Single: $60 · 5+: $20</div>
+          </div>
+          <a class="tour-explore-btn" href="https://accessegypttravel.com/to_book/luxor-east-bank-tour-from-30/">Explore</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tour 3: West Bank A -->
+    <div class="tour-card">
+      <div class="tour-card-img" style="background: linear-gradient(135deg, #2a1800 0%, #6b4010 60%, #1a0e00 100%);">
+        <div class="img-placeholder">👑</div>
+        <div class="tour-duration-pill">6 hours</div>
+      </div>
+      <div class="tour-card-body">
+        <div class="tour-type-tag">West Bank Tour</div>
+        <div class="tour-name">Valley of the Kings, Hatshepsut &amp; Memnon Colossi</div>
+        <hr class="tour-card-divider">
+        <div class="tour-meta">
+          <div>
+            <div class="tour-price-label">From per person</div>
+            <div class="tour-price-val">$20</div>
+            <div class="tour-price-note">Single: $60 · 5+: $20</div>
+          </div>
+          <a class="tour-explore-btn" href="https://accessegypttravel.com/to_book/luxor-west-bank-tour-4-sites-from-35/">Explore</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tour 4: West Bank B -->
+    <div class="tour-card">
+      <div class="tour-card-img" style="background: linear-gradient(135deg, #1a1a00 0%, #5a5010 60%, #2a2000 100%);">
+        <div class="img-placeholder">🏺</div>
+        <div class="tour-duration-pill">6 hours</div>
+      </div>
+      <div class="tour-card-body">
+        <div class="tour-type-tag">West Bank Tour B</div>
+        <div class="tour-name">Valley of the Queens, Workers' Village &amp; Habu Temple</div>
+        <hr class="tour-card-divider">
+        <div class="tour-meta">
+          <div>
+            <div class="tour-price-label">From per person</div>
+            <div class="tour-price-val">$25</div>
+            <div class="tour-price-note">Single: $80 · 5+: $25</div>
+          </div>
+          <a class="tour-explore-btn" href="https://accessegypttravel.com/to_book/luxor-west-bank-tour-b-3-sites-from-35/">Explore</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tour 5: Hot Air Balloon -->
+    <div class="tour-card">
+      <div class="tour-card-img" style="background: linear-gradient(135deg, #200a30 0%, #6b1a9a 50%, #1a0a28 100%);">
+        <div class="img-placeholder">🎈</div>
+        <div class="tour-duration-pill">3 hours</div>
+      </div>
+      <div class="tour-card-body">
+        <div class="tour-type-tag">Unique Experience</div>
+        <div class="tour-name">Hot Air Balloon Ride over Luxor</div>
+        <hr class="tour-card-divider">
+        <div class="tour-meta">
+          <div>
+            <div class="tour-price-label">From per person</div>
+            <div class="tour-price-val">$75</div>
+            <div class="tour-price-note">Sunrise departure · All group sizes</div>
+          </div>
+          <a class="tour-explore-btn" href="https://accessegypttravel.com/to_book/hot-air-balloon-ride-in-luxor/">Explore</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tour 6: Dendera & Abydos -->
+    <div class="tour-card">
+      <div class="tour-card-img" style="background: linear-gradient(135deg, #0a2030 0%, #1a5060 50%, #081820 100%);">
+        <div class="img-placeholder">𓂀</div>
+        <div class="tour-duration-pill">7 hours</div>
+      </div>
+      <div class="tour-card-body">
+        <div class="tour-type-tag">Off the Beaten Path</div>
+        <div class="tour-name">Dendera &amp; Abydos — Two Temples Most Tourists Skip</div>
+        <hr class="tour-card-divider">
+        <div class="tour-meta">
+          <div>
+            <div class="tour-price-label">From per person</div>
+            <div class="tour-price-val">$30</div>
+            <div class="tour-price-note">Single: $95 · 5+: $30</div>
+          </div>
+          <a class="tour-explore-btn" href="https://accessegypttravel.com/to_book/dendera-abydos-tour/">Explore</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tour 7: Sound & Light -->
+    <div class="tour-card">
+      <div class="tour-card-img" style="background: linear-gradient(135deg, #050520 0%, #1a1a60 50%, #080818 100%);">
+        <div class="img-placeholder">✨</div>
+        <div class="tour-duration-pill">2 hours</div>
+      </div>
+      <div class="tour-card-body">
+        <div class="tour-type-tag">Evening Experience</div>
+        <div class="tour-name">Sound &amp; Light Show at Karnak Temples</div>
+        <hr class="tour-card-divider">
+        <div class="tour-meta">
+          <div>
+            <div class="tour-price-label">From per person</div>
+            <div class="tour-price-val">$35</div>
+            <div class="tour-price-note">Evening · All group sizes</div>
+          </div>
+          <a class="tour-explore-btn" href="https://accessegypttravel.com/to_book/sound-light-show-at-karnak-temples-from-20/">Explore</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tour 8: Felucca -->
+    <div class="tour-card">
+      <div class="tour-card-img" style="background: linear-gradient(135deg, #001830 0%, #003860 50%, #001020 100%);">
+        <div class="img-placeholder">⛵</div>
+        <div class="tour-duration-pill">3 hours</div>
+      </div>
+      <div class="tour-card-body">
+        <div class="tour-type-tag">Nile Experience</div>
+        <div class="tour-name">Felucca Ride on the Nile + Banana Island</div>
+        <hr class="tour-card-divider">
+        <div class="tour-meta">
+          <div>
+            <div class="tour-price-label">From per person</div>
+            <div class="tour-price-val">$20</div>
+            <div class="tour-price-note">Relaxed pace · All group sizes</div>
+          </div>
+          <a class="tour-explore-btn" href="https://accessegypttravel.com/to_book/sail-boat-felucca-ride-on-the-nile-banana-island-from-10/">Explore</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tour 9: Horse Carriage -->
+    <div class="tour-card">
+      <div class="tour-card-img" style="background: linear-gradient(135deg, #1a1000 0%, #6a4a00 50%, #2c1e00 100%);">
+        <div class="img-placeholder">🐴</div>
+        <div class="tour-duration-pill">2 hours</div>
+      </div>
+      <div class="tour-card-body">
+        <div class="tour-type-tag">City Tour</div>
+        <div class="tour-name">Luxor City Tour in a Horse-Drawn Carriage</div>
+        <hr class="tour-card-divider">
+        <div class="tour-meta">
+          <div>
+            <div class="tour-price-label">From per person</div>
+            <div class="tour-price-val">$20</div>
+            <div class="tour-price-note">Leisurely · Great for families</div>
+          </div>
+          <a class="tour-explore-btn" href="https://accessegypttravel.com/to_book/luxor-city-tour-on-a-horse-drawn-carriage/">Explore</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Pricing note -->
+  <div style="background:#fdf8f2;border:1px solid #f0e8d8;border-radius:8px;padding:16px 20px;font-size:13px;color:#5a4030;margin-bottom:32px;display:flex;gap:10px;align-items:flex-start;">
+    <span style="font-size:18px;">💡</span>
+    <div>
+      <strong>Group pricing:</strong> All tour prices are per person. The more people in your group, the lower the per-person rate — a group of 5+ pays the lowest listed price.
+      Children 6–12: 40% of adult rate. Under 6: free. <br>
+      <strong>Note:</strong> Entrance fees are not included — check current rates at <a href="http://www.egymonuments.com" style="color:#b5451b;">egymonuments.com</a>.
+    </div>
+  </div>
+
+  <!-- Tailor Made CTA -->
+  <div class="tailor-section">
+    <div class="tailor-icon">🗺</div>
+    <div>
+      <div class="tailor-title">Want something specific? We'll build it.</div>
+      <p class="tailor-desc">None of these fit exactly what you're looking for? We design custom Luxor days from scratch — combine East and West Bank stops, add the Sound &amp; Light show, throw in a Nile felucca at sunset. You tell us what you want; we handle the rest.</p>
+      <a class="tailor-btn" href="https://accessegypttravel.com/tailor-made/">Design Your Day →</a>
+    </div>
+  </div>
+
+</div>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="footer-main">
+    <div class="footer-col">
+      <div style="font-size:14px;font-weight:900;color:#2c1a0e;margin-bottom:10px;">Access Egypt Travel</div>
+      <div style="font-size:12.5px;color:#8b7355;margin-bottom:14px;line-height:1.6;">Private Egyptologist-guided tours from Cairo, Luxor, and the Nile.</div>
+      <div style="font-size:12.5px;color:#555;">741 Woodruff Rd, Suite 1125<br>Greenville, SC 29607</div>
+    </div>
+    <div class="footer-col">
+      <h4>Multi-Day Tours</h4>
+      <a href="#">6 Days — Cairo &amp; Luxor</a>
+      <a href="#">7 Days — Cairo, Luxor &amp; Aswan</a>
+      <a href="#">8 Days — Nile Cruise</a>
+      <a href="#">9 Days — Egypt Highlights ⭐</a>
+      <a href="#">12 Days — Ultimate Odyssey</a>
+    </div>
+    <div class="footer-col">
+      <h4>Day Tours &amp; Cruises</h4>
+      <a href="#nile-cruise">Nile Cruise — 4 Days</a>
+      <a href="#nile-cruise">Nile Cruise — 5 Days</a>
+      <a href="#nile-cruise">Nile Cruise — 8 Days</a>
+      <a href="#luxor-tours">Luxor Day Tours (9 tours)</a>
+      <a href="#">Tailor Made Tours</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="tel:+17727820494">📞 +1 772 782 0494 (US)</a>
+      <a href="https://wa.me/20120140578">💬 +20 12 014-0578 (WhatsApp)</a>
+      <a href="mailto:info@accessegypttravel.com">✉️ info@accessegypttravel.com</a>
+      <a href="#">Book a Free 30-Min Call</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Access Egypt Travel. All rights reserved.</p>
+    <div><a href="#">Privacy Policy</a> &nbsp;·&nbsp; <a href="#">Terms</a></div>
+  </div>
+</footer>
+
+</body>
+</html>

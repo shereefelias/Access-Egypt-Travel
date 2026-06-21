@@ -17,11 +17,14 @@
   nav a:hover, nav a.active { color:#b5451b; background:#fdf5ef; }
   .nav-dropdown { position:relative; display:inline-block; }
   .nav-dropdown > a { display:flex; align-items:center; gap:4px; }
-  .nav-dropdown-menu { display:none; position:absolute; top:calc(100% + 4px); left:50%; transform:translateX(-50%); background:white; border:1px solid #f0e8d8; border-radius:8px; min-width:260px; box-shadow:0 8px 24px rgba(0,0,0,0.12); z-index:500; overflow:hidden; }
+  .nav-dropdown-menu { display:none; position:absolute; top:calc(100% + 4px); left:50%; transform:translateX(-50%); background:white; border:1px solid #f0e8d8; border-radius:8px; min-width:280px; box-shadow:0 8px 24px rgba(0,0,0,0.12); z-index:500; overflow:hidden; }
   .nav-dropdown-menu a { display:block; padding:10px 16px; font-size:13px; font-weight:600; color:#3a2a1a; text-decoration:none; border-bottom:1px solid #f5f0ea; }
   .nav-dropdown-menu a:last-child { border-bottom:none; }
   .nav-dropdown-menu a:hover { background:#fdf5ef; color:#b5451b; }
   .nav-dropdown:hover .nav-dropdown-menu { display:block; }
+  .nav-section-divider { padding:7px 16px 4px; font-size:10px; font-weight:800; text-transform:uppercase; letter-spacing:1px; color:#b5451b; background:#fdf8f2; border-bottom:1px solid #f5f0ea; display:block; cursor:default; }
+  .nav-cruise-item { background:#f0f8f4 !important; color:#2c7a50 !important; font-style:italic; }
+  .nav-cruise-item:hover { background:#e0f0e8 !important; color:#1a5038 !important; }
   .wrap{max-width:1100px;margin:0 auto;padding:0 20px;}
   .page-hero{text-align:center;padding:44px 20px 10px;}
   .page-hero h1{font-size:38px;font-weight:900;margin:0 0 8px;}
@@ -38,6 +41,31 @@
   .card.soon{opacity:.72;}
   .badge{display:inline-block;margin-top:6px;font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#fff;background:#16a34a;border-radius:3px;padding:2px 7px;}
   .badge.soon{background:#9a8a72;}
+
+  /* ── LUXOR DAY TOURS sub-section ── */
+  .day-tours-section { background:#fdf8f2; border:1px solid #f0e8d8; border-radius:14px; padding:28px 28px 24px; margin-top:28px; }
+  .day-tours-header { display:flex; align-items:flex-start; justify-content:space-between; margin-bottom:20px; gap:16px; }
+  .day-tours-label { font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:1.5px; color:#b5451b; margin-bottom:6px; }
+  .day-tours-title { font-size:22px; font-weight:900; color:#2c1a0e; line-height:1.2; }
+  .day-tours-desc { font-size:13.5px; color:#6b5030; margin-top:6px; line-height:1.55; max-width:520px; }
+  .day-tours-private-badge { display:inline-flex; align-items:center; gap:6px; background:#2c1a0e; color:#d4af6a; font-size:11px; font-weight:700; padding:5px 12px; border-radius:5px; white-space:nowrap; margin-top:8px; }
+  .dt-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+  .dt-card { background:white; border:1px solid #e6ddd3; border-radius:10px; overflow:hidden; transition:transform .15s, box-shadow .15s; display:flex; flex-direction:column; }
+  .dt-card:hover { transform:translateY(-2px); box-shadow:0 8px 22px rgba(0,0,0,0.09); }
+  .dt-img { height:100px; display:flex; align-items:center; justify-content:center; font-size:28px; opacity:0.55; position:relative; }
+  .dt-duration { position:absolute; top:8px; right:8px; background:rgba(0,0,0,0.55); color:white; font-size:10px; font-weight:700; padding:2px 8px; border-radius:10px; opacity:1; }
+  .dt-body { padding:12px 14px 10px; flex:1; display:flex; flex-direction:column; }
+  .dt-type { font-size:10px; font-weight:800; text-transform:uppercase; letter-spacing:.5px; color:#4a7c59; margin-bottom:5px; }
+  .dt-name { font-size:13.5px; font-weight:800; color:#2c1a0e; line-height:1.35; flex:1; margin-bottom:10px; }
+  .dt-footer { display:flex; align-items:center; justify-content:space-between; }
+  .dt-price { }
+  .dt-from { font-size:10px; color:#8b7355; text-transform:uppercase; font-weight:700; }
+  .dt-amount { font-size:18px; font-weight:900; color:#b5451b; line-height:1; }
+  .dt-pp { font-size:10px; color:#8b7355; }
+  .dt-btn { background:#2c1a0e; color:white; padding:6px 12px; border-radius:5px; font-size:11px; font-weight:700; text-decoration:none; white-space:nowrap; }
+  .dt-btn:hover { background:#b5451b; color:white; }
+  .dt-pricing-note { margin-top:16px; font-size:12px; color:#8b7355; padding-top:14px; border-top:1px solid #f0e8d8; }
+  .dt-pricing-note a { color:#b5451b; font-weight:700; }
   .site-footer { background:#ffffff; color:#555; border-top:1px solid #e5e7eb; margin-top:30px; }
   .footer-main { display:grid; grid-template-columns:repeat(4,1fr); gap:36px; padding:46px 60px; max-width:1300px; margin:0 auto; }
   .footer-col h4 { color:#2c1a0e; font-size:13px; font-weight:700; margin-bottom:14px; text-transform:uppercase; letter-spacing:0.5px; border-bottom:2px solid #b5451b; padding-bottom:8px; display:inline-block; }
@@ -61,7 +89,7 @@
   <a href="pages-mockup.html"><img src="Logo_Green_3.png" alt="Access Egypt Travel" class="site-logo-img"></a>
   <nav>
     <a href="pages-mockup.html">Home</a>
-    <div class="nav-dropdown"><a href="pages-mockup.html#tour">Tours ▾</a><div class="nav-dropdown-menu"><a href="pages-mockup.html#tour">6 Days / 5 Nights — Cairo &amp; Luxor Holiday</a><a href="pages-mockup.html#tour-d">7 Days / 6 Nights — Cairo, Luxor &amp; Aswan</a><a href="pages-mockup.html#tour-b">8 Days / 7 Nights — Cairo, Aswan &amp; Nile Cruise</a><a href="pages-mockup.html#tour-c">9 Days / 8 Nights — Cairo, Pyramids &amp; Nile Cruise</a><a href="pages-mockup.html#tour-e">11 Days / 10 Nights — The Ultimate Egyptian Odyssey</a></div></div>
+    <div class="nav-dropdown"><a href="pages-mockup.html#tour">Tours ▾</a><div class="nav-dropdown-menu"><a href="pages-mockup.html#tour">6 Days / 5 Nights — Cairo &amp; Luxor Holiday</a><a href="pages-mockup.html#tour-d">7 Days / 6 Nights — Cairo, Luxor &amp; Aswan</a><a href="pages-mockup.html#tour-b">8 Days / 7 Nights — Cairo, Aswan &amp; Nile Cruise</a><a href="pages-mockup.html#tour-c">9 Days / 8 Nights — Cairo, Pyramids &amp; Nile Cruise ⭐</a><a href="pages-mockup.html#tour-e">11 Days / 10 Nights — The Ultimate Egyptian Odyssey</a><span class="nav-section-divider">Nile Cruises</span><a class="nav-cruise-item" href="https://accessegypttravel.com/to_book/4-days-3-nights-cruise/">🛳 4 Days / 3 Nights — Luxor to Aswan</a><a class="nav-cruise-item" href="https://accessegypttravel.com/to_book/5-days-4-nights-cruise/">🛳 5 Days / 4 Nights — Nile River Cruise</a><a class="nav-cruise-item" href="https://accessegypttravel.com/to_book/8-days-7-nights-cruise/">🛳 8 Days / 7 Nights — Grand Nile Cruise</a></div></div>
     <a href="destinations.html" class="active">Destinations</a>
     <a href="pages-mockup.html">Reviews</a>
     <a href="pages-mockup.html">FAQs</a>
@@ -93,7 +121,209 @@
       <a class="card soon" href="#"><div class="ph" style="background:linear-gradient(160deg,#c8a060,#7a5020 60%,#3a1a00)"></div><div class="c-body"><b>Valley of the Kings</b><span>Royal tombs of the New Kingdom pharaohs</span><br><span class="badge soon">Coming soon</span></div></a>
       <a class="card soon" href="#"><div class="ph" style="background:linear-gradient(160deg,#d8b880,#8a6828 60%,#2c1200)"></div><div class="c-body"><b>Hatshepsut Temple</b><span>The great mortuary temple at Deir el-Bahari</span><br><span class="badge soon">Coming soon</span></div></a>
     </div>
-  </div>
+
+    <!-- ── LUXOR DAY TOURS (repurposed from /tour/ page) ── -->
+    <div class="day-tours-section">
+      <div class="day-tours-header">
+        <div>
+          <div class="day-tours-label">Book a Luxor Day Tour</div>
+          <div class="day-tours-title">Explore Luxor One Day at a Time</div>
+          <p class="day-tours-desc">Already in Luxor? Each of these is a private, Egyptologist-guided experience — pickup from your hotel, airport, or train station included.</p>
+          <div class="day-tours-private-badge">🔒 Private tours only — your group, your pace</div>
+        </div>
+      </div>
+
+      <div class="dt-grid">
+
+        <!-- Tour 1 -->
+        <div class="dt-card">
+          <div class="dt-img" style="background:linear-gradient(135deg,#4a2c0e,#8b5e10 60%,#3a1a00)">
+            🏛
+            <div class="dt-duration">8 hours</div>
+          </div>
+          <div class="dt-body">
+            <div class="dt-type">Most Popular</div>
+            <div class="dt-name">Full Day — Luxor's Best Attractions (East &amp; West Banks)</div>
+            <div class="dt-footer">
+              <div class="dt-price">
+                <div class="dt-from">From p/p</div>
+                <div class="dt-amount">$45</div>
+                <div class="dt-pp">single: $135</div>
+              </div>
+              <a class="dt-btn" href="https://accessegypttravel.com/to_book/full-day-luxor-best-attractions/">Explore</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tour 2 -->
+        <div class="dt-card">
+          <div class="dt-img" style="background:linear-gradient(135deg,#3a1e08,#7a4010 60%,#2c1a0e)">
+            🏛
+            <div class="dt-duration">5 hours</div>
+          </div>
+          <div class="dt-body">
+            <div class="dt-type">East Bank Tour</div>
+            <div class="dt-name">Karnak &amp; Luxor Temple</div>
+            <div class="dt-footer">
+              <div class="dt-price">
+                <div class="dt-from">From p/p</div>
+                <div class="dt-amount">$20</div>
+                <div class="dt-pp">single: $60</div>
+              </div>
+              <a class="dt-btn" href="https://accessegypttravel.com/to_book/luxor-east-bank-tour-from-30/">Explore</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tour 3 -->
+        <div class="dt-card">
+          <div class="dt-img" style="background:linear-gradient(135deg,#2a1800,#6b4010 60%,#1a0e00)">
+            👑
+            <div class="dt-duration">6 hours</div>
+          </div>
+          <div class="dt-body">
+            <div class="dt-type">West Bank Tour</div>
+            <div class="dt-name">Valley of the Kings, Hatshepsut &amp; Memnon Colossi</div>
+            <div class="dt-footer">
+              <div class="dt-price">
+                <div class="dt-from">From p/p</div>
+                <div class="dt-amount">$20</div>
+                <div class="dt-pp">single: $60</div>
+              </div>
+              <a class="dt-btn" href="https://accessegypttravel.com/to_book/luxor-west-bank-tour-4-sites-from-35/">Explore</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tour 4 -->
+        <div class="dt-card">
+          <div class="dt-img" style="background:linear-gradient(135deg,#1a1a00,#5a5010 60%,#2a2000)">
+            🏺
+            <div class="dt-duration">6 hours</div>
+          </div>
+          <div class="dt-body">
+            <div class="dt-type">West Bank Tour B</div>
+            <div class="dt-name">Valley of the Queens, Workers' Village &amp; Habu Temple</div>
+            <div class="dt-footer">
+              <div class="dt-price">
+                <div class="dt-from">From p/p</div>
+                <div class="dt-amount">$25</div>
+                <div class="dt-pp">single: $80</div>
+              </div>
+              <a class="dt-btn" href="https://accessegypttravel.com/to_book/luxor-west-bank-tour-b-3-sites-from-35/">Explore</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tour 5 -->
+        <div class="dt-card">
+          <div class="dt-img" style="background:linear-gradient(135deg,#200a30,#6b1a9a 50%,#1a0a28)">
+            🎈
+            <div class="dt-duration">3 hours</div>
+          </div>
+          <div class="dt-body">
+            <div class="dt-type">Unique Experience</div>
+            <div class="dt-name">Hot Air Balloon Ride over Luxor</div>
+            <div class="dt-footer">
+              <div class="dt-price">
+                <div class="dt-from">From p/p</div>
+                <div class="dt-amount">$75</div>
+                <div class="dt-pp">sunrise departure</div>
+              </div>
+              <a class="dt-btn" href="https://accessegypttravel.com/to_book/hot-air-balloon-ride-in-luxor/">Explore</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tour 6 -->
+        <div class="dt-card">
+          <div class="dt-img" style="background:linear-gradient(135deg,#0a2030,#1a5060 50%,#081820)">
+            𓂀
+            <div class="dt-duration">7 hours</div>
+          </div>
+          <div class="dt-body">
+            <div class="dt-type">Off the Beaten Path</div>
+            <div class="dt-name">Dendera &amp; Abydos Tour</div>
+            <div class="dt-footer">
+              <div class="dt-price">
+                <div class="dt-from">From p/p</div>
+                <div class="dt-amount">$30</div>
+                <div class="dt-pp">single: $95</div>
+              </div>
+              <a class="dt-btn" href="https://accessegypttravel.com/to_book/dendera-abydos-tour/">Explore</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tour 7 -->
+        <div class="dt-card">
+          <div class="dt-img" style="background:linear-gradient(135deg,#050520,#1a1a60 50%,#080818)">
+            ✨
+            <div class="dt-duration">2 hours</div>
+          </div>
+          <div class="dt-body">
+            <div class="dt-type">Evening Experience</div>
+            <div class="dt-name">Sound &amp; Light Show at Karnak Temples</div>
+            <div class="dt-footer">
+              <div class="dt-price">
+                <div class="dt-from">From p/p</div>
+                <div class="dt-amount">$35</div>
+                <div class="dt-pp">evening show</div>
+              </div>
+              <a class="dt-btn" href="https://accessegypttravel.com/to_book/sound-light-show-at-karnak-temples-from-20/">Explore</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tour 8 -->
+        <div class="dt-card">
+          <div class="dt-img" style="background:linear-gradient(135deg,#001830,#003860 50%,#001020)">
+            ⛵
+            <div class="dt-duration">3 hours</div>
+          </div>
+          <div class="dt-body">
+            <div class="dt-type">Nile Experience</div>
+            <div class="dt-name">Felucca Ride + Banana Island</div>
+            <div class="dt-footer">
+              <div class="dt-price">
+                <div class="dt-from">From p/p</div>
+                <div class="dt-amount">$20</div>
+                <div class="dt-pp">relaxed pace</div>
+              </div>
+              <a class="dt-btn" href="https://accessegypttravel.com/to_book/sail-boat-felucca-ride-on-the-nile-banana-island-from-10/">Explore</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tour 9 -->
+        <div class="dt-card">
+          <div class="dt-img" style="background:linear-gradient(135deg,#1a1000,#6a4a00 50%,#2c1e00)">
+            🐴
+            <div class="dt-duration">2 hours</div>
+          </div>
+          <div class="dt-body">
+            <div class="dt-type">City Tour</div>
+            <div class="dt-name">Luxor City Tour in a Horse-Drawn Carriage</div>
+            <div class="dt-footer">
+              <div class="dt-price">
+                <div class="dt-from">From p/p</div>
+                <div class="dt-amount">$20</div>
+                <div class="dt-pp">great for families</div>
+              </div>
+              <a class="dt-btn" href="https://accessegypttravel.com/to_book/luxor-city-tour-on-a-horse-drawn-carriage/">Explore</a>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /.dt-grid -->
+
+      <div class="dt-pricing-note">
+        Group pricing: the more people, the lower the per-person rate — groups of 5+ pay the lowest listed price. Children 6–12: 40% off. Under 6: free.
+        Entrance fees not included — check <a href="http://www.egymonuments.com" target="_blank">egymonuments.com</a> for current rates. All prices in USD.
+      </div>
+    </div><!-- /.day-tours-section -->
+
+  </div><!-- /.region Luxor -->
 
   <div class="region">
     <h2>Nile Cruise Stops</h2>
@@ -132,8 +362,11 @@
       <a href="pages-mockup.html#tour">6 Days — Cairo &amp; Luxor Holiday</a>
       <a href="pages-mockup.html#tour-d">7 Days — Cairo, Luxor &amp; Aswan</a>
       <a href="pages-mockup.html#tour-b">8 Days — Cairo, Aswan &amp; Nile Cruise</a>
-      <a href="pages-mockup.html#tour-c">9 Days — Cairo, Pyramids &amp; Nile Cruise</a>
+      <a href="pages-mockup.html#tour-c">9 Days — Egypt Highlights + Nile Cruise ⭐</a>
       <a href="pages-mockup.html#tour-e">11 Days — The Ultimate Egyptian Odyssey</a>
+      <a href="https://accessegypttravel.com/to_book/4-days-3-nights-cruise/" style="color:#2c7a50;">🛳 Nile Cruise — 4 Days</a>
+      <a href="https://accessegypttravel.com/to_book/5-days-4-nights-cruise/" style="color:#2c7a50;">🛳 Nile Cruise — 5 Days</a>
+      <a href="https://accessegypttravel.com/to_book/8-days-7-nights-cruise/" style="color:#2c7a50;">🛳 Nile Cruise — 8 Days</a>
     </div>
     <div class="footer-col">
       <h4>Travel Resources</h4>
