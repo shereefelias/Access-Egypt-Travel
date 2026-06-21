@@ -63,7 +63,11 @@
       "Bash(curl -s \"https://api.github.com/repos/elementor/elementor/releases/tags/4.0.0\")",
       "Bash(curl -s \"https://api.github.com/repos/elementor/elementor/releases/tags/3.21.1\")",
       "Bash(curl -s \"https://api.github.com/repos/elementor/elementor/releases/tags/3.21.0\")",
-      "Bash(mkdir -p \"/Users/shereefelias/Documents/Access Egypt Travel/.claude/skills/elementor/references\")"
+      "Bash(mkdir -p \"/Users/shereefelias/Documents/Access Egypt Travel/.claude/skills/elementor/references\")",
+      "Bash(sips -g pixelWidth -g pixelHeight \"/Users/shereefelias/Documents/Access Egypt Travel/Bookmark/Logo Layout with Social Links/assets/logo-transparent.png\")",
+      "Bash(open \"/Users/shereefelias/Documents/Access Egypt Travel/Bookmark/Logo Layout with Social Links/print-sheet-letter.html\")",
+      "Bash(sort -k6,7)",
+      "Bash(open \"/Users/shereefelias/Documents/Access Egypt Travel/Bookmark/print-sheet-letter.html\")"
     ],
     "additionalDirectories": [
       "/Users/shereefelias/Documents/Access Egypt Travel/.claude/skills",

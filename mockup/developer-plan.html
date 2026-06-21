@@ -101,7 +101,7 @@
   <div class="meta">
     <span><strong>Site:</strong> https://accessegypttravel.com</span>
     <span><strong>Stack:</strong> WordPress + Elementor Pro 3.7.7 + BABE Booking Plugin + Rank Math SEO</span>
-    <span><strong>Prepared:</strong> June 2026</span>
+    <span><strong>Prepared:</strong> June 2026 · <strong>Last updated:</strong> June 20, 2026 (owner corrections + 12-day package confirmed)</span>
     <span><strong>Owner contact:</strong> accessegypttravel@gmail.com</span>
   </div>
 </div>
@@ -496,9 +496,11 @@ selector img:hover {
           <h3 style="margin:16px 0 8px;font-size:14px;">📍 Location 4 — Contact Page</h3>
           <div class="path"><span class="highlight">Pages</span> <span class="arrow">→</span> <span class="highlight">Contact</span> <span class="arrow">→</span> <span class="highlight">Edit with Elementor</span> <span class="arrow">→</span> find phone text widget <span class="arrow">→</span> double-click <span class="arrow">→</span> replace <span class="arrow">→</span> <span class="highlight">Update</span></div>
 
-          <div class="note"><strong>Correct phone values to use everywhere:</strong><br>
-          US number: <code>+1 772 782 0494</code><br>
-          WhatsApp (Egypt): <code>+20 12 014-0578</code> — link: <code>href="tel:+17727820494"</code> and <code>href="https://wa.me/201201400578"</code></div>
+          <div class="note"><strong>✅ Contact info confirmed in mockup (June 20, 2026) — use exactly these values everywhere:</strong><br>
+          US number: <code>+1 772 782 0494</code> — link: <code>href="tel:+17727820494"</code><br>
+          WhatsApp (Egypt): <code>+20 12 014-0578</code> — link: <code>href="https://wa.me/20120140578"</code><br>
+          Email: <code>info@accessegypttravel.com</code> — link: <code>href="mailto:info@accessegypttravel.com"</code><br>
+          <strong>Top bar display format (match the mockup exactly):</strong> <code>🇺🇸 +1 772 782 0494 &nbsp;|&nbsp; 💬 WhatsApp &nbsp;|&nbsp; ✉️ info@accessegypttravel.com</code></div>
 
           <div class="warning"><strong>A note on US number options:</strong> The site should show a US number, not just an Egyptian one. Options: (1) Google Voice — free, get a US number at voice.google.com, forward calls to Egypt. (2) OpenPhone — ~$10/month, better for business. The owner already has +1 772 782 0494 — use that if it's confirmed active.</div>
         </div>
@@ -1997,100 +1999,88 @@ function aetToggleDate(mode) {
   <!-- SECTION 13: PAYMENT PAGE -->
   <div class="section" id="s13">
     <div class="section-header">
-      <span class="badge badge-medium">Medium — Phase 2</span>
-      <h2>13. Payment Page — Structure Now, PayPal &amp; Square Later</h2>
+      <span class="badge badge-high">High — Square is Live</span>
+      <h2>13. Payment Page — Square Active, Build from Mockup</h2>
     </div>
     <div class="section-body">
+      <div class="note"><strong>✅ Updated June 20, 2026:</strong> Square is now the live payment processor. PayPal has been dropped — do not implement PayPal on the live site. The mockup payment page label reads: <em>"Square payment is live. Secured by Square."</em> Build the payment page to match the mockup exactly.</div>
+
       <div class="ar-note">
-        <strong>صفحة الدفع — ابنيها دلوقتي، PayPal وSquare هيتضافوا الأسبوع الجاي</strong>
+        <strong>صفحة الدفع — Square شغّال دلوقتي، اعمل الصفحة من النموذج</strong>
         <ul>
           <li>اعمل صفحة جديدة: Pages → Add New → الاسم: Payment → السلوج: <code>/payment/</code> → Edit with Elementor</li>
-          <li>الصفحة دلوقتي فيها بطاقة واحدة شغالة: <strong>Email Us to Pay</strong> — الرابط على <code>mailto:info@accessegypttravel.com</code></li>
-          <li>PayPal وSquare موجودين في الكود كـ "Coming Soon" — لما تجيب بياناتهم يوم الاثنين، غير الـ div الموجود فيه "Coming Soon" بالكود الجاي منهم</li>
-          <li><strong>PayPal:</strong> ادخل PayPal Business → Tools → PayPal Buttons → انشئ زرار → copy الكود → الصق بدل div الـ "PayPal Coming Soon"</li>
-          <li><strong>Square:</strong> ادخل Square Dashboard → Online → Payment Links → انشئ link → اعمل زرار بالرابط ده</li>
-          <li>الصفحة فيها كمان: 4 خطوات للدفع، وبوكس مهم عن الـ Deposit (25% مقدم، الباقي قبل السفر)</li>
+          <li><strong>Square شغّال:</strong> سيوصلك Square invoice link من الأوونر — ضيفه في بطاقة Square في الصفحة</li>
+          <li><strong>PayPal — أُلغي:</strong> مش هيتضاف. أزل أي ذكر لـ PayPal من الصفحة</li>
+          <li>Square بيقبل: Visa / Mastercard / Amex / Apple Pay / Google Pay — كلها USD</li>
+          <li>الصفحة فيها: 4 خطوات للدفع، بوكس الـ Deposit (25% مقدم)، الباقي قبل <strong>65 يوم</strong> من الوصول</li>
+          <li>السياسة: لا cash، لا wire transfers لحسابات شخصية — Square فقط</li>
         </ul>
-        <strong>⚡ يوم الاثنين:</strong> الـ PayPal وSquare credentials هتوصل — بس حط البطاقات الموجودة دلوقتي عشان الصفحة تبقى موجودة قبل كده.
       </div>
 
-      <p>Create a dedicated <strong>/payment/</strong> page now with the structure in place. The "Email Us to Pay" option is live immediately. PayPal and Square buttons get dropped in when the accounts are ready — no rebuild needed.</p>
+      <p>Build the <strong>/payment/</strong> page from the mockup design. Square is now the sole live payment method. The page structure is finalized — match it exactly.</p>
 
       <div class="task">
         <div class="task-header">
           <div class="task-num">A</div>
-          <div><div class="task-title">Create the Payment Page in WordPress</div></div>
+          <div><div class="task-title">Create the Payment Page in WordPress — build from mockup</div><span class="badge badge-high">High</span></div>
         </div>
         <div class="task-body">
           <div class="path"><span class="highlight">Pages</span> <span class="arrow">→</span> <span class="highlight">Add New</span> <span class="arrow">→</span> Title: <code>Payment</code> <span class="arrow">→</span> Slug: <code>payment</code> <span class="arrow">→</span> <span class="highlight">Edit with Elementor</span></div>
-          <p>Build the page in Elementor with these sections in order:</p>
+          <p>Build the page in Elementor in this exact section order (match the mockup):</p>
           <ol style="margin: 10px 0 0 20px; line-height: 2.2;">
-            <li>Hero section: dark green background, "Secure Your Egypt Tour" heading, short subtext about 25% deposit</li>
-            <li>4-step "How it works" row: Request Quote → Receive Price → Pay 25% Deposit → Pay Balance</li>
-            <li>Dark deposit box: "25% deposit holds your dates. Balance due before departure."</li>
-            <li>3-column payment methods grid (see HTML below — paste as HTML widget)</li>
-            <li>Security trust strip: "All payments in USD | Free cancellation 45+ days | Written confirmation"</li>
+            <li><strong>Hero:</strong> dark background, heading "Secure Your <span style="color:#d4af6a;">Egypt Tour</span>", subtext: <em>"A 25% deposit holds your dates. The remaining balance is due 65 days before arrival. All payments in USD — no hidden fees."</em></li>
+            <li><strong>4-step How It Works row:</strong> Request a Quote → Receive Your Custom Quote → Pay 25% Deposit → Pay Balance</li>
+            <li><strong>Deposit box (dark brown background):</strong> "25% deposit confirms your booking and locks your travel dates. Remaining balance due <strong>65 days before arrival</strong>." Show the 25% / 75% split visually.</li>
+            <li><strong>Payment method — Square only</strong> (see HTML widget below)</li>
+            <li><strong>Security note:</strong> <em>"We never ask for cash-only payments or wire transfers to personal accounts. If you ever receive a request like that, contact us immediately."</em></li>
           </ol>
+          <div class="danger"><strong>Do NOT add a PayPal card.</strong> PayPal was removed from the design. The payment page shows Square only. Any earlier version of this plan that references PayPal as "Coming Soon" is superseded by this update.</div>
         </div>
       </div>
 
       <div class="task">
         <div class="task-header">
           <div class="task-num">B</div>
-          <div><div class="task-title">Payment Methods HTML — Paste as Elementor HTML Widget</div></div>
+          <div><div class="task-title">Square Payment Card — Paste as Elementor HTML Widget</div><span class="badge badge-high">High</span></div>
         </div>
         <div class="task-body">
-          <pre><span class="comment">&lt;!-- PAYMENT METHODS — Replace placeholders when accounts are ready --&gt;</span>
-&lt;div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;"&gt;
-
-  <span class="comment">&lt;!-- PAYPAL — replace button when PayPal account is connected --&gt;</span>
-  &lt;div style="background:white;border:2px solid #f0e8d8;border-radius:10px;
-              padding:28px 20px;text-align:center;opacity:0.8;"&gt;
-    &lt;div style="font-size:36px;margin-bottom:12px;"&gt;🅿️&lt;/div&gt;
-    &lt;div style="font-size:17px;font-weight:800;color:#2c1a0e;margin-bottom:6px;"&gt;PayPal&lt;/div&gt;
-    &lt;span style="background:#fef3c7;color:#92400e;font-size:11px;font-weight:700;
-                 padding:3px 10px;border-radius:20px;display:inline-block;margin-bottom:14px;"&gt;Coming Soon&lt;/span&gt;
-    &lt;p style="font-size:13px;color:#6b7280;margin-bottom:16px;line-height:1.5;"&gt;
-      Pay securely with PayPal or any credit/debit card. Buyer protection included.&lt;/p&gt;
-    <span class="comment">&lt;!-- REPLACE THIS ENTIRE DIV WITH YOUR PAYPAL BUTTON CODE WHEN READY --&gt;</span>
-    &lt;div style="background:#e5e7eb;color:#9ca3af;padding:11px;border-radius:6px;
-                font-size:14px;font-weight:700;"&gt;PayPal — Coming Soon&lt;/div&gt;
+          <p>Square is the sole live payment processor. The owner will provide the Square invoice link. Build one card, centered:</p>
+          <pre><span class="comment">&lt;!-- SQUARE PAYMENT CARD — Square is live --&gt;</span>
+&lt;div style="max-width:420px;margin:0 auto;background:white;border:2px solid #f0e8d8;
+            border-radius:12px;padding:32px 28px;text-align:center;
+            box-shadow:0 4px 20px rgba(0,0,0,0.08);"&gt;
+  &lt;img src="https://accessegypttravel.com/wp-content/uploads/square-logo.svg"
+       alt="Square" height="40" style="display:block;margin:0 auto 16px;"&gt;
+  &lt;div style="background:#d1fae5;color:#065f46;font-size:12px;font-weight:700;
+              padding:4px 12px;border-radius:20px;display:inline-block;margin-bottom:16px;"&gt;
+    🔒 Secured by Square
   &lt;/div&gt;
-
-  <span class="comment">&lt;!-- SQUARE — replace button when Square account is connected --&gt;</span>
-  &lt;div style="background:white;border:2px solid #f0e8d8;border-radius:10px;
-              padding:28px 20px;text-align:center;opacity:0.8;"&gt;
-    &lt;div style="font-size:36px;margin-bottom:12px;"&gt;⬛&lt;/div&gt;
-    &lt;div style="font-size:17px;font-weight:800;color:#2c1a0e;margin-bottom:6px;"&gt;Square&lt;/div&gt;
-    &lt;span style="background:#fef3c7;color:#92400e;font-size:11px;font-weight:700;
-                 padding:3px 10px;border-radius:20px;display:inline-block;margin-bottom:14px;"&gt;Coming Soon&lt;/span&gt;
-    &lt;p style="font-size:13px;color:#6b7280;margin-bottom:16px;line-height:1.5;"&gt;
-      Pay by Visa, Mastercard, Amex or Discover via Square. Safe and instant.&lt;/p&gt;
-    <span class="comment">&lt;!-- REPLACE THIS ENTIRE DIV WITH YOUR SQUARE PAYMENT LINK WHEN READY --&gt;</span>
-    &lt;div style="background:#e5e7eb;color:#9ca3af;padding:11px;border-radius:6px;
-                font-size:14px;font-weight:700;"&gt;Square — Coming Soon&lt;/div&gt;
+  &lt;p style="font-size:14px;color:#4b5563;margin-bottom:20px;line-height:1.6;"&gt;
+    We'll email you a secure Square invoice. Pay online using any card or digital wallet —
+    encrypted and processed by Square. All amounts in USD.
+  &lt;/p&gt;
+  <span class="comment">&lt;!-- ACCEPTED CARDS ROW --&gt;</span>
+  &lt;div style="display:flex;gap:8px;justify-content:center;margin-bottom:20px;"&gt;
+    &lt;span style="background:#1A1F71;color:white;font-weight:900;font-style:italic;
+                 font-size:13px;padding:6px 12px;border-radius:4px;"&gt;VISA&lt;/span&gt;
+    &lt;span style="background:#1D1D1D;color:white;font-weight:700;font-size:13px;
+                 padding:6px 12px;border-radius:4px;"&gt;Mastercard&lt;/span&gt;
+    &lt;span style="background:#2E77BC;color:white;font-weight:700;font-size:13px;
+                 padding:6px 12px;border-radius:4px;"&gt;Amex&lt;/span&gt;
+    &lt;span style="background:#000;color:white;font-weight:700;font-size:13px;
+                 padding:6px 12px;border-radius:4px;"&gt;Apple Pay&lt;/span&gt;
+    &lt;span style="background:#4285F4;color:white;font-weight:700;font-size:13px;
+                 padding:6px 12px;border-radius:4px;"&gt;G Pay&lt;/span&gt;
   &lt;/div&gt;
-
-  <span class="comment">&lt;!-- EMAIL — live now, no changes needed --&gt;</span>
-  &lt;div style="background:white;border:2px solid #f0e8d8;border-radius:10px;
-              padding:28px 20px;text-align:center;"&gt;
-    &lt;div style="font-size:36px;margin-bottom:12px;"&gt;✉️&lt;/div&gt;
-    &lt;div style="font-size:17px;font-weight:800;color:#2c1a0e;margin-bottom:6px;"&gt;Email Us to Pay&lt;/div&gt;
-    &lt;span style="background:#d1fae5;color:#065f46;font-size:11px;font-weight:700;
-                 padding:3px 10px;border-radius:20px;display:inline-block;margin-bottom:14px;"&gt;Available Now&lt;/span&gt;
-    &lt;p style="font-size:13px;color:#6b7280;margin-bottom:16px;line-height:1.5;"&gt;
-      Contact us and we'll send you a secure payment link or walk you through it step by step.&lt;/p&gt;
-    &lt;a href="mailto:info@accessegypttravel.com?subject=Payment%20for%20Egypt%20Tour"
-       style="display:block;background:#2c1a0e;color:white;padding:11px 20px;
-              border-radius:6px;font-size:14px;font-weight:700;text-decoration:none;"&gt;
-      Email to Arrange Payment
-    &lt;/a&gt;
-  &lt;/div&gt;
-
+  <span class="comment">&lt;!-- REPLACE href WITH THE ACTUAL SQUARE INVOICE / PAYMENT LINK --&gt;</span>
+  &lt;a href="YOUR_SQUARE_PAYMENT_LINK"
+     style="display:block;background:#2c1a0e;color:white;padding:14px 20px;
+            border-radius:8px;font-size:15px;font-weight:800;text-decoration:none;"&gt;
+    Pay with Square →
+  &lt;/a&gt;
 &lt;/div&gt;</pre>
-
-          <div class="note"><strong>When PayPal is ready:</strong> Log in to PayPal Business → Tools → PayPal Buttons → create a "Pay Now" button → copy the embed code → replace the "Coming Soon" div in the PayPal card above with that code.</div>
-          <div class="note"><strong>When Square is ready:</strong> Log in to Square Dashboard → Online → Payment Links → create a link for "Egypt Tour Deposit" → you'll get a URL. Replace the "Coming Soon" div with: <code>&lt;a href="YOUR_SQUARE_LINK" style="display:block;background:#006aff;color:white;padding:11px;border-radius:6px;font-size:14px;font-weight:700;text-decoration:none;"&gt;Pay with Square →&lt;/a&gt;</code></div>
+          <div class="note"><strong>To get the Square link:</strong> Log in to Square Dashboard → Invoices → Create Invoice (for a deposit amount) → Share → copy the link. Or: Square Dashboard → Online → Payment Links → create a "Tour Deposit" link. Paste the URL into the <code>href</code> above. The card icons (Visa, Mastercard, etc.) can also use SVG files from the Square brand kit if available.</div>
+          <div class="warning"><strong>Deposit amount on the Square invoice:</strong> the invoice should be for 25% of the agreed tour price — create a new invoice per booking, not a fixed-price button. The payment page explains the deposit model; the actual invoice amount is set per customer.</div>
         </div>
       </div>
 
@@ -2115,7 +2105,7 @@ function aetToggleDate(mode) {
       <p style="font-size:13.5px;">The mockups (<code>pages-mockup.html</code>, <code>website-mockup.html</code>) had a large round of revisions after the original plan was written. The developer must reflect all of these. Source of truth = the mockups.</p>
       <table>
         <tr><th>Area</th><th>What changed (build to match)</th></tr>
-        <tr><td>Tour packages</td><td>Five duration-based packages: <strong>6, 7, 8, 9, 11 days</strong>. Corrected night allocations — 6D: Cairo 3 / Luxor 2 · 7D: Cairo 2 / Luxor 2 / Aswan 1 / final Cairo 1 · 8D: Cairo 3 / Aswan 1 / Cruise 3 · 9D: <strong>Cairo 3 (2+1) / Luxor 1 / Cruise 4</strong> (revised 2026-06-17 per final doc — was Cairo 4 / Cruise 3) · 11D: see red flag below</td></tr>
+        <tr><td>Tour packages</td><td>Five duration-based packages: <strong>6, 7, 8, 9, 12 days</strong>. Confirmed night allocations — 6D: Cairo 3 / Luxor 2 · 7D: Cairo 2 / Luxor 2 / Aswan 1 / final Cairo 1 · 8D: Cairo 3 / Aswan 1 / Cruise 3 (15 meals) · 9D: <strong>Cairo 3 / Luxor 1 / Cruise 4</strong> (18 meals — revised 2026-06-17, was Cairo 4 / Cruise 3) · 12D: <strong>Cairo 3 / Luxor 1 / Cruise 7</strong> (28 meals — <span style="color:#16a34a;font-weight:700;">✅ CONFIRMED from final doc June 18. Red flags cleared.</span>)</td></tr>
         <tr><td>Transport (all packages)</td><td>Every "Tour at a Glance" now has a <strong>Transport</strong> row with three lines: <code>Domestic flights: Included</code> / <code>Airport/Hotel Transport: Included</code> / <code>Tour Transport: Included</code></td></tr>
         <tr><td>Prices (from / pp)</td><td>6D <strong>$1,950</strong> · 7D <strong>$2,350</strong> · 8D <strong>$2,950</strong> · 9D <strong>$3,250</strong> · 11D <strong>$3,950</strong>. Must be identical in the hero, "Tour at a Glance," and the pricing table on each page</td></tr>
         <tr><td>Overview copy</td><td>Each tour overview now opens with the SEO hook: <em>"Explore the Best of Egypt on a [N] Days Egypt Tour Package…"</em></td></tr>
@@ -2128,12 +2118,39 @@ function aetToggleDate(mode) {
         <tr><td>Authoring template</td><td><code>Tour-Package-TEMPLATE.docx</code> defines the standard package structure for the content team (not a web asset)</td></tr>
       </table>
 
-      <div class="danger">
-        <strong>⚠️ Unresolved items still flagged red in the mockup — confirm before publishing:</strong>
+      <h3 style="margin:22px 0 8px;font-size:15px;color:#1a1a2e;">🆕 June 20 — Payment &amp; Contact Updates (confirmed in mockup)</h3>
+      <table>
+        <tr><th>Area</th><th>What changed</th><th>Action for developer</th></tr>
+        <tr><td><strong>Payment processor</strong></td><td><strong>Square is now LIVE.</strong> PayPal has been removed from the design entirely. The mockup payment page is labeled: <em>"Square payment is live. Secured by Square."</em> Accepted: Visa / Mastercard / Amex / Apple Pay / Google Pay. All USD.</td><td>Build Section 13 (Payment page) with Square-only card. <strong>Do not add a PayPal card.</strong> Owner will provide the Square invoice link to paste in. See updated Task B in Section 13.</td></tr>
+        <tr><td><strong>Deposit &amp; balance policy</strong></td><td>Balance due date is <strong>65 days before arrival</strong> (not vague "before departure"). The mockup payment page and FAQs both state this clearly.</td><td>Use "65 days before arrival" in: the Payment page deposit box, the Payment &amp; Cancellation table on every tour page, and any FAQ answer that references the balance due date.</td></tr>
+        <tr><td><strong>Contact info</strong></td><td>All three contact details are confirmed and locked in the mockup: US <code>+1 772 782 0494</code> · WhatsApp <code>+20 12 014-0578</code> · <code>info@accessegypttravel.com</code>. The top bar in the mockup shows all three on one line.</td><td>Fix all 4 locations (Task 2 in Section 1): header top bar, homepage pre-footer CTA, footer, Contact page. Match the mockup top-bar format exactly: <code>🇺🇸 +1 772 782 0494 | 💬 WhatsApp | ✉️ info@accessegypttravel.com</code></td></tr>
+        <tr><td><strong>Nav — 12-day package</strong></td><td>The nav Tours dropdown in the mockup now correctly shows <strong>"12 Days / 11 Nights — The Ultimate Egyptian Odyssey"</strong> (replacing the old "11-day" entry).</td><td>Update the WordPress Menus Tours dropdown: change the label and the link for the longest package to match the 12-day title and correct URL.</td></tr>
+      </table>
+
+      <h3 style="margin:22px 0 8px;font-size:15px;color:#1a1a2e;">🆕 June 18 Owner Corrections — Apply to all packages before publish</h3>
+      <p style="font-size:13.5px;">These are direct corrections from the owner (John Gamil) after his review of the mockup pages. Every item below is a <strong>must-fix</strong> before any tour page goes live.</p>
+      <table>
+        <tr><th>Applies to</th><th>Change</th><th>Spec</th></tr>
+        <tr><td><strong>All 5 packages</strong></td><td>Rename "Transport" → <strong>"Transportation"</strong> in Tour at a Glance</td><td>Better terminology for American visitors. Find every "Transport" label in the glance table and replace it with "Transportation." The three sub-lines stay the same: Domestic flights / Airport&amp;Hotel Transport / Tour Transport.</td></tr>
+        <tr><td><strong>All 5 packages</strong></td><td>Guide row: add language note</td><td>Must read: <code>Licensed Egyptologist (English — other languages on request)</code>. The "other languages on request" is new and must appear on every package.</td></tr>
+        <tr><td><strong>All 5 packages</strong></td><td>Day-by-day: add "Overnight in [city]" at end of each day</td><td>After every day's description, append a closing line: <strong>Overnight in Cairo</strong> / <strong>Overnight in Luxor</strong> / <strong>Overnight in Aswan</strong> / <strong>Overnight in Edfu</strong> as appropriate. Adds clarity for first-time travelers. See the confirmed 12-day doc for the format — it already has this applied throughout.</td></tr>
+        <tr><td><strong>All 5 packages</strong></td><td>Day-by-day: site names in <span style="color:#2563eb;font-weight:700;">blue</span></td><td>Within the day-by-day prose, site and monument names (Karnak, Valley of the Kings, Philae Temple, etc.) should be styled in blue. Use the existing <code>&lt;span class="ae-site" data-site="..."&gt;</code> pop-up wrapper where applicable, or at minimum apply a CSS class (<code>.site-name { color: #2563eb; font-weight: 600; }</code>) to the named sites to distinguish them visually.</td></tr>
+        <tr><td><strong>All 5 packages</strong></td><td>Highlights: numbered circle color — try an alternative</td><td>Owner flagged the terracotta red circles (#b5451b) as "doesn't look very nice." Try a <strong>richer gold (#c9963c)</strong> or <strong>deep teal (#0d6e6e)</strong> on the numbered timeline circles. Owner to give final approval on color. Only change the <code>background</code> value on <code>.hl-num</code> in the HTML snippet.</td></tr>
+        <tr><td><strong>Cruise packages</strong> (8D, 9D, 12D)</td><td>Add "Beverages" to Not-Included list</td><td>Cruise packages must include this line in the Not-Included block: <code>Beverages (bottled water provided only during excursions)</code>. The 12-day final doc already has this. Apply to 8-day and 9-day as well.</td></tr>
+        <tr><td><strong>8 Days / 7 Nights</strong></td><td>Day 5: add Abu Simbel add-on note</td><td>At the end of Day 5 (the free relaxing day on the cruise in Aswan), add: <em>"Optional excursion to visit Abu Simbel Temples; the colossal temples of Ramesses II carved into a cliff face — one of Egypt's most extraordinary sights."</em> Owner says this is critical — some guests won't book if they think Abu Simbel isn't available.</td></tr>
+        <tr><td><strong>9 Days / 8 Nights</strong></td><td>Introduction: replace with new version</td><td>Owner sent a revised introduction for the 9-day (the most popular package). The mockup still shows the old version. Use the text from the final 9-day doc dated 2026-06-15 as the authoritative version — do not paraphrase.</td></tr>
+        <tr><td><strong>9 Days / 8 Nights</strong></td><td>Day 4 heading correction</td><td>Day 4 must read: <strong>"Luxor — East Bank Tour"</strong> as the city line, then on the next line: <strong>"Karnak and Luxor Temples — Nile Cruise Boarding"</strong>. This matches the verified day-by-day structure in the final doc where the cruise boards on Day 4 (Cairo 3 / Luxor 1 / Cruise 4).</td></tr>
+        <tr><td><strong>7 Days / 6 Nights</strong></td><td>Optional Add-Ons: swap one item</td><td><strong>Remove:</strong> "Pickup from Hurghada" (this is a logistics item, not an add-on experience).<br><strong>Add:</strong> "Sound &amp; Light show at the Pyramids" — keep the fixed add-on order: Dinner cruise Cairo → Sound &amp; Light Pyramids → Hot air balloon Luxor → Sound &amp; Light Karnak.</td></tr>
+        <tr><td><strong>7 Days / 6 Nights</strong></td><td>Introduction: replace with new version</td><td>Owner sent a revised introduction for the 7-day. The mockup still shows the old version. Use the text from the final 7-day doc dated 2026-06-14 as the authoritative version.</td></tr>
+      </table>
+
+      <div class="note">
+        <strong>✅ Status update (June 18, 2026) — previous red flags resolved:</strong>
         <ul style="margin:8px 0 0 18px;line-height:1.9;">
-          <li><strong>11-day itinerary &amp; cruise nights</strong> — source was incomplete/contradictory; day-by-day and cruise length still need the team's confirmation. (6/8/9-day are now finalized from the dated docs.)</li>
-          <li><strong>9-day cruise boarding</strong> — built per final doc as Cairo 3 / Luxor 1 / Cruise 4, boarding the cruise on Day 4. Confirm the cruise operator can board Day 4. (Flight route Cairo → Luxor and Aswan → Cairo is now confirmed by the doc.)</li>
-          <li><strong>Meal totals</strong> — now standardized with a count: 6D = 10 · 8D = 15 · 9D = 18. Team to verify the counts against final night math; 7D/11D still to confirm.</li>
+          <li><strong style="color:#16a34a;">✅ 12-day itinerary CONFIRMED</strong> — final doc received and reviewed June 18. Night split: Cairo 3 / Luxor 1 / Cruise 7 = 11 nights. Meals: 28 total. Price: $3,950. "Ultimate Egyptian Odyssey: Grand Egypt &amp; The Legends on The Nile." No red flags remain on this package.</li>
+          <li><strong style="color:#16a34a;">✅ 9-day cruise boarding CONFIRMED</strong> — Cairo 3 / Luxor 1 / Cruise 4. Cruise boards Day 4. Flight route Cairo → Luxor and Aswan → Cairo. Closed.</li>
+          <li><strong style="color:#16a34a;">✅ Meal totals CONFIRMED</strong> — 6D = 10 meals · 8D = 15 meals · 9D = 18 meals · 12D = 28 meals. <strong style="color:#ca8a04;">7D meal total still needs confirmation</strong> — verify against the final 7-day doc.</li>
+          <li><strong style="color:#ca8a04;">⚠️ Still open: June 18 owner corrections</strong> — see the table above. Transportation label, guide language note, overnight lines, blue site names, highlight circle color, beverages exclusion, 8D Abu Simbel note, 9D/7D introductions. These must be applied before publishing.</li>
         </ul>
       </div>
 
@@ -2186,7 +2203,7 @@ function aetToggleDate(mode) {
       <h3 style="margin:22px 0 8px;font-size:15px;color:#1a1a2e;">Per-file build sheet</h3>
       <table>
         <tr><th>Mockup file</th><th>What it is</th><th>Build in WordPress (Free)</th></tr>
-        <tr><td><code>pages-mockup.html</code></td><td>The 5 tour pages (6/7/8/9/11-day)</td><td>One Elementor page per tour (or a reusable template duplicated). Standard widgets; tables via Icon List/HTML; sub-nav via anchor links + custom sticky CSS</td></tr>
+        <tr><td><code>pages-mockup.html</code></td><td>The 5 tour pages (6/7/8/9/12-day)</td><td>One Elementor page per tour (or a reusable template duplicated). Standard widgets; tables via Icon List/HTML; sub-nav via anchor links + custom sticky CSS</td></tr>
         <tr><td><code>website-mockup.html</code></td><td>Homepage design</td><td>Elementor homepage; header/footer/menus from the theme</td></tr>
         <tr><td><code>destinations.html</code></td><td>Destinations hub (card grid)</td><td>Elementor page with an image-box grid. To auto-list, add a "Destination" CPT (CPT UI) + a free Post Grid add-on</td></tr>
         <tr><td><code>kom-ombo.html</code>, <code>abu-simbel.html</code>, <code>cairo.html</code></td><td>Individual destination pages</td><td>Best as a <strong>Destination CPT</strong>; build one Elementor layout and reuse. Gallery = Image Gallery widget. (CPT single template needs Pro Theme Builder OR a free template plugin like "Elementor Custom Skin" — otherwise build each page individually)</td></tr>
@@ -2277,7 +2294,7 @@ document.addEventListener('click', function(e){
           <li>عدد الصفحات: 5 (6 / 7 / 8 / 9 / 11 يوم). المصدر الرسمي للتصميم والمحتوى هو <code>pages-mockup.html</code>.</li>
           <li>ابنِ صفحة واحدة كقالب (Saved Template) وكرّرها للباقي، وغيّر المحتوى فقط.</li>
           <li>Elementor المجاني لا يحتوي على: Theme Builder، جدول، Custom CSS لكل عنصر، Sticky — البدائل موضّحة بالأسفل.</li>
-          <li>العناصر الحمراء في النموذج (مسار رحلة 11 يوم، طيران 9 أيام، صيغة الوجبات) لازم تتأكد منها قبل النشر.</li>
+          <li>الباقة الخامسة الآن مؤكدة: <strong>12 يوم / 11 ليلة</strong> — القاهرة 3 / الأقصر 1 / كروز 7 = 28 وجبة. لا توجد تحذيرات حمراء معلقة على هذه الباقة. راجع جدول التصحيحات (18 يونيو) للتفاصيل.</li>
         </ul>
       </div>
 
@@ -2289,14 +2306,14 @@ document.addEventListener('click', function(e){
       </table>
       <p><strong>Blocks the live tour pages are still missing</strong> (add these whichever path you choose): the <strong>Tour at a Glance</strong> table, <strong>Accommodation</strong> tiers, the <strong>pricing / discount</strong> table, <strong>Payment &amp; Cancellation</strong> policy, a <strong>Reviews</strong> block, the <strong>breadcrumb</strong> (<a href="#s18b">18B</a>), and the <strong>sticky sub-nav</strong>. Source of truth for copy/layout is <code>pages-mockup.html</code>. <strong>Reconcile prices/titles with the live catalog first</strong> — the live cards show different prices than the mockup (see audit bug #9). Key data:</p>
       <table>
-        <tr><th>Package</th><th>Nights</th><th>Price from</th><th>Meals</th></tr>
-        <tr><td>6 Days / 5 Nights — Cairo &amp; Luxor</td><td>Cairo 3 / Luxor 2</td><td>$1,950</td><td>B&amp;L daily</td></tr>
-        <tr><td>7 Days / 6 Nights — Cairo, Luxor &amp; Aswan</td><td>Cairo 2 / Luxor 2 / Aswan 1 / Cairo 1</td><td>$2,350</td><td>B&amp;L daily (10 meals)*</td></tr>
-        <tr><td>8 Days / 7 Nights — Cairo, Aswan &amp; Cruise</td><td>Cairo 3 / Aswan 1 / Cruise 3</td><td>$2,950</td><td>Land B&amp;L + cruise all meals</td></tr>
-        <tr><td>9 Days / 8 Nights — Pyramids, Luxor &amp; Cruise</td><td>Cairo 4 (3+1) / Luxor 1 / Cruise 3</td><td>$3,250</td><td>Land B&amp;L + cruise all meals</td></tr>
-        <tr><td>11 Days / 10 Nights — Ultimate Odyssey</td><td><strong>confirm (red flag)</strong></td><td>$3,950</td><td>Land B&amp;L + cruise all meals</td></tr>
+        <tr><th>Package</th><th>Night Split</th><th>Price from</th><th>Meals</th><th>Status</th></tr>
+        <tr><td>6 Days / 5 Nights — Cairo &amp; Luxor</td><td>Cairo 3 / Luxor 2</td><td>$1,950</td><td>B&amp;L daily (10 meals)</td><td><span style="color:#16a34a;font-weight:700;">✅ Confirmed</span></td></tr>
+        <tr><td>7 Days / 6 Nights — Cairo, Luxor &amp; Aswan</td><td>Cairo 2 / Luxor 2 / Aswan 1 / final Cairo 1</td><td>$2,350</td><td>B&amp;L daily (<span style="color:#ca8a04;">meal count TBD</span>)</td><td><span style="color:#ca8a04;font-weight:700;">⚠️ Intro text + Add-Ons need update (June 18)</span></td></tr>
+        <tr><td>8 Days / 7 Nights — Cairo, Aswan &amp; Nile Cruise</td><td>Cairo 3 / Aswan 1 / Cruise 3</td><td>$2,950</td><td>Land B&amp;L + cruise open buffet (15 meals)</td><td><span style="color:#ca8a04;font-weight:700;">⚠️ Add Day 5 Abu Simbel note + Beverages exclusion</span></td></tr>
+        <tr><td>9 Days / 8 Nights — Pyramids, Luxor &amp; Nile Cruise <strong>(most popular)</strong></td><td><strong>Cairo 3 / Luxor 1 / Cruise 4</strong> — cruise boards Day 4</td><td>$3,250</td><td>Land B&amp;L + cruise open buffet (18 meals)</td><td><span style="color:#ca8a04;font-weight:700;">⚠️ Intro text + Day 4 heading need update (June 18)</span></td></tr>
+        <tr style="background:#f0fdf4;"><td><strong>12 Days / 11 Nights — The Ultimate Egyptian Odyssey</strong></td><td><strong>Cairo 3 / Luxor 1 / Cruise 7</strong> (2 Cairo hotel + 1 final Cairo airport hotel + 1 Luxor hotel + 7 cruise)</td><td>$3,950</td><td>Land B&amp;L + cruise open buffet all meals (28 meals)</td><td><span style="color:#16a34a;font-weight:700;">✅ Final doc confirmed June 18 — build from doc</span></td></tr>
       </table>
-      <p style="font-size:12.5px;color:#64748b;">* Meal-line wording isn't standardized across packages yet — see the red flag in Section 16. Pick one format before publishing.</p>
+      <p style="font-size:12.5px;color:#64748b;">Meal totals confirmed for 6D, 8D, 9D, 12D. 7D total still to verify. All "Transport" labels in glance tables must be changed to "Transportation" per June 18 owner correction — see Section 16 corrections table above.</p>
 
       <h3 style="margin:20px 0 8px;font-size:15px;color:#1a1a2e;">Page anatomy — top to bottom (with the widget for each)</h3>
       <div class="note">The "Elementor Free build" column below is the <em>fallback</em> path. With <strong>Pro active</strong> (per the <a href="#audit">audit</a>) you have the Table, Form, and sticky/Motion-effect widgets natively — no need for the HTML-table or Customizer-CSS workarounds once the version mismatch is fixed. If you take Path A (extend BABE), most of these blocks are added inside the BABE item rather than as standalone Elementor widgets.</div>
@@ -2307,7 +2324,7 @@ document.addEventListener('click', function(e){
         <tr><td>3</td><td><strong>Sticky sub-nav</strong> (Overview · Highlights · Itinerary · Accommodation · Inclusions)</td><td>Anchor links (Menu Anchor widget per section) + sticky via Customizer CSS (snippet below — Free has no sticky)</td></tr>
         <tr><td>4</td><td><strong>Overview</strong> — opens "Explore the Best of Egypt on a [N] Days Egypt Tour Package…"</td><td>Text Editor widget</td></tr>
         <tr><td>5</td><td><strong>Tour at a Glance</strong> — Duration, Type, Guide, Pickup, Destinations (nights), Transport, Visa, Meals, Price</td><td>Free has no Table widget → use an <strong>HTML widget</strong> with a small table, or an Icon List of label: value rows</td></tr>
-        <tr><td>6</td><td><strong>Highlights</strong> — approved names, <strong>orange bullet</strong> (no emoji)</td><td>Icon List (set icon to a bullet/dot, color #b5451b) in 2 columns</td></tr>
+        <tr><td>6</td><td><strong>Highlights</strong> — approved names, <strong>numbered vertical timeline</strong> (no emoji). Circle color TBD per June 18 correction — try gold #c9963c or teal #0d6e6e, owner to approve</td><td>Custom HTML widget — use the <code>.hl-timeline</code> snippet in Section 16. Change <code>.hl-num { background: #b5451b }</code> to the agreed color once owner confirms.</td></tr>
         <tr><td>7</td><td><strong>Optional Add-Ons</strong></td><td>Icon List</td></tr>
         <tr><td>8</td><td><strong>Day-by-Day Itinerary</strong> — each day ends "Overnight in […]"</td><td>Accordion/Toggle widget (one item per day), or stacked Icon Box / Text blocks</td></tr>
         <tr><td>9</td><td><strong>Accommodation</strong> — Standard + Premium tiers, nights per city</td><td>Two Inner Sections (columns) with Icon Box / Text</td></tr>
@@ -2333,7 +2350,7 @@ document.addEventListener('click', function(e){
       <div class="step"><div class="step-num">2</div><div>For each of the other four pages: <strong>Add New</strong> page → set <strong>Parent = Tours</strong> → Edit with Elementor → grey <strong>folder icon (Add Template)</strong> → <strong>My Templates</strong> → insert <code>Tour Page Base</code> → change only the content.</div></div>
       <div class="path"><span class="highlight">Appearance</span> <span class="arrow">→</span> <span class="highlight">Menus</span> <span class="arrow">→</span> add all 5 pages under the <strong>Tours ▾</strong> dropdown</div>
       <div class="step"><div class="step-num">3</div><div>Setting Parent = Tours also makes the breadcrumb read <code>Home › Tours › …</code> automatically (see <a href="#s18b">18B</a>) and nests the URL as <code>/tours/6-day-cairo-luxor/</code>.</div></div>
-      <div class="step"><div class="step-num">4</div><div>Resolve the three red flags (11-day itinerary, 9-day flight route, meal format) before publishing — see Section 16.</div></div>
+      <div class="step"><div class="step-num">4</div><div>Apply all <strong>June 18 owner corrections</strong> from the Section 16 table before publishing — Transportation label, guide language note, overnight lines, blue site names, highlight circle color, beverages exclusion, 8D Abu Simbel note, 9D/7D introduction updates, 7D add-ons swap. The 12-day itinerary and 9-day night split are now confirmed (no red flags). Only the 7-day meal total still needs verification.</div></div>
 
     </div>
   </div>
