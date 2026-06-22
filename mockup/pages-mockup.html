@@ -395,6 +395,10 @@
 
   /* ── TOUR MAP ── */
   .tour-map-section { margin: 0 0 24px; }
+  .map-ab-toggle { display: flex; gap: 8px; margin-bottom: 12px; }
+  .map-btn { padding: 7px 20px; border: 2px solid #d4af6a; border-radius: 20px; background: #fff; color: #2c1a0e; font-size: 13px; font-weight: 700; cursor: pointer; transition: all 0.15s; }
+  .map-btn:hover { background: #f5f0e8; }
+  .map-btn-active { background: #2c1a0e; color: #d4af6a; border-color: #2c1a0e; }
   .route-pills { display: flex; align-items: center; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; }
   .route-pill { background: #2c1a0e; color: #d4af6a; padding: 6px 16px; border-radius: 20px; font-size: 13px; font-weight: 700; }
   .route-arrow { color: #b5451b; font-size: 18px; font-weight: 900; }
@@ -570,8 +574,19 @@
 
       <h3>Your Route</h3>
       <div class="tour-map-section">
-        <img src="images/Access-Egypt-Travel-guide-map_v3.png" alt="Egypt Tour Route Map — Cairo to Luxor" class="tour-map-img">
+        <div class="map-ab-toggle">
+          <button class="map-btn map-btn-active" onclick="switchMap('v3', this)">Map A (v3)</button>
+          <button class="map-btn" onclick="switchMap('v4', this)">Map B (v4)</button>
+        </div>
+        <img id="map-ab-img" src="images/Access-Egypt-Travel-guide-map_v3.png" alt="Egypt Tour Route Map — Cairo to Luxor" class="tour-map-img">
       </div>
+      <script>
+        function switchMap(version, btn) {
+          document.getElementById('map-ab-img').src = 'images/Access-Egypt-Travel-guide-map_' + version + '.png';
+          document.querySelectorAll('.map-btn').forEach(function(b) { b.classList.remove('map-btn-active'); });
+          btn.classList.add('map-btn-active');
+        }
+      </script>
     </div>
 
     <!-- ═══════════════════════════════════ -->
