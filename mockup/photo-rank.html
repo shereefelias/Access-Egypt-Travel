@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Access Egypt Travel — Hero Photo Review</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #f7f3ec; color: #2c1a0e; }
+  header { background: #fff; border-bottom: 1px solid #e7dcca; padding: 22px 28px; position: sticky; top: 0; z-index: 10; box-shadow: 0 2px 14px rgba(44,26,14,0.07); }
+  .header-inner { max-width: 1280px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+  .brand { display: flex; align-items: center; gap: 14px; min-width: 0; }
+  .brand img { width: 58px; height: auto; flex-shrink: 0; }
+  h1 { font-size: 22px; line-height: 1.2; color: #2c4a2e; }
+  .subtitle { margin-top: 4px; color: #746758; font-size: 13px; line-height: 1.45; }
+  .header-actions { display: flex; gap: 10px; flex-wrap: wrap; justify-content: flex-end; }
+  button, .link-btn { border: 0; border-radius: 6px; background: #b5451b; color: #fff; cursor: pointer; font-weight: 700; font-size: 13px; padding: 10px 14px; text-decoration: none; }
+  button.secondary, .link-btn.secondary { background: #2c1a0e; }
+  button.ghost { background: #fff; color: #2c1a0e; border: 1px solid #d9cbb8; }
+  main { max-width: 1280px; margin: 0 auto; padding: 28px; }
+  .toolbar { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-bottom: 18px; flex-wrap: wrap; }
+  .filters { display: flex; gap: 8px; flex-wrap: wrap; }
+  .filter { background: #fff; color: #2c1a0e; border: 1px solid #d9cbb8; }
+  .filter.active { background: #2c4a2e; color: #fff; border-color: #2c4a2e; }
+  .counter { color: #746758; font-size: 13px; font-weight: 700; }
+  .panel { background: #fff; border: 1px solid #eadfce; border-radius: 8px; padding: 18px; margin-bottom: 24px; }
+  .panel h2 { font-size: 18px; color: #2c1a0e; margin-bottom: 6px; }
+  .panel p { color: #746758; font-size: 13.5px; line-height: 1.55; max-width: 920px; }
+  .summary { margin-top: 14px; display: grid; grid-template-columns: 1fr 260px; gap: 14px; align-items: start; }
+  textarea { width: 100%; min-height: 130px; resize: vertical; border: 1px solid #d9cbb8; border-radius: 6px; padding: 12px; color: #3c2b1d; font-size: 12.5px; line-height: 1.5; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+  .photo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
+  .photo-card { background: #fff; border: 1px solid #eadfce; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 10px rgba(44,26,14,0.06); display: flex; flex-direction: column; }
+  .photo-card.selected { border-color: #2c4a2e; box-shadow: 0 0 0 2px rgba(44,74,46,0.16), 0 6px 18px rgba(44,26,14,0.08); }
+  .photo-card.current { border-color: #d4af6a; }
+  .photo-media { position: relative; aspect-ratio: 16 / 10; background: #dfd2c0; overflow: hidden; }
+  .photo-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .rank-badge { position: absolute; top: 10px; left: 10px; background: rgba(44,26,14,0.88); color: #fff; border-radius: 20px; padding: 5px 10px; font-size: 12px; font-weight: 800; }
+  .status-badge { position: absolute; top: 10px; right: 10px; background: #d4af6a; color: #2c1a0e; border-radius: 20px; padding: 5px 10px; font-size: 11px; font-weight: 800; }
+  .photo-body { padding: 14px; display: grid; gap: 10px; flex: 1; }
+  .photo-title { font-size: 14px; font-weight: 800; line-height: 1.35; }
+  .photo-note { font-size: 12.5px; line-height: 1.45; color: #6f6255; min-height: 36px; }
+  .photo-meta { color: #8a7a68; font-size: 11.5px; word-break: break-word; line-height: 1.4; }
+  .controls { display: grid; grid-template-columns: 1fr auto; gap: 10px; align-items: center; }
+  .select-control { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; }
+  input[type="checkbox"] { width: 18px; height: 18px; accent-color: #2c4a2e; }
+  select { border: 1px solid #d9cbb8; border-radius: 5px; padding: 7px 8px; color: #2c1a0e; background: #fff; font-weight: 700; }
+  .notes { width: 100%; border: 1px solid #d9cbb8; border-radius: 6px; padding: 9px; font-size: 12.5px; min-height: 38px; resize: vertical; }
+  .hide { display: none; }
+  @media (max-width: 760px) {
+    header { position: static; padding: 18px; }
+    .header-inner, .summary { grid-template-columns: 1fr; flex-direction: column; align-items: flex-start; }
+    main { padding: 18px; }
+    .photo-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <div class="brand">
+      <img src="icons/Logo_Green_3.png" alt="Access Egypt Travel">
+      <div>
+        <h1>Hero Photo Review</h1>
+        <p class="subtitle">Current homepage carousel order plus all local candidate photos from the pics folder.</p>
+      </div>
+    </div>
+    <div class="header-actions">
+      <a class="link-btn secondary" href="website-mockup.html">Open Website Mockup</a>
+      <button class="ghost" id="resetBtn" type="button">Reset Selection</button>
+      <button id="copyBtn" type="button">Copy Selected List</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="panel">
+    <h2>Selection Notes</h2>
+    <p>The first 10 photos are the current homepage carousel order. Reviewers can keep those, remove any weak ones, add alternates, score each image, and write notes. Choices are saved in this browser only, so the copied list is the handoff record.</p>
+    <div class="summary">
+      <textarea id="selectedOutput" readonly></textarea>
+      <div>
+        <p><strong>Current target:</strong> 10 hero images</p>
+        <p><strong>Recommended filter:</strong> start with Current Order, then check Alternates for better variety.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="toolbar">
+    <div class="filters">
+      <button class="filter active" type="button" data-filter="all">All Photos</button>
+      <button class="filter" type="button" data-filter="current">Current Order</button>
+      <button class="filter" type="button" data-filter="selected">Selected</button>
+      <button class="filter" type="button" data-filter="alternates">Alternates</button>
+    </div>
+    <div class="counter" id="counter"></div>
+  </div>
+
+  <section class="photo-grid" id="photoGrid"></section>
+</main>
+
+<script>
+  const currentOrder = [
+    "pics/WhatsApp Image 2026-06-22 at 19.35.57 (2).jpeg",
+    "pics/WhatsApp Image 2026-06-22 at 19.35.57 (5).jpeg",
+    "pics/WhatsApp Image 2026-06-22 at 19.35.58 (1).jpeg",
+    "pics/WhatsApp Image 2026-06-22 at 19.35.58 (12).jpeg",
+    "pics/WhatsApp Image 2026-06-22 at 19.35.59 (1).jpeg",
+    "pics/WhatsApp Image 2026-06-22 at 19.35.59 (13).jpeg",
+    "pics/WhatsApp Image 2026-06-22 at 19.35.59 (18).jpeg",
+    "pics/WhatsApp Image 2026-06-22 at 19.36.00 (11).jpeg",
+    "pics/WhatsApp Image 2026-06-22 at 19.36.00 (8).jpeg",
+    "pics/WhatsApp Image 2026-06-22 at 19.38.02.jpeg"
+  ];
+
+  const recommendedNotes = {
+    "pics/WhatsApp Image 2026-06-22 at 19.35.57 (2).jpeg": "Current #1. Strong temple approach with sky behind the headline.",
+    "pics/WhatsApp Image 2026-06-22 at 19.35.57 (5).jpeg": "Current #2. Nile-side temple scene adds water and Aswan/Luxor variety.",
+    "pics/WhatsApp Image 2026-06-22 at 19.35.58 (1).jpeg": "Current #3. Hot-air balloons give an immediate travel moment.",
+    "pics/WhatsApp Image 2026-06-22 at 19.35.58 (12).jpeg": "Current #4. Bright tomb interior, best used between outdoor scenes.",
+    "pics/WhatsApp Image 2026-06-22 at 19.35.59 (1).jpeg": "Current #5. Abu Simbel is instantly recognizable and dramatic.",
+    "pics/WhatsApp Image 2026-06-22 at 19.35.59 (13).jpeg": "Current #6. Luxor Temple at dusk gives a premium evening feel.",
+    "pics/WhatsApp Image 2026-06-22 at 19.35.59 (18).jpeg": "Current #7. Feluccas on the Nile soften the carousel rhythm.",
+    "pics/WhatsApp Image 2026-06-22 at 19.36.00 (11).jpeg": "Current #8. Real traveler photo, useful for trust and authenticity.",
+    "pics/WhatsApp Image 2026-06-22 at 19.36.00 (8).jpeg": "Current #9. Strong Philae/Kiosk-style image with clean composition.",
+    "pics/WhatsApp Image 2026-06-22 at 19.38.02.jpeg": "Current #10. Nile cruise boat clearly supports package expectations."
+  };
+
+  const allPhotos = [
+    "pics/WhatsApp Image 2026-06-22 at 19.35.57 (1).jpeg",
+    "pics/WhatsApp Image 2026-06-22 at 19.35.57 (2).jpeg",
+    "pics/WhatsApp Image 2026-06-22 at 19.35.57 (3).jpeg",
+    "pics/WhatsApp Image 2026-06-22 at 19.35.57 (4).jpeg",
+    "pics/WhatsApp Image 2026-06-22 at 19.35.57 (5).jpeg",
+    "pics/WhatsApp Image 2026-06-22 at 19.35.57 (6).jpeg",
+    "pics/WhatsApp Image 2026-06-22 at 19.35.57 (7).jpeg",
+    "pics/WhatsApp Image 2026-06-22 at 19.35.57 (8).jpeg",
+    "pics/WhatsApp Image 2026-06-22 at 19.35.57.jpeg",
+    "pics/WhatsApp Image 2026-06-22 at 19.35.58 (1).jpeg",
+    "pics/WhatsApp Image 2026-06-22 at 19.35.58 (10).jpeg",
+    "pics/WhatsApp Image 2026-06-22 at 19.35.58 (11).jpeg",
+    "pics/WhatsApp Image 2026-06-22 at 19.35.58 (12).jpeg",
+    "pics/WhatsApp Image 2026-06-22 at 19.35.58 (2).jpeg",
+    "pics/WhatsApp Image 2026-06-22 at 19.35.58 (3).jpeg",
+    "pics/WhatsApp Image 2026-06-22 at 19.35.58 (4).jpeg",
+    "pics/WhatsApp Image 2026-06-22 at 19.35.58 (5).jpeg",
+    "pics/WhatsApp Image 2026-06-22 at 19.35.58 (6).jpeg",
+    "pics/WhatsApp Image 2026-06-22 at 19.35.58 (7).jpeg",
+    "pics/WhatsApp Image 2026-06-22 at 19.35.58 (8).jpeg",
+    "pics/WhatsApp Image 2026-06-22 at 19.35.58 (9).jpeg",
+    "pics/WhatsApp Image 2026-06-22 at 19.35.58.jpeg",
+    "pics/WhatsApp Image 2026-06-22 at 19.35.59 (1).jpeg",
+    "pics/WhatsApp Image 2026-06-22 at 19.35.59 (10).jpeg",
+    "pics/WhatsApp Image 2026-06-22 at 19.35.59 (11).jpeg",
+    "pics/WhatsApp Image 2026-06-22 at 19.35.59 (12).jpeg",
+    "pics/WhatsApp Image 2026-06-22 at 19.35.59 (13).jpeg",
+    "pics/WhatsApp Image 2026-06-22 at 19.35.59 (14).jpeg",
+    "pics/WhatsApp Image 2026-06-22 at 19.35.59 (15).jpeg",
+    "pics/WhatsApp Image 2026-06-22 at 19.35.59 (16).jpeg",
+    "pics/WhatsApp Image 2026-06-22 at 19.35.59 (17).jpeg",
+    "pics/WhatsApp Image 2026-06-22 at 19.35.59 (18).jpeg",
+    "pics/WhatsApp Image 2026-06-22 at 19.35.59 (2).jpeg",
+    "pics/WhatsApp Image 2026-06-22 at 19.35.59 (3).jpeg",
+    "pics/WhatsApp Image 2026-06-22 at 19.35.59 (4).jpeg",
+    "pics/WhatsApp Image 2026-06-22 at 19.35.59 (5).jpeg",
+    "pics/WhatsApp Image 2026-06-22 at 19.35.59 (6).jpeg",
+    "pics/WhatsApp Image 2026-06-22 at 19.35.59 (7).jpeg",
+    "pics/WhatsApp Image 2026-06-22 at 19.35.59 (8).jpeg",
+    "pics/WhatsApp Image 2026-06-22 at 19.35.59 (9).jpeg",
+    "pics/WhatsApp Image 2026-06-22 at 19.35.59.jpeg",
+    "pics/WhatsApp Image 2026-06-22 at 19.36.00 (1).jpeg",
+    "pics/WhatsApp Image 2026-06-22 at 19.36.00 (10).jpeg",
+    "pics/WhatsApp Image 2026-06-22 at 19.36.00 (11).jpeg",
+    "pics/WhatsApp Image 2026-06-22 at 19.36.00 (12).jpeg",
+    "pics/WhatsApp Image 2026-06-22 at 19.36.00 (13).jpeg",
+    "pics/WhatsApp Image 2026-06-22 at 19.36.00 (14).jpeg",
+    "pics/WhatsApp Image 2026-06-22 at 19.36.00 (15).jpeg",
+    "pics/WhatsApp Image 2026-06-22 at 19.36.00 (2).jpeg",
+    "pics/WhatsApp Image 2026-06-22 at 19.36.00 (3).jpeg",
+    "pics/WhatsApp Image 2026-06-22 at 19.36.00 (4).jpeg",
+    "pics/WhatsApp Image 2026-06-22 at 19.36.00 (5).jpeg",
+    "pics/WhatsApp Image 2026-06-22 at 19.36.00 (6).jpeg",
+    "pics/WhatsApp Image 2026-06-22 at 19.36.00 (7).jpeg",
+    "pics/WhatsApp Image 2026-06-22 at 19.36.00 (8).jpeg",
+    "pics/WhatsApp Image 2026-06-22 at 19.36.00 (9).jpeg",
+    "pics/WhatsApp Image 2026-06-22 at 19.36.00.jpeg",
+    "pics/WhatsApp Image 2026-06-22 at 19.36.05 (1).jpeg",
+    "pics/WhatsApp Image 2026-06-22 at 19.36.05.jpeg",
+    "pics/WhatsApp Image 2026-06-22 at 19.36.52.jpeg",
+    "pics/WhatsApp Image 2026-06-22 at 19.38.02.jpeg"
+  ];
+
+  const storageKey = "accessEgyptHeroPhotoReview";
+  function makeDefaultState() {
+    return Object.fromEntries(currentOrder.map((path, index) => [path, { selected: true, score: "5", note: "Current order #" + (index + 1) }]));
+  }
+
+  let state = JSON.parse(localStorage.getItem(storageKey) || "null") || makeDefaultState();
+  let activeFilter = "all";
+
+  const grid = document.getElementById("photoGrid");
+  const counter = document.getElementById("counter");
+  const selectedOutput = document.getElementById("selectedOutput");
+
+  function labelFor(path) {
+    return path.replace("pics/WhatsApp Image 2026-06-22 at ", "").replace(".jpeg", "");
+  }
+
+  function currentRank(path) {
+    const index = currentOrder.indexOf(path);
+    return index === -1 ? null : index + 1;
+  }
+
+  function sortForReview(paths) {
+    return [...paths].sort((a, b) => {
+      const rankA = currentRank(a) || 999;
+      const rankB = currentRank(b) || 999;
+      if (rankA !== rankB) return rankA - rankB;
+      return a.localeCompare(b);
+    });
+  }
+
+  function saveState() {
+    localStorage.setItem(storageKey, JSON.stringify(state));
+  }
+
+  function selectedPaths() {
+    return sortForReview(allPhotos).filter(path => state[path]?.selected);
+  }
+
+  function updateSummary() {
+    const selected = selectedPaths();
+    counter.textContent = selected.length + " selected / " + allPhotos.length + " total";
+    selectedOutput.value = selected.map((path, index) => {
+      const rank = currentRank(path);
+      const score = state[path]?.score || "-";
+      const note = state[path]?.note || "";
+      return `${index + 1}. ${path}${rank ? ` (current #${rank})` : ""} | score: ${score}${note ? ` | note: ${note}` : ""}`;
+    }).join("\n");
+  }
+
+  function shouldShow(path) {
+    if (activeFilter === "current") return currentOrder.includes(path);
+    if (activeFilter === "selected") return Boolean(state[path]?.selected);
+    if (activeFilter === "alternates") return !currentOrder.includes(path);
+    return true;
+  }
+
+  function render() {
+    grid.innerHTML = "";
+    sortForReview(allPhotos).filter(shouldShow).forEach(path => {
+      const rank = currentRank(path);
+      const selected = Boolean(state[path]?.selected);
+      const score = state[path]?.score || "";
+      const note = state[path]?.note || "";
+      const card = document.createElement("article");
+      card.className = "photo-card" + (selected ? " selected" : "") + (rank ? " current" : "");
+      card.innerHTML = `
+        <div class="photo-media">
+          <img src="../${path}" alt="Candidate hero photo ${labelFor(path)}" loading="lazy">
+          <div class="rank-badge">${rank ? `#${rank}` : "Alt"}</div>
+          ${rank ? '<div class="status-badge">Current</div>' : ""}
+        </div>
+        <div class="photo-body">
+          <div class="photo-title">${rank ? `Current Order #${rank}` : "Alternate Candidate"}</div>
+          <div class="photo-note">${recommendedNotes[path] || "Team review needed: check crop, headline readability, and whether it adds variety."}</div>
+          <div class="photo-meta">${path}</div>
+          <div class="controls">
+            <label class="select-control"><input type="checkbox" ${selected ? "checked" : ""}> Select</label>
+            <select aria-label="Score">
+              <option value="">Score</option>
+              <option value="5" ${score === "5" ? "selected" : ""}>5</option>
+              <option value="4" ${score === "4" ? "selected" : ""}>4</option>
+              <option value="3" ${score === "3" ? "selected" : ""}>3</option>
+              <option value="2" ${score === "2" ? "selected" : ""}>2</option>
+              <option value="1" ${score === "1" ? "selected" : ""}>1</option>
+            </select>
+          </div>
+          <textarea class="notes" placeholder="Team notes">${note}</textarea>
+        </div>
+      `;
+      card.querySelector("input").addEventListener("change", event => {
+        state[path] = { ...state[path], selected: event.target.checked };
+        saveState();
+        render();
+      });
+      card.querySelector("select").addEventListener("change", event => {
+        state[path] = { ...state[path], score: event.target.value };
+        saveState();
+        updateSummary();
+      });
+      card.querySelector(".notes").addEventListener("input", event => {
+        state[path] = { ...state[path], note: event.target.value };
+        saveState();
+        updateSummary();
+      });
+      grid.appendChild(card);
+    });
+    updateSummary();
+  }
+
+  document.querySelectorAll(".filter").forEach(button => {
+    button.addEventListener("click", () => {
+      activeFilter = button.dataset.filter;
+      document.querySelectorAll(".filter").forEach(item => item.classList.toggle("active", item === button));
+      render();
+    });
+  });
+
+  document.getElementById("resetBtn").addEventListener("click", () => {
+    state = makeDefaultState();
+    saveState();
+    render();
+  });
+
+  document.getElementById("copyBtn").addEventListener("click", async () => {
+    selectedOutput.select();
+    if (navigator.clipboard) {
+      await navigator.clipboard.writeText(selectedOutput.value);
+    } else {
+      document.execCommand("copy");
+    }
+  });
+
+  render();
+</script>
+</body>
+</html>
