@@ -41,10 +41,12 @@
   .dropdown-menu .note { padding: 6px 18px 10px; font-size: 11px; color: #9a8670; font-style: italic; }
 
   /* ── HERO ── */
-  .hero { position: relative; min-height: 580px; background: linear-gradient(to bottom, rgba(10,6,2,0.15) 0%, rgba(10,6,2,0.25) 50%, rgba(10,6,2,0.82) 100%), url('images/tour_background.jpg') center/cover no-repeat; display: flex; align-items: center; justify-content: center; overflow: hidden; }
-  .hero-bg { display: none; }
-  .hero-overlay { display: none; }
-  .hero-content { position: relative; text-align: center; color: white; padding: 20px; max-width: 750px; }
+  .hero { position: relative; min-height: 580px; background: #1a0f00; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .hero-bg { position: absolute; inset: 0; z-index: 0; }
+  .hero-slide { position: absolute; inset: 0; background-position: center; background-size: cover; background-repeat: no-repeat; opacity: 0; transform: scale(1.04); transition: opacity 1.2s ease, transform 6s ease; }
+  .hero-slide.active { opacity: 1; transform: scale(1); }
+  .hero-overlay { position: absolute; inset: 0; z-index: 1; background: linear-gradient(to bottom, rgba(10,6,2,0.18) 0%, rgba(10,6,2,0.32) 50%, rgba(10,6,2,0.86) 100%); }
+  .hero-content { position: relative; z-index: 2; text-align: center; color: white; padding: 20px; max-width: 750px; }
   .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.12); border: 1px solid rgba(212,175,106,0.4); color: #d4af6a; padding: 6px 16px; border-radius: 20px; font-size: 12px; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; margin-bottom: 20px; }
   .hero h1 { font-size: 52px; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; line-height: 1.1; margin-bottom: 16px; text-shadow: 0 2px 20px rgba(0,0,0,0.5); }
   .hero h1 span { color: #d4af6a; }
@@ -54,9 +56,9 @@
   .hero-btn-primary:hover { background: #943a17; }
   .hero-btn-secondary { background: rgba(255,255,255,0.1); border: 2px solid rgba(255,255,255,0.4); color: white; padding: 14px 32px; border-radius: 5px; font-weight: 700; text-decoration: none; font-size: 15px; transition: all 0.2s; }
   .hero-btn-secondary:hover { background: rgba(255,255,255,0.2); }
-  .hero-tripadvisor { position: absolute; bottom: 28px; right: 40px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; padding: 10px 16px; display: flex; align-items: center; gap: 10px; color: white; font-size: 12px; }
+  .hero-tripadvisor { position: absolute; z-index: 2; bottom: 28px; right: 40px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; padding: 10px 16px; display: flex; align-items: center; gap: 10px; color: white; font-size: 12px; }
   .ta-circle { width: 42px; height: 42px; background: #34e0a1; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 900; color: #000; }
-  .hero-pickup { position: absolute; bottom: 28px; left: 40px; background: rgba(0,0,0,0.4); border: 1px solid rgba(212,175,106,0.3); border-radius: 8px; padding: 10px 18px; color: #d4af6a; font-size: 12px; font-weight: 600; letter-spacing: 0.5px; }
+  .hero-pickup { position: absolute; z-index: 2; bottom: 28px; left: 40px; background: rgba(0,0,0,0.4); border: 1px solid rgba(212,175,106,0.3); border-radius: 8px; padding: 10px 18px; color: #d4af6a; font-size: 12px; font-weight: 600; letter-spacing: 0.5px; }
 
   /* ── TRUST STRIP ── */
   .trust-strip { background: #fdf8f2; border-bottom: 1px solid #f0e8d8; padding: 20px 40px; display: flex; align-items: center; justify-content: center; gap: 40px; flex-wrap: wrap; }
@@ -142,6 +144,31 @@
   .footer-logo .name { font-size: 16px; font-weight: 800; color: white; letter-spacing: 1px; text-transform: uppercase; }
   .footer-logo .sub { font-size: 10px; color: #666; letter-spacing: 1.5px; text-transform: uppercase; margin-top: 2px; }
   .footer-tagline { font-size: 13px; color: #888; margin-bottom: 16px; font-style: italic; line-height: 1.5; }
+  .mobile-break { display: none; }
+
+  @media (max-width: 700px) {
+    html,
+    body { max-width: 100%; overflow-x: hidden; }
+    .mockup-banner { padding: 9px 14px; line-height: 1.35; }
+    .top-bar { padding: 10px 16px; flex-direction: column; align-items: flex-start; gap: 10px; }
+    .top-bar-left { gap: 12px; flex-wrap: wrap; }
+    .top-bar-right .cta-btn { display: inline-flex; }
+    .header { height: auto; padding: 14px 16px; flex-direction: column; align-items: flex-start; gap: 12px; }
+    nav { width: 100%; overflow-x: auto; padding-bottom: 4px; }
+    nav a { flex-shrink: 0; }
+    .section-label { font-size: 11px; line-height: 1.35; }
+    .hero { min-height: 620px; align-items: flex-start; padding-top: 92px; }
+    .hero-content { width: 100%; max-width: 390px; padding: 0 20px; }
+    .hero-badge { max-width: 100%; justify-content: center; font-size: 10px; letter-spacing: 0.4px; line-height: 1.3; }
+    .hero h1 { font-size: 36px; line-height: 1.05; letter-spacing: 0; margin-bottom: 14px; }
+    .hero p { font-size: 15px; line-height: 1.5; margin-bottom: 24px; }
+    .mobile-break { display: inline; }
+    .hero-actions { flex-direction: column; align-items: stretch; max-width: 260px; margin: 0 auto; }
+    .hero-btn-primary,
+    .hero-btn-secondary { width: 100%; padding: 13px 20px; }
+    .hero-pickup { left: 20px; right: 20px; bottom: 88px; text-align: center; }
+    .hero-tripadvisor { left: 20px; right: 20px; bottom: 22px; justify-content: center; }
+  }
 
   /* ── ANNOTATIONS ── */
   .annotation { position: relative; }
@@ -218,11 +245,22 @@
 <!-- ═══════════════════════════════════════════ -->
 <div class="section-label">▼ HERO — TripAdvisor badge + pickup locations strip <span class="ann-tag ann-change">CHANGED</span></div>
 <div class="hero">
-  <div class="hero-bg"></div>
+  <div class="hero-bg" aria-hidden="true">
+    <div class="hero-slide active" style="background-image:url('../pics/WhatsApp%20Image%202026-06-22%20at%2019.35.57%20%282%29.jpeg');"></div>
+    <div class="hero-slide" style="background-image:url('../pics/WhatsApp%20Image%202026-06-22%20at%2019.35.57%20%285%29.jpeg');"></div>
+    <div class="hero-slide" style="background-image:url('../pics/WhatsApp%20Image%202026-06-22%20at%2019.35.58%20%281%29.jpeg');"></div>
+    <div class="hero-slide" style="background-image:url('../pics/WhatsApp%20Image%202026-06-22%20at%2019.35.58%20%2812%29.jpeg');"></div>
+    <div class="hero-slide" style="background-image:url('../pics/WhatsApp%20Image%202026-06-22%20at%2019.35.59%20%281%29.jpeg');"></div>
+    <div class="hero-slide" style="background-image:url('../pics/WhatsApp%20Image%202026-06-22%20at%2019.35.59%20%2813%29.jpeg');"></div>
+    <div class="hero-slide" style="background-image:url('../pics/WhatsApp%20Image%202026-06-22%20at%2019.35.59%20%2818%29.jpeg');"></div>
+    <div class="hero-slide" style="background-image:url('../pics/WhatsApp%20Image%202026-06-22%20at%2019.36.00%20%2811%29.jpeg');"></div>
+    <div class="hero-slide" style="background-image:url('../pics/WhatsApp%20Image%202026-06-22%20at%2019.36.00%20%288%29.jpeg');"></div>
+    <div class="hero-slide" style="background-image:url('../pics/WhatsApp%20Image%202026-06-22%20at%2019.38.02.jpeg');"></div>
+  </div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <div class="hero-badge">✦ Egyptologist-Guided Private Tours</div>
-    <h1>Handcrafted Private<br><span>Egypt Tours</span></h1>
+    <h1>Handcrafted<span class="mobile-break"><br></span> Private<br><span>Egypt Tours</span></h1>
     <p>Expert planning. Unmatched local knowledge. Pickup from Cairo, Hurghada & Luxor.</p>
     <div class="hero-actions">
       <a href="mailto:info@accessegypttravel.com" class="hero-btn-primary">Request a Quote →</a>
@@ -418,5 +456,17 @@
   </div>
 </footer>
 
+<script>
+  const heroSlides = document.querySelectorAll('.hero-slide');
+  let activeHeroSlide = 0;
+
+  if (heroSlides.length > 1) {
+    window.setInterval(() => {
+      heroSlides[activeHeroSlide].classList.remove('active');
+      activeHeroSlide = (activeHeroSlide + 1) % heroSlides.length;
+      heroSlides[activeHeroSlide].classList.add('active');
+    }, 5000);
+  }
+</script>
 </body>
 </html>
