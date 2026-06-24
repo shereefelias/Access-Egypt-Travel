@@ -115,6 +115,18 @@
   .strip-btn.secondary { border: 2px solid #2c1a0e; color: #2c1a0e; }
   .hashtag { margin-top: 14px; color: #26a97a; font-weight: 700; font-size: 13px; }
 
+  /* ── TRAVELER STORIES CAROUSEL (auto-rotating) ── */
+  .stories-carousel { overflow: hidden; max-width: 1180px; margin: 0 auto 24px; -webkit-mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent); mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent); }
+  .stories-track { display: flex; gap: 14px; width: max-content; animation: storiesScroll 50s linear infinite; }
+  .stories-carousel:hover .stories-track { animation-play-state: paused; }
+  .story-slide { position: relative; flex: 0 0 auto; width: 300px; height: 200px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 12px rgba(44,26,14,0.12); text-decoration: none; }
+  .story-slide img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; }
+  .story-slide:hover img { transform: scale(1.06); }
+  .story-slide .cap { position: absolute; inset: auto 0 0 0; padding: 22px 12px 9px; background: linear-gradient(to top, rgba(20,12,4,0.82), transparent); color: #fff; font-size: 12px; font-weight: 700; letter-spacing: 0.2px; }
+  @keyframes storiesScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @media (prefers-reduced-motion: reduce) { .stories-track { animation: none; } }
+  @media (max-width: 700px) { .story-slide { width: 220px; height: 148px; } }
+
   /* ── FOOTER ── */
   footer { background: #ffffff; color: #555; border-top: 1px solid #e5e7eb; }
   .footer-main { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; padding: 50px 60px; max-width: 1300px; margin: 0 auto; }
@@ -233,6 +245,7 @@
         <div class="note">🗺️ 30+ iconic sites across Egypt</div>
       </div>
     </div>
+    <a href="traveler-stories.html">Traveler Stories</a>
     <a href="#">Reviews</a>
     <a href="#">FAQs</a>
     <a href="#">About</a>
@@ -245,16 +258,16 @@
 <div class="section-label">▼ HERO — TripAdvisor badge + pickup locations strip <span class="ann-tag ann-change">CHANGED</span></div>
 <div class="hero">
   <div class="hero-bg" aria-hidden="true">
-    <div class="hero-slide active" style="background-image:url('../pics/WhatsApp%20Image%202026-06-22%20at%2019.35.57%20%282%29.jpeg');"></div>
-    <div class="hero-slide" style="background-image:url('../pics/WhatsApp%20Image%202026-06-22%20at%2019.35.57%20%285%29.jpeg');"></div>
-    <div class="hero-slide" style="background-image:url('../pics/WhatsApp%20Image%202026-06-22%20at%2019.35.58%20%281%29.jpeg');"></div>
-    <div class="hero-slide" style="background-image:url('../pics/WhatsApp%20Image%202026-06-22%20at%2019.35.58%20%2812%29.jpeg');"></div>
-    <div class="hero-slide" style="background-image:url('../pics/WhatsApp%20Image%202026-06-22%20at%2019.35.59%20%281%29.jpeg');"></div>
-    <div class="hero-slide" style="background-image:url('../pics/WhatsApp%20Image%202026-06-22%20at%2019.35.59%20%2813%29.jpeg');"></div>
-    <div class="hero-slide" style="background-image:url('../pics/WhatsApp%20Image%202026-06-22%20at%2019.35.59%20%2818%29.jpeg');"></div>
-    <div class="hero-slide" style="background-image:url('../pics/WhatsApp%20Image%202026-06-22%20at%2019.36.00%20%2811%29.jpeg');"></div>
-    <div class="hero-slide" style="background-image:url('../pics/WhatsApp%20Image%202026-06-22%20at%2019.36.00%20%288%29.jpeg');"></div>
-    <div class="hero-slide" style="background-image:url('../pics/WhatsApp%20Image%202026-06-22%20at%2019.38.02.jpeg');"></div>
+    <div class="hero-slide active" style="background-image:url('images/stories/giza-couple-camel.jpg');"></div>
+    <div class="hero-slide" style="background-image:url('images/stories/philae-friends.jpg');"></div>
+    <div class="hero-slide" style="background-image:url('images/stories/luxor-night-friends.jpg');"></div>
+    <div class="hero-slide" style="background-image:url('images/stories/edfu-tour-group.jpg');"></div>
+    <div class="hero-slide" style="background-image:url('images/stories/giza-couple-pyramid.jpg');"></div>
+    <div class="hero-slide" style="background-image:url('images/stories/philae-group-selfie.jpg');"></div>
+    <div class="hero-slide" style="background-image:url('images/stories/luxor-balloons.jpg');"></div>
+    <div class="hero-slide" style="background-image:url('images/stories/abu-simbel.jpg');"></div>
+    <div class="hero-slide" style="background-image:url('images/stories/nile-cruise.jpg');"></div>
+    <div class="hero-slide" style="background-image:url('images/stories/kom-ombo-columns.jpg');"></div>
   </div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
@@ -378,75 +391,40 @@
 </div>
 
 <!-- ═══════════════════════════════════════════ -->
-<div class="section-label">▼ PHOTO STRIP — Customer trip photos above footer (Gate 1 / Osiris style) <span class="ann-tag ann-new">NEW</span></div>
+<div class="section-label">▼ TRAVELER STORIES — Auto-rotating photo carousel → links to traveler-stories.html · Live site: Elementor Media/Loop Carousel (autoplay, loop) <span class="ann-tag ann-change">CHANGED</span></div>
 <div class="photo-strip">
-  <h2>Travel With Us — See Egypt Through Their Eyes</h2>
-  <p>Real photos from real travelers. Every trip is different. Every story is yours.</p>
-  <div class="photo-grid">
-    <a class="photo-thumb" href="../pics/WhatsApp Image 2026-06-22 at 19.35.57 (1).jpeg" aria-label="Open Access Egypt Travel customer trip photo 01"><img src="../pics/WhatsApp Image 2026-06-22 at 19.35.57 (1).jpeg" alt="Access Egypt Travel customer trip photo 01" loading="lazy"></a>
-    <a class="photo-thumb" href="../pics/WhatsApp Image 2026-06-22 at 19.35.57 (2).jpeg" aria-label="Open Access Egypt Travel customer trip photo 02"><img src="../pics/WhatsApp Image 2026-06-22 at 19.35.57 (2).jpeg" alt="Access Egypt Travel customer trip photo 02" loading="lazy"></a>
-    <a class="photo-thumb" href="../pics/WhatsApp Image 2026-06-22 at 19.35.57 (3).jpeg" aria-label="Open Access Egypt Travel customer trip photo 03"><img src="../pics/WhatsApp Image 2026-06-22 at 19.35.57 (3).jpeg" alt="Access Egypt Travel customer trip photo 03" loading="lazy"></a>
-    <a class="photo-thumb" href="../pics/WhatsApp Image 2026-06-22 at 19.35.57 (4).jpeg" aria-label="Open Access Egypt Travel customer trip photo 04"><img src="../pics/WhatsApp Image 2026-06-22 at 19.35.57 (4).jpeg" alt="Access Egypt Travel customer trip photo 04" loading="lazy"></a>
-    <a class="photo-thumb" href="../pics/WhatsApp Image 2026-06-22 at 19.35.57 (5).jpeg" aria-label="Open Access Egypt Travel customer trip photo 05"><img src="../pics/WhatsApp Image 2026-06-22 at 19.35.57 (5).jpeg" alt="Access Egypt Travel customer trip photo 05" loading="lazy"></a>
-    <a class="photo-thumb" href="../pics/WhatsApp Image 2026-06-22 at 19.35.57 (6).jpeg" aria-label="Open Access Egypt Travel customer trip photo 06"><img src="../pics/WhatsApp Image 2026-06-22 at 19.35.57 (6).jpeg" alt="Access Egypt Travel customer trip photo 06" loading="lazy"></a>
-    <a class="photo-thumb" href="../pics/WhatsApp Image 2026-06-22 at 19.35.57 (7).jpeg" aria-label="Open Access Egypt Travel customer trip photo 07"><img src="../pics/WhatsApp Image 2026-06-22 at 19.35.57 (7).jpeg" alt="Access Egypt Travel customer trip photo 07" loading="lazy"></a>
-    <a class="photo-thumb" href="../pics/WhatsApp Image 2026-06-22 at 19.35.57 (8).jpeg" aria-label="Open Access Egypt Travel customer trip photo 08"><img src="../pics/WhatsApp Image 2026-06-22 at 19.35.57 (8).jpeg" alt="Access Egypt Travel customer trip photo 08" loading="lazy"></a>
-    <a class="photo-thumb" href="../pics/WhatsApp Image 2026-06-22 at 19.35.57.jpeg" aria-label="Open Access Egypt Travel customer trip photo 09"><img src="../pics/WhatsApp Image 2026-06-22 at 19.35.57.jpeg" alt="Access Egypt Travel customer trip photo 09" loading="lazy"></a>
-    <a class="photo-thumb" href="../pics/WhatsApp Image 2026-06-22 at 19.35.58 (1).jpeg" aria-label="Open Access Egypt Travel customer trip photo 10"><img src="../pics/WhatsApp Image 2026-06-22 at 19.35.58 (1).jpeg" alt="Access Egypt Travel customer trip photo 10" loading="lazy"></a>
-    <a class="photo-thumb" href="../pics/WhatsApp Image 2026-06-22 at 19.35.58 (10).jpeg" aria-label="Open Access Egypt Travel customer trip photo 11"><img src="../pics/WhatsApp Image 2026-06-22 at 19.35.58 (10).jpeg" alt="Access Egypt Travel customer trip photo 11" loading="lazy"></a>
-    <a class="photo-thumb" href="../pics/WhatsApp Image 2026-06-22 at 19.35.58 (11).jpeg" aria-label="Open Access Egypt Travel customer trip photo 12"><img src="../pics/WhatsApp Image 2026-06-22 at 19.35.58 (11).jpeg" alt="Access Egypt Travel customer trip photo 12" loading="lazy"></a>
-    <a class="photo-thumb" href="../pics/WhatsApp Image 2026-06-22 at 19.35.58 (12).jpeg" aria-label="Open Access Egypt Travel customer trip photo 13"><img src="../pics/WhatsApp Image 2026-06-22 at 19.35.58 (12).jpeg" alt="Access Egypt Travel customer trip photo 13" loading="lazy"></a>
-    <a class="photo-thumb" href="../pics/WhatsApp Image 2026-06-22 at 19.35.58 (2).jpeg" aria-label="Open Access Egypt Travel customer trip photo 14"><img src="../pics/WhatsApp Image 2026-06-22 at 19.35.58 (2).jpeg" alt="Access Egypt Travel customer trip photo 14" loading="lazy"></a>
-    <a class="photo-thumb" href="../pics/WhatsApp Image 2026-06-22 at 19.35.58 (3).jpeg" aria-label="Open Access Egypt Travel customer trip photo 15"><img src="../pics/WhatsApp Image 2026-06-22 at 19.35.58 (3).jpeg" alt="Access Egypt Travel customer trip photo 15" loading="lazy"></a>
-    <a class="photo-thumb" href="../pics/WhatsApp Image 2026-06-22 at 19.35.58 (4).jpeg" aria-label="Open Access Egypt Travel customer trip photo 16"><img src="../pics/WhatsApp Image 2026-06-22 at 19.35.58 (4).jpeg" alt="Access Egypt Travel customer trip photo 16" loading="lazy"></a>
-    <a class="photo-thumb" href="../pics/WhatsApp Image 2026-06-22 at 19.35.58 (5).jpeg" aria-label="Open Access Egypt Travel customer trip photo 17"><img src="../pics/WhatsApp Image 2026-06-22 at 19.35.58 (5).jpeg" alt="Access Egypt Travel customer trip photo 17" loading="lazy"></a>
-    <a class="photo-thumb" href="../pics/WhatsApp Image 2026-06-22 at 19.35.58 (6).jpeg" aria-label="Open Access Egypt Travel customer trip photo 18"><img src="../pics/WhatsApp Image 2026-06-22 at 19.35.58 (6).jpeg" alt="Access Egypt Travel customer trip photo 18" loading="lazy"></a>
-    <a class="photo-thumb" href="../pics/WhatsApp Image 2026-06-22 at 19.35.58 (7).jpeg" aria-label="Open Access Egypt Travel customer trip photo 19"><img src="../pics/WhatsApp Image 2026-06-22 at 19.35.58 (7).jpeg" alt="Access Egypt Travel customer trip photo 19" loading="lazy"></a>
-    <a class="photo-thumb" href="../pics/WhatsApp Image 2026-06-22 at 19.35.58 (8).jpeg" aria-label="Open Access Egypt Travel customer trip photo 20"><img src="../pics/WhatsApp Image 2026-06-22 at 19.35.58 (8).jpeg" alt="Access Egypt Travel customer trip photo 20" loading="lazy"></a>
-    <a class="photo-thumb" href="../pics/WhatsApp Image 2026-06-22 at 19.35.58 (9).jpeg" aria-label="Open Access Egypt Travel customer trip photo 21"><img src="../pics/WhatsApp Image 2026-06-22 at 19.35.58 (9).jpeg" alt="Access Egypt Travel customer trip photo 21" loading="lazy"></a>
-    <a class="photo-thumb" href="../pics/WhatsApp Image 2026-06-22 at 19.35.58.jpeg" aria-label="Open Access Egypt Travel customer trip photo 22"><img src="../pics/WhatsApp Image 2026-06-22 at 19.35.58.jpeg" alt="Access Egypt Travel customer trip photo 22" loading="lazy"></a>
-    <a class="photo-thumb" href="../pics/WhatsApp Image 2026-06-22 at 19.35.59 (1).jpeg" aria-label="Open Access Egypt Travel customer trip photo 23"><img src="../pics/WhatsApp Image 2026-06-22 at 19.35.59 (1).jpeg" alt="Access Egypt Travel customer trip photo 23" loading="lazy"></a>
-    <a class="photo-thumb" href="../pics/WhatsApp Image 2026-06-22 at 19.35.59 (10).jpeg" aria-label="Open Access Egypt Travel customer trip photo 24"><img src="../pics/WhatsApp Image 2026-06-22 at 19.35.59 (10).jpeg" alt="Access Egypt Travel customer trip photo 24" loading="lazy"></a>
-    <a class="photo-thumb" href="../pics/WhatsApp Image 2026-06-22 at 19.35.59 (11).jpeg" aria-label="Open Access Egypt Travel customer trip photo 25"><img src="../pics/WhatsApp Image 2026-06-22 at 19.35.59 (11).jpeg" alt="Access Egypt Travel customer trip photo 25" loading="lazy"></a>
-    <a class="photo-thumb" href="../pics/WhatsApp Image 2026-06-22 at 19.35.59 (12).jpeg" aria-label="Open Access Egypt Travel customer trip photo 26"><img src="../pics/WhatsApp Image 2026-06-22 at 19.35.59 (12).jpeg" alt="Access Egypt Travel customer trip photo 26" loading="lazy"></a>
-    <a class="photo-thumb" href="../pics/WhatsApp Image 2026-06-22 at 19.35.59 (13).jpeg" aria-label="Open Access Egypt Travel customer trip photo 27"><img src="../pics/WhatsApp Image 2026-06-22 at 19.35.59 (13).jpeg" alt="Access Egypt Travel customer trip photo 27" loading="lazy"></a>
-    <a class="photo-thumb" href="../pics/WhatsApp Image 2026-06-22 at 19.35.59 (14).jpeg" aria-label="Open Access Egypt Travel customer trip photo 28"><img src="../pics/WhatsApp Image 2026-06-22 at 19.35.59 (14).jpeg" alt="Access Egypt Travel customer trip photo 28" loading="lazy"></a>
-    <a class="photo-thumb" href="../pics/WhatsApp Image 2026-06-22 at 19.35.59 (15).jpeg" aria-label="Open Access Egypt Travel customer trip photo 29"><img src="../pics/WhatsApp Image 2026-06-22 at 19.35.59 (15).jpeg" alt="Access Egypt Travel customer trip photo 29" loading="lazy"></a>
-    <a class="photo-thumb" href="../pics/WhatsApp Image 2026-06-22 at 19.35.59 (16).jpeg" aria-label="Open Access Egypt Travel customer trip photo 30"><img src="../pics/WhatsApp Image 2026-06-22 at 19.35.59 (16).jpeg" alt="Access Egypt Travel customer trip photo 30" loading="lazy"></a>
-    <a class="photo-thumb" href="../pics/WhatsApp Image 2026-06-22 at 19.35.59 (17).jpeg" aria-label="Open Access Egypt Travel customer trip photo 31"><img src="../pics/WhatsApp Image 2026-06-22 at 19.35.59 (17).jpeg" alt="Access Egypt Travel customer trip photo 31" loading="lazy"></a>
-    <a class="photo-thumb" href="../pics/WhatsApp Image 2026-06-22 at 19.35.59 (18).jpeg" aria-label="Open Access Egypt Travel customer trip photo 32"><img src="../pics/WhatsApp Image 2026-06-22 at 19.35.59 (18).jpeg" alt="Access Egypt Travel customer trip photo 32" loading="lazy"></a>
-    <a class="photo-thumb" href="../pics/WhatsApp Image 2026-06-22 at 19.35.59 (2).jpeg" aria-label="Open Access Egypt Travel customer trip photo 33"><img src="../pics/WhatsApp Image 2026-06-22 at 19.35.59 (2).jpeg" alt="Access Egypt Travel customer trip photo 33" loading="lazy"></a>
-    <a class="photo-thumb" href="../pics/WhatsApp Image 2026-06-22 at 19.35.59 (3).jpeg" aria-label="Open Access Egypt Travel customer trip photo 34"><img src="../pics/WhatsApp Image 2026-06-22 at 19.35.59 (3).jpeg" alt="Access Egypt Travel customer trip photo 34" loading="lazy"></a>
-    <a class="photo-thumb" href="../pics/WhatsApp Image 2026-06-22 at 19.35.59 (4).jpeg" aria-label="Open Access Egypt Travel customer trip photo 35"><img src="../pics/WhatsApp Image 2026-06-22 at 19.35.59 (4).jpeg" alt="Access Egypt Travel customer trip photo 35" loading="lazy"></a>
-    <a class="photo-thumb" href="../pics/WhatsApp Image 2026-06-22 at 19.35.59 (5).jpeg" aria-label="Open Access Egypt Travel customer trip photo 36"><img src="../pics/WhatsApp Image 2026-06-22 at 19.35.59 (5).jpeg" alt="Access Egypt Travel customer trip photo 36" loading="lazy"></a>
-    <a class="photo-thumb" href="../pics/WhatsApp Image 2026-06-22 at 19.35.59 (6).jpeg" aria-label="Open Access Egypt Travel customer trip photo 37"><img src="../pics/WhatsApp Image 2026-06-22 at 19.35.59 (6).jpeg" alt="Access Egypt Travel customer trip photo 37" loading="lazy"></a>
-    <a class="photo-thumb" href="../pics/WhatsApp Image 2026-06-22 at 19.35.59 (7).jpeg" aria-label="Open Access Egypt Travel customer trip photo 38"><img src="../pics/WhatsApp Image 2026-06-22 at 19.35.59 (7).jpeg" alt="Access Egypt Travel customer trip photo 38" loading="lazy"></a>
-    <a class="photo-thumb" href="../pics/WhatsApp Image 2026-06-22 at 19.35.59 (8).jpeg" aria-label="Open Access Egypt Travel customer trip photo 39"><img src="../pics/WhatsApp Image 2026-06-22 at 19.35.59 (8).jpeg" alt="Access Egypt Travel customer trip photo 39" loading="lazy"></a>
-    <a class="photo-thumb" href="../pics/WhatsApp Image 2026-06-22 at 19.35.59 (9).jpeg" aria-label="Open Access Egypt Travel customer trip photo 40"><img src="../pics/WhatsApp Image 2026-06-22 at 19.35.59 (9).jpeg" alt="Access Egypt Travel customer trip photo 40" loading="lazy"></a>
-    <a class="photo-thumb" href="../pics/WhatsApp Image 2026-06-22 at 19.35.59.jpeg" aria-label="Open Access Egypt Travel customer trip photo 41"><img src="../pics/WhatsApp Image 2026-06-22 at 19.35.59.jpeg" alt="Access Egypt Travel customer trip photo 41" loading="lazy"></a>
-    <a class="photo-thumb" href="../pics/WhatsApp Image 2026-06-22 at 19.36.00 (1).jpeg" aria-label="Open Access Egypt Travel customer trip photo 42"><img src="../pics/WhatsApp Image 2026-06-22 at 19.36.00 (1).jpeg" alt="Access Egypt Travel customer trip photo 42" loading="lazy"></a>
-    <a class="photo-thumb" href="../pics/WhatsApp Image 2026-06-22 at 19.36.00 (10).jpeg" aria-label="Open Access Egypt Travel customer trip photo 43"><img src="../pics/WhatsApp Image 2026-06-22 at 19.36.00 (10).jpeg" alt="Access Egypt Travel customer trip photo 43" loading="lazy"></a>
-    <a class="photo-thumb" href="../pics/WhatsApp Image 2026-06-22 at 19.36.00 (11).jpeg" aria-label="Open Access Egypt Travel customer trip photo 44"><img src="../pics/WhatsApp Image 2026-06-22 at 19.36.00 (11).jpeg" alt="Access Egypt Travel customer trip photo 44" loading="lazy"></a>
-    <a class="photo-thumb" href="../pics/WhatsApp Image 2026-06-22 at 19.36.00 (12).jpeg" aria-label="Open Access Egypt Travel customer trip photo 45"><img src="../pics/WhatsApp Image 2026-06-22 at 19.36.00 (12).jpeg" alt="Access Egypt Travel customer trip photo 45" loading="lazy"></a>
-    <a class="photo-thumb" href="../pics/WhatsApp Image 2026-06-22 at 19.36.00 (13).jpeg" aria-label="Open Access Egypt Travel customer trip photo 46"><img src="../pics/WhatsApp Image 2026-06-22 at 19.36.00 (13).jpeg" alt="Access Egypt Travel customer trip photo 46" loading="lazy"></a>
-    <a class="photo-thumb" href="../pics/WhatsApp Image 2026-06-22 at 19.36.00 (14).jpeg" aria-label="Open Access Egypt Travel customer trip photo 47"><img src="../pics/WhatsApp Image 2026-06-22 at 19.36.00 (14).jpeg" alt="Access Egypt Travel customer trip photo 47" loading="lazy"></a>
-    <a class="photo-thumb" href="../pics/WhatsApp Image 2026-06-22 at 19.36.00 (15).jpeg" aria-label="Open Access Egypt Travel customer trip photo 48"><img src="../pics/WhatsApp Image 2026-06-22 at 19.36.00 (15).jpeg" alt="Access Egypt Travel customer trip photo 48" loading="lazy"></a>
-    <a class="photo-thumb" href="../pics/WhatsApp Image 2026-06-22 at 19.36.00 (2).jpeg" aria-label="Open Access Egypt Travel customer trip photo 49"><img src="../pics/WhatsApp Image 2026-06-22 at 19.36.00 (2).jpeg" alt="Access Egypt Travel customer trip photo 49" loading="lazy"></a>
-    <a class="photo-thumb" href="../pics/WhatsApp Image 2026-06-22 at 19.36.00 (3).jpeg" aria-label="Open Access Egypt Travel customer trip photo 50"><img src="../pics/WhatsApp Image 2026-06-22 at 19.36.00 (3).jpeg" alt="Access Egypt Travel customer trip photo 50" loading="lazy"></a>
-    <a class="photo-thumb" href="../pics/WhatsApp Image 2026-06-22 at 19.36.00 (4).jpeg" aria-label="Open Access Egypt Travel customer trip photo 51"><img src="../pics/WhatsApp Image 2026-06-22 at 19.36.00 (4).jpeg" alt="Access Egypt Travel customer trip photo 51" loading="lazy"></a>
-    <a class="photo-thumb" href="../pics/WhatsApp Image 2026-06-22 at 19.36.00 (5).jpeg" aria-label="Open Access Egypt Travel customer trip photo 52"><img src="../pics/WhatsApp Image 2026-06-22 at 19.36.00 (5).jpeg" alt="Access Egypt Travel customer trip photo 52" loading="lazy"></a>
-    <a class="photo-thumb" href="../pics/WhatsApp Image 2026-06-22 at 19.36.00 (6).jpeg" aria-label="Open Access Egypt Travel customer trip photo 53"><img src="../pics/WhatsApp Image 2026-06-22 at 19.36.00 (6).jpeg" alt="Access Egypt Travel customer trip photo 53" loading="lazy"></a>
-    <a class="photo-thumb" href="../pics/WhatsApp Image 2026-06-22 at 19.36.00 (7).jpeg" aria-label="Open Access Egypt Travel customer trip photo 54"><img src="../pics/WhatsApp Image 2026-06-22 at 19.36.00 (7).jpeg" alt="Access Egypt Travel customer trip photo 54" loading="lazy"></a>
-    <a class="photo-thumb" href="../pics/WhatsApp Image 2026-06-22 at 19.36.00 (8).jpeg" aria-label="Open Access Egypt Travel customer trip photo 55"><img src="../pics/WhatsApp Image 2026-06-22 at 19.36.00 (8).jpeg" alt="Access Egypt Travel customer trip photo 55" loading="lazy"></a>
-    <a class="photo-thumb" href="../pics/WhatsApp Image 2026-06-22 at 19.36.00 (9).jpeg" aria-label="Open Access Egypt Travel customer trip photo 56"><img src="../pics/WhatsApp Image 2026-06-22 at 19.36.00 (9).jpeg" alt="Access Egypt Travel customer trip photo 56" loading="lazy"></a>
-    <a class="photo-thumb" href="../pics/WhatsApp Image 2026-06-22 at 19.36.00.jpeg" aria-label="Open Access Egypt Travel customer trip photo 57"><img src="../pics/WhatsApp Image 2026-06-22 at 19.36.00.jpeg" alt="Access Egypt Travel customer trip photo 57" loading="lazy"></a>
-    <a class="photo-thumb" href="../pics/WhatsApp Image 2026-06-22 at 19.36.05 (1).jpeg" aria-label="Open Access Egypt Travel customer trip photo 58"><img src="../pics/WhatsApp Image 2026-06-22 at 19.36.05 (1).jpeg" alt="Access Egypt Travel customer trip photo 58" loading="lazy"></a>
-    <a class="photo-thumb" href="../pics/WhatsApp Image 2026-06-22 at 19.36.05.jpeg" aria-label="Open Access Egypt Travel customer trip photo 59"><img src="../pics/WhatsApp Image 2026-06-22 at 19.36.05.jpeg" alt="Access Egypt Travel customer trip photo 59" loading="lazy"></a>
-    <a class="photo-thumb" href="../pics/WhatsApp Image 2026-06-22 at 19.36.52.jpeg" aria-label="Open Access Egypt Travel customer trip photo 60"><img src="../pics/WhatsApp Image 2026-06-22 at 19.36.52.jpeg" alt="Access Egypt Travel customer trip photo 60" loading="lazy"></a>
-    <a class="photo-thumb" href="../pics/WhatsApp Image 2026-06-22 at 19.38.02.jpeg" aria-label="Open Access Egypt Travel customer trip photo 61"><img src="../pics/WhatsApp Image 2026-06-22 at 19.38.02.jpeg" alt="Access Egypt Travel customer trip photo 61" loading="lazy"></a>
-  </div>
+  <h2>Real Travelers, Real Egypt</h2>
+  <p>Not stock photos — the actual couples, friends, and groups we've guided, at the sites you're dreaming about.</p>
+  <div class="stories-carousel" aria-label="Traveler photos — auto-rotating">
+      <div class="stories-track">
+        <a class="story-slide" href="traveler-stories.html"><img src="images/stories/giza-couple-camel.jpg" alt="Travelers at the Giza Pyramids" loading="lazy"><span class="cap">Giza Pyramids</span></a>
+        <a class="story-slide" href="traveler-stories.html"><img src="images/stories/philae-friends.jpg" alt="Friends at Philae Temple, Aswan" loading="lazy"><span class="cap">Philae · Aswan</span></a>
+        <a class="story-slide" href="traveler-stories.html"><img src="images/stories/luxor-night-friends.jpg" alt="Travelers at Luxor Temple at dusk" loading="lazy"><span class="cap">Luxor Temple</span></a>
+        <a class="story-slide" href="traveler-stories.html"><img src="images/stories/philae-group-selfie.jpg" alt="Group selfie at Philae Temple" loading="lazy"><span class="cap">Philae · Aswan</span></a>
+        <a class="story-slide" href="traveler-stories.html"><img src="images/stories/edfu-tour-group.jpg" alt="Tour group at the Temple of Horus, Edfu" loading="lazy"><span class="cap">Edfu</span></a>
+        <a class="story-slide" href="traveler-stories.html"><img src="images/stories/giza-couple-pyramid.jpg" alt="Couple at the Great Pyramid, Giza" loading="lazy"><span class="cap">Giza Pyramids</span></a>
+        <a class="story-slide" href="traveler-stories.html"><img src="images/stories/nile-boat-moment.jpg" alt="Traveler sailing to Philae, Aswan" loading="lazy"><span class="cap">Sailing to Philae</span></a>
+        <a class="story-slide" href="traveler-stories.html"><img src="images/stories/kom-ombo-columns.jpg" alt="Columns at Kom Ombo Temple" loading="lazy"><span class="cap">Kom Ombo</span></a>
+        <a class="story-slide" href="traveler-stories.html"><img src="images/stories/abu-simbel.jpg" alt="The rock temples of Abu Simbel" loading="lazy"><span class="cap">Abu Simbel</span></a>
+        <a class="story-slide" href="traveler-stories.html"><img src="images/stories/luxor-balloons.jpg" alt="Hot-air balloons over Luxor" loading="lazy"><span class="cap">Luxor at sunrise</span></a>
+        <a class="story-slide" href="traveler-stories.html"><img src="images/stories/nile-cruise.jpg" alt="A Nile cruise ship" loading="lazy"><span class="cap">Nile Cruise</span></a>
+        <a class="story-slide" href="traveler-stories.html"><img src="images/stories/nile-felucca.jpg" alt="A felucca on the Nile" loading="lazy"><span class="cap">Felucca on the Nile</span></a>
+        <a class="story-slide" href="traveler-stories.html"><img src="images/stories/giza-couple-camel.jpg" alt="Travelers at the Giza Pyramids" loading="lazy"><span class="cap">Giza Pyramids</span></a>
+        <a class="story-slide" href="traveler-stories.html"><img src="images/stories/philae-friends.jpg" alt="Friends at Philae Temple, Aswan" loading="lazy"><span class="cap">Philae · Aswan</span></a>
+        <a class="story-slide" href="traveler-stories.html"><img src="images/stories/luxor-night-friends.jpg" alt="Travelers at Luxor Temple at dusk" loading="lazy"><span class="cap">Luxor Temple</span></a>
+        <a class="story-slide" href="traveler-stories.html"><img src="images/stories/philae-group-selfie.jpg" alt="Group selfie at Philae Temple" loading="lazy"><span class="cap">Philae · Aswan</span></a>
+        <a class="story-slide" href="traveler-stories.html"><img src="images/stories/edfu-tour-group.jpg" alt="Tour group at the Temple of Horus, Edfu" loading="lazy"><span class="cap">Edfu</span></a>
+        <a class="story-slide" href="traveler-stories.html"><img src="images/stories/giza-couple-pyramid.jpg" alt="Couple at the Great Pyramid, Giza" loading="lazy"><span class="cap">Giza Pyramids</span></a>
+        <a class="story-slide" href="traveler-stories.html"><img src="images/stories/nile-boat-moment.jpg" alt="Traveler sailing to Philae, Aswan" loading="lazy"><span class="cap">Sailing to Philae</span></a>
+        <a class="story-slide" href="traveler-stories.html"><img src="images/stories/kom-ombo-columns.jpg" alt="Columns at Kom Ombo Temple" loading="lazy"><span class="cap">Kom Ombo</span></a>
+        <a class="story-slide" href="traveler-stories.html"><img src="images/stories/abu-simbel.jpg" alt="The rock temples of Abu Simbel" loading="lazy"><span class="cap">Abu Simbel</span></a>
+        <a class="story-slide" href="traveler-stories.html"><img src="images/stories/luxor-balloons.jpg" alt="Hot-air balloons over Luxor" loading="lazy"><span class="cap">Luxor at sunrise</span></a>
+        <a class="story-slide" href="traveler-stories.html"><img src="images/stories/nile-cruise.jpg" alt="A Nile cruise ship" loading="lazy"><span class="cap">Nile Cruise</span></a>
+        <a class="story-slide" href="traveler-stories.html"><img src="images/stories/nile-felucca.jpg" alt="A felucca on the Nile" loading="lazy"><span class="cap">Felucca on the Nile</span></a>
+      </div>
+    </div>
   <div class="photo-strip-actions">
-    <a href="#" class="strip-btn primary">View Full Gallery</a>
+    <a href="traveler-stories.html" class="strip-btn primary">See All Traveler Stories →</a>
     <a href="https://www.tripadvisor.com/Attraction_Review-g294205-d25314995-Reviews-Access_Egypt_travel-Luxor_Nile_River_Valley.html" class="strip-btn secondary">Read TripAdvisor Reviews</a>
   </div>
   <div class="hashtag">#AccessEgyptTravel</div>

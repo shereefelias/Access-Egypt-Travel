@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Traveler Stories — Real Travelers, Real Egypt | Access Egypt Travel</title>
+<meta name="description" content="Real photos from real Access Egypt Travel travelers, stop by stop down the Nile — the Pyramids, Luxor, Edfu, Kom Ombo, Aswan and Abu Simbel. Not stock photography.">
+<style>
+  :root{ --orange:#b5451b; --orange-dark:#943a17; --dark:#2c1a0e; --gold:#c49a3c; --sand:#fdf8f2; --text:#4a3520; }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:'Helvetica Neue',Arial,sans-serif;color:var(--dark);background:#fff;line-height:1.6;}
+  a{color:var(--orange);}
+  /* header / nav */
+  .site-header{ background:#fff; border-bottom:1px solid #f0ece4; padding:0 40px; display:flex; align-items:center; justify-content:space-between; height:74px; box-shadow:0 2px 8px rgba(0,0,0,0.06); position:sticky; top:0; z-index:600; }
+  .site-logo-img{ height:56px; width:auto; display:block; }
+  nav{ display:flex; gap:4px; align-items:center; }
+  nav a{ padding:10px 14px; color:#3a2a1a; font-size:13.5px; font-weight:600; text-decoration:none; border-radius:4px; }
+  nav a:hover, nav a.active{ color:#b5451b; background:#fdf5ef; }
+  .nav-dropdown{ position:relative; display:inline-block; }
+  .nav-dropdown > a{ display:flex; align-items:center; gap:4px; }
+  .nav-dropdown-menu{ display:none; position:absolute; top:calc(100% + 4px); left:50%; transform:translateX(-50%); background:#fff; border:1px solid #f0e8d8; border-radius:8px; min-width:300px; box-shadow:0 8px 24px rgba(0,0,0,0.12); z-index:500; overflow:hidden; }
+  .nav-dropdown-menu a{ display:block; padding:10px 16px; font-size:13px; font-weight:600; color:#3a2a1a; text-decoration:none; border-bottom:1px solid #f5f0ea; }
+  .nav-dropdown-menu a:last-child{ border-bottom:none; }
+  .nav-dropdown-menu a:hover{ background:#fdf5ef; color:#b5451b; }
+  .nav-dropdown:hover .nav-dropdown-menu{ display:block; }
+  /* hero (two-column with route map) */
+  .page-hero{ max-width:1180px; margin:0 auto; display:flex; align-items:center; gap:38px; padding:34px 20px 6px; }
+  .hero-text{ flex:1 1 50%; }
+  .page-hero .eyebrow{ font-size:12px; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; color:var(--orange); margin-bottom:10px; }
+  .page-hero h1{ font-size:38px; font-weight:900; margin:0 0 10px; line-height:1.08; }
+  .page-hero h1 span{ color:var(--orange); }
+  .page-hero p{ font-size:16px; color:var(--text); margin:0; }
+  .hero-line{ width:54px; height:3px; background:var(--gold); border-radius:2px; margin:18px 0 0; }
+  .hero-map{ flex:0 1 auto; text-align:center; }
+  .hero-map img{ width:auto; max-width:100%; max-height:400px; height:auto; border-radius:12px; border:1px solid #eadfce; box-shadow:0 8px 26px rgba(44,26,14,.16); }
+  .hero-map-cap{ display:block; margin-top:9px; font-size:11.5px; font-weight:700; letter-spacing:.6px; text-transform:uppercase; color:#a8946f; }
+  @media(max-width:860px){ .page-hero{ flex-direction:column; text-align:center; gap:22px; } .page-hero p{ max-width:620px; margin:0 auto; } .hero-line{ margin:18px auto 0; } .hero-map{ order:2; } }
+  .stories-note{ max-width:760px; margin:24px auto 0; padding:0 20px; text-align:center; font-size:14px; color:#6b5030; }
+  .stories-note b{ color:var(--dark); }
+  /* journey scroll container */
+  .wrap{ max-width:1180px; margin:0 auto; padding:18px 20px 10px; }
+  .journey-hint{ font-size:12px; font-weight:800; color:#b5451b; text-transform:uppercase; letter-spacing:1px; margin:8px 2px 10px; }
+  .journey-scroll{ max-height:74vh; overflow-y:auto; border:1px solid #eadfce; border-radius:14px; background:#fffdf9; padding:20px 20px 6px; box-shadow:inset 0 -16px 16px -16px rgba(44,26,14,.14), inset 0 16px 16px -16px rgba(44,26,14,.14); scrollbar-color:#d9c4a6 transparent; scrollbar-width:thin; }
+  .journey-scroll::-webkit-scrollbar{ width:11px; }
+  .journey-scroll::-webkit-scrollbar-track{ background:transparent; }
+  .journey-scroll::-webkit-scrollbar-thumb{ background:#d9c4a6; border-radius:8px; border:3px solid #fffdf9; }
+  /* stage */
+  .stage{ position:relative; padding:0 0 30px; }
+  .stage::before{ content:''; position:absolute; left:19px; top:44px; bottom:2px; width:2px; background:#eadfce; }
+  .stage:last-child::before{ display:none; }
+  .stage-head{ display:flex; align-items:flex-start; gap:14px; margin-bottom:12px; }
+  .stage-num{ flex-shrink:0; width:40px; height:40px; border-radius:50%; background:var(--gold); color:#fff; font-weight:800; font-size:16px; display:flex; align-items:center; justify-content:center; box-shadow:0 2px 8px rgba(196,154,60,.4); position:relative; z-index:1; }
+  .stage-title{ font-size:21px; font-weight:800; color:var(--dark); margin:5px 0 3px; line-height:1.12; }
+  .stage-meta{ font-size:13px; color:#6b5030; line-height:1.5; }
+  .stage-seen{ display:block; }
+  .stage-links a{ color:var(--orange); font-weight:700; text-decoration:none; }
+  .stage-links a:hover{ text-decoration:underline; }
+  .stage-links .sep{ color:#cbb89a; margin:0 8px; }
+  .stage-count{ color:#a8946f; font-weight:700; }
+  /* single-row filmstrip */
+  .strip-wrap{ position:relative; margin-left:54px; }
+  .stage-strip{ display:flex; gap:12px; overflow-x:auto; scroll-snap-type:x mandatory; scroll-behavior:smooth; padding:2px 2px 6px; scrollbar-width:none; }
+  .stage-strip::-webkit-scrollbar{ display:none; }
+  .stage-strip > *{ flex:0 0 230px; scroll-snap-align:start; }
+  .strip-nav{ position:absolute; top:calc(50% - 6px); transform:translateY(-50%); z-index:4; width:38px; height:38px; border-radius:50%; border:none; background:#fff; box-shadow:0 2px 12px rgba(0,0,0,.2); color:#2c1a0e; font-size:22px; line-height:1; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+  .strip-nav:hover{ background:#fdf5ef; color:#b5451b; }
+  .strip-nav.prev{ left:-10px; }
+  .strip-nav.next{ right:-10px; }
+  .strip-nav[hidden]{ display:none; }
+  /* photo card */
+  .story-card{ position:relative; border-radius:12px; overflow:hidden; cursor:pointer; background:#e8dcc9; box-shadow:0 2px 10px rgba(44,26,14,.10); outline:none; transition:transform .18s, box-shadow .18s; }
+  .story-card:hover{ transform:translateY(-3px); box-shadow:0 12px 26px rgba(44,26,14,.16); }
+  .story-card:focus-visible{ box-shadow:0 0 0 3px var(--gold); }
+  .story-card img{ display:block; width:100%; height:168px; object-fit:cover; transition:transform .3s; }
+  .story-card:hover img{ transform:scale(1.05); }
+  .story-cap{ position:absolute; inset:auto 0 0 0; padding:24px 12px 9px; background:linear-gradient(to top, rgba(20,12,4,0.84), rgba(20,12,4,0)); color:#fff; }
+  .story-site{ display:block; font-size:12.5px; font-weight:700; letter-spacing:.2px; text-shadow:0 1px 6px rgba(0,0,0,.4); }
+  .story-zoom{ position:absolute; top:9px; right:9px; width:28px; height:28px; border-radius:50%; background:rgba(20,12,4,0.5); color:#fff; display:flex; align-items:center; justify-content:center; font-size:13px; opacity:0; transition:opacity .18s; }
+  .story-card:hover .story-zoom{ opacity:1; }
+  .opt-badge{ position:absolute; top:9px; left:9px; background:rgba(20,12,4,0.74); color:#ffd98a; font-size:10px; font-weight:700; letter-spacing:.4px; text-transform:uppercase; padding:3px 9px; border-radius:20px; z-index:2; }
+  .story-person, .story-quote, .story-tourlink{ display:block; }
+  .is-empty{ display:none !important; }
+  /* placeholder */
+  .story-ph{ position:relative; height:168px; border-radius:12px; border:2px dashed #ddcbb0; background:repeating-linear-gradient(45deg,#faf4ec,#faf4ec 11px,#f5ecdf 11px,#f5ecdf 22px); display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:12px; }
+  .story-ph .ph-ico{ font-size:23px; opacity:.45; margin-bottom:6px; }
+  .story-ph .ph-name{ font-size:12.5px; font-weight:700; color:#6b5030; line-height:1.25; }
+  .story-ph .ph-soon{ font-size:10px; color:#a8946f; margin-top:5px; text-transform:uppercase; letter-spacing:.5px; }
+  /* lightbox */
+  .lb{ position:fixed; inset:0; z-index:1000; background:rgba(15,9,3,0.92); display:none; align-items:center; justify-content:center; padding:30px; }
+  .lb.open{ display:flex; }
+  .lb-stage{ max-width:1000px; width:100%; max-height:100%; display:flex; flex-direction:column; align-items:center; }
+  .lb-img{ max-width:100%; max-height:74vh; border-radius:8px; box-shadow:0 20px 60px rgba(0,0,0,0.5); background:#000; }
+  .lb-meta{ color:#fff; text-align:center; margin-top:16px; max-width:720px; }
+  .lb-site{ font-size:13px; font-weight:800; letter-spacing:1.4px; text-transform:uppercase; color:var(--gold); }
+  .lb-person{ font-size:16px; font-weight:700; margin-top:6px; }
+  .lb-quote{ font-size:15px; font-style:italic; color:rgba(255,255,255,0.88); margin-top:8px; line-height:1.55; }
+  .lb-tourlink{ display:inline-block; margin-top:12px; background:var(--orange); color:#fff; padding:9px 18px; border-radius:5px; font-size:13px; font-weight:700; text-decoration:none; }
+  .lb-tourlink:hover{ background:var(--orange-dark); }
+  .lb-count{ color:rgba(255,255,255,0.55); font-size:12px; margin-top:14px; letter-spacing:.5px; }
+  .lb-btn{ position:absolute; top:50%; transform:translateY(-50%); width:50px; height:50px; border:none; border-radius:50%; background:rgba(255,255,255,0.12); color:#fff; font-size:26px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+  .lb-btn:hover{ background:rgba(255,255,255,0.25); }
+  .lb-prev{ left:18px; } .lb-next{ right:18px; }
+  .lb-close{ position:absolute; top:16px; right:18px; width:44px; height:44px; border:none; border-radius:50%; background:rgba(255,255,255,0.12); color:#fff; font-size:24px; cursor:pointer; }
+  .lb-close:hover{ background:rgba(255,255,255,0.25); }
+  /* closing cta */
+  .stories-cta{ margin:40px 0 0; background:linear-gradient(to right, rgba(10,6,2,0.86), rgba(10,6,2,0.7)), #2c1a0e; color:#fff; text-align:center; padding:46px 24px; }
+  .stories-cta h2{ font-size:26px; font-weight:800; margin:0 0 8px; }
+  .stories-cta h2 span{ color:var(--gold); }
+  .stories-cta p{ color:rgba(255,255,255,0.82); max-width:560px; margin:0 auto 22px; font-size:15px; }
+  .stories-cta .btns{ display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+  .cta-primary{ background:var(--orange); color:#fff; padding:13px 30px; border-radius:5px; font-weight:700; text-decoration:none; font-size:15px; }
+  .cta-primary:hover{ background:var(--orange-dark); }
+  .cta-secondary{ background:rgba(255,255,255,0.1); border:2px solid rgba(255,255,255,0.4); color:#fff; padding:13px 30px; border-radius:5px; font-weight:700; text-decoration:none; font-size:15px; }
+  .cta-secondary:hover{ background:rgba(255,255,255,0.2); }
+  /* footer */
+  .site-footer{ background:#fff; color:#555; border-top:1px solid #e5e7eb; }
+  .footer-main{ display:grid; grid-template-columns:repeat(4,1fr); gap:36px; padding:46px 60px; max-width:1300px; margin:0 auto; }
+  .footer-col h4{ color:#2c1a0e; font-size:13px; font-weight:700; margin-bottom:14px; text-transform:uppercase; letter-spacing:0.5px; border-bottom:2px solid #b5451b; padding-bottom:8px; display:inline-block; }
+  .footer-col a{ display:block; color:#555; font-size:13px; text-decoration:none; margin-bottom:7px; }
+  .footer-col a:hover{ color:#b5451b; }
+  .footer-col .contact-line{ display:flex; align-items:flex-start; gap:8px; color:#555; font-size:13px; margin-bottom:8px; }
+  .footer-col .contact-line a{ display:inline; margin:0; }
+  .footer-social{ display:flex; gap:10px; margin-top:16px; }
+  .social-icon{ width:34px; height:34px; display:inline-block; transition:opacity .2s, transform .15s; }
+  .social-icon:hover{ opacity:.82; transform:translateY(-2px); }
+  .social-icon img{ width:34px; height:34px; display:block; border-radius:8px; }
+  .footer-note{ font-size:11.5px; color:#8b7355; font-style:italic; margin-top:6px; line-height:1.5; }
+  .footer-bottom{ background:#f5f0e8; padding:14px 60px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; }
+  .footer-bottom p, .footer-bottom a{ font-size:12px; color:#8b7355; text-decoration:none; }
+  @media(max-width:720px){
+    .footer-main{ grid-template-columns:1fr 1fr; padding:30px 24px; }
+    .site-header{ padding:0 16px; height:auto; flex-direction:column; gap:10px; padding-top:12px; padding-bottom:12px; }
+    nav{ width:100%; overflow-x:auto; padding-bottom:4px; }
+    nav a{ flex-shrink:0; padding:8px 9px; font-size:12.5px; }
+    .page-hero h1{ font-size:30px; }
+    .strip-wrap{ margin-left:0; }
+    .stage::before{ display:none; }
+    .stage-strip > *{ flex-basis:78%; }
+    .journey-scroll{ max-height:70vh; padding:14px 12px 4px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="site-header">
+  <a href="pages-mockup.html"><img src="icons/Logo_Green_3.png" alt="Access Egypt Travel" class="site-logo-img"></a>
+  <nav>
+    <a href="pages-mockup.html">Home</a>
+    <div class="nav-dropdown"><a href="pages-mockup.html#tour">Tours ▾</a><div class="nav-dropdown-menu"><a href="pages-mockup.html#tour">6 Days / 5 Nights — Cairo &amp; Luxor Holiday</a><a href="pages-mockup.html#tour-d">7 Days / 6 Nights — Cairo, Luxor &amp; Aswan</a><a href="pages-mockup.html#tour-b">8 Days / 7 Nights — Cairo, Aswan &amp; Nile Cruise</a><a href="pages-mockup.html#tour-c">9 Days / 8 Nights — Cairo, Pyramids &amp; Nile Cruise ⭐</a><a href="pages-mockup.html#tour-e">12 Days / 11 Nights — The Ultimate Egyptian Odyssey</a></div></div>
+    <a href="destinations.html">Destinations</a>
+    <a href="traveler-stories.html" class="active">Traveler Stories</a>
+    <a href="pages-mockup.html">Reviews</a>
+    <a href="pages-mockup.html">FAQs</a>
+    <a href="pages-mockup.html">About</a>
+    <a href="pages-mockup.html">Contact</a>
+  </nav>
+</div>
+
+<div class="page-hero">
+  <div class="hero-text">
+    <div class="eyebrow">Traveler Stories</div>
+    <h1>Real Travelers, <span>Real Egypt</span></h1>
+    <p>These aren't stock photos. Every face here is someone who booked with us, flew over, and let us plan their Egypt — couples, friends, and small groups at the places you're dreaming about.</p>
+    <div class="hero-line"></div>
+  </div>
+  <div class="hero-map">
+    <img src="images/Access-Egypt-Travel-guide-map_v5.png" alt="Map of the Access Egypt Travel route down the Nile — Cairo, Luxor, Edfu, Kom Ombo, Aswan, Abu Simbel" loading="eager">
+    <span class="hero-map-cap">Your route — Cairo to Abu Simbel</span>
+  </div>
+</div>
+
+<div class="stories-note">
+  Follow the route the way your tour does — Cairo to Abu Simbel — and meet the real travelers we guided at <b>each stop</b>. Built from our 12-day itinerary, so every place you could visit has a spot here.
+</div>
+
+<div class="wrap">
+  <div class="journey-hint">↕ Scroll the stops · ‹ › slide photos · click to expand</div>
+  <div class="journey-scroll">
+    <div class="journey">
+      <section class="stage">
+        <div class="stage-head">
+          <div class="stage-num">1</div>
+          <div>
+            <h2 class="stage-title">Cairo &amp; the Giza Pyramids</h2>
+            <div class="stage-meta">
+              <span class="stage-seen">Seen on every Access Egypt tour — all five start in Cairo.</span>
+              <span class="stage-links"><a href="pages-mockup.html#tour-c">See the tours →</a><span class="sep">·</span><a href="cairo.html">Explore Cairo &amp; Giza →</a><span class="sep">·</span><span class="stage-count">2/8 with photos</span></span>
+            </div>
+          </div>
+        </div>
+        <div class="strip-wrap">
+          <button class="strip-nav prev" aria-label="Previous photos" hidden>‹</button>
+          <div class="stage-strip">
+        <figure class="story-card" tabindex="0" role="button" aria-label="View photo: Giza Pyramids &amp; The Sphinx"
+                data-full="images/stories/giza-couple-camel.jpg" data-site="Giza Pyramids &amp; The Sphinx"
+                data-person="" data-quote="" data-tour-url="pages-mockup.html#tour-c" data-tour-label="See this tour →">
+          <img src="images/stories/giza-couple-camel.jpg" alt="Travelers with a camel at the Giza Pyramids" loading="lazy">
+          <div class="story-zoom">⤢</div>
+          <figcaption class="story-cap"><span class="story-site">Giza Pyramids &amp; The Sphinx</span><span class="story-person is-empty"></span><span class="story-quote is-empty"></span><a class="story-tourlink is-empty" href=""></a></figcaption>
+        </figure>
+        <figure class="story-card" tabindex="0" role="button" aria-label="View photo: Giza Pyramids &amp; The Sphinx"
+                data-full="images/stories/giza-couple-pyramid.jpg" data-site="Giza Pyramids &amp; The Sphinx"
+                data-person="" data-quote="" data-tour-url="pages-mockup.html#tour-c" data-tour-label="See this tour →">
+          <img src="images/stories/giza-couple-pyramid.jpg" alt="Couple at the Great Pyramid, Giza" loading="lazy">
+          <div class="story-zoom">⤢</div>
+          <figcaption class="story-cap"><span class="story-site">Giza Pyramids &amp; The Sphinx</span><span class="story-person is-empty"></span><span class="story-quote is-empty"></span><a class="story-tourlink is-empty" href=""></a></figcaption>
+        </figure>
+        <div class="story-ph" aria-label="Grand Egyptian Museum (GEM) — photos coming soon">
+          <div class="ph-ico">📷</div>
+          <div class="ph-name">Grand Egyptian Museum (GEM)</div>
+          <div class="ph-soon">Photos coming soon</div>
+        </div>
+        <div class="story-ph" aria-label="Saladin Citadel &amp; Mohammed Ali Mosque — photos coming soon">
+          <div class="ph-ico">📷</div>
+          <div class="ph-name">Saladin Citadel &amp; Mohammed Ali Mosque</div>
+          <div class="ph-soon">Photos coming soon</div>
+        </div>
+        <div class="story-ph" aria-label="Ancient Churches of Coptic Cairo — photos coming soon">
+          <div class="ph-ico">📷</div>
+          <div class="ph-name">Ancient Churches of Coptic Cairo</div>
+          <div class="ph-soon">Photos coming soon</div>
+        </div>
+        <div class="story-ph" aria-label="National Museum of Egyptian Civilization (NMEC) — photos coming soon">
+          <div class="ph-ico">📷</div>
+          <div class="ph-name">National Museum of Egyptian Civilization (NMEC)</div>
+          <div class="ph-soon">Photos coming soon</div>
+        </div>
+        <div class="story-ph" aria-label="Dinner Cruise on the Nile in Cairo — photos coming soon">
+          <div class="opt-badge">Optional</div>
+          <div class="ph-ico">📷</div>
+          <div class="ph-name">Dinner Cruise on the Nile in Cairo</div>
+          <div class="ph-soon">Optional · photos coming soon</div>
+        </div>
+        <div class="story-ph" aria-label="Sound &amp; Light Show at the Pyramids — photos coming soon">
+          <div class="opt-badge">Optional</div>
+          <div class="ph-ico">📷</div>
+          <div class="ph-name">Sound &amp; Light Show at the Pyramids</div>
+          <div class="ph-soon">Optional · photos coming soon</div>
+        </div>
+          </div>
+          <button class="strip-nav next" aria-label="More photos" hidden>›</button>
+        </div>
+      </section>
+      <section class="stage">
+        <div class="stage-head">
+          <div class="stage-num">2</div>
+          <div>
+            <h2 class="stage-title">Luxor</h2>
+            <div class="stage-meta">
+              <span class="stage-seen">Seen on every tour — Karnak, Luxor Temple &amp; the West Bank Tour.</span>
+              <span class="stage-links"><a href="pages-mockup.html#tour-c">See the tours →</a><span class="sep">·</span><a href="destinations.html">Explore Luxor →</a><span class="sep">·</span><span class="stage-count">2/13 with photos</span></span>
+            </div>
+          </div>
+        </div>
+        <div class="strip-wrap">
+          <button class="strip-nav prev" aria-label="Previous photos" hidden>‹</button>
+          <div class="stage-strip">
+        <figure class="story-card" tabindex="0" role="button" aria-label="View photo: Luxor Temple &amp; Sphinx Avenue"
+                data-full="images/stories/luxor-night-friends.jpg" data-site="Luxor Temple &amp; Sphinx Avenue"
+                data-person="" data-quote="" data-tour-url="pages-mockup.html#tour-c" data-tour-label="See this tour →">
+          <img src="images/stories/luxor-night-friends.jpg" alt="Two travelers at Luxor Temple at dusk" loading="lazy">
+          <div class="story-zoom">⤢</div>
+          <figcaption class="story-cap"><span class="story-site">Luxor Temple &amp; Sphinx Avenue</span><span class="story-person is-empty"></span><span class="story-quote is-empty"></span><a class="story-tourlink is-empty" href=""></a></figcaption>
+        </figure>
+        <div class="story-ph" aria-label="Karnak Temple Complex — photos coming soon">
+          <div class="ph-ico">📷</div>
+          <div class="ph-name">Karnak Temple Complex</div>
+          <div class="ph-soon">Photos coming soon</div>
+        </div>
+        <div class="story-ph" aria-label="Valley of the Kings — photos coming soon">
+          <div class="ph-ico">📷</div>
+          <div class="ph-name">Valley of the Kings</div>
+          <div class="ph-soon">Photos coming soon</div>
+        </div>
+        <div class="story-ph" aria-label="Hatshepsut Temple — photos coming soon">
+          <div class="ph-ico">📷</div>
+          <div class="ph-name">Hatshepsut Temple</div>
+          <div class="ph-soon">Photos coming soon</div>
+        </div>
+        <div class="story-ph" aria-label="Deir el-Medina (Artisans' Village) — photos coming soon">
+          <div class="ph-ico">📷</div>
+          <div class="ph-name">Deir el-Medina (Artisans' Village)</div>
+          <div class="ph-soon">Photos coming soon</div>
+        </div>
+        <div class="story-ph" aria-label="Madinet Habu Temple — photos coming soon">
+          <div class="ph-ico">📷</div>
+          <div class="ph-name">Madinet Habu Temple</div>
+          <div class="ph-soon">Photos coming soon</div>
+        </div>
+        <div class="story-ph" aria-label="The Valley of the Queens — photos coming soon">
+          <div class="ph-ico">📷</div>
+          <div class="ph-name">The Valley of the Queens</div>
+          <div class="ph-soon">Photos coming soon</div>
+        </div>
+        <div class="story-ph" aria-label="The Nobles' Tombs — photos coming soon">
+          <div class="ph-ico">📷</div>
+          <div class="ph-name">The Nobles' Tombs</div>
+          <div class="ph-soon">Photos coming soon</div>
+        </div>
+        <div class="story-ph" aria-label="Colossi of Memnon — photos coming soon">
+          <div class="ph-ico">📷</div>
+          <div class="ph-name">Colossi of Memnon</div>
+          <div class="ph-soon">Photos coming soon</div>
+        </div>
+        <div class="story-ph" aria-label="Luxor City Tour by Horse-drawn Carriage — photos coming soon">
+          <div class="ph-ico">📷</div>
+          <div class="ph-name">Luxor City Tour by Horse-drawn Carriage</div>
+          <div class="ph-soon">Photos coming soon</div>
+        </div>
+        <figure class="story-card" tabindex="0" role="button" aria-label="View photo: Hot Air Balloon over Luxor"
+                data-full="images/stories/luxor-balloons.jpg" data-site="Hot Air Balloon over Luxor"
+                data-person="" data-quote="" data-tour-url="pages-mockup.html#tour-c" data-tour-label="See this tour →">
+          <img src="images/stories/luxor-balloons.jpg" alt="Hot-air balloons at sunrise over Luxor" loading="lazy">
+          <div class="opt-badge">Optional</div>
+          <div class="story-zoom">⤢</div>
+          <figcaption class="story-cap"><span class="story-site">Hot Air Balloon over Luxor</span><span class="story-person is-empty"></span><span class="story-quote is-empty"></span><a class="story-tourlink is-empty" href=""></a></figcaption>
+        </figure>
+        <div class="story-ph" aria-label="Sound &amp; Light Show at Karnak Temples — photos coming soon">
+          <div class="opt-badge">Optional</div>
+          <div class="ph-ico">📷</div>
+          <div class="ph-name">Sound &amp; Light Show at Karnak Temples</div>
+          <div class="ph-soon">Optional · photos coming soon</div>
+        </div>
+        <div class="story-ph" aria-label="Dendera Temple — photos coming soon">
+          <div class="opt-badge">Optional</div>
+          <div class="ph-ico">📷</div>
+          <div class="ph-name">Dendera Temple</div>
+          <div class="ph-soon">Optional · photos coming soon</div>
+        </div>
+          </div>
+          <button class="strip-nav next" aria-label="More photos" hidden>›</button>
+        </div>
+      </section>
+      <section class="stage">
+        <div class="stage-head">
+          <div class="stage-num">3</div>
+          <div>
+            <h2 class="stage-title">On the Nile</h2>
+            <div class="stage-meta">
+              <span class="stage-seen">The cruise leg — on the 8 &amp; 9-day cruises and the 12-day Odyssey.</span>
+              <span class="stage-links"><a href="pages-mockup.html#tour-c">See the tours →</a><span class="sep">·</span><a href="destinations.html">Explore Nile cruises →</a><span class="sep">·</span><span class="stage-count">2/2 with photos</span></span>
+            </div>
+          </div>
+        </div>
+        <div class="strip-wrap">
+          <button class="strip-nav prev" aria-label="Previous photos" hidden>‹</button>
+          <div class="stage-strip">
+        <figure class="story-card" tabindex="0" role="button" aria-label="View photo: Nile Cruise"
+                data-full="images/stories/nile-cruise.jpg" data-site="Nile Cruise"
+                data-person="" data-quote="" data-tour-url="pages-mockup.html#tour-c" data-tour-label="See this tour →">
+          <img src="images/stories/nile-cruise.jpg" alt="A Nile cruise ship on the river" loading="lazy">
+          <div class="story-zoom">⤢</div>
+          <figcaption class="story-cap"><span class="story-site">Nile Cruise</span><span class="story-person is-empty"></span><span class="story-quote is-empty"></span><a class="story-tourlink is-empty" href=""></a></figcaption>
+        </figure>
+        <figure class="story-card" tabindex="0" role="button" aria-label="View photo: Felucca on the Nile"
+                data-full="images/stories/nile-felucca.jpg" data-site="Felucca on the Nile"
+                data-person="" data-quote="" data-tour-url="pages-mockup.html#tour-c" data-tour-label="See this tour →">
+          <img src="images/stories/nile-felucca.jpg" alt="A felucca sailing the Nile" loading="lazy">
+          <div class="story-zoom">⤢</div>
+          <figcaption class="story-cap"><span class="story-site">Felucca on the Nile</span><span class="story-person is-empty"></span><span class="story-quote is-empty"></span><a class="story-tourlink is-empty" href=""></a></figcaption>
+        </figure>
+          </div>
+          <button class="strip-nav next" aria-label="More photos" hidden>›</button>
+        </div>
+      </section>
+      <section class="stage">
+        <div class="stage-head">
+          <div class="stage-num">4</div>
+          <div>
+            <h2 class="stage-title">Edfu</h2>
+            <div class="stage-meta">
+              <span class="stage-seen">A Nile-cruise stop — on the 8 &amp; 9-day cruises and the Odyssey.</span>
+              <span class="stage-links"><a href="pages-mockup.html#tour-c">See the tours →</a><span class="sep">·</span><a href="destinations.html">Explore Edfu →</a><span class="sep">·</span><span class="stage-count">1/1 with photos</span></span>
+            </div>
+          </div>
+        </div>
+        <div class="strip-wrap">
+          <button class="strip-nav prev" aria-label="Previous photos" hidden>‹</button>
+          <div class="stage-strip">
+        <figure class="story-card" tabindex="0" role="button" aria-label="View photo: Edfu Temple (Temple of Horus)"
+                data-full="images/stories/edfu-tour-group.jpg" data-site="Edfu Temple (Temple of Horus)"
+                data-person="" data-quote="" data-tour-url="pages-mockup.html#tour-c" data-tour-label="See this tour →">
+          <img src="images/stories/edfu-tour-group.jpg" alt="Tour group at the Temple of Horus, Edfu" loading="lazy">
+          <div class="story-zoom">⤢</div>
+          <figcaption class="story-cap"><span class="story-site">Edfu Temple (Temple of Horus)</span><span class="story-person is-empty"></span><span class="story-quote is-empty"></span><a class="story-tourlink is-empty" href=""></a></figcaption>
+        </figure>
+          </div>
+          <button class="strip-nav next" aria-label="More photos" hidden>›</button>
+        </div>
+      </section>
+      <section class="stage">
+        <div class="stage-head">
+          <div class="stage-num">5</div>
+          <div>
+            <h2 class="stage-title">Kom Ombo</h2>
+            <div class="stage-meta">
+              <span class="stage-seen">A Nile-cruise stop — on the 8 &amp; 9-day cruises and the Odyssey.</span>
+              <span class="stage-links"><a href="pages-mockup.html#tour-c">See the tours →</a><span class="sep">·</span><a href="kom-ombo.html">Explore Kom Ombo →</a><span class="sep">·</span><span class="stage-count">1/1 with photos</span></span>
+            </div>
+          </div>
+        </div>
+        <div class="strip-wrap">
+          <button class="strip-nav prev" aria-label="Previous photos" hidden>‹</button>
+          <div class="stage-strip">
+        <figure class="story-card" tabindex="0" role="button" aria-label="View photo: Kom Ombo Temple"
+                data-full="images/stories/kom-ombo-columns.jpg" data-site="Kom Ombo Temple"
+                data-person="" data-quote="" data-tour-url="pages-mockup.html#tour-c" data-tour-label="See this tour →">
+          <img src="images/stories/kom-ombo-columns.jpg" alt="Carved columns at Kom Ombo Temple" loading="lazy">
+          <div class="story-zoom">⤢</div>
+          <figcaption class="story-cap"><span class="story-site">Kom Ombo Temple</span><span class="story-person is-empty"></span><span class="story-quote is-empty"></span><a class="story-tourlink is-empty" href=""></a></figcaption>
+        </figure>
+          </div>
+          <button class="strip-nav next" aria-label="More photos" hidden>›</button>
+        </div>
+      </section>
+      <section class="stage">
+        <div class="stage-head">
+          <div class="stage-num">6</div>
+          <div>
+            <h2 class="stage-title">Aswan</h2>
+            <div class="stage-meta">
+              <span class="stage-seen">Seen on the 7-day, the 8 &amp; 9-day cruises, and the Odyssey.</span>
+              <span class="stage-links"><a href="pages-mockup.html#tour-c">See the tours →</a><span class="sep">·</span><a href="destinations.html">Explore Aswan &amp; Philae →</a><span class="sep">·</span><span class="stage-count">3/7 with photos</span></span>
+            </div>
+          </div>
+        </div>
+        <div class="strip-wrap">
+          <button class="strip-nav prev" aria-label="Previous photos" hidden>‹</button>
+          <div class="stage-strip">
+        <figure class="story-card" tabindex="0" role="button" aria-label="View photo: Philae Temple"
+                data-full="images/stories/philae-friends.jpg" data-site="Philae Temple"
+                data-person="" data-quote="" data-tour-url="pages-mockup.html#tour-c" data-tour-label="See this tour →">
+          <img src="images/stories/philae-friends.jpg" alt="Three friends at Philae Temple, Aswan" loading="lazy">
+          <div class="story-zoom">⤢</div>
+          <figcaption class="story-cap"><span class="story-site">Philae Temple</span><span class="story-person is-empty"></span><span class="story-quote is-empty"></span><a class="story-tourlink is-empty" href=""></a></figcaption>
+        </figure>
+        <figure class="story-card" tabindex="0" role="button" aria-label="View photo: Philae Temple"
+                data-full="images/stories/philae-group-selfie.jpg" data-site="Philae Temple"
+                data-person="" data-quote="" data-tour-url="pages-mockup.html#tour-c" data-tour-label="See this tour →">
+          <img src="images/stories/philae-group-selfie.jpg" alt="Group selfie at Philae Temple, Aswan" loading="lazy">
+          <div class="story-zoom">⤢</div>
+          <figcaption class="story-cap"><span class="story-site">Philae Temple</span><span class="story-person is-empty"></span><span class="story-quote is-empty"></span><a class="story-tourlink is-empty" href=""></a></figcaption>
+        </figure>
+        <figure class="story-card" tabindex="0" role="button" aria-label="View photo: Sailing to Philae"
+                data-full="images/stories/nile-boat-moment.jpg" data-site="Sailing to Philae"
+                data-person="" data-quote="" data-tour-url="pages-mockup.html#tour-c" data-tour-label="See this tour →">
+          <img src="images/stories/nile-boat-moment.jpg" alt="Traveler on a boat approaching Philae, Aswan" loading="lazy">
+          <div class="story-zoom">⤢</div>
+          <figcaption class="story-cap"><span class="story-site">Sailing to Philae</span><span class="story-person is-empty"></span><span class="story-quote is-empty"></span><a class="story-tourlink is-empty" href=""></a></figcaption>
+        </figure>
+        <div class="story-ph" aria-label="The Unfinished Obelisk — photos coming soon">
+          <div class="ph-ico">📷</div>
+          <div class="ph-name">The Unfinished Obelisk</div>
+          <div class="ph-soon">Photos coming soon</div>
+        </div>
+        <div class="story-ph" aria-label="The High Dam — photos coming soon">
+          <div class="ph-ico">📷</div>
+          <div class="ph-name">The High Dam</div>
+          <div class="ph-soon">Photos coming soon</div>
+        </div>
+        <div class="story-ph" aria-label="The Nubian Village — photos coming soon">
+          <div class="ph-ico">📷</div>
+          <div class="ph-name">The Nubian Village</div>
+          <div class="ph-soon">Photos coming soon</div>
+        </div>
+        <div class="story-ph" aria-label="Sound &amp; Light Show at Philae Temple — photos coming soon">
+          <div class="opt-badge">Optional</div>
+          <div class="ph-ico">📷</div>
+          <div class="ph-name">Sound &amp; Light Show at Philae Temple</div>
+          <div class="ph-soon">Optional · photos coming soon</div>
+        </div>
+          </div>
+          <button class="strip-nav next" aria-label="More photos" hidden>›</button>
+        </div>
+      </section>
+      <section class="stage">
+        <div class="stage-head">
+          <div class="stage-num">7</div>
+          <div>
+            <h2 class="stage-title">Abu Simbel</h2>
+            <div class="stage-meta">
+              <span class="stage-seen">An optional add-on — on the 8 &amp; 9-day cruises and the Odyssey.</span>
+              <span class="stage-links"><a href="pages-mockup.html#tour-c">See the tours →</a><span class="sep">·</span><a href="abu-simbel.html">Explore Abu Simbel →</a><span class="sep">·</span><span class="stage-count">1/1 with photos</span></span>
+            </div>
+          </div>
+        </div>
+        <div class="strip-wrap">
+          <button class="strip-nav prev" aria-label="Previous photos" hidden>‹</button>
+          <div class="stage-strip">
+        <figure class="story-card" tabindex="0" role="button" aria-label="View photo: Abu Simbel Temples"
+                data-full="images/stories/abu-simbel.jpg" data-site="Abu Simbel Temples"
+                data-person="" data-quote="" data-tour-url="pages-mockup.html#tour-c" data-tour-label="See this tour →">
+          <img src="images/stories/abu-simbel.jpg" alt="The rock temples of Abu Simbel" loading="lazy">
+          <div class="opt-badge">Optional</div>
+          <div class="story-zoom">⤢</div>
+          <figcaption class="story-cap"><span class="story-site">Abu Simbel Temples</span><span class="story-person is-empty"></span><span class="story-quote is-empty"></span><a class="story-tourlink is-empty" href=""></a></figcaption>
+        </figure>
+          </div>
+          <button class="strip-nav next" aria-label="More photos" hidden>›</button>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+
+<div class="stories-cta">
+  <h2>The next photo here could be <span>yours</span></h2>
+  <p>Tell us who's coming and what you want to see. We'll build a private Egypt trip around it — and you can send us the photos when you get home.</p>
+  <div class="btns">
+    <a href="mailto:info@accessegypttravel.com" class="cta-primary">Request a Quote →</a>
+    <a href="https://www.tripadvisor.com/Attraction_Review-g294205-d25314995-Reviews-Access_Egypt_travel-Luxor_Nile_River_Valley.html" class="cta-secondary" target="_blank" rel="noopener">Read Our Reviews</a>
+  </div>
+</div>
+
+<div class="lb" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
+  <button class="lb-close" id="lbClose" aria-label="Close">✕</button>
+  <button class="lb-btn lb-prev" id="lbPrev" aria-label="Previous photo">‹</button>
+  <button class="lb-btn lb-next" id="lbNext" aria-label="Next photo">›</button>
+  <div class="lb-stage">
+    <img class="lb-img" id="lbImg" src="" alt="">
+    <div class="lb-meta">
+      <div class="lb-site" id="lbSite"></div>
+      <div class="lb-person" id="lbPerson"></div>
+      <div class="lb-quote" id="lbQuote"></div>
+      <a class="lb-tourlink" id="lbTour" href="">See this tour →</a>
+      <div class="lb-count" id="lbCount"></div>
+    </div>
+  </div>
+</div>
+
+<div class="site-footer">
+  <div class="footer-main">
+    <div class="footer-col">
+      <img src="icons/Logo_Green_3.png" alt="Access Egypt Travel" style="height:62px;width:auto;display:block;margin-bottom:10px;">
+      <div style="font-size:11px;color:#666;text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;">Private · Egyptologist-Guided</div>
+      <div class="footer-social">
+        <a href="https://www.facebook.com/accessegypttravel/" class="social-icon" title="Facebook"><img src="icons/facebook.svg" alt="Facebook"></a>
+        <a href="https://www.instagram.com/accessegypttravel/" class="social-icon" title="Instagram"><img src="icons/instagram.svg" alt="Instagram"></a>
+        <a href="https://www.tripadvisor.com/Attraction_Review-g294205-d25314995-Reviews-Access_Egypt_travel-Luxor_Nile_River_Valley.html" class="social-icon" title="TripAdvisor"><img src="icons/tripadvisor-2.svg" alt="TripAdvisor"></a>
+        <a href="https://wa.me/20120140578" class="social-icon" title="WhatsApp"><img src="icons/whatsapp-139.svg" alt="WhatsApp"></a>
+      </div>
+      <p class="footer-note" style="margin-top:14px;">© 2026 Access Egypt Travel LLC.<br>All Rights Reserved.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Egypt Tours</h4>
+      <a href="pages-mockup.html#tour">6 Days — Cairo &amp; Luxor Holiday</a>
+      <a href="pages-mockup.html#tour-d">7 Days — Cairo, Luxor &amp; Aswan</a>
+      <a href="pages-mockup.html#tour-b">8 Days — Cairo, Aswan &amp; Nile Cruise</a>
+      <a href="pages-mockup.html#tour-c">9 Days — Egypt Highlights + Nile Cruise ⭐</a>
+      <a href="pages-mockup.html#tour-e">12 Days — The Ultimate Egyptian Odyssey</a>
+    </div>
+    <div class="footer-col">
+      <h4>Travel Resources</h4>
+      <a href="destinations.html">Egypt Destinations Guide</a>
+      <a href="traveler-stories.html">Traveler Stories</a>
+      <a href="pages-mockup.html">Is Egypt Safe for Americans?</a>
+      <a href="pages-mockup.html">Best Time to Visit Egypt</a>
+      <a href="pages-mockup.html">What to Pack for Egypt</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact Us</h4>
+      <div class="contact-line"><span>📍</span><span>Pickup: Cairo · Hurghada · Luxor</span></div>
+      <div class="contact-line"><span>🇺🇸</span><a href="tel:+17727820494">+1 772 782 0494</a></div>
+      <div class="contact-line"><span>💬</span><a href="https://wa.me/20120140578">+20 12 014-0578 (WhatsApp)</a></div>
+      <div class="contact-line"><span>✉️</span><a href="mailto:info@accessegypttravel.com">info@accessegypttravel.com</a></div>
+      <p class="footer-note" style="margin-top:10px;">Mon–Sat · 9am–6pm EST · We respond within 2 hours.</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Access Egypt Travel LLC · All Rights Reserved · 📍 Cairo · Hurghada · Luxor · 🇺🇸 +1 772 782 0494</p>
+    <div style="display:flex;gap:16px;">
+      <a href="pages-mockup.html">Privacy Policy</a>
+      <a href="pages-mockup.html">Terms &amp; Conditions</a>
+      <a href="pages-mockup.html">Cancellation Policy</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function () {
+    var cards = Array.prototype.slice.call(document.querySelectorAll('.story-card'));
+    var lb = document.getElementById('lightbox');
+    var lbImg = document.getElementById('lbImg'), lbSite = document.getElementById('lbSite');
+    var lbPerson = document.getElementById('lbPerson'), lbQuote = document.getElementById('lbQuote');
+    var lbTour = document.getElementById('lbTour'), lbCount = document.getElementById('lbCount');
+    var btnClose = document.getElementById('lbClose'), btnPrev = document.getElementById('lbPrev'), btnNext = document.getElementById('lbNext');
+    var current = 0, lastFocus = null;
+    function render(i) {
+      var c = cards[i];
+      lbImg.src = c.getAttribute('data-full');
+      lbImg.alt = c.querySelector('img') ? c.querySelector('img').alt : '';
+      lbSite.textContent = c.getAttribute('data-site') || '';
+      var person = c.getAttribute('data-person') || '';
+      lbPerson.textContent = person; lbPerson.style.display = person ? 'block' : 'none';
+      var quote = c.getAttribute('data-quote') || '';
+      lbQuote.textContent = quote ? '\u201c' + quote + '\u201d' : ''; lbQuote.style.display = quote ? 'block' : 'none';
+      var url = c.getAttribute('data-tour-url') || '';
+      if (url) { lbTour.href = url; lbTour.textContent = c.getAttribute('data-tour-label') || 'See this tour \u2192'; lbTour.style.display = 'inline-block'; }
+      else { lbTour.style.display = 'none'; }
+      lbCount.textContent = (i + 1) + ' / ' + cards.length; current = i;
+    }
+    function open(i) { lastFocus = document.activeElement; render(i); lb.classList.add('open'); document.body.style.overflow = 'hidden'; btnClose.focus(); }
+    function close() { lb.classList.remove('open'); document.body.style.overflow = ''; if (lastFocus && lastFocus.focus) lastFocus.focus(); }
+    function next() { render((current + 1) % cards.length); }
+    function prev() { render((current - 1 + cards.length) % cards.length); }
+    cards.forEach(function (c, i) {
+      c.addEventListener('click', function () { open(i); });
+      c.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(i); } });
+    });
+    btnClose.addEventListener('click', close);
+    btnNext.addEventListener('click', function (e) { e.stopPropagation(); next(); });
+    btnPrev.addEventListener('click', function (e) { e.stopPropagation(); prev(); });
+    lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
+    document.addEventListener('keydown', function (e) {
+      if (!lb.classList.contains('open')) return;
+      if (e.key === 'Escape') close(); else if (e.key === 'ArrowRight') next(); else if (e.key === 'ArrowLeft') prev();
+    });
+    // per-stage filmstrip sliders
+    document.querySelectorAll('.strip-wrap').forEach(function (wrap) {
+      var strip = wrap.querySelector('.stage-strip');
+      var p = wrap.querySelector('.prev'), n = wrap.querySelector('.next');
+      function step() { return Math.max(strip.clientWidth * 0.8, 242); }
+      function update() {
+        var over = strip.scrollWidth - strip.clientWidth > 4;
+        p.hidden = !over || strip.scrollLeft <= 2;
+        n.hidden = !over || strip.scrollLeft >= strip.scrollWidth - strip.clientWidth - 2;
+      }
+      p.addEventListener('click', function () { strip.scrollBy({ left: -step(), behavior: 'smooth' }); });
+      n.addEventListener('click', function () { strip.scrollBy({ left: step(), behavior: 'smooth' }); });
+      strip.addEventListener('scroll', update);
+      window.addEventListener('resize', update);
+      update();
+    });
+  })();
+</script>
+
+</body>
+</html>
