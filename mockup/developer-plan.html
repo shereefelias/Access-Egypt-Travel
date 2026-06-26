@@ -58,6 +58,8 @@
   .status-draft { background: #fef9c3; color: #854d0e; padding: 2px 8px; border-radius: 4px; font-size: 12px; }
   .status-delete { background: #fee2e2; color: #991b1b; padding: 2px 8px; border-radius: 4px; font-size: 12px; }
   .footer-doc { background: #1a1a2e; color: #94a3b8; text-align: center; padding: 24px; font-size: 13px; margin-top: 40px; }
+  .section { scroll-margin-top: 24px; }
+  .main-content { padding-bottom: 80vh; }
   /* Arabic language mode */
   .ar-note { display:none; direction:rtl; text-align:right; background:#f0fdf4; border-right:4px solid #16a34a; border-left:none; padding:14px 18px; margin:0 0 18px 0; border-radius:0 8px 8px 0; font-size:14px; color:#14532d; line-height:1.9; font-family:'Segoe UI',Tahoma,Arial,sans-serif; }
   body.ar-mode .ar-note { display:block; }
@@ -131,7 +133,6 @@
     <a href="#s8b" class="toc-section">10. Contact Page</a>
     <a href="#s8c" class="toc-section">11. Footer Build</a>
     <a href="#s10" class="toc-section">12. Elementor Tech</a>
-    <a href="#s11" class="toc-section">13. Interactive Map</a>
     <a href="#s12" class="toc-section">14. Contact Form</a>
     <a href="#s13" class="toc-section">15. Payment Page</a>
     <a href="#s14" class="toc-section">16. Tours &amp; Destinations (Free)</a>
@@ -384,7 +385,7 @@
         </div>
         <div style="background:#fff7ed;border:1px solid #fed7aa;border-radius:8px;padding:16px;">
           <p style="font-weight:700;color:#9a3412;margin-bottom:8px;font-size:13px;">🔧 UPDATE THESE PAGES</p>
-          <p style="font-size:12px;color:#7c2d12;line-height:1.8;">/  (homepage — full rebuild)<br>/about-us/ (add John's story)<br>/contact/ (new form + map)<br>/faq/ (replace demo content)<br>/tour/ (add Leaflet map)<br>/blog/ (delete 18 Lorem posts)</p>
+          <p style="font-size:12px;color:#7c2d12;line-height:1.8;">/  (homepage — full rebuild)<br>/about-us/ (add John's story)<br>/contact/ (new form)<br>/faq/ (replace demo content)<br>/tour/ (add PNG route map image)<br>/blog/ (delete 18 Lorem posts)</p>
         </div>
         <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:16px;">
           <p style="font-weight:700;color:#15803d;margin-bottom:8px;font-size:13px;">➕ CREATE THESE NEW PAGES</p>
@@ -1632,232 +1633,6 @@ wp elementor flush-css</pre>
     </div>
   </div>
 
-  <!-- SECTION 11: INTERACTIVE TOUR MAP -->
-  <div class="section" id="s11">
-    <div class="section-header">
-      <span class="badge badge-high">High Impact</span>
-      <h2>11. Interactive Tour Route Map (Leaflet.js)</h2>
-    </div>
-    <div class="section-body">
-      <div class="ar-note">
-        <strong>الخريطة التفاعلية لكل صفحة جولة — Leaflet.js</strong>
-        <ul>
-          <li>الخريطة دي بتعرض خط سير الجولة على خريطة حقيقية مصر — فيها pins على القاهرة ولكسور والغردقة</li>
-          <li><strong>الخطوة الأولى — لمرة واحدة بس:</strong> افتح functions.php (Appearance → Theme File Editor) والصق الكود الموجود في القسم A تحت — هيحمل مكتبة Leaflet على كل الصفحات</li>
-          <li><strong>الخطوة التانية — لكل صفحة جولة:</strong> افتح الصفحة في Elementor → ضيف HTML widget → الصق الكود الكامل الموجود في القسم B</li>
-          <li><strong>مهم جداً — الـ ID:</strong> كل خريطة لازم يكون ليها ID مختلف — مثلاً: <code>tour-map-cairo-luxor</code> ، <code>tour-map-nile-cruise</code></li>
-          <li>الـ window.aetFlyTo لازم يفضل window.aetFlyTo مش بس function — ده مهم عشان Elementor بيعمل scope منفصل</li>
-          <li>الكود الكامل جاهز للـ paste — بس غير الـ ID لو عندك أكتر من خريطة</li>
-        </ul>
-        <strong>🗺️ إحداثيات مهمة:</strong> القاهرة [30.04, 31.24] | لكسور [25.69, 32.64] | أسوان [24.09, 32.90] | الغردقة [27.26, 33.81]
-      </div>
-
-      <p>Each tour page needs an interactive map showing the tour route — city pins that pop up with day-by-day info when clicked, a route line between cities, and a reset button to zoom back out. This uses <strong>Leaflet.js</strong>, a free open-source library. No API key, no Google Maps billing, works permanently.</p>
-
-      <div class="note"><strong>What the finished map does:</strong> Shows a real map of Egypt. Pins on Cairo, Luxor, and Hurghada. A red route line Cairo→Luxor. A dashed gold line Hurghada→Luxor (optional pickup). Clickable city labels above the map that fly-zoom to each city and open a popup. A ⌂ home button that resets the view.</div>
-
-      <div class="task">
-        <div class="task-header">
-          <div class="task-num">A</div>
-          <div><div class="task-title">Step 1 — Load Leaflet into WordPress (functions.php)</div>
-          <span class="badge badge-high">Do this once — affects all pages</span></div>
-        </div>
-        <div class="task-body">
-          <p>You need to tell WordPress to load the Leaflet CSS and JS files on every page. Open your theme's <code>functions.php</code> file.</p>
-          <div class="warning"><strong>Use a child theme.</strong> If you edit the parent theme's functions.php directly, your changes get wiped when the theme updates. Go to <strong>Appearance → Themes</strong> and check if a child theme is active. If not, create one first (or use a plugin like "Child Theme Configurator").</div>
-          <div class="path"><span class="highlight">Appearance</span> <span class="arrow">→</span> <span class="highlight">Theme File Editor</span> <span class="arrow">→</span> select <strong>functions.php</strong> from the right panel</div>
-          <p>Scroll to the very bottom of the file and paste this block — do not delete anything that's already there:</p>
-          <pre><span class="comment">// Load Leaflet map library on all pages</span>
-<span class="key">function</span> aet_load_leaflet() {
-    wp_enqueue_style(
-        <span class="val">'leaflet-css'</span>,
-        <span class="val">'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css'</span>,
-        [],
-        <span class="val">'1.9.4'</span>
-    );
-    wp_enqueue_script(
-        <span class="val">'leaflet-js'</span>,
-        <span class="val">'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js'</span>,
-        [],
-        <span class="val">'1.9.4'</span>,
-        <span class="val">true</span>  <span class="comment">// true = load in footer, not head</span>
-    );
-}
-add_action( <span class="val">'wp_enqueue_scripts'</span>, <span class="val">'aet_load_leaflet'</span> );</pre>
-          <p>Click <strong>Update File</strong>. Check the live site loads without errors (press F12 → Console tab — should be no red errors).</p>
-          <div class="note"><strong>Alternative if you can't edit functions.php:</strong> Install the free plugin <strong>"WPCode Lite"</strong> → Code Snippets → Add Snippet → PHP snippet → paste the same code block above → Save and Activate.</div>
-        </div>
-      </div>
-
-      <div class="task">
-        <div class="task-header">
-          <div class="task-num">B</div>
-          <div><div class="task-title">Step 2 — Add the Map to a Tour Page in Elementor</div>
-          <span class="badge badge-high">Repeat for each tour page</span></div>
-        </div>
-        <div class="task-body">
-          <p>Open the tour page in Elementor. Find the section where you want the map (after "Sites You'll Visit"). Add a new row, then drag in an <strong>HTML widget</strong> (search "HTML" in the widget panel).</p>
-          <div class="path"><span class="highlight">Elementor editor</span> <span class="arrow">→</span> search <span class="highlight">HTML</span> widget <span class="arrow">→</span> drag into section <span class="arrow">→</span> click the widget to edit it</div>
-          <p>Paste the entire code block below into the HTML widget. Then click <strong>Update</strong>.</p>
-
-          <div class="warning"><strong>Important — unique ID rule:</strong> The <code>id="tour-map-cairo-luxor"</code> in the code below must be unique on every page. For a Nile Cruise page, change it to <code>id="tour-map-nile-cruise"</code> and update the matching reference inside the script. If two maps share the same ID, only the first one will work.</div>
-
-          <pre><span class="comment">&lt;!-- ROUTE PILLS — clickable city labels above the map --&gt;</span>
-&lt;div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:14px;"&gt;
-  &lt;span onclick="aetFlyTo('cairo')"
-    style="background:#2c1a0e;color:#d4af6a;padding:6px 16px;border-radius:20px;
-           font-size:13px;font-weight:700;cursor:pointer;"
-    title="Click to zoom to Cairo"&gt;🏛️ Cairo (3 nights)&lt;/span&gt;
-  &lt;span style="color:#b5451b;font-size:18px;font-weight:900;"&gt;→&lt;/span&gt;
-  &lt;span onclick="aetFlyTo('luxor')"
-    style="background:#2c1a0e;color:#d4af6a;padding:6px 16px;border-radius:20px;
-           font-size:13px;font-weight:700;cursor:pointer;"
-    title="Click to zoom to Luxor"&gt;𓂀 Luxor (2 nights)&lt;/span&gt;
-  &lt;span onclick="aetFlyTo('hurghada')"
-    style="background:#f5f0e8;color:#8b7355;padding:6px 16px;border-radius:20px;
-           font-size:13px;font-weight:700;cursor:pointer;border:1px dashed #d4af6a;"
-    title="Click to see Hurghada pickup"&gt;📍 Hurghada pickup (optional)&lt;/span&gt;
-&lt;/div&gt;
-
-<span class="comment">&lt;!-- MAP CONTAINER — give it a fixed height --&gt;</span>
-&lt;div id="tour-map-cairo-luxor"
-  style="height:400px;border-radius:8px;border:2px solid #f0e8d8;"&gt;
-&lt;/div&gt;
-&lt;p style="font-size:12px;color:#8b7355;font-style:italic;margin-top:8px;"&gt;
-  👆 Click any city above to zoom in. Use the ⌂ button on the map to reset the view.
-  Red line = main route. Dashed gold = Hurghada optional pickup.
-&lt;/p&gt;
-
-&lt;script&gt;
-document.addEventListener('DOMContentLoaded', function() {
-
-  <span class="comment">// --- MAP SETUP ---</span>
-  var map = L.map('tour-map-cairo-luxor', {
-    center: [27.8, 31.8],
-    zoom: 6,
-    scrollWheelZoom: false  <span class="comment">// prevents page scroll hijack</span>
-  });
-
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '© &lt;a href="https://openstreetmap.org/copyright"&gt;OpenStreetMap&lt;/a&gt;'
-  }).addTo(map);
-
-  <span class="comment">// --- PIN STYLE HELPER ---</span>
-  function makePin(color, border) {
-    return L.divIcon({
-      className: '',
-      html: '&lt;div style="background:' + color +
-            ';width:18px;height:18px;border-radius:50%' +
-            ';border:3px solid ' + border +
-            ';box-shadow:0 3px 8px rgba(0,0,0,0.35);"&gt;&lt;/div&gt;',
-      iconSize: [18, 18], iconAnchor: [9, 9], popupAnchor: [0, -14]
-    });
-  }
-
-  <span class="comment">// --- CITY DATA ---</span>
-  var cities = {
-    cairo:    { latlng: [30.0444, 31.2357], zoom: 11,
-      popup: '&lt;b style="font-size:14px;"&gt;🏛️ Cairo&lt;/b&gt;&lt;br&gt;' +
-             '&lt;span style="color:#b5451b;font-size:12px;font-weight:700;"&gt;Days 1–3&lt;/span&gt;&lt;br&gt;' +
-             '&lt;ul style="margin:6px 0 0 16px;font-size:12px;line-height:1.8;"&gt;' +
-             '&lt;li&gt;Giza Pyramids &amp; Sphinx&lt;/li&gt;' +
-             '&lt;li&gt;Grand Egyptian Museum&lt;/li&gt;' +
-             '&lt;li&gt;Saladin Citadel &amp; Mosque&lt;/li&gt;' +
-             '&lt;li&gt;Coptic Cairo&lt;/li&gt;&lt;/ul&gt;' },
-    luxor:    { latlng: [25.6872, 32.6396], zoom: 11,
-      popup: '&lt;b style="font-size:14px;"&gt;𓂀 Luxor&lt;/b&gt;&lt;br&gt;' +
-             '&lt;span style="color:#064e3b;font-size:12px;font-weight:700;"&gt;Days 4–6&lt;/span&gt;&lt;br&gt;' +
-             '&lt;ul style="margin:6px 0 0 16px;font-size:12px;line-height:1.8;"&gt;' +
-             '&lt;li&gt;Valley of the Kings&lt;/li&gt;' +
-             '&lt;li&gt;Karnak &amp; Luxor Temples&lt;/li&gt;' +
-             '&lt;li&gt;Hatshepsut Temple&lt;/li&gt;' +
-             '&lt;li&gt;Nile Felucca at sunset&lt;/li&gt;&lt;/ul&gt;' },
-    hurghada: { latlng: [27.2574, 33.8129], zoom: 11,
-      popup: '&lt;b style="font-size:14px;"&gt;📍 Hurghada&lt;/b&gt;&lt;br&gt;' +
-             '&lt;span style="color:#8b7355;font-size:12px;font-weight:700;"&gt;Optional Pickup&lt;/span&gt;&lt;br&gt;' +
-             '&lt;p style="font-size:12px;margin-top:6px;"&gt;' +
-             'Already at a Red Sea resort? We pick you up here ' +
-             'and transfer you to Luxor (~3 hrs). Included in tour price.&lt;/p&gt;' }
-  };
-
-  <span class="comment">// --- MARKERS ---</span>
-  var markers = {
-    cairo:    L.marker(cities.cairo.latlng,    {icon: makePin('#b5451b','white')}).addTo(map).bindPopup(cities.cairo.popup),
-    luxor:    L.marker(cities.luxor.latlng,    {icon: makePin('#064e3b','white')}).addTo(map).bindPopup(cities.luxor.popup),
-    hurghada: L.marker(cities.hurghada.latlng, {icon: makePin('#d4af6a','#2c1a0e')}).addTo(map).bindPopup(cities.hurghada.popup)
-  };
-
-  <span class="comment">// --- ROUTE LINES ---</span>
-  L.polyline([cities.cairo.latlng, cities.luxor.latlng],
-    {color:'#b5451b', weight:3, opacity:0.85}).addTo(map);
-  L.polyline([cities.hurghada.latlng, cities.luxor.latlng],
-    {color:'#d4af6a', weight:2.5, opacity:0.8, dashArray:'10 7'}).addTo(map);
-
-  <span class="comment">// --- HOME / RESET BUTTON ---</span>
-  L.Control.ResetView = L.Control.extend({
-    options: { position: 'topleft' },
-    onAdd: function(m) {
-      var c = L.DomUtil.create('div', 'leaflet-bar leaflet-control');
-      var a = L.DomUtil.create('a', '', c);
-      a.innerHTML = '⌂'; a.href = '#'; a.title = 'Reset map view';
-      a.style.cssText = 'font-size:17px;line-height:26px;font-weight:900;' +
-                        'color:#444;text-decoration:none;display:block;' +
-                        'width:26px;height:26px;text-align:center;';
-      L.DomEvent.on(a, 'click', function(e) {
-        L.DomEvent.preventDefault(e);
-        L.DomEvent.stopPropagation(e);
-        m.flyTo([27.8, 31.8], 6, {duration:1.2});
-      });
-      return c;
-    }
-  });
-  new L.Control.ResetView().addTo(map);
-
-  <span class="comment">// --- FLY-TO FUNCTION (called by city pill clicks) ---</span>
-  window.aetFlyTo = function(name) {
-    var c = cities[name];
-    map.flyTo(c.latlng, c.zoom, {duration: 1.4});
-    setTimeout(function() { markers[name].openPopup(); }, 1500);
-  };
-
-}); <span class="comment">// end DOMContentLoaded</span>
-&lt;/script&gt;</pre>
-
-          <div class="note"><strong>Why <code>window.aetFlyTo</code> instead of just <code>aetFlyTo</code>?</strong> Elementor wraps widget scripts in a local scope — if you declare the function normally, the <code>onclick</code> attributes on the route pills can't reach it. Assigning to <code>window</code> makes it globally accessible. This is the correct Elementor pattern.</div>
-        </div>
-      </div>
-
-      <div class="task">
-        <div class="task-header">
-          <div class="task-num">C</div>
-          <div><div class="task-title">Step 3 — Adding Maps to Other Tour Pages</div>
-          <span class="badge badge-medium">For each additional tour</span></div>
-        </div>
-        <div class="task-body">
-          <p>For every other tour page (Nile Cruise, Egypt Packages, etc.), repeat Step 2 with these changes:</p>
-          <table>
-            <tr><th>What to change</th><th>How</th></tr>
-            <tr><td>Map container ID</td><td>Change <code>tour-map-cairo-luxor</code> to something unique, e.g. <code>tour-map-nile-cruise</code>. Change it in <strong>both</strong> the <code>&lt;div id="..."&gt;</code> and the <code>L.map('...')</code> call.</td></tr>
-            <tr><td>City pills text</td><td>Update the label text (e.g. "Luxor (Day 1)" → "Aswan (Day 4)")</td></tr>
-            <tr><td>City coordinates</td><td>Aswan: <code>[24.0889, 32.8998]</code> — replace where needed</td></tr>
-            <tr><td>Route line points</td><td>Update the <code>L.polyline</code> arrays to match the new route</td></tr>
-            <tr><td>Popup content</td><td>Update the popup text for each city's day/activities</td></tr>
-            <tr><td>window.aetFlyTo</td><td>If two maps exist on the same page, rename the function: <code>window.aetFlyToCruise</code> etc. and update the onclick attributes to match.</td></tr>
-          </table>
-          <div class="note"><strong>Common Egypt coordinates for reference:</strong><br>
-            Cairo: <code>[30.0444, 31.2357]</code> &nbsp;|&nbsp;
-            Luxor: <code>[25.6872, 32.6396]</code> &nbsp;|&nbsp;
-            Aswan: <code>[24.0889, 32.8998]</code> &nbsp;|&nbsp;
-            Hurghada: <code>[27.2574, 33.8129]</code> &nbsp;|&nbsp;
-            Sharm: <code>[27.9158, 34.3299]</code> &nbsp;|&nbsp;
-            Abu Simbel: <code>[22.3372, 31.6258]</code>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
   <!-- SECTION 12: CONTACT FORM DATE TOGGLE -->
   <div class="section" id="s12">
     <div class="section-header">
@@ -2854,9 +2629,8 @@ document.addEventListener('click', function(e){
         <tr><td>14</td><td>Update About Us with Egyptologist story</td><td><span class="badge badge-medium">Medium</span></td><td>Pages → About Us → Elementor</td><td>1–2 hrs</td></tr>
         <tr><td>15</td><td>Regenerate Elementor CSS &amp; Data</td><td><span class="badge badge-medium">Medium</span></td><td>Elementor → Tools</td><td>5 min</td></tr>
         <tr><td>16</td><td>Update Elementor &amp; plugins</td><td><span class="badge badge-low">Low</span></td><td>Plugins → Installed Plugins</td><td>30 min + testing</td></tr>
-        <tr><td>17</td><td>Load Leaflet.js in functions.php (once)</td><td><span class="badge badge-high">High</span></td><td>Appearance → Theme File Editor → functions.php</td><td>10 min</td></tr>
-        <tr><td>18</td><td>Add interactive route map to each tour page</td><td><span class="badge badge-high">High</span></td><td>Elementor → HTML widget → paste map code (Section 13)</td><td>30 min/tour</td></tr>
-        <tr><td>19</td><td>Add date-toggle contact form to Contact page</td><td><span class="badge badge-high">High</span></td><td>Elementor → HTML widget → paste form code (Section 14)</td><td>30 min</td></tr>
+        <tr><td>17</td><td>Add PNG route map image to each tour page</td><td><span class="badge badge-high">High</span></td><td>Elementor → Image widget → upload PNG map</td><td>10 min/tour</td></tr>
+        <tr><td>18</td><td>Add date-toggle contact form to Contact page</td><td><span class="badge badge-high">High</span></td><td>Elementor → HTML widget → paste form code (Section 14)</td><td>30 min</td></tr>
         <tr><td>20</td><td>Create Payment page (email live now; PayPal/Square placeholders)</td><td><span class="badge badge-high">High</span></td><td>Pages → Add New → slug: payment → Elementor (Section 15)</td><td>45 min</td></tr>
         <tr><td>21</td><td>Activate PayPal &amp; Square on Payment page when accounts ready</td><td><span class="badge badge-medium">Medium — Phase 2</span></td><td>Replace placeholder divs with real button embed codes</td><td>20 min</td></tr>
         <tr><td>22</td><td>Build 5 tour package pages (Saved Template + duplicate)</td><td><span class="badge badge-high">High</span></td><td>Elementor — Section 17</td><td>3–5 hrs</td></tr>
@@ -2870,8 +2644,6 @@ document.addEventListener('click', function(e){
       </table>
     </div>
   </div>
-
-</div>
 
   <!-- ══════ S19: ELEMENTOR PRO UPGRADE ══════ -->
   <div class="section" id="s19">
