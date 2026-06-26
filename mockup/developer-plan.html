@@ -147,6 +147,9 @@
     <a href="#s18b" class="toc-section">18B. Breadcrumbs (Wayfinding)</a>
     <a href="#s18b" class="toc-sub">→ Rank Math + Elementor</a>
     <a href="#s18b" class="toc-sub">→ Per-page trails + CSS</a>
+    <a href="#s18c" class="toc-section">18C. Traveler Stories</a>
+    <a href="#s18c" class="toc-sub">→ Ordered 22-stop page</a>
+    <a href="#s18c" class="toc-sub">→ Elementor + optional CSS</a>
     <a href="#s19" class="toc-section" style="color:#dc2626;font-weight:700;">19. ⚠️ Elementor Pro Upgrade</a>
     <a href="#s19" class="toc-sub">→ Version situation</a>
     <a href="#s19" class="toc-sub">→ Upgrade process</a>
@@ -345,6 +348,7 @@
 │   ├── Destinations ▾ (NEW) → /destinations/
 │   │   ├── /cairo/  /kom-ombo/  /abu-simbel/ (built)
 │   │   └── + marquee sites (build as priority)
+│   ├── Traveler Stories → /traveler-stories/ (CREATE NEW)
 │   ├── Reviews → /testimonials/ (CREATE)
 │   ├── FAQs → /faq/ (rebuild content)
 │   ├── About → /about-us/ (update content)
@@ -384,7 +388,7 @@
         </div>
         <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:16px;">
           <p style="font-weight:700;color:#15803d;margin-bottom:8px;font-size:13px;">➕ CREATE THESE NEW PAGES</p>
-          <p style="font-size:12px;color:#14532d;line-height:1.8;">/testimonials/ (Reviews page)<br>/payment/ (💳 Pay Now page)<br>/destinations/ (hub — NEW)<br>/cairo/ /kom-ombo/ /abu-simbel/ (built)<br>+ marquee destination pages<br>5 tour-package pages (6/7/8/9/11-day)<br><br><span style="color:#6b7280;">Phase 2 (later):</span><br>/visa-requirements/<br>/best-time-to-visit/<br>/packing-guide/<br>/egypt-safety/</p>
+          <p style="font-size:12px;color:#14532d;line-height:1.8;">/testimonials/ (Reviews page)<br>/traveler-stories/ (ordered photo journey)<br>/payment/ (💳 Pay Now page)<br>/destinations/ (hub — NEW)<br>/cairo/ /kom-ombo/ /abu-simbel/ (built)<br>+ marquee destination pages<br>5 tour-package pages (6/7/8/9/11-day)<br><br><span style="color:#6b7280;">Phase 2 (later):</span><br>/visa-requirements/<br>/best-time-to-visit/<br>/packing-guide/<br>/egypt-safety/</p>
         </div>
       </div>
 
@@ -409,6 +413,7 @@
       <li><a href="#s8">Missing Pages to Create</a></li>
       <li><a href="#s10">Elementor — Technical Fixes</a></li>
       <li><a href="#s18b">Breadcrumbs (Wayfinding) — All Interior Pages</a></li>
+      <li><a href="#s18c">Traveler Stories Page — Ordered Photo Journey</a></li>
     </ol>
   </div>
 
@@ -610,8 +615,8 @@ selector img:hover {
           <p><strong>Reference: Osiris Tours nav structure</strong> — HOME | DESTINATIONS | REVIEWS | FAQS | BLOG | ABOUT | CONTACT. Key insight: Reviews and FAQs are top-level nav items, not buried. Adopt this pattern.</p>
 
           <p><strong>Recommended new nav structure (per the latest mockups):</strong></p>
-          <pre>Home | Tours ▾ | Destinations ▾ | Reviews | FAQs | About | Contact</pre>
-          <div class="note"><strong>Updated since original plan:</strong> a <strong>Destinations ▾</strong> dropdown was added (both mockups), and Blog stays out of the nav (owner decision). The Tours dropdown should list the five duration-based packages from the mockup, not the old slugs.</div>
+          <pre>Home | Tours ▾ | Destinations ▾ | Traveler Stories | Reviews | FAQs | About | Contact</pre>
+          <div class="note"><strong>Updated since original plan:</strong> a <strong>Destinations ▾</strong> dropdown and <strong>Traveler Stories</strong> page were added, and Blog stays out of the nav (owner decision). The Tours dropdown should list the five duration-based packages from the mockup, not the old slugs.</div>
           <p style="margin-top:12px;"><strong>Tours dropdown (from the mockups):</strong></p>
           <table>
             <tr><th>Label</th><th>Package</th></tr>
@@ -1117,16 +1122,18 @@ wp post list --post_type=post --fields=ID,post_title --format=csv | grep <span c
           <li>روح Pages → Add New — حط الاسم → Edit with Elementor</li>
           <li><strong>About Us:</strong> قصة جون جميل (Egyptologist 22 سنة خبرة)، صورة شخصية، شهادات العملاء</li>
           <li><strong>Testimonials:</strong> صفحة فيها آراء العملاء — مهم جداً للثقة مع العملاء الأمريكان</li>
+          <li><strong>Traveler Stories:</strong> صفحة صور حقيقية مرتبة من 1 إلى 22 بدون خريطة، عشان تبني الثقة وتوري الرحلة كأنها قصة كاملة</li>
           <li><strong>Tour Packages (landing page):</strong> صفحة رئيسية للجولات بكل الباقات المتاحة</li>
           <li>كل صفحة لازم يكون فيها: Hero Image، نص واضح، وCTA بيروح على الإيميل أو WhatsApp</li>
         </ul>
         <strong>تذكر:</strong> السلوج (URL) لكل صفحة لازم يبقى بالإنجليزي وبسيط: <code>/about/</code>، <code>/testimonials/</code>، <code>/tours/</code>
       </div>
 
-      <div class="note"><strong>Scaffold all the new pages at once (WP-CLI).</strong> This creates them as <em>drafts</em> with the correct slugs so you can build each in Elementor and the menus/breadcrumbs resolve. The <code>/tours/</code> page also becomes the breadcrumb parent for the 5 tour pages (see <a href="#s18b">18B</a>).</p>
+      <div class="note"><strong>Scaffold all the new pages at once (WP-CLI).</strong> This creates them as <em>drafts</em> with the correct slugs so you can build each in Elementor and the menus/breadcrumbs resolve. The <code>/tours/</code> page also becomes the breadcrumb parent for the 5 tour pages (see <a href="#s18b">18B</a>).</div>
       <div class="path"><span class="highlight">Tools</span> <span class="arrow">→</span> <span class="highlight">WP-CLI</span> (or host terminal)</div>
       <pre><span class="comment"># Create Phase-1 pages as drafts with clean slugs</span>
 wp post create --post_type=page --post_status=draft --post_title=<span class="val">"Testimonials"</span> --post_name=<span class="val">"testimonials"</span>
+wp post create --post_type=page --post_status=draft --post_title=<span class="val">"Traveler Stories"</span> --post_name=<span class="val">"traveler-stories"</span>
 wp post create --post_type=page --post_status=draft --post_title=<span class="val">"Tours"</span>        --post_name=<span class="val">"tours"</span>
 wp post create --post_type=page --post_status=draft --post_title=<span class="val">"Pay Now"</span>      --post_name=<span class="val">"payment"</span>
 
@@ -2443,7 +2450,7 @@ document.addEventListener('click', function(e){
 
       <p>A <strong>breadcrumb</strong> is the small trail above the page title — <code>Home › Tours › 6 Days Cairo &amp; Luxor</code> — that tells a visitor <em>where they are</em> and gives them a one-click way back up the tree. The mockups already show this on tour pages (<code>.tour-crumb</code>) and destination pages (<code>.dest-crumb</code>). This section is the part the plan was missing: <strong>how to actually build the visible trail in WordPress.</strong> (Elementor Pro has a Breadcrumbs widget, but the Rank Math method below is the recommended one — it keeps the visible trail and the Google schema in sync from a single source and won't be affected by the Pro/core version gap.)</p>
 
-      <div class="note"><strong>Two jobs, one component.</strong> Breadcrumbs do two things at once: (1) <strong>on-page navigation</strong> — the visible trail; and (2) <strong>SEO</strong> — Google shows the trail in the result's URL line via <code>BreadcrumbList</code> structured data. The SEO/schema side is already covered in <strong>seo-plan-phase3.html → step 1E</strong>. Do <em>not</em> build the schema twice — if you use the Rank Math method below, the schema is generated automatically from the same trail.</p></div>
+      <div class="note"><strong>Two jobs, one component.</strong> Breadcrumbs do two things at once: (1) <strong>on-page navigation</strong> — the visible trail; and (2) <strong>SEO</strong> — Google shows the trail in the result's URL line via <code>BreadcrumbList</code> structured data. The SEO/schema side is already covered in <strong>seo-plan-phase3.html → step 1E</strong>. Do <em>not</em> build the schema twice — if you use the Rank Math method below, the schema is generated automatically from the same trail.</div>
 
       <h3 style="margin:20px 0 8px;font-size:15px;color:#1a1a2e;">Which method to use</h3>
       <table>
@@ -2519,6 +2526,7 @@ document.addEventListener('click', function(e){
         <tr><td><strong>Destinations hub</strong></td><td><code>/destinations/</code></td><td>Home › Destinations</td><td>Top-level page</td></tr>
         <tr><td><strong>Destination detail</strong></td><td><code>/destinations/cairo/</code></td><td>Home › Destinations › Cairo</td><td>Page Parent = <strong>Destinations</strong> (or CPT base)</td></tr>
         <tr><td><strong>About / Contact / FAQ / Reviews</strong></td><td><code>/about-us/</code></td><td>Home › About</td><td>Top-level page (auto)</td></tr>
+        <tr><td><strong>Traveler Stories</strong></td><td><code>/traveler-stories/</code></td><td>Home › Traveler Stories</td><td>Top-level page (auto); build spec in Section 18C</td></tr>
         <tr><td><strong>Pay Now</strong></td><td><code>/payment/</code></td><td>Home › Pay Now</td><td>Top-level page (auto)</td></tr>
         <tr><td><strong>Blog post</strong> <span style="color:#94a3b8;">(Phase 2)</span></td><td><code>/blog/post-name/</code></td><td>Home › Blog › Post Title</td><td>Auto from post type</td></tr>
       </table>
@@ -2612,6 +2620,210 @@ document.addEventListener('click', function(e){
     </div>
   </div>
 
+  <!-- ══════ S18C: TRAVELER STORIES PAGE ══════ -->
+  <div class="section" id="s18c">
+    <div class="section-header">
+      <span class="badge badge-high">New Page</span>
+      <h2>18C. Traveler Stories Page — Ordered Photo Journey Build Spec</h2>
+    </div>
+    <div class="section-body">
+      <div class="ar-note">
+        <strong>صفحة Traveler Stories — مهمة جداً للثقة</strong>
+        <ul>
+          <li>دي صفحة صور وتجربة، مش صفحة Reviews ومش صفحة Tour Package.</li>
+          <li>لا تضيف خريطة في أعلى الصفحة. الخريطة كانت بتلخبط التصميم وتم حذفها من الموك أب.</li>
+          <li>لا تختصر الرحلة إلى 7 محطات. لازم تظهر الأماكن بالترتيب من 1 إلى 22، وبعدها Optional Add-Ons.</li>
+          <li>لو مفيش صورة حقيقية لمكان معين، استخدم Placeholder واضح مؤقتاً. الصور الحقيقية تتضاف لاحقاً.</li>
+        </ul>
+      </div>
+
+      <p><strong>Source of truth:</strong> build this page from <code>mockup/traveler-stories.html</code>. The goal is to show American travelers what a full Egypt journey can feel like through real guest-style photos, ordered stops, and simple place labels. It should feel human and visual, not like a brochure or a map.</p>
+
+      <div class="warning"><strong>Do not rebuild the removed map.</strong> The approved version uses a centered text hero followed by an ordered photo journey. If a developer wants a route/map later, it should be a separate section below the photo journey, not in the hero.</div>
+
+      <div class="divider"></div>
+
+      <h3 style="margin:8px 0 10px;font-size:16px;color:#1a1a2e;">Page setup in WordPress</h3>
+      <div class="step"><div class="step-num">1</div><div>Go to <strong>Pages → Add New</strong>.</div></div>
+      <div class="step"><div class="step-num">2</div><div>Title: <strong>Traveler Stories</strong>. Slug: <code>traveler-stories</code>. Final URL: <code>/traveler-stories/</code>.</div></div>
+      <div class="step"><div class="step-num">3</div><div>Set template/layout to the same normal site layout used by the other redesigned pages, so the global header and footer appear. Do <strong>not</strong> use Elementor Canvas unless the header/footer are intentionally rebuilt inside the page.</div></div>
+      <div class="step"><div class="step-num">4</div><div>Hide the default WordPress page title if the theme prints it above Elementor content. The page already has its own H1 in the hero.</div></div>
+      <div class="step"><div class="step-num">5</div><div>Edit with Elementor. Build with <strong>Flexbox Containers</strong> and <strong>Grid Containers</strong>, not legacy Sections/Columns.</div></div>
+      <div class="step"><div class="step-num">6</div><div>Add the page to the main menu between <strong>Destinations</strong> and <strong>Reviews</strong>: <code>Home | Tours | Destinations | Traveler Stories | Reviews | FAQs | About | Contact | Pay Now</code>.</div></div>
+
+      <div class="note"><strong>SEO basics:</strong> Rank Math title can be <code>Traveler Stories | Access Egypt Travel</code>. Meta description: <em>See real traveler-style moments from Egypt, from the Giza Pyramids and Cairo museums to Luxor, Aswan, Philae, Nubian Village, and optional add-ons.</em></div>
+
+      <div class="divider"></div>
+
+      <h3 style="margin:8px 0 10px;font-size:16px;color:#1a1a2e;">Approved page anatomy</h3>
+      <table>
+        <tr><th>Order</th><th>Block</th><th>Elementor widgets / containers</th><th>Notes</th></tr>
+        <tr><td>1</td><td><strong>Hero</strong></td><td>Outer Container → inner centered Container → Heading + Text Editor</td><td>No map. Max width about 880px. Centered text. Keep it airy.</td></tr>
+        <tr><td>2</td><td><strong>Small trust note</strong></td><td>Text Editor</td><td>Short line explaining these are real-style journey moments and placeholders will be replaced as photos are added.</td></tr>
+        <tr><td>3</td><td><strong>Ordered journey</strong></td><td>Repeating Flexbox row blocks</td><td>Must show stops 1–22 in exact order. Each stop has a number circle, title, optional note, and photo cards/placeholders.</td></tr>
+        <tr><td>4</td><td><strong>Optional Add-Ons</strong></td><td>Grid Container or Flexbox wrap</td><td>Separate from numbered stops. Do not number these as 23+.</td></tr>
+        <tr><td>5</td><td><strong>CTA</strong></td><td>Heading + Text + Button row</td><td>Send to Contact page, WhatsApp, or Cal.com booking call. Keep CTA simple.</td></tr>
+      </table>
+
+      <div class="divider"></div>
+
+      <h3 style="margin:8px 0 10px;font-size:16px;color:#1a1a2e;">Exact ordered stops</h3>
+      <p>Use this list exactly. Do not merge stops, rename them casually, or skip placeholders just because photos are missing.</p>
+      <table>
+        <tr><th>#</th><th>Stop title</th><th>Image status</th><th>Implementation note</th></tr>
+        <tr><td>1</td><td>Giza Pyramids &amp; The Sphinx</td><td>Real photos available</td><td>Use Giza traveler/camel/pyramid photos.</td></tr>
+        <tr><td>2</td><td>Grand Egyptian Museum (GEM)</td><td>Placeholder</td><td>Empty image placeholder until a real GEM guest photo is selected.</td></tr>
+        <tr><td>3</td><td>Saladin Citadel &amp; Mohammed Ali Mosque</td><td>Placeholder</td><td>Use placeholder.</td></tr>
+        <tr><td>4</td><td>Ancient Churches of Coptic Cairo</td><td>Placeholder</td><td>Use placeholder.</td></tr>
+        <tr><td>5</td><td>National Museum of Egyptian Civilization (NMEC)</td><td>Placeholder</td><td>Use placeholder.</td></tr>
+        <tr><td>6</td><td>Karnak Temple Complex</td><td>Placeholder</td><td>Use placeholder until Karnak photo is added.</td></tr>
+        <tr><td>7</td><td>Luxor Temple &amp; Sphinx Avenue</td><td>Real photo available</td><td>Add small note: <strong>Lit up at night.</strong></td></tr>
+        <tr><td>8</td><td>City Tour on a Horse-drawn carriage around Luxor and the local market.</td><td>Placeholder</td><td>Keep full wording from owner.</td></tr>
+        <tr><td>9</td><td>Valley of the Kings (3 tombs plus the extraordinary tomb of Ramesses V &amp; VI)</td><td>Placeholder</td><td>Do not change the tomb phrasing.</td></tr>
+        <tr><td>10</td><td>Hatshepsut Temple</td><td>Placeholder</td><td>Use placeholder.</td></tr>
+        <tr><td>11</td><td>Deir el-Medina (Artisans' Village)</td><td>Placeholder</td><td>Use placeholder.</td></tr>
+        <tr><td>12</td><td>Madinet Habu Temple</td><td>Placeholder</td><td>Use placeholder.</td></tr>
+        <tr><td>13</td><td>The Valley of The Queens</td><td>Placeholder</td><td>Keep owner's capitalization unless owner revises.</td></tr>
+        <tr><td>14</td><td>The Nobles' Tombs</td><td>Placeholder</td><td>Use placeholder.</td></tr>
+        <tr><td>15</td><td>Colossi of Memnon</td><td>Placeholder</td><td>Use placeholder.</td></tr>
+        <tr><td>16</td><td>Luxor City Tour on a Horse-drawn carriage</td><td>Placeholder</td><td>Keep separate from stop 8 because owner listed both.</td></tr>
+        <tr><td>17</td><td>Edfu Temple</td><td>Real photo available</td><td>Use Edfu group/temple photo.</td></tr>
+        <tr><td>18</td><td>Kom Ombo Temple</td><td>Real photo available</td><td>Use Kom Ombo columns photo.</td></tr>
+        <tr><td>19</td><td>Philae Temple</td><td>Real photos available</td><td>Use Philae friends/group photos.</td></tr>
+        <tr><td>20</td><td>The Unfinished Obelisk</td><td>Placeholder</td><td>Use placeholder.</td></tr>
+        <tr><td>21</td><td>The High Dam</td><td>Placeholder</td><td>Use placeholder.</td></tr>
+        <tr><td>22</td><td>The Nubian Village</td><td>Placeholder</td><td>Use placeholder.</td></tr>
+      </table>
+
+      <h3 style="margin:20px 0 10px;font-size:16px;color:#1a1a2e;">Optional Add-Ons block</h3>
+      <table>
+        <tr><th>Add-on</th><th>Image status</th><th>Note</th></tr>
+        <tr><td>Dinner cruise on the Nile in Cairo</td><td>Placeholder</td><td>Keep first.</td></tr>
+        <tr><td>Sound &amp; Light Show at the Pyramids</td><td>Placeholder</td><td>Use placeholder.</td></tr>
+        <tr><td>Hot air balloon over Luxor at sunrise</td><td>Real photo available</td><td>Use Luxor balloons photo.</td></tr>
+        <tr><td>Sound &amp; Light Show at Karnak Temples</td><td>Placeholder</td><td>Use placeholder.</td></tr>
+        <tr><td>Sound &amp; Light Show at Philae Temple</td><td>Placeholder</td><td>Use placeholder.</td></tr>
+        <tr><td>Dendera Temple</td><td>Placeholder</td><td>Use placeholder.</td></tr>
+        <tr><td>Abu Simbel Temples</td><td>Real photo available</td><td>Use Abu Simbel photo.</td></tr>
+      </table>
+
+      <div class="divider"></div>
+
+      <h3 style="margin:8px 0 10px;font-size:16px;color:#1a1a2e;">Elementor build — native controls first</h3>
+      <div class="step"><div class="step-num">1</div><div><strong>Create the hero container.</strong> Add one full-width Flexbox Container. Padding: 54px top, 16px bottom desktop; 34px top, 10px bottom mobile. Direction: Column. Align Items: Center. Text Align: Center.</div></div>
+      <div class="step"><div class="step-num">2</div><div><strong>Add hero content.</strong> Add a small Text Editor eyebrow if wanted, then H1 <code>Traveler Stories</code>, then a short paragraph. Keep the paragraph under 2 lines on desktop and readable on mobile. Do not add a map, route graphic, or split media column.</div></div>
+      <div class="step"><div class="step-num">3</div><div><strong>Create the journey wrapper.</strong> Add a boxed Container, max width 1180px, background warm off-white, 1px light sand border, border radius 8px, padding 20px desktop / 14px mobile.</div></div>
+      <div class="step"><div class="step-num">4</div><div><strong>Create one stop row.</strong> Add a Flexbox Container with Direction Row, Align Items Flex Start, Gap 14px. Left child = number circle. Right child = content column.</div></div>
+      <div class="step"><div class="step-num">5</div><div><strong>Number circle.</strong> Use a Heading widget or Text Editor inside a small Container: 40px by 40px desktop, 34px by 34px mobile, background gold <code>#c49a3c</code>, text white, border radius 50%, font weight 800. Keep each circle the same size so the vertical rhythm stays clean.</div></div>
+      <div class="step"><div class="step-num">6</div><div><strong>Stop content.</strong> Add H3 for the stop title. Add a tiny meta Text Editor only when needed, for example <code>Lit up at night.</code> on stop 7.</div></div>
+      <div class="step"><div class="step-num">7</div><div><strong>Photo cards.</strong> Add a nested Grid Container below each stop title. Desktop columns: 3 or auto-fit; tablet: 2; mobile: 1. Each card uses an Image widget with fixed height around 165–180px, object-fit cover, border radius 8px.</div></div>
+      <div class="step"><div class="step-num">8</div><div><strong>Placeholders.</strong> For stops without images, add a Container the same height as photo cards. Use a light sand background, dashed border, centered text: <code>Photo placeholder</code>. Do not leave the spot blank or collapse the stop.</div></div>
+      <div class="step"><div class="step-num">9</div><div><strong>Duplicate carefully.</strong> Duplicate the completed stop row 21 times, then update the number, title, note, and photos/placeholders. After duplicating, check that numbers run 1 through 22 without repeats or missing numbers.</div></div>
+      <div class="step"><div class="step-num">10</div><div><strong>Optional Add-Ons.</strong> Add a separate H2 and Grid Container after stop 22. Use card style similar to photo cards, but do not number these cards.</div></div>
+      <div class="step"><div class="step-num">11</div><div><strong>CTA.</strong> Add a final CTA band: H2, one short sentence, buttons for <code>Plan My Egypt Trip</code> and <code>WhatsApp Us</code>. The primary button should link to <code>/contact/</code> or the booking call page; WhatsApp should use the approved Egypt number.</div></div>
+
+      <div class="note"><strong>Images:</strong> upload the current story images from <code>mockup/images/stories/</code> into the Media Library. Use clear filenames and alt text, for example <code>Traveler at the Giza Pyramids with Access Egypt Travel</code>, <code>Friends visiting Philae Temple in Aswan</code>, and <code>Hot air balloons over Luxor at sunrise</code>.</div>
+
+      <div class="divider"></div>
+
+      <h3 style="margin:8px 0 10px;font-size:16px;color:#1a1a2e;">Optional CSS for closer mockup match</h3>
+      <p>Use this only after trying Elementor's built-in controls. Add CSS classes in Elementor Advanced → CSS Classes, then paste this into <strong>Page Settings → Advanced → Custom CSS</strong> if Elementor Pro custom CSS is working. Fallback location: Appearance → Customize → Additional CSS.</p>
+      <pre><span class="comment">/* Traveler Stories page */</span>
+.ae-traveler-stories {
+  overflow-x: hidden;
+}
+.ae-traveler-stories .ae-stories-hero {
+  max-width: 880px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 54px 20px 16px;
+}
+.ae-traveler-stories .ae-stories-hero h1 {
+  font-size: 48px;
+  line-height: 1.04;
+  letter-spacing: 0;
+}
+.ae-story-frame {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #eadfc9;
+  border-radius: 8px;
+  background: #fffaf1;
+}
+.ae-stage {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 18px 0;
+  border-bottom: 1px solid #eadfc9;
+}
+.ae-stage-num {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  flex: 0 0 40px;
+  display: grid;
+  place-items: center;
+  background: #c49a3c;
+  color: #fff;
+  font-weight: 800;
+}
+.ae-stage-title {
+  margin: 0 0 10px;
+  font-size: 22px;
+  line-height: 1.18;
+}
+.ae-photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 10px;
+}
+.ae-story-card,
+.ae-story-placeholder {
+  min-height: 168px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.ae-story-card img {
+  width: 100%;
+  height: 100%;
+  min-height: 168px;
+  object-fit: cover;
+  display: block;
+}
+.ae-story-placeholder {
+  border: 1px dashed #c9b58b;
+  background: repeating-linear-gradient(135deg,#f7eddc,#f7eddc 10px,#f2e3c9 10px,#f2e3c9 20px);
+  display: grid;
+  place-items: center;
+  color: #7a6034;
+  font-weight: 700;
+  text-align: center;
+}
+@media (max-width: 720px) {
+  .ae-traveler-stories .ae-stories-hero { padding: 34px 16px 10px; }
+  .ae-traveler-stories .ae-stories-hero h1 { font-size: 31px; }
+  .ae-story-frame { padding: 14px; }
+  .ae-stage { gap: 10px; }
+  .ae-stage-num { width: 34px; height: 34px; flex-basis: 34px; }
+  .ae-stage-title { font-size: 19px; overflow-wrap: anywhere; }
+}</pre>
+
+      <div class="divider"></div>
+
+      <h3 style="margin:8px 0 10px;font-size:16px;color:#1a1a2e;">QA checklist before publishing</h3>
+      <div class="step"><div class="step-num">1</div><div>Open <code>/traveler-stories/</code> on desktop and mobile. The top of the page must show centered hero text with <strong>no map</strong>.</div></div>
+      <div class="step"><div class="step-num">2</div><div>Count the stops on the page. They must run <strong>1 through 22</strong> in order, followed by <strong>Optional Add-Ons</strong>.</div></div>
+      <div class="step"><div class="step-num">3</div><div>Every stop must have either at least one real image or a visible placeholder card. No collapsed empty rows.</div></div>
+      <div class="step"><div class="step-num">4</div><div>On mobile, long titles like stop 9 must wrap inside the screen. No horizontal overflow from text or photo cards.</div></div>
+      <div class="step"><div class="step-num">5</div><div>Click all real images if using Elementor Lightbox. They should open cleanly and include useful alt text.</div></div>
+      <div class="step"><div class="step-num">6</div><div>Check the menu link, breadcrumb trail, Rank Math title/description, and final CTA links.</div></div>
+      <div class="step"><div class="step-num">7</div><div>Run Elementor → Tools → Regenerate CSS &amp; Data if the page looks different while logged out.</div></div>
+
+    </div>
+  </div>
+
   <!-- SUMMARY TABLE -->
   <div class="section">
     <div class="section-header">
@@ -2653,6 +2865,7 @@ document.addEventListener('click', function(e){
         <tr><td>25</td><td>Add location pop-ups / link site names to destination pages</td><td><span class="badge badge-medium">Medium</span></td><td>HTML widget snippet — Section 16</td><td>1 hr</td></tr>
         <tr><td>26</td><td>Resolve red flags: 11-day itinerary, 9-day flight route, meal format</td><td><span class="badge badge-critical">Before publish</span></td><td>Confirm with team — Section 16</td><td>—</td></tr>
         <tr><td>27</td><td>Enable breadcrumbs site-wide + add visible trail to tour/destination/page templates</td><td><span class="badge badge-high">High</span></td><td>Rank Math → Breadcrumbs + Elementor Shortcode widget — Section 18B</td><td>30–45 min</td></tr>
+        <tr><td>28</td><td>Build Traveler Stories page with ordered 1–22 journey stops, placeholders, optional add-ons, and menu link</td><td><span class="badge badge-high">High</span></td><td>Pages → Add New → Elementor Pro — Section 18C</td><td>2–4 hrs</td></tr>
         <tr><td colspan="5" style="background:#f0f7ff;color:#1e40af;font-size:12px;padding:10px 14px;">SEO tasks (Rank Math setup, focus keywords, sitemap submission) are in a separate document: <strong>seo-plan.html</strong> — do these after Phase 1 is complete.</td></tr>
       </table>
     </div>

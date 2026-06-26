@@ -8,7 +8,7 @@
 <style>
   :root{ --orange:#b5451b; --orange-dark:#943a17; --dark:#2c1a0e; --gold:#c49a3c; --sand:#fdf8f2; --text:#4a3520; }
   *{box-sizing:border-box;}
-  body{margin:0;font-family:'Helvetica Neue',Arial,sans-serif;color:var(--dark);background:#fff;line-height:1.6;}
+  body{margin:0;font-family:'Helvetica Neue',Arial,sans-serif;color:var(--dark);background:#fff;line-height:1.6;overflow-x:hidden;}
   a{color:var(--orange);}
   /* header / nav */
   .site-header{ background:#fff; border-bottom:1px solid #f0ece4; padding:0 40px; display:flex; align-items:center; justify-content:space-between; height:74px; box-shadow:0 2px 8px rgba(0,0,0,0.06); position:sticky; top:0; z-index:600; }
@@ -23,19 +23,16 @@
   .nav-dropdown-menu a:last-child{ border-bottom:none; }
   .nav-dropdown-menu a:hover{ background:#fdf5ef; color:#b5451b; }
   .nav-dropdown:hover .nav-dropdown-menu{ display:block; }
-  /* hero (two-column with route map) */
-  .page-hero{ max-width:1180px; margin:0 auto; display:flex; align-items:center; gap:38px; padding:34px 20px 6px; }
-  .hero-text{ flex:1 1 50%; }
+  /* hero */
+  .page-hero{ max-width:880px; margin:0 auto; padding:54px 20px 16px; text-align:center; }
+  .hero-text{ width:100%; max-width:720px; min-width:0; margin:0 auto; }
   .page-hero .eyebrow{ font-size:12px; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; color:var(--orange); margin-bottom:10px; }
-  .page-hero h1{ font-size:38px; font-weight:900; margin:0 0 10px; line-height:1.08; }
+  .page-hero h1{ font-size:48px; font-weight:900; margin:0 0 12px; line-height:1.04; }
   .page-hero h1 span{ color:var(--orange); }
-  .page-hero p{ font-size:16px; color:var(--text); margin:0; }
-  .hero-line{ width:54px; height:3px; background:var(--gold); border-radius:2px; margin:18px 0 0; }
-  .hero-map{ flex:0 1 auto; text-align:center; }
-  .hero-map img{ width:auto; max-width:100%; max-height:400px; height:auto; border-radius:12px; border:1px solid #eadfce; box-shadow:0 8px 26px rgba(44,26,14,.16); }
-  .hero-map-cap{ display:block; margin-top:9px; font-size:11.5px; font-weight:700; letter-spacing:.6px; text-transform:uppercase; color:#a8946f; }
-  @media(max-width:860px){ .page-hero{ flex-direction:column; text-align:center; gap:22px; } .page-hero p{ max-width:620px; margin:0 auto; } .hero-line{ margin:18px auto 0; } .hero-map{ order:2; } }
-  .stories-note{ max-width:760px; margin:24px auto 0; padding:0 20px; text-align:center; font-size:14px; color:#6b5030; }
+  .page-hero p{ font-size:17px; color:var(--text); margin:0 auto; max-width:650px; line-height:1.7; }
+  .hero-line{ width:54px; height:3px; background:var(--gold); border-radius:2px; margin:18px auto 0; }
+  @media(max-width:860px){ .page-hero{ padding-top:34px; overflow:hidden; } .page-hero h1{ font-size:31px; line-height:1.08; } .page-hero h1 span{ display:block; } .page-hero p{ max-width:330px; font-size:16px; } }
+  .stories-note{ max-width:760px; margin:14px auto 0; padding:0 20px; text-align:center; font-size:14px; color:#6b5030; }
   .stories-note b{ color:var(--dark); }
   /* journey scroll container */
   .wrap{ max-width:1180px; margin:0 auto; padding:18px 20px 10px; }
@@ -133,6 +130,11 @@
     nav{ width:100%; overflow-x:auto; padding-bottom:4px; }
     nav a{ flex-shrink:0; padding:8px 9px; font-size:12.5px; }
     .page-hero h1{ font-size:30px; }
+    .page-hero p, .stories-note{ max-width:310px; overflow-wrap:anywhere; }
+    .journey-hint{ max-width:310px; margin:8px auto 10px; text-align:center; line-height:1.45; overflow-wrap:anywhere; }
+    .journey-scroll{ overflow-x:hidden; }
+    .stage-head > div:last-child{ min-width:0; }
+    .stage-title{ font-size:19px; overflow-wrap:anywhere; }
     .strip-wrap{ margin-left:0; }
     .stage::before{ display:none; }
     .stage-strip > *{ flex-basis:78%; }
@@ -163,10 +165,6 @@
     <p>These aren't stock photos. Every face here is someone who booked with us, flew over, and let us plan their Egypt — couples, friends, and small groups at the places you're dreaming about.</p>
     <div class="hero-line"></div>
   </div>
-  <div class="hero-map">
-    <img src="images/Access-Egypt-Travel-guide-map_v5.png" alt="Map of the Access Egypt Travel route down the Nile — Cairo, Luxor, Edfu, Kom Ombo, Aswan, Abu Simbel" loading="eager">
-    <span class="hero-map-cap">Your route — Cairo to Abu Simbel</span>
-  </div>
 </div>
 
 <div class="stories-note">
@@ -180,324 +178,74 @@
       <section class="stage">
         <div class="stage-head">
           <div class="stage-num">1</div>
-          <div>
-            <h2 class="stage-title">Cairo &amp; the Giza Pyramids</h2>
-            <div class="stage-meta">
-              <span class="stage-seen">Seen on every Access Egypt tour — all five start in Cairo.</span>
-              <span class="stage-links"><a href="pages-mockup.html#tour-c">See the tours →</a><span class="sep">·</span><a href="cairo.html">Explore Cairo &amp; Giza →</a><span class="sep">·</span><span class="stage-count">2/8 with photos</span></span>
-            </div>
-          </div>
+          <div><h2 class="stage-title">Giza Pyramids &amp; The Sphinx</h2><div class="stage-meta"><span class="stage-count">2 photos</span></div></div>
         </div>
-        <div class="strip-wrap">
-          <button class="strip-nav prev" aria-label="Previous photos" hidden>‹</button>
-          <div class="stage-strip">
-        <figure class="story-card" tabindex="0" role="button" aria-label="View photo: Giza Pyramids &amp; The Sphinx"
-                data-full="images/stories/giza-couple-camel.jpg" data-site="Giza Pyramids &amp; The Sphinx"
-                data-person="" data-quote="" data-tour-url="pages-mockup.html#tour-c" data-tour-label="See this tour →">
-          <img src="images/stories/giza-couple-camel.jpg" alt="Travelers with a camel at the Giza Pyramids" loading="lazy">
-          <div class="story-zoom">⤢</div>
-          <figcaption class="story-cap"><span class="story-site">Giza Pyramids &amp; The Sphinx</span><span class="story-person is-empty"></span><span class="story-quote is-empty"></span><a class="story-tourlink is-empty" href=""></a></figcaption>
-        </figure>
-        <figure class="story-card" tabindex="0" role="button" aria-label="View photo: Giza Pyramids &amp; The Sphinx"
-                data-full="images/stories/giza-couple-pyramid.jpg" data-site="Giza Pyramids &amp; The Sphinx"
-                data-person="" data-quote="" data-tour-url="pages-mockup.html#tour-c" data-tour-label="See this tour →">
-          <img src="images/stories/giza-couple-pyramid.jpg" alt="Couple at the Great Pyramid, Giza" loading="lazy">
-          <div class="story-zoom">⤢</div>
-          <figcaption class="story-cap"><span class="story-site">Giza Pyramids &amp; The Sphinx</span><span class="story-person is-empty"></span><span class="story-quote is-empty"></span><a class="story-tourlink is-empty" href=""></a></figcaption>
-        </figure>
-        <div class="story-ph" aria-label="Grand Egyptian Museum (GEM) — photos coming soon">
-          <div class="ph-ico">📷</div>
-          <div class="ph-name">Grand Egyptian Museum (GEM)</div>
-          <div class="ph-soon">Photos coming soon</div>
-        </div>
-        <div class="story-ph" aria-label="Saladin Citadel &amp; Mohammed Ali Mosque — photos coming soon">
-          <div class="ph-ico">📷</div>
-          <div class="ph-name">Saladin Citadel &amp; Mohammed Ali Mosque</div>
-          <div class="ph-soon">Photos coming soon</div>
-        </div>
-        <div class="story-ph" aria-label="Ancient Churches of Coptic Cairo — photos coming soon">
-          <div class="ph-ico">📷</div>
-          <div class="ph-name">Ancient Churches of Coptic Cairo</div>
-          <div class="ph-soon">Photos coming soon</div>
-        </div>
-        <div class="story-ph" aria-label="National Museum of Egyptian Civilization (NMEC) — photos coming soon">
-          <div class="ph-ico">📷</div>
-          <div class="ph-name">National Museum of Egyptian Civilization (NMEC)</div>
-          <div class="ph-soon">Photos coming soon</div>
-        </div>
-        <div class="story-ph" aria-label="Dinner Cruise on the Nile in Cairo — photos coming soon">
-          <div class="opt-badge">Optional</div>
-          <div class="ph-ico">📷</div>
-          <div class="ph-name">Dinner Cruise on the Nile in Cairo</div>
-          <div class="ph-soon">Optional · photos coming soon</div>
-        </div>
-        <div class="story-ph" aria-label="Sound &amp; Light Show at the Pyramids — photos coming soon">
-          <div class="opt-badge">Optional</div>
-          <div class="ph-ico">📷</div>
-          <div class="ph-name">Sound &amp; Light Show at the Pyramids</div>
-          <div class="ph-soon">Optional · photos coming soon</div>
-        </div>
-          </div>
-          <button class="strip-nav next" aria-label="More photos" hidden>›</button>
-        </div>
+        <div class="strip-wrap"><button class="strip-nav prev" aria-label="Previous photos" hidden>‹</button><div class="stage-strip">
+          <figure class="story-card" tabindex="0" role="button" aria-label="View photo: Giza Pyramids &amp; The Sphinx" data-full="images/stories/giza-couple-camel.jpg" data-site="Giza Pyramids &amp; The Sphinx" data-person="" data-quote="" data-tour-url="pages-mockup.html#tour-c" data-tour-label="See this tour →"><img src="images/stories/giza-couple-camel.jpg" alt="Travelers with a camel at the Giza Pyramids" loading="lazy"><div class="story-zoom">⤢</div><figcaption class="story-cap"><span class="story-site">Giza Pyramids &amp; The Sphinx</span><span class="story-person is-empty"></span><span class="story-quote is-empty"></span><a class="story-tourlink is-empty" href=""></a></figcaption></figure>
+          <figure class="story-card" tabindex="0" role="button" aria-label="View photo: Giza Pyramids &amp; The Sphinx" data-full="images/stories/giza-couple-pyramid.jpg" data-site="Giza Pyramids &amp; The Sphinx" data-person="" data-quote="" data-tour-url="pages-mockup.html#tour-c" data-tour-label="See this tour →"><img src="images/stories/giza-couple-pyramid.jpg" alt="Couple at the Great Pyramid, Giza" loading="lazy"><div class="story-zoom">⤢</div><figcaption class="story-cap"><span class="story-site">Giza Pyramids &amp; The Sphinx</span><span class="story-person is-empty"></span><span class="story-quote is-empty"></span><a class="story-tourlink is-empty" href=""></a></figcaption></figure>
+        </div><button class="strip-nav next" aria-label="More photos" hidden>›</button></div>
       </section>
-      <section class="stage">
-        <div class="stage-head">
-          <div class="stage-num">2</div>
-          <div>
-            <h2 class="stage-title">Luxor</h2>
-            <div class="stage-meta">
-              <span class="stage-seen">Seen on every tour — Karnak, Luxor Temple &amp; the West Bank Tour.</span>
-              <span class="stage-links"><a href="pages-mockup.html#tour-c">See the tours →</a><span class="sep">·</span><a href="destinations.html">Explore Luxor →</a><span class="sep">·</span><span class="stage-count">2/13 with photos</span></span>
-            </div>
-          </div>
-        </div>
-        <div class="strip-wrap">
-          <button class="strip-nav prev" aria-label="Previous photos" hidden>‹</button>
-          <div class="stage-strip">
-        <figure class="story-card" tabindex="0" role="button" aria-label="View photo: Luxor Temple &amp; Sphinx Avenue"
-                data-full="images/stories/luxor-night-friends.jpg" data-site="Luxor Temple &amp; Sphinx Avenue"
-                data-person="" data-quote="" data-tour-url="pages-mockup.html#tour-c" data-tour-label="See this tour →">
-          <img src="images/stories/luxor-night-friends.jpg" alt="Two travelers at Luxor Temple at dusk" loading="lazy">
-          <div class="story-zoom">⤢</div>
-          <figcaption class="story-cap"><span class="story-site">Luxor Temple &amp; Sphinx Avenue</span><span class="story-person is-empty"></span><span class="story-quote is-empty"></span><a class="story-tourlink is-empty" href=""></a></figcaption>
-        </figure>
-        <div class="story-ph" aria-label="Karnak Temple Complex — photos coming soon">
-          <div class="ph-ico">📷</div>
-          <div class="ph-name">Karnak Temple Complex</div>
-          <div class="ph-soon">Photos coming soon</div>
-        </div>
-        <div class="story-ph" aria-label="Valley of the Kings — photos coming soon">
-          <div class="ph-ico">📷</div>
-          <div class="ph-name">Valley of the Kings</div>
-          <div class="ph-soon">Photos coming soon</div>
-        </div>
-        <div class="story-ph" aria-label="Hatshepsut Temple — photos coming soon">
-          <div class="ph-ico">📷</div>
-          <div class="ph-name">Hatshepsut Temple</div>
-          <div class="ph-soon">Photos coming soon</div>
-        </div>
-        <div class="story-ph" aria-label="Deir el-Medina (Artisans' Village) — photos coming soon">
-          <div class="ph-ico">📷</div>
-          <div class="ph-name">Deir el-Medina (Artisans' Village)</div>
-          <div class="ph-soon">Photos coming soon</div>
-        </div>
-        <div class="story-ph" aria-label="Madinet Habu Temple — photos coming soon">
-          <div class="ph-ico">📷</div>
-          <div class="ph-name">Madinet Habu Temple</div>
-          <div class="ph-soon">Photos coming soon</div>
-        </div>
-        <div class="story-ph" aria-label="The Valley of the Queens — photos coming soon">
-          <div class="ph-ico">📷</div>
-          <div class="ph-name">The Valley of the Queens</div>
-          <div class="ph-soon">Photos coming soon</div>
-        </div>
-        <div class="story-ph" aria-label="The Nobles' Tombs — photos coming soon">
-          <div class="ph-ico">📷</div>
-          <div class="ph-name">The Nobles' Tombs</div>
-          <div class="ph-soon">Photos coming soon</div>
-        </div>
-        <div class="story-ph" aria-label="Colossi of Memnon — photos coming soon">
-          <div class="ph-ico">📷</div>
-          <div class="ph-name">Colossi of Memnon</div>
-          <div class="ph-soon">Photos coming soon</div>
-        </div>
-        <div class="story-ph" aria-label="Luxor City Tour by Horse-drawn Carriage — photos coming soon">
-          <div class="ph-ico">📷</div>
-          <div class="ph-name">Luxor City Tour by Horse-drawn Carriage</div>
-          <div class="ph-soon">Photos coming soon</div>
-        </div>
-        <figure class="story-card" tabindex="0" role="button" aria-label="View photo: Hot Air Balloon over Luxor"
-                data-full="images/stories/luxor-balloons.jpg" data-site="Hot Air Balloon over Luxor"
-                data-person="" data-quote="" data-tour-url="pages-mockup.html#tour-c" data-tour-label="See this tour →">
-          <img src="images/stories/luxor-balloons.jpg" alt="Hot-air balloons at sunrise over Luxor" loading="lazy">
-          <div class="opt-badge">Optional</div>
-          <div class="story-zoom">⤢</div>
-          <figcaption class="story-cap"><span class="story-site">Hot Air Balloon over Luxor</span><span class="story-person is-empty"></span><span class="story-quote is-empty"></span><a class="story-tourlink is-empty" href=""></a></figcaption>
-        </figure>
-        <div class="story-ph" aria-label="Sound &amp; Light Show at Karnak Temples — photos coming soon">
-          <div class="opt-badge">Optional</div>
-          <div class="ph-ico">📷</div>
-          <div class="ph-name">Sound &amp; Light Show at Karnak Temples</div>
-          <div class="ph-soon">Optional · photos coming soon</div>
-        </div>
-        <div class="story-ph" aria-label="Dendera Temple — photos coming soon">
-          <div class="opt-badge">Optional</div>
-          <div class="ph-ico">📷</div>
-          <div class="ph-name">Dendera Temple</div>
-          <div class="ph-soon">Optional · photos coming soon</div>
-        </div>
-          </div>
-          <button class="strip-nav next" aria-label="More photos" hidden>›</button>
-        </div>
-      </section>
-      <section class="stage">
-        <div class="stage-head">
-          <div class="stage-num">3</div>
-          <div>
-            <h2 class="stage-title">On the Nile</h2>
-            <div class="stage-meta">
-              <span class="stage-seen">The cruise leg — on the 8 &amp; 9-day cruises and the 12-day Odyssey.</span>
-              <span class="stage-links"><a href="pages-mockup.html#tour-c">See the tours →</a><span class="sep">·</span><a href="destinations.html">Explore Nile cruises →</a><span class="sep">·</span><span class="stage-count">2/2 with photos</span></span>
-            </div>
-          </div>
-        </div>
-        <div class="strip-wrap">
-          <button class="strip-nav prev" aria-label="Previous photos" hidden>‹</button>
-          <div class="stage-strip">
-        <figure class="story-card" tabindex="0" role="button" aria-label="View photo: Nile Cruise"
-                data-full="images/stories/nile-cruise.jpg" data-site="Nile Cruise"
-                data-person="" data-quote="" data-tour-url="pages-mockup.html#tour-c" data-tour-label="See this tour →">
-          <img src="images/stories/nile-cruise.jpg" alt="A Nile cruise ship on the river" loading="lazy">
-          <div class="story-zoom">⤢</div>
-          <figcaption class="story-cap"><span class="story-site">Nile Cruise</span><span class="story-person is-empty"></span><span class="story-quote is-empty"></span><a class="story-tourlink is-empty" href=""></a></figcaption>
-        </figure>
-        <figure class="story-card" tabindex="0" role="button" aria-label="View photo: Felucca on the Nile"
-                data-full="images/stories/nile-felucca.jpg" data-site="Felucca on the Nile"
-                data-person="" data-quote="" data-tour-url="pages-mockup.html#tour-c" data-tour-label="See this tour →">
-          <img src="images/stories/nile-felucca.jpg" alt="A felucca sailing the Nile" loading="lazy">
-          <div class="story-zoom">⤢</div>
-          <figcaption class="story-cap"><span class="story-site">Felucca on the Nile</span><span class="story-person is-empty"></span><span class="story-quote is-empty"></span><a class="story-tourlink is-empty" href=""></a></figcaption>
-        </figure>
-          </div>
-          <button class="strip-nav next" aria-label="More photos" hidden>›</button>
-        </div>
-      </section>
-      <section class="stage">
-        <div class="stage-head">
-          <div class="stage-num">4</div>
-          <div>
-            <h2 class="stage-title">Edfu</h2>
-            <div class="stage-meta">
-              <span class="stage-seen">A Nile-cruise stop — on the 8 &amp; 9-day cruises and the Odyssey.</span>
-              <span class="stage-links"><a href="pages-mockup.html#tour-c">See the tours →</a><span class="sep">·</span><a href="destinations.html">Explore Edfu →</a><span class="sep">·</span><span class="stage-count">1/1 with photos</span></span>
-            </div>
-          </div>
-        </div>
-        <div class="strip-wrap">
-          <button class="strip-nav prev" aria-label="Previous photos" hidden>‹</button>
-          <div class="stage-strip">
-        <figure class="story-card" tabindex="0" role="button" aria-label="View photo: Edfu Temple (Temple of Horus)"
-                data-full="images/stories/edfu-tour-group.jpg" data-site="Edfu Temple (Temple of Horus)"
-                data-person="" data-quote="" data-tour-url="pages-mockup.html#tour-c" data-tour-label="See this tour →">
-          <img src="images/stories/edfu-tour-group.jpg" alt="Tour group at the Temple of Horus, Edfu" loading="lazy">
-          <div class="story-zoom">⤢</div>
-          <figcaption class="story-cap"><span class="story-site">Edfu Temple (Temple of Horus)</span><span class="story-person is-empty"></span><span class="story-quote is-empty"></span><a class="story-tourlink is-empty" href=""></a></figcaption>
-        </figure>
-          </div>
-          <button class="strip-nav next" aria-label="More photos" hidden>›</button>
-        </div>
-      </section>
-      <section class="stage">
-        <div class="stage-head">
-          <div class="stage-num">5</div>
-          <div>
-            <h2 class="stage-title">Kom Ombo</h2>
-            <div class="stage-meta">
-              <span class="stage-seen">A Nile-cruise stop — on the 8 &amp; 9-day cruises and the Odyssey.</span>
-              <span class="stage-links"><a href="pages-mockup.html#tour-c">See the tours →</a><span class="sep">·</span><a href="kom-ombo.html">Explore Kom Ombo →</a><span class="sep">·</span><span class="stage-count">1/1 with photos</span></span>
-            </div>
-          </div>
-        </div>
-        <div class="strip-wrap">
-          <button class="strip-nav prev" aria-label="Previous photos" hidden>‹</button>
-          <div class="stage-strip">
-        <figure class="story-card" tabindex="0" role="button" aria-label="View photo: Kom Ombo Temple"
-                data-full="images/stories/kom-ombo-columns.jpg" data-site="Kom Ombo Temple"
-                data-person="" data-quote="" data-tour-url="pages-mockup.html#tour-c" data-tour-label="See this tour →">
-          <img src="images/stories/kom-ombo-columns.jpg" alt="Carved columns at Kom Ombo Temple" loading="lazy">
-          <div class="story-zoom">⤢</div>
-          <figcaption class="story-cap"><span class="story-site">Kom Ombo Temple</span><span class="story-person is-empty"></span><span class="story-quote is-empty"></span><a class="story-tourlink is-empty" href=""></a></figcaption>
-        </figure>
-          </div>
-          <button class="strip-nav next" aria-label="More photos" hidden>›</button>
-        </div>
-      </section>
-      <section class="stage">
-        <div class="stage-head">
-          <div class="stage-num">6</div>
-          <div>
-            <h2 class="stage-title">Aswan</h2>
-            <div class="stage-meta">
-              <span class="stage-seen">Seen on the 7-day, the 8 &amp; 9-day cruises, and the Odyssey.</span>
-              <span class="stage-links"><a href="pages-mockup.html#tour-c">See the tours →</a><span class="sep">·</span><a href="destinations.html">Explore Aswan &amp; Philae →</a><span class="sep">·</span><span class="stage-count">3/7 with photos</span></span>
-            </div>
-          </div>
-        </div>
-        <div class="strip-wrap">
-          <button class="strip-nav prev" aria-label="Previous photos" hidden>‹</button>
-          <div class="stage-strip">
-        <figure class="story-card" tabindex="0" role="button" aria-label="View photo: Philae Temple"
-                data-full="images/stories/philae-friends.jpg" data-site="Philae Temple"
-                data-person="" data-quote="" data-tour-url="pages-mockup.html#tour-c" data-tour-label="See this tour →">
-          <img src="images/stories/philae-friends.jpg" alt="Three friends at Philae Temple, Aswan" loading="lazy">
-          <div class="story-zoom">⤢</div>
-          <figcaption class="story-cap"><span class="story-site">Philae Temple</span><span class="story-person is-empty"></span><span class="story-quote is-empty"></span><a class="story-tourlink is-empty" href=""></a></figcaption>
-        </figure>
-        <figure class="story-card" tabindex="0" role="button" aria-label="View photo: Philae Temple"
-                data-full="images/stories/philae-group-selfie.jpg" data-site="Philae Temple"
-                data-person="" data-quote="" data-tour-url="pages-mockup.html#tour-c" data-tour-label="See this tour →">
-          <img src="images/stories/philae-group-selfie.jpg" alt="Group selfie at Philae Temple, Aswan" loading="lazy">
-          <div class="story-zoom">⤢</div>
-          <figcaption class="story-cap"><span class="story-site">Philae Temple</span><span class="story-person is-empty"></span><span class="story-quote is-empty"></span><a class="story-tourlink is-empty" href=""></a></figcaption>
-        </figure>
-        <figure class="story-card" tabindex="0" role="button" aria-label="View photo: Sailing to Philae"
-                data-full="images/stories/nile-boat-moment.jpg" data-site="Sailing to Philae"
-                data-person="" data-quote="" data-tour-url="pages-mockup.html#tour-c" data-tour-label="See this tour →">
-          <img src="images/stories/nile-boat-moment.jpg" alt="Traveler on a boat approaching Philae, Aswan" loading="lazy">
-          <div class="story-zoom">⤢</div>
-          <figcaption class="story-cap"><span class="story-site">Sailing to Philae</span><span class="story-person is-empty"></span><span class="story-quote is-empty"></span><a class="story-tourlink is-empty" href=""></a></figcaption>
-        </figure>
-        <div class="story-ph" aria-label="The Unfinished Obelisk — photos coming soon">
-          <div class="ph-ico">📷</div>
-          <div class="ph-name">The Unfinished Obelisk</div>
-          <div class="ph-soon">Photos coming soon</div>
-        </div>
-        <div class="story-ph" aria-label="The High Dam — photos coming soon">
-          <div class="ph-ico">📷</div>
-          <div class="ph-name">The High Dam</div>
-          <div class="ph-soon">Photos coming soon</div>
-        </div>
-        <div class="story-ph" aria-label="The Nubian Village — photos coming soon">
-          <div class="ph-ico">📷</div>
-          <div class="ph-name">The Nubian Village</div>
-          <div class="ph-soon">Photos coming soon</div>
-        </div>
-        <div class="story-ph" aria-label="Sound &amp; Light Show at Philae Temple — photos coming soon">
-          <div class="opt-badge">Optional</div>
-          <div class="ph-ico">📷</div>
-          <div class="ph-name">Sound &amp; Light Show at Philae Temple</div>
-          <div class="ph-soon">Optional · photos coming soon</div>
-        </div>
-          </div>
-          <button class="strip-nav next" aria-label="More photos" hidden>›</button>
-        </div>
-      </section>
+
+      <section class="stage"><div class="stage-head"><div class="stage-num">2</div><div><h2 class="stage-title">Grand Egyptian Museum (GEM)</h2><div class="stage-meta"><span class="stage-count">Photos coming soon</span></div></div></div><div class="strip-wrap"><button class="strip-nav prev" aria-label="Previous photos" hidden>‹</button><div class="stage-strip"><div class="story-ph" aria-label="Grand Egyptian Museum (GEM) — photos coming soon"><div class="ph-ico">📷</div><div class="ph-name">Grand Egyptian Museum (GEM)</div><div class="ph-soon">Photos coming soon</div></div></div><button class="strip-nav next" aria-label="More photos" hidden>›</button></div></section>
+      <section class="stage"><div class="stage-head"><div class="stage-num">3</div><div><h2 class="stage-title">Saladin Citadel &amp; Mohammed Ali Mosque</h2><div class="stage-meta"><span class="stage-count">Photos coming soon</span></div></div></div><div class="strip-wrap"><button class="strip-nav prev" aria-label="Previous photos" hidden>‹</button><div class="stage-strip"><div class="story-ph" aria-label="Saladin Citadel &amp; Mohammed Ali Mosque — photos coming soon"><div class="ph-ico">📷</div><div class="ph-name">Saladin Citadel &amp; Mohammed Ali Mosque</div><div class="ph-soon">Photos coming soon</div></div></div><button class="strip-nav next" aria-label="More photos" hidden>›</button></div></section>
+      <section class="stage"><div class="stage-head"><div class="stage-num">4</div><div><h2 class="stage-title">Ancient Churches of Coptic Cairo</h2><div class="stage-meta"><span class="stage-count">Photos coming soon</span></div></div></div><div class="strip-wrap"><button class="strip-nav prev" aria-label="Previous photos" hidden>‹</button><div class="stage-strip"><div class="story-ph" aria-label="Ancient Churches of Coptic Cairo — photos coming soon"><div class="ph-ico">📷</div><div class="ph-name">Ancient Churches of Coptic Cairo</div><div class="ph-soon">Photos coming soon</div></div></div><button class="strip-nav next" aria-label="More photos" hidden>›</button></div></section>
+      <section class="stage"><div class="stage-head"><div class="stage-num">5</div><div><h2 class="stage-title">National Museum of Egyptian Civilization (NMEC)</h2><div class="stage-meta"><span class="stage-count">Photos coming soon</span></div></div></div><div class="strip-wrap"><button class="strip-nav prev" aria-label="Previous photos" hidden>‹</button><div class="stage-strip"><div class="story-ph" aria-label="National Museum of Egyptian Civilization (NMEC) — photos coming soon"><div class="ph-ico">📷</div><div class="ph-name">National Museum of Egyptian Civilization (NMEC)</div><div class="ph-soon">Photos coming soon</div></div></div><button class="strip-nav next" aria-label="More photos" hidden>›</button></div></section>
+      <section class="stage"><div class="stage-head"><div class="stage-num">6</div><div><h2 class="stage-title">Karnak Temple Complex</h2><div class="stage-meta"><span class="stage-count">Photos coming soon</span></div></div></div><div class="strip-wrap"><button class="strip-nav prev" aria-label="Previous photos" hidden>‹</button><div class="stage-strip"><div class="story-ph" aria-label="Karnak Temple Complex — photos coming soon"><div class="ph-ico">📷</div><div class="ph-name">Karnak Temple Complex</div><div class="ph-soon">Photos coming soon</div></div></div><button class="strip-nav next" aria-label="More photos" hidden>›</button></div></section>
+
       <section class="stage">
         <div class="stage-head">
           <div class="stage-num">7</div>
-          <div>
-            <h2 class="stage-title">Abu Simbel</h2>
-            <div class="stage-meta">
-              <span class="stage-seen">An optional add-on — on the 8 &amp; 9-day cruises and the Odyssey.</span>
-              <span class="stage-links"><a href="pages-mockup.html#tour-c">See the tours →</a><span class="sep">·</span><a href="abu-simbel.html">Explore Abu Simbel →</a><span class="sep">·</span><span class="stage-count">1/1 with photos</span></span>
-            </div>
-          </div>
+          <div><h2 class="stage-title">Luxor Temple &amp; Sphinx Avenue</h2><div class="stage-meta"><span class="stage-seen">Lit up at night.</span><span class="stage-count">1 photo</span></div></div>
         </div>
-        <div class="strip-wrap">
-          <button class="strip-nav prev" aria-label="Previous photos" hidden>‹</button>
-          <div class="stage-strip">
-        <figure class="story-card" tabindex="0" role="button" aria-label="View photo: Abu Simbel Temples"
-                data-full="images/stories/abu-simbel.jpg" data-site="Abu Simbel Temples"
-                data-person="" data-quote="" data-tour-url="pages-mockup.html#tour-c" data-tour-label="See this tour →">
-          <img src="images/stories/abu-simbel.jpg" alt="The rock temples of Abu Simbel" loading="lazy">
-          <div class="opt-badge">Optional</div>
-          <div class="story-zoom">⤢</div>
-          <figcaption class="story-cap"><span class="story-site">Abu Simbel Temples</span><span class="story-person is-empty"></span><span class="story-quote is-empty"></span><a class="story-tourlink is-empty" href=""></a></figcaption>
-        </figure>
-          </div>
-          <button class="strip-nav next" aria-label="More photos" hidden>›</button>
+        <div class="strip-wrap"><button class="strip-nav prev" aria-label="Previous photos" hidden>‹</button><div class="stage-strip">
+          <figure class="story-card" tabindex="0" role="button" aria-label="View photo: Luxor Temple &amp; Sphinx Avenue" data-full="images/stories/luxor-night-friends.jpg" data-site="Luxor Temple &amp; Sphinx Avenue" data-person="" data-quote="" data-tour-url="pages-mockup.html#tour-c" data-tour-label="See this tour →"><img src="images/stories/luxor-night-friends.jpg" alt="Two travelers at Luxor Temple at dusk" loading="lazy"><div class="story-zoom">⤢</div><figcaption class="story-cap"><span class="story-site">Luxor Temple &amp; Sphinx Avenue</span><span class="story-person is-empty"></span><span class="story-quote is-empty"></span><a class="story-tourlink is-empty" href=""></a></figcaption></figure>
+        </div><button class="strip-nav next" aria-label="More photos" hidden>›</button></div>
+      </section>
+
+      <section class="stage"><div class="stage-head"><div class="stage-num">8</div><div><h2 class="stage-title">City Tour on a Horse-drawn carriage around Luxor and the local market.</h2><div class="stage-meta"><span class="stage-count">Photos coming soon</span></div></div></div><div class="strip-wrap"><button class="strip-nav prev" aria-label="Previous photos" hidden>‹</button><div class="stage-strip"><div class="story-ph" aria-label="City Tour on a Horse-drawn carriage around Luxor and the local market — photos coming soon"><div class="ph-ico">📷</div><div class="ph-name">City Tour on a Horse-drawn carriage around Luxor and the local market.</div><div class="ph-soon">Photos coming soon</div></div></div><button class="strip-nav next" aria-label="More photos" hidden>›</button></div></section>
+      <section class="stage"><div class="stage-head"><div class="stage-num">9</div><div><h2 class="stage-title">Valley of the Kings (3 tombs plus the extraordinary tomb of Ramesses V &amp; VI)</h2><div class="stage-meta"><span class="stage-count">Photos coming soon</span></div></div></div><div class="strip-wrap"><button class="strip-nav prev" aria-label="Previous photos" hidden>‹</button><div class="stage-strip"><div class="story-ph" aria-label="Valley of the Kings — photos coming soon"><div class="ph-ico">📷</div><div class="ph-name">Valley of the Kings</div><div class="ph-soon">Photos coming soon</div></div></div><button class="strip-nav next" aria-label="More photos" hidden>›</button></div></section>
+      <section class="stage"><div class="stage-head"><div class="stage-num">10</div><div><h2 class="stage-title">Hatshepsut Temple</h2><div class="stage-meta"><span class="stage-count">Photos coming soon</span></div></div></div><div class="strip-wrap"><button class="strip-nav prev" aria-label="Previous photos" hidden>‹</button><div class="stage-strip"><div class="story-ph" aria-label="Hatshepsut Temple — photos coming soon"><div class="ph-ico">📷</div><div class="ph-name">Hatshepsut Temple</div><div class="ph-soon">Photos coming soon</div></div></div><button class="strip-nav next" aria-label="More photos" hidden>›</button></div></section>
+      <section class="stage"><div class="stage-head"><div class="stage-num">11</div><div><h2 class="stage-title">Deir el-Medina (Artisans' Village)</h2><div class="stage-meta"><span class="stage-count">Photos coming soon</span></div></div></div><div class="strip-wrap"><button class="strip-nav prev" aria-label="Previous photos" hidden>‹</button><div class="stage-strip"><div class="story-ph" aria-label="Deir el-Medina (Artisans' Village) — photos coming soon"><div class="ph-ico">📷</div><div class="ph-name">Deir el-Medina (Artisans' Village)</div><div class="ph-soon">Photos coming soon</div></div></div><button class="strip-nav next" aria-label="More photos" hidden>›</button></div></section>
+      <section class="stage"><div class="stage-head"><div class="stage-num">12</div><div><h2 class="stage-title">Madinet Habu Temple</h2><div class="stage-meta"><span class="stage-count">Photos coming soon</span></div></div></div><div class="strip-wrap"><button class="strip-nav prev" aria-label="Previous photos" hidden>‹</button><div class="stage-strip"><div class="story-ph" aria-label="Madinet Habu Temple — photos coming soon"><div class="ph-ico">📷</div><div class="ph-name">Madinet Habu Temple</div><div class="ph-soon">Photos coming soon</div></div></div><button class="strip-nav next" aria-label="More photos" hidden>›</button></div></section>
+      <section class="stage"><div class="stage-head"><div class="stage-num">13</div><div><h2 class="stage-title">The Valley of The Queens</h2><div class="stage-meta"><span class="stage-count">Photos coming soon</span></div></div></div><div class="strip-wrap"><button class="strip-nav prev" aria-label="Previous photos" hidden>‹</button><div class="stage-strip"><div class="story-ph" aria-label="The Valley of The Queens — photos coming soon"><div class="ph-ico">📷</div><div class="ph-name">The Valley of The Queens</div><div class="ph-soon">Photos coming soon</div></div></div><button class="strip-nav next" aria-label="More photos" hidden>›</button></div></section>
+      <section class="stage"><div class="stage-head"><div class="stage-num">14</div><div><h2 class="stage-title">The Nobles' Tombs</h2><div class="stage-meta"><span class="stage-count">Photos coming soon</span></div></div></div><div class="strip-wrap"><button class="strip-nav prev" aria-label="Previous photos" hidden>‹</button><div class="stage-strip"><div class="story-ph" aria-label="The Nobles' Tombs — photos coming soon"><div class="ph-ico">📷</div><div class="ph-name">The Nobles' Tombs</div><div class="ph-soon">Photos coming soon</div></div></div><button class="strip-nav next" aria-label="More photos" hidden>›</button></div></section>
+      <section class="stage"><div class="stage-head"><div class="stage-num">15</div><div><h2 class="stage-title">Colossi of Memnon</h2><div class="stage-meta"><span class="stage-count">Photos coming soon</span></div></div></div><div class="strip-wrap"><button class="strip-nav prev" aria-label="Previous photos" hidden>‹</button><div class="stage-strip"><div class="story-ph" aria-label="Colossi of Memnon — photos coming soon"><div class="ph-ico">📷</div><div class="ph-name">Colossi of Memnon</div><div class="ph-soon">Photos coming soon</div></div></div><button class="strip-nav next" aria-label="More photos" hidden>›</button></div></section>
+      <section class="stage"><div class="stage-head"><div class="stage-num">16</div><div><h2 class="stage-title">Luxor City Tour on a Horse-drawn carriage</h2><div class="stage-meta"><span class="stage-count">Photos coming soon</span></div></div></div><div class="strip-wrap"><button class="strip-nav prev" aria-label="Previous photos" hidden>‹</button><div class="stage-strip"><div class="story-ph" aria-label="Luxor City Tour on a Horse-drawn carriage — photos coming soon"><div class="ph-ico">📷</div><div class="ph-name">Luxor City Tour on a Horse-drawn carriage</div><div class="ph-soon">Photos coming soon</div></div></div><button class="strip-nav next" aria-label="More photos" hidden>›</button></div></section>
+
+      <section class="stage">
+        <div class="stage-head"><div class="stage-num">17</div><div><h2 class="stage-title">Edfu Temple</h2><div class="stage-meta"><span class="stage-count">1 photo</span></div></div></div>
+        <div class="strip-wrap"><button class="strip-nav prev" aria-label="Previous photos" hidden>‹</button><div class="stage-strip"><figure class="story-card" tabindex="0" role="button" aria-label="View photo: Edfu Temple" data-full="images/stories/edfu-tour-group.jpg" data-site="Edfu Temple" data-person="" data-quote="" data-tour-url="pages-mockup.html#tour-c" data-tour-label="See this tour →"><img src="images/stories/edfu-tour-group.jpg" alt="Tour group at the Temple of Horus, Edfu" loading="lazy"><div class="story-zoom">⤢</div><figcaption class="story-cap"><span class="story-site">Edfu Temple</span><span class="story-person is-empty"></span><span class="story-quote is-empty"></span><a class="story-tourlink is-empty" href=""></a></figcaption></figure></div><button class="strip-nav next" aria-label="More photos" hidden>›</button></div>
+      </section>
+      <section class="stage">
+        <div class="stage-head"><div class="stage-num">18</div><div><h2 class="stage-title">Kom Ombo Temple</h2><div class="stage-meta"><span class="stage-count">1 photo</span></div></div></div>
+        <div class="strip-wrap"><button class="strip-nav prev" aria-label="Previous photos" hidden>‹</button><div class="stage-strip"><figure class="story-card" tabindex="0" role="button" aria-label="View photo: Kom Ombo Temple" data-full="images/stories/kom-ombo-columns.jpg" data-site="Kom Ombo Temple" data-person="" data-quote="" data-tour-url="pages-mockup.html#tour-c" data-tour-label="See this tour →"><img src="images/stories/kom-ombo-columns.jpg" alt="Carved columns at Kom Ombo Temple" loading="lazy"><div class="story-zoom">⤢</div><figcaption class="story-cap"><span class="story-site">Kom Ombo Temple</span><span class="story-person is-empty"></span><span class="story-quote is-empty"></span><a class="story-tourlink is-empty" href=""></a></figcaption></figure></div><button class="strip-nav next" aria-label="More photos" hidden>›</button></div>
+      </section>
+      <section class="stage">
+        <div class="stage-head"><div class="stage-num">19</div><div><h2 class="stage-title">Philae Temple</h2><div class="stage-meta"><span class="stage-count">3 photos</span></div></div></div>
+        <div class="strip-wrap"><button class="strip-nav prev" aria-label="Previous photos" hidden>‹</button><div class="stage-strip">
+          <figure class="story-card" tabindex="0" role="button" aria-label="View photo: Philae Temple" data-full="images/stories/philae-friends.jpg" data-site="Philae Temple" data-person="" data-quote="" data-tour-url="pages-mockup.html#tour-c" data-tour-label="See this tour →"><img src="images/stories/philae-friends.jpg" alt="Three friends at Philae Temple, Aswan" loading="lazy"><div class="story-zoom">⤢</div><figcaption class="story-cap"><span class="story-site">Philae Temple</span><span class="story-person is-empty"></span><span class="story-quote is-empty"></span><a class="story-tourlink is-empty" href=""></a></figcaption></figure>
+          <figure class="story-card" tabindex="0" role="button" aria-label="View photo: Philae Temple" data-full="images/stories/philae-group-selfie.jpg" data-site="Philae Temple" data-person="" data-quote="" data-tour-url="pages-mockup.html#tour-c" data-tour-label="See this tour →"><img src="images/stories/philae-group-selfie.jpg" alt="Group selfie at Philae Temple, Aswan" loading="lazy"><div class="story-zoom">⤢</div><figcaption class="story-cap"><span class="story-site">Philae Temple</span><span class="story-person is-empty"></span><span class="story-quote is-empty"></span><a class="story-tourlink is-empty" href=""></a></figcaption></figure>
+          <figure class="story-card" tabindex="0" role="button" aria-label="View photo: Sailing to Philae" data-full="images/stories/nile-boat-moment.jpg" data-site="Sailing to Philae" data-person="" data-quote="" data-tour-url="pages-mockup.html#tour-c" data-tour-label="See this tour →"><img src="images/stories/nile-boat-moment.jpg" alt="Traveler on a boat approaching Philae, Aswan" loading="lazy"><div class="story-zoom">⤢</div><figcaption class="story-cap"><span class="story-site">Sailing to Philae</span><span class="story-person is-empty"></span><span class="story-quote is-empty"></span><a class="story-tourlink is-empty" href=""></a></figcaption></figure>
+        </div><button class="strip-nav next" aria-label="More photos" hidden>›</button></div>
+      </section>
+      <section class="stage"><div class="stage-head"><div class="stage-num">20</div><div><h2 class="stage-title">The Unfinished Obelisk</h2><div class="stage-meta"><span class="stage-count">Photos coming soon</span></div></div></div><div class="strip-wrap"><button class="strip-nav prev" aria-label="Previous photos" hidden>‹</button><div class="stage-strip"><div class="story-ph" aria-label="The Unfinished Obelisk — photos coming soon"><div class="ph-ico">📷</div><div class="ph-name">The Unfinished Obelisk</div><div class="ph-soon">Photos coming soon</div></div></div><button class="strip-nav next" aria-label="More photos" hidden>›</button></div></section>
+      <section class="stage"><div class="stage-head"><div class="stage-num">21</div><div><h2 class="stage-title">The High Dam</h2><div class="stage-meta"><span class="stage-count">Photos coming soon</span></div></div></div><div class="strip-wrap"><button class="strip-nav prev" aria-label="Previous photos" hidden>‹</button><div class="stage-strip"><div class="story-ph" aria-label="The High Dam — photos coming soon"><div class="ph-ico">📷</div><div class="ph-name">The High Dam</div><div class="ph-soon">Photos coming soon</div></div></div><button class="strip-nav next" aria-label="More photos" hidden>›</button></div></section>
+      <section class="stage"><div class="stage-head"><div class="stage-num">22</div><div><h2 class="stage-title">The Nubian Village</h2><div class="stage-meta"><span class="stage-count">Photos coming soon</span></div></div></div><div class="strip-wrap"><button class="strip-nav prev" aria-label="Previous photos" hidden>‹</button><div class="stage-strip"><div class="story-ph" aria-label="The Nubian Village — photos coming soon"><div class="ph-ico">📷</div><div class="ph-name">The Nubian Village</div><div class="ph-soon">Photos coming soon</div></div></div><button class="strip-nav next" aria-label="More photos" hidden>›</button></div></section>
+
+      <section class="stage">
+        <div class="stage-head">
+          <div class="stage-num">+</div>
+          <div><h2 class="stage-title">Optional Add-Ons</h2><div class="stage-meta"><span class="stage-count">Add-on photo placeholders</span></div></div>
         </div>
+        <div class="strip-wrap"><button class="strip-nav prev" aria-label="Previous add-ons" hidden>‹</button><div class="stage-strip">
+          <div class="story-ph" aria-label="Dinner cruise on the Nile in Cairo — photos coming soon"><div class="opt-badge">Optional</div><div class="ph-ico">📷</div><div class="ph-name">Dinner cruise on the Nile in Cairo</div><div class="ph-soon">Photos coming soon</div></div>
+          <div class="story-ph" aria-label="Sound &amp; Light Show at the Pyramids — photos coming soon"><div class="opt-badge">Optional</div><div class="ph-ico">📷</div><div class="ph-name">Sound &amp; Light Show at the Pyramids</div><div class="ph-soon">Photos coming soon</div></div>
+          <figure class="story-card" tabindex="0" role="button" aria-label="View photo: Hot air balloon over Luxor at sunrise" data-full="images/stories/luxor-balloons.jpg" data-site="Hot air balloon over Luxor at sunrise" data-person="" data-quote="" data-tour-url="pages-mockup.html#tour-c" data-tour-label="See this tour →"><img src="images/stories/luxor-balloons.jpg" alt="Hot-air balloons at sunrise over Luxor" loading="lazy"><div class="opt-badge">Optional</div><div class="story-zoom">⤢</div><figcaption class="story-cap"><span class="story-site">Hot air balloon over Luxor</span><span class="story-person is-empty"></span><span class="story-quote is-empty"></span><a class="story-tourlink is-empty" href=""></a></figcaption></figure>
+          <div class="story-ph" aria-label="Sound &amp; Light Show at Karnak Temples — photos coming soon"><div class="opt-badge">Optional</div><div class="ph-ico">📷</div><div class="ph-name">Sound &amp; Light Show at Karnak Temples</div><div class="ph-soon">Photos coming soon</div></div>
+          <div class="story-ph" aria-label="Sound &amp; Light Show at Philae Temple — photos coming soon"><div class="opt-badge">Optional</div><div class="ph-ico">📷</div><div class="ph-name">Sound &amp; Light Show at Philae Temple</div><div class="ph-soon">Photos coming soon</div></div>
+          <div class="story-ph" aria-label="Dendera Temple — photos coming soon"><div class="opt-badge">Optional</div><div class="ph-ico">📷</div><div class="ph-name">Dendera Temple</div><div class="ph-soon">Photos coming soon</div></div>
+          <figure class="story-card" tabindex="0" role="button" aria-label="View photo: Abu Simbel Temples" data-full="images/stories/abu-simbel.jpg" data-site="Abu Simbel Temples" data-person="" data-quote="" data-tour-url="abu-simbel.html" data-tour-label="Explore Abu Simbel →"><img src="images/stories/abu-simbel.jpg" alt="The rock temples of Abu Simbel" loading="lazy"><div class="opt-badge">Optional</div><div class="story-zoom">⤢</div><figcaption class="story-cap"><span class="story-site">Abu Simbel Temples</span><span class="story-person is-empty"></span><span class="story-quote is-empty"></span><a class="story-tourlink is-empty" href=""></a></figcaption></figure>
+        </div><button class="strip-nav next" aria-label="More add-ons" hidden>›</button></div>
       </section>
     </div>
   </div>

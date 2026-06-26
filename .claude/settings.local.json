@@ -86,7 +86,8 @@
       "Bash(sips -g pixelWidth -g pixelHeight \"mockup/images/Access-Egypt-Travel-guide-map_v5.png\")",
       "Bash(git commit -q -m 'Add Traveler Stories page + homepage carousel; align tours to 12-day *)",
       "Bash(git fetch *)",
-      "Bash(awk '{print $1}')"
+      "Bash(awk '{print $1}')",
+      "Bash(git commit -q -m 'Reorganize photo library + add project skills, plan, and pipeline spec *)"
     ],
     "additionalDirectories": [
       "/Users/shereefelias/Documents/Access Egypt Travel/.claude/skills",
