@@ -1263,12 +1263,12 @@ Public outputs must remove:
 
 Public outputs should include:
 
-- Creator
-- Copyright owner
+- Creator: John Gamil Gadalla
+- Copyright owner: John Gamil Gadalla
 - Copyright notice
 - Credit line
-- Website URL
-- Contact email
+- Website URL: https://accessegypttravel.com
+- Contact email: info@accessegypttravel.com
 - Usage terms
 - Caption
 - Keywords

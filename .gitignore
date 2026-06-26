@@ -3,3 +3,10 @@ __pycache__/
 *.pyo
 .DS_Store
 .wp_session/
+
+# Photo library — originals are too large for git
+photos/originals/
+
+# Keep processed outputs and watermark assets
+!photos/processed/
+!photos/watermark/
