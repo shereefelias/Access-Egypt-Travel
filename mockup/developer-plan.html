@@ -103,7 +103,7 @@
   <div class="meta">
     <span><strong>Site:</strong> https://accessegypttravel.com</span>
     <span><strong>Stack:</strong> WordPress + Elementor Pro 3.7.7 + BABE Booking Plugin + Rank Math SEO</span>
-    <span><strong>Prepared:</strong> June 2026 · <strong>Last updated:</strong> June 20, 2026 (owner corrections + 12-day package confirmed)</span>
+    <span><strong>Prepared:</strong> June 2026 · <strong>Last updated:</strong> July 2, 2026 (Tripadvisor sidebar implementation added)</span>
     <span><strong>Owner contact:</strong> accessegypttravel@gmail.com</span>
   </div>
 </div>
@@ -141,6 +141,7 @@
     <a href="#s14" class="toc-sub">→ Pop-up custom code</a>
     <a href="#s17" class="toc-section">17. Tour Pages — Build Spec</a>
     <a href="#s17" class="toc-sub">→ Page anatomy + widgets</a>
+    <a href="#s17-tripadvisor" class="toc-sub">→ Tripadvisor sidebar card</a>
     <a href="#s17" class="toc-sub">→ Sticky sub-nav CSS</a>
     <a href="#s18" class="toc-section">18. Destinations — Build Spec</a>
     <a href="#s18" class="toc-sub">→ Hub + detail pages</a>
@@ -2113,9 +2114,129 @@ document.addEventListener('click', function(e){
         <tr><td>10</td><td><strong>Inclusions / Not included</strong></td><td>Two Icon Lists — green check icons vs. red ✕ icons</td></tr>
         <tr><td>11</td><td><strong>Pricing</strong> table (Standard, single +50%, group 4–7 10%, 8+ 15%)</td><td>HTML widget table</td></tr>
         <tr><td>12</td><td><strong>Children's Policy</strong> + <strong>Payment &amp; Cancellation</strong></td><td>HTML widget tables (small)</td></tr>
-        <tr><td>13</td><td><strong>Reviews</strong> — TripAdvisor block (4.9 · 71 reviews)</td><td>Image/Text + link to the live TripAdvisor profile (verify the numbers)</td></tr>
+        <tr><td>13</td><td><strong>Reviews</strong> — Tripadvisor card directly below the BABE price / booking box</td><td>Use one HTML widget with the complete namespaced snippet in <a href="#s17-tripadvisor">Tripadvisor sidebar card — exact implementation</a>. Verify every live number and review title before launch.</td></tr>
         <tr><td>14</td><td><strong>CTA</strong> — "Request a Quote"</td><td>Button → the quote form (WPForms Lite / CF7 — Free has no Form widget)</td></tr>
       </table>
+
+      <div id="s17-tripadvisor" style="scroll-margin-top:24px;"></div>
+      <h3 style="margin:22px 0 8px;font-size:15px;color:#1a1a2e;">Tripadvisor sidebar card — exact implementation</h3>
+      <div class="danger"><strong>This is a custom visual card, not an official live Tripadvisor widget.</strong> The rating, review count, ranking, and recent-review titles are static text and will not update themselves. Check all four against the live Tripadvisor profile immediately before launch and whenever reviews are updated. If the figures cannot be verified, remove those lines and keep only the profile link.</div>
+
+      <p><strong>Required placement:</strong> the card is a sibling immediately <em>after</em> the existing BABE price / booking box inside the right-hand tour sidebar. Do not paste it into the itinerary content and do not create a second booking form.</p>
+      <table>
+        <tr><th>Build path</th><th>Exact placement</th></tr>
+        <tr><td><strong>Path A — existing BABE template</strong> (recommended)</td><td>In the <strong>Triply Child</strong> theme, locate the template or hook that renders the existing tour sidebar. Insert the snippet immediately after the BABE booking-box output. Use a documented BABE hook if the installed version exposes one; otherwise copy the relevant template into the child theme using BABE's supported override structure. <strong>Never edit the BABE plugin template directly</strong>, because an update will erase the change.</td></tr>
+        <tr><td><strong>Path B — Elementor Pro Single template</strong></td><td><span class="path" style="display:inline-block;margin:0;">Templates → Theme Builder → Single Tour → right sidebar Container</span><br>Place the BABE Shortcode/widget first, then add one <strong>HTML widget</strong> directly below it and paste the complete snippet. Set the sidebar Container to width 30–34% on desktop and 100% on tablet/mobile.</td></tr>
+      </table>
+
+      <p><strong>Paste this entire block into one Elementor HTML widget</strong> (or the child-theme sidebar template). It is namespaced with <code>ae-ta-</code> classes so it will not restyle BABE or Elementor elements. A raw copy/paste version is also saved as <code>mockup/tripadvisor-sidebar-widget.html</code>.</p>
+      <pre><span class="comment">&lt;!-- Access Egypt Travel: custom Tripadvisor sidebar card --&gt;</span>
+&lt;style&gt;
+.ae-ta-card {
+  width: 100%;
+  margin: 16px 0 0;
+  padding: 18px;
+  background: #fff;
+  border: 2px solid #34d399;
+  border-radius: 10px;
+  color: #222;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+.ae-ta-card *, .ae-ta-card *::before, .ae-ta-card *::after { box-sizing: border-box; }
+.ae-ta-eyebrow, .ae-ta-label {
+  margin: 0 0 7px;
+  color: #6b7280;
+  font-size: 11px;
+}
+.ae-ta-eyebrow {
+  font-weight: 700;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+}
+.ae-ta-brand { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+.ae-ta-brand strong { font-size: 15px; }
+.ae-ta-name {
+  display: block;
+  margin-bottom: 10px;
+  color: #222;
+  font-size: 16px;
+  font-weight: 800;
+  text-decoration: underline;
+}
+.ae-ta-rating { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 9px; }
+.ae-ta-bubbles { display: inline-flex; gap: 3px; }
+.ae-ta-bubbles i { width: 13px; height: 13px; border-radius: 50%; background: #34d399; }
+.ae-ta-score { color: #374151; font-size: 13px; font-weight: 700; }
+.ae-ta-rank { margin: 0 0 13px; font-size: 17px; font-weight: 900; line-height: 1.25; }
+.ae-ta-rank small { color: #6b7280; font-size: 12px; font-weight: 500; }
+.ae-ta-reviews { margin: 0; padding: 0; list-style: none; }
+.ae-ta-reviews li { margin: 0 0 4px; color: #222; font-size: 12.5px; line-height: 1.35; }
+.ae-ta-links { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; margin-top: 12px; padding-top: 10px; border-top: 1px solid #e5e7eb; }
+.ae-ta-links a { color: #374151; font-size: 12.5px; text-decoration: underline; }
+.ae-ta-card a:hover { color: #065f46; }
+.ae-ta-card a:focus-visible { outline: 3px solid #f59e0b; outline-offset: 3px; }
+@media (max-width: 767px) {
+  .ae-ta-card { margin-top: 20px; }
+}
+&lt;/style&gt;
+
+&lt;aside class="ae-ta-card" aria-label="Access Egypt Travel reviews on Tripadvisor"&gt;
+  &lt;p class="ae-ta-eyebrow"&gt;Reviews&lt;/p&gt;
+
+  &lt;div class="ae-ta-brand"&gt;
+    &lt;svg width="28" height="18" viewBox="0 0 56 36" aria-hidden="true" focusable="false"&gt;
+      &lt;circle cx="14" cy="18" r="14" fill="#34d399"/&gt;
+      &lt;circle cx="42" cy="18" r="14" fill="#34d399"/&gt;
+      &lt;circle cx="14" cy="18" r="6" fill="#fff"/&gt;
+      &lt;circle cx="42" cy="18" r="6" fill="#fff"/&gt;
+      &lt;circle cx="14" cy="18" r="3" fill="#000"/&gt;
+      &lt;circle cx="42" cy="18" r="3" fill="#000"/&gt;
+    &lt;/svg&gt;
+    &lt;strong&gt;Tripadvisor&lt;/strong&gt;
+  &lt;/div&gt;
+
+  &lt;a class="ae-ta-name"
+     href="https://www.tripadvisor.com/Attraction_Review-g294205-d25314995-Reviews-Access_Egypt_travel-Luxor_Nile_River_Valley.html"
+     target="_blank" rel="noopener noreferrer"&gt;Access Egypt Travel&lt;/a&gt;
+
+  &lt;p class="ae-ta-label"&gt;Traveler Rating&lt;/p&gt;
+  &lt;div class="ae-ta-rating"&gt;
+    &lt;span class="ae-ta-bubbles" role="img" aria-label="Five out of five rating"&gt;
+      &lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;
+    &lt;/span&gt;
+    <span class="comment">&lt;!-- VERIFY LIVE BEFORE LAUNCH --&gt;</span>
+    &lt;span class="ae-ta-score"&gt;4.9 · 71 reviews&lt;/span&gt;
+  &lt;/div&gt;
+
+  &lt;p class="ae-ta-label"&gt;Ranking&lt;/p&gt;
+  <span class="comment">&lt;!-- VERIFY LIVE BEFORE LAUNCH --&gt;</span>
+  &lt;p class="ae-ta-rank"&gt;#137 &lt;small&gt;of 1,289 Tours in Luxor&lt;/small&gt;&lt;/p&gt;
+
+  &lt;p class="ae-ta-label"&gt;Recent Traveler Reviews&lt;/p&gt;
+  <span class="comment">&lt;!-- VERIFY OR REPLACE ALL TITLES BEFORE LAUNCH --&gt;</span>
+  &lt;ul class="ae-ta-reviews"&gt;
+    &lt;li&gt;“Unforgettable Unreal Experience”&lt;/li&gt;
+    &lt;li&gt;“Nile Cruise Feb 2026”&lt;/li&gt;
+    &lt;li&gt;“John makes history come alive”&lt;/li&gt;
+    &lt;li&gt;“Luxor and Nile cruise to Aswan”&lt;/li&gt;
+  &lt;/ul&gt;
+
+  &lt;div class="ae-ta-links"&gt;
+    &lt;a href="https://www.tripadvisor.com/Attraction_Review-g294205-d25314995-Reviews-Access_Egypt_travel-Luxor_Nile_River_Valley.html"
+       target="_blank" rel="noopener noreferrer"&gt;Read reviews&lt;/a&gt;
+    &lt;span aria-hidden="true"&gt;|&lt;/span&gt;
+    &lt;a href="https://www.tripadvisor.com/Attraction_Review-g294205-d25314995-Reviews-Access_Egypt_travel-Luxor_Nile_River_Valley.html#REVIEWS"
+       target="_blank" rel="noopener noreferrer"&gt;Write a review&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/aside&gt;</pre>
+
+      <p><strong>Sticky and responsive settings:</strong></p>
+      <div class="step"><div class="step-num">1</div><div>Make the <strong>right sidebar Container</strong> sticky, not the Tripadvisor HTML widget by itself: <span class="path" style="display:inline-block;margin:0;">Advanced → Motion Effects → Sticky = Top → Offset = 100px</span>.</div></div>
+      <div class="step"><div class="step-num">2</div><div>Enable sticky on <strong>Desktop only</strong>. On tablet and mobile, set the page's main Container to Column so the sidebar stacks below the main tour content; keep the card at 100% width.</div></div>
+      <div class="step"><div class="step-num">3</div><div>If the existing BABE booking box is already sticky, do not add a second sticky rule. Keep both the booking box and review card inside that same sticky wrapper.</div></div>
+      <div class="step"><div class="step-num">4</div><div>Test at 1440px, 768px, and 375px. Confirm the card does not overlap the header, booking controls, footer, or mobile CTA bar, and test both external links.</div></div>
+      <div class="note"><strong>Maintenance-safe alternative:</strong> if nobody will own manual review-data updates, delete the Traveler Rating, Ranking, and Recent Traveler Reviews sections from the snippet. A simple branded card with “Read our Tripadvisor reviews” is more trustworthy than stale figures.</div>
 
       <h3 style="margin:20px 0 8px;font-size:15px;color:#1a1a2e;">Sticky sub-nav — Free workaround</h3>
       <div class="warning"><strong>Elementor Free has no "sticky" Motion Effect and no per-element Custom CSS box</strong> (both are Pro). Give the sub-nav section a CSS ID (e.g., <code>tour-subnav</code>) under its Advanced settings, then add this once in <strong>Appearance → Customize → Additional CSS</strong>:</div>

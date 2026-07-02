@@ -1,0 +1,207 @@
+<!--
+  ACCESS EGYPT TRAVEL — CUSTOM TRIPADVISOR SIDEBAR CARD
+
+  Placement:
+  Put this immediately AFTER the existing BABE price/booking box,
+  inside the same right-sidebar container.
+
+  Important:
+  This is custom static HTML, not a live Tripadvisor widget.
+  Verify the rating, review count, ranking, and review titles against
+  the live Tripadvisor profile immediately before launch.
+-->
+
+<style>
+  .ae-ta-card {
+    width: 100%;
+    margin: 16px 0 0;
+    padding: 18px;
+    background: #fff;
+    border: 2px solid #34d399;
+    border-radius: 10px;
+    color: #222;
+    font-family: inherit;
+    box-sizing: border-box;
+  }
+
+  .ae-ta-card *,
+  .ae-ta-card *::before,
+  .ae-ta-card *::after {
+    box-sizing: border-box;
+  }
+
+  .ae-ta-eyebrow,
+  .ae-ta-label {
+    margin: 0 0 7px;
+    color: #6b7280;
+    font-size: 11px;
+  }
+
+  .ae-ta-eyebrow {
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  .ae-ta-brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+
+  .ae-ta-brand strong {
+    font-size: 15px;
+  }
+
+  .ae-ta-name {
+    display: block;
+    margin-bottom: 10px;
+    color: #222;
+    font-size: 16px;
+    font-weight: 800;
+    text-decoration: underline;
+  }
+
+  .ae-ta-rating {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 9px;
+  }
+
+  .ae-ta-bubbles {
+    display: inline-flex;
+    gap: 3px;
+  }
+
+  .ae-ta-bubbles i {
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: #34d399;
+  }
+
+  .ae-ta-score {
+    color: #374151;
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .ae-ta-rank {
+    margin: 0 0 13px;
+    font-size: 17px;
+    font-weight: 900;
+    line-height: 1.25;
+  }
+
+  .ae-ta-rank small {
+    color: #6b7280;
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  .ae-ta-reviews {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .ae-ta-reviews li {
+    margin: 0 0 4px;
+    color: #222;
+    font-size: 12.5px;
+    line-height: 1.35;
+  }
+
+  .ae-ta-links {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 12px;
+    padding-top: 10px;
+    border-top: 1px solid #e5e7eb;
+  }
+
+  .ae-ta-links a {
+    color: #374151;
+    font-size: 12.5px;
+    text-decoration: underline;
+  }
+
+  .ae-ta-card a:hover {
+    color: #065f46;
+  }
+
+  .ae-ta-card a:focus-visible {
+    outline: 3px solid #f59e0b;
+    outline-offset: 3px;
+  }
+
+  @media (max-width: 767px) {
+    .ae-ta-card {
+      margin-top: 20px;
+    }
+  }
+</style>
+
+<aside class="ae-ta-card" aria-label="Access Egypt Travel reviews on Tripadvisor">
+  <p class="ae-ta-eyebrow">Reviews</p>
+
+  <div class="ae-ta-brand">
+    <svg width="28" height="18" viewBox="0 0 56 36" aria-hidden="true" focusable="false">
+      <circle cx="14" cy="18" r="14" fill="#34d399"></circle>
+      <circle cx="42" cy="18" r="14" fill="#34d399"></circle>
+      <circle cx="14" cy="18" r="6" fill="#fff"></circle>
+      <circle cx="42" cy="18" r="6" fill="#fff"></circle>
+      <circle cx="14" cy="18" r="3" fill="#000"></circle>
+      <circle cx="42" cy="18" r="3" fill="#000"></circle>
+    </svg>
+    <strong>Tripadvisor</strong>
+  </div>
+
+  <a
+    class="ae-ta-name"
+    href="https://www.tripadvisor.com/Attraction_Review-g294205-d25314995-Reviews-Access_Egypt_travel-Luxor_Nile_River_Valley.html"
+    target="_blank"
+    rel="noopener noreferrer"
+  >Access Egypt Travel</a>
+
+  <p class="ae-ta-label">Traveler Rating</p>
+  <div class="ae-ta-rating">
+    <span class="ae-ta-bubbles" role="img" aria-label="Five out of five rating">
+      <i></i><i></i><i></i><i></i><i></i>
+    </span>
+    <!-- VERIFY THIS LIVE BEFORE LAUNCH -->
+    <span class="ae-ta-score">4.9 · 71 reviews</span>
+  </div>
+
+  <p class="ae-ta-label">Ranking</p>
+  <!-- VERIFY THIS LIVE BEFORE LAUNCH -->
+  <p class="ae-ta-rank">#137 <small>of 1,289 Tours in Luxor</small></p>
+
+  <p class="ae-ta-label">Recent Traveler Reviews</p>
+  <!-- VERIFY OR REPLACE ALL FOUR TITLES BEFORE LAUNCH -->
+  <ul class="ae-ta-reviews">
+    <li>“Unforgettable Unreal Experience”</li>
+    <li>“Nile Cruise Feb 2026”</li>
+    <li>“John makes history come alive”</li>
+    <li>“Luxor and Nile cruise to Aswan”</li>
+  </ul>
+
+  <div class="ae-ta-links">
+    <a
+      href="https://www.tripadvisor.com/Attraction_Review-g294205-d25314995-Reviews-Access_Egypt_travel-Luxor_Nile_River_Valley.html"
+      target="_blank"
+      rel="noopener noreferrer"
+    >Read reviews</a>
+    <span aria-hidden="true">|</span>
+    <a
+      href="https://www.tripadvisor.com/Attraction_Review-g294205-d25314995-Reviews-Access_Egypt_travel-Luxor_Nile_River_Valley.html#REVIEWS"
+      target="_blank"
+      rel="noopener noreferrer"
+    >Write a review</a>
+  </div>
+</aside>
