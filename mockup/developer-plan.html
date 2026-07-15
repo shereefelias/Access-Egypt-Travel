@@ -1786,7 +1786,7 @@ function aetToggleDate(mode) {
       <h2>13. Payment Page — Square Active, Build from Mockup</h2>
     </div>
     <div class="section-body">
-      <div class="note"><strong>✅ Updated June 20, 2026:</strong> Square is now the live payment processor. PayPal has been dropped — do not implement PayPal on the live site. The mockup payment page label reads: <em>"Square payment is live. Secured by Square."</em> Build the payment page to match the mockup exactly.</div>
+      <div class="note"><strong>✅ Updated July 15, 2026:</strong> Square is now the live payment processor. PayPal has been dropped — do not implement PayPal on the live site. The mockup payment page label reads: <em>"Square payment is live. Secured by Square."</em> Build the payment page to match the mockup exactly.</div>
 
       <div class="ar-note">
         <strong>صفحة الدفع — Square شغّال دلوقتي، اعمل الصفحة من النموذج</strong>
@@ -1818,22 +1818,43 @@ function aetToggleDate(mode) {
             <li><strong>Security note:</strong> <em>"We never ask for cash-only payments or wire transfers to personal accounts. If you ever receive a request like that, contact us immediately."</em></li>
           </ol>
           <div class="danger"><strong>Do NOT add a PayPal card.</strong> PayPal was removed from the design. The payment page shows Square only. Any earlier version of this plan that references PayPal as "Coming Soon" is superseded by this update.</div>
+          <div class="danger"><strong>Do not substitute assets, use text-only payment badges, or source replacement logos from the web.</strong> The files and inline artwork below are the approved payment-page source assets. Upload the listed files to WordPress Media Library, then use the resulting WordPress attachment URLs in the Elementor build.</div>
         </div>
       </div>
 
       <div class="task">
         <div class="task-header">
           <div class="task-num">B</div>
+          <div><div class="task-title">Locked Payment-Page Asset Manifest — Use These Exact Sources</div><span class="badge badge-critical">Required</span></div>
+        </div>
+        <div class="task-body">
+          <p><strong>Mockup source:</strong> <code>mockup/pages-mockup.html</code>. All paths below are absolute repository paths. They are the source files to upload; they are <strong>not</strong> assumed live-site URLs.</p>
+          <table>
+            <tr><th>Placement</th><th>Exact source file</th><th>Implementation requirement</th></tr>
+            <tr><td>Payment hero background</td><td><code>/Users/shereefelias/Documents/Access Egypt Travel/mockup/images/tour_background.jpg</code></td><td>Upload to Media Library. Use as the hero background image with <code>cover</code> and centered positioning. Preserve the dark top-to-bottom overlay from the mockup.</td></tr>
+            <tr><td>Payment-page header logo</td><td><code>/Users/shereefelias/Documents/Access Egypt Travel/mockup/icons/Logo_Green_3.png</code></td><td>Use this exact Access Egypt Travel logo in the header.</td></tr>
+            <tr><td>Square logo</td><td><code>/Users/shereefelias/Documents/Access Egypt Travel/mockup/icons/square.svg</code></td><td>Upload and use in the Square card at <strong>36px high</strong>. Do not use <code>square-logo.svg</code>; that file path was an incorrect earlier assumption.</td></tr>
+            <tr><td>Apple Pay mark</td><td><code>/Users/shereefelias/Documents/Access Egypt Travel/mockup/icons/apple-pay.svg</code></td><td>Upload and display at <strong>36px high</strong> in the accepted-methods row.</td></tr>
+            <tr><td>Google Pay mark</td><td><code>/Users/shereefelias/Documents/Access Egypt Travel/mockup/icons/google-pay.svg</code></td><td>Upload and display at <strong>36px high</strong> in the accepted-methods row.</td></tr>
+          </table>
+          <div class="warning"><strong>Visa, Mastercard, and Amex have no image files.</strong> They are inline SVG artwork in <code>mockup/pages-mockup.html</code>, lines 2899–2914. Copy those SVG blocks into an Elementor HTML widget as shown below. Do not replace them with text labels, generic icons, or downloaded logos.</div>
+          <div class="note"><strong>Verification before handoff:</strong> confirm every uploaded WordPress media item renders from its attachment URL, the hero uses <code>tour_background.jpg</code>, and the payment row contains Square, Visa, Mastercard, Amex, Apple Pay, and Google Pay in that order.</div>
+        </div>
+      </div>
+
+      <div class="task">
+        <div class="task-header">
+          <div class="task-num">C</div>
           <div><div class="task-title">Square Payment Card — Paste as Elementor HTML Widget</div><span class="badge badge-high">High</span></div>
         </div>
         <div class="task-body">
-          <p>Square is the sole live payment processor. The owner will provide the Square invoice link. Build one card, centered:</p>
+          <p>Square is the sole live payment processor. The owner will provide the Square invoice link. Build one card, centered. Replace only the three <code>WORDPRESS_MEDIA_URL_...</code> placeholders with the attachment URLs generated when the exact manifest files above are uploaded.</p>
           <pre><span class="comment">&lt;!-- SQUARE PAYMENT CARD — Square is live --&gt;</span>
 &lt;div style="max-width:420px;margin:0 auto;background:white;border:2px solid #f0e8d8;
             border-radius:12px;padding:32px 28px;text-align:center;
             box-shadow:0 4px 20px rgba(0,0,0,0.08);"&gt;
-  &lt;img src="https://accessegypttravel.com/wp-content/uploads/square-logo.svg"
-       alt="Square" height="40" style="display:block;margin:0 auto 16px;"&gt;
+  &lt;img src="WORDPRESS_MEDIA_URL_square.svg"
+       alt="Square" height="36" style="display:block;margin:0 auto 16px;"&gt;
   &lt;div style="background:#d1fae5;color:#065f46;font-size:12px;font-weight:700;
               padding:4px 12px;border-radius:20px;display:inline-block;margin-bottom:16px;"&gt;
     🔒 Secured by Square
@@ -1842,18 +1863,13 @@ function aetToggleDate(mode) {
     We'll email you a secure Square invoice. Pay online using any card or digital wallet —
     encrypted and processed by Square. All amounts in USD.
   &lt;/p&gt;
-  <span class="comment">&lt;!-- ACCEPTED CARDS ROW --&gt;</span>
+  <span class="comment">&lt;!-- ACCEPTED METHODS ROW: exact mockup order and artwork --&gt;</span>
   &lt;div style="display:flex;gap:8px;justify-content:center;margin-bottom:20px;"&gt;
-    &lt;span style="background:#1A1F71;color:white;font-weight:900;font-style:italic;
-                 font-size:13px;padding:6px 12px;border-radius:4px;"&gt;VISA&lt;/span&gt;
-    &lt;span style="background:#1D1D1D;color:white;font-weight:700;font-size:13px;
-                 padding:6px 12px;border-radius:4px;"&gt;Mastercard&lt;/span&gt;
-    &lt;span style="background:#2E77BC;color:white;font-weight:700;font-size:13px;
-                 padding:6px 12px;border-radius:4px;"&gt;Amex&lt;/span&gt;
-    &lt;span style="background:#000;color:white;font-weight:700;font-size:13px;
-                 padding:6px 12px;border-radius:4px;"&gt;Apple Pay&lt;/span&gt;
-    &lt;span style="background:#4285F4;color:white;font-weight:700;font-size:13px;
-                 padding:6px 12px;border-radius:4px;"&gt;G Pay&lt;/span&gt;
+    &lt;svg width="56" height="36" viewBox="0 0 56 36" xmlns="http://www.w3.org/2000/svg"&gt;&lt;rect width="56" height="36" rx="5" fill="#1A1F71"/&gt;&lt;text x="28" y="25" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-weight="900" font-size="17" font-style="italic" letter-spacing="1"&gt;VISA&lt;/text&gt;&lt;/svg&gt;
+    &lt;svg width="56" height="36" viewBox="0 0 56 36" xmlns="http://www.w3.org/2000/svg"&gt;&lt;rect width="56" height="36" rx="5" fill="#1D1D1D"/&gt;&lt;circle cx="21" cy="18" r="10" fill="#EB001B"/&gt;&lt;circle cx="35" cy="18" r="10" fill="#F79E1B"/&gt;&lt;path d="M28 10.1a10 10 0 0 1 0 15.8A10 10 0 0 1 28 10.1z" fill="#FF5F00"/&gt;&lt;/svg&gt;
+    &lt;svg width="56" height="36" viewBox="0 0 56 36" xmlns="http://www.w3.org/2000/svg"&gt;&lt;rect width="56" height="36" rx="5" fill="#007BC1"/&gt;&lt;text x="28" y="23" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-weight="800" font-size="12" letter-spacing="1"&gt;AMEX&lt;/text&gt;&lt;/svg&gt;
+    &lt;img src="WORDPRESS_MEDIA_URL_apple-pay.svg" alt="Apple Pay" height="36" style="border-radius:5px;box-shadow:0 1px 4px rgba(0,0,0,0.12);"&gt;
+    &lt;img src="WORDPRESS_MEDIA_URL_google-pay.svg" alt="Google Pay" height="36" style="border-radius:5px;box-shadow:0 1px 4px rgba(0,0,0,0.12);"&gt;
   &lt;/div&gt;
   <span class="comment">&lt;!-- REPLACE href WITH THE ACTUAL SQUARE INVOICE / PAYMENT LINK --&gt;</span>
   &lt;a href="YOUR_SQUARE_PAYMENT_LINK"
@@ -1862,7 +1878,7 @@ function aetToggleDate(mode) {
     Pay with Square →
   &lt;/a&gt;
 &lt;/div&gt;</pre>
-          <div class="note"><strong>To get the Square link:</strong> Log in to Square Dashboard → Invoices → Create Invoice (for a deposit amount) → Share → copy the link. Or: Square Dashboard → Online → Payment Links → create a "Tour Deposit" link. Paste the URL into the <code>href</code> above. The card icons (Visa, Mastercard, etc.) can also use SVG files from the Square brand kit if available.</div>
+          <div class="note"><strong>To get the Square link:</strong> Log in to Square Dashboard → Invoices → Create Invoice (for a deposit amount) → Share → copy the link. Or: Square Dashboard → Online → Payment Links → create a "Tour Deposit" link. Paste the URL into the <code>href</code> above. Use only the locked asset manifest and inline SVG artwork in Task B; do not use alternative Square brand-kit assets.</div>
           <div class="warning"><strong>Deposit amount on the Square invoice:</strong> the invoice should be for 25% of the agreed tour price — create a new invoice per booking, not a fixed-price button. The payment page explains the deposit model; the actual invoice amount is set per customer.</div>
         </div>
       </div>
