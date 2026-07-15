@@ -1838,6 +1838,26 @@ function aetToggleDate(mode) {
             <tr><td>Google Pay mark</td><td><code>/Users/shereefelias/Documents/Access Egypt Travel/mockup/icons/google-pay.svg</code></td><td>Upload and display at <strong>36px high</strong> in the accepted-methods row.</td></tr>
           </table>
           <div class="warning"><strong>Visa, Mastercard, and Amex have no image files.</strong> They are inline SVG artwork in <code>mockup/pages-mockup.html</code>, lines 2899–2914. Copy those SVG blocks into an Elementor HTML widget as shown below. Do not replace them with text labels, generic icons, or downloaded logos.</div>
+          <p style="margin-top:16px;"><strong>Copy this exact inline SVG code into the accepted-methods row:</strong></p>
+          <pre><span class="comment">&lt;!-- Visa --&gt;</span>
+&lt;svg width="56" height="36" viewBox="0 0 56 36" xmlns="http://www.w3.org/2000/svg"&gt;
+  &lt;rect width="56" height="36" rx="5" fill="#1A1F71"/&gt;
+  &lt;text x="28" y="25" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-weight="900" font-size="17" font-style="italic" letter-spacing="1"&gt;VISA&lt;/text&gt;
+&lt;/svg&gt;
+
+<span class="comment">&lt;!-- Mastercard --&gt;</span>
+&lt;svg width="56" height="36" viewBox="0 0 56 36" xmlns="http://www.w3.org/2000/svg"&gt;
+  &lt;rect width="56" height="36" rx="5" fill="#1D1D1D"/&gt;
+  &lt;circle cx="21" cy="18" r="10" fill="#EB001B"/&gt;
+  &lt;circle cx="35" cy="18" r="10" fill="#F79E1B"/&gt;
+  &lt;path d="M28 10.1a10 10 0 0 1 0 15.8A10 10 0 0 1 28 10.1z" fill="#FF5F00"/&gt;
+&lt;/svg&gt;
+
+<span class="comment">&lt;!-- Amex --&gt;</span>
+&lt;svg width="56" height="36" viewBox="0 0 56 36" xmlns="http://www.w3.org/2000/svg"&gt;
+  &lt;rect width="56" height="36" rx="5" fill="#007BC1"/&gt;
+  &lt;text x="28" y="23" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-weight="800" font-size="12" letter-spacing="1"&gt;AMEX&lt;/text&gt;
+&lt;/svg&gt;</pre>
           <div class="note"><strong>Verification before handoff:</strong> confirm every uploaded WordPress media item renders from its attachment URL, the hero uses <code>tour_background.jpg</code>, and the payment row contains Square, Visa, Mastercard, Amex, Apple Pay, and Google Pay in that order.</div>
         </div>
       </div>
@@ -1849,6 +1869,22 @@ function aetToggleDate(mode) {
         </div>
         <div class="task-body">
           <p>Square is the sole live payment processor. The owner will provide the Square invoice link. Build one card, centered. Replace only the three <code>WORDPRESS_MEDIA_URL_...</code> placeholders with the attachment URLs generated when the exact manifest files above are uploaded.</p>
+          <p style="margin-top:16px;"><strong>Visa, Mastercard, and Amex snippet for the accepted-methods row:</strong></p>
+          <pre><span class="comment">&lt;!-- Paste these three SVGs inside the accepted-methods row --&gt;</span>
+&lt;svg width="56" height="36" viewBox="0 0 56 36" xmlns="http://www.w3.org/2000/svg"&gt;
+  &lt;rect width="56" height="36" rx="5" fill="#1A1F71"/&gt;
+  &lt;text x="28" y="25" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-weight="900" font-size="17" font-style="italic" letter-spacing="1"&gt;VISA&lt;/text&gt;
+&lt;/svg&gt;
+&lt;svg width="56" height="36" viewBox="0 0 56 36" xmlns="http://www.w3.org/2000/svg"&gt;
+  &lt;rect width="56" height="36" rx="5" fill="#1D1D1D"/&gt;
+  &lt;circle cx="21" cy="18" r="10" fill="#EB001B"/&gt;
+  &lt;circle cx="35" cy="18" r="10" fill="#F79E1B"/&gt;
+  &lt;path d="M28 10.1a10 10 0 0 1 0 15.8A10 10 0 0 1 28 10.1z" fill="#FF5F00"/&gt;
+&lt;/svg&gt;
+&lt;svg width="56" height="36" viewBox="0 0 56 36" xmlns="http://www.w3.org/2000/svg"&gt;
+  &lt;rect width="56" height="36" rx="5" fill="#007BC1"/&gt;
+  &lt;text x="28" y="23" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-weight="800" font-size="12" letter-spacing="1"&gt;AMEX&lt;/text&gt;
+&lt;/svg&gt;</pre>
           <pre><span class="comment">&lt;!-- SQUARE PAYMENT CARD — Square is live --&gt;</span>
 &lt;div style="max-width:420px;margin:0 auto;background:white;border:2px solid #f0e8d8;
             border-radius:12px;padding:32px 28px;text-align:center;
